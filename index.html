@@ -378,6 +378,7 @@ const defaultState = {
   checkins: {},                       // "YYYY-MM-DD": {soreness:{}, sleep:1-5, habits:{}}
   points: 0, pointsLog: [],
   rewards: [], badges: [], perfectWeeks: 0,
+  favorites: [], exCustom: [],
 };
 var st = loadState();
 function loadState(){ try{ const r=localStorage.getItem(KEY); if(r) return Object.assign({},defaultState,JSON.parse(r)); }catch(e){} return JSON.parse(JSON.stringify(defaultState)); }
@@ -504,6 +505,14 @@ function catScore(catId){
 }
 function dekaScore(){ const s=CATS.map(c=>catScore(c.id)).filter(x=>x!==null); return s.length?s.reduce((a,b)=>a+b,0)/s.length:0; }
 
+/* ── voz (TTS del sistema, es-ES, funciona offline) ── */
+function say(txt){
+  try{ if(!window.speechSynthesis||PC.voice===false) return;
+    const u=new SpeechSynthesisUtterance(txt); u.lang="es-ES"; u.rate=1.08; u.volume=1;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){}
+}
+
 /* ── audio ── */
 let audioCtx=null;
 function beep(freq,dur){ freq=freq||880; dur=dur||0.06;
@@ -623,7 +632,7 @@ function renderHoy(){
       '<div class="dim" style="font-size:11px;margin-top:6px">El generador evitará cargar estas zonas.</div></div>'));
   }
 
-  el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openGenerator()">⚙ Generar WOD</button><button class="btn2" style="margin:0;flex:1" onclick="openBuilder()">✏️ Diseñar WOD</button></div>'));
+  el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openGenerator()">⚙ Generar</button><button class="btn2" style="margin:0;flex:1" onclick="openBuilder()">✏️ Diseñar</button><button class="btn2" style="margin:0;flex:1;border-color:rgba(232,255,58,.35);color:#e8ff3a" onclick="openFavs()">⭐ Favoritos'+(st.favorites.length?' ('+st.favorites.length+')':'')+'</button></div>'));
   return el;
 }
 function nextRace(){
@@ -1050,6 +1059,7 @@ function pClear(){ P.timers.forEach(clearInterval); P.timers=[]; }
 function stopAllTimers(){ pClear(); }
 function startWod(){
   const d=st._wodDraft; if(!d) return;
+  st._lastCfg={type:"wod",wod:JSON.parse(JSON.stringify(d.wod)),isZ2:!!d.isZ2};
   Object.assign(P,{wod:d.wod,isZ2:d.isZ2,idx:0,set:1,results:[],setResults:[],running:false,resting:false,elapsed:0,restSec:0,startTime:Date.now(),pace:0,beat:-1});
   pInitEx(); pRender();
 }
@@ -1142,7 +1152,10 @@ function pQuit(){ pClear(); closeOverlay(); }
 function pFeedback(){
   pClear();
   const mins=Math.max(1,Math.round((Date.now()-P.startTime)/60000));
-  st._fb={results:P.results,durationMin:mins,mode:"wod",isZ2:P.isZ2};
+  const paced=P.results.filter(r=>r.avgPace);
+  const avg=paced.length?Math.round(paced.reduce((a,b)=>a+b.avgPace,0)/paced.length):0;
+  st._fb={results:P.results,durationMin:mins,mode:"wod",isZ2:P.isZ2,
+    metric:avg?{v:avg,label:"pace "+avg,hi:true}:null};
   showFeedback();
 }
 
@@ -1156,6 +1169,10 @@ function showFeedback(){
     fb.results.forEach(r=>{ if(r.avgPace) html+='<div class="row" style="padding:6px 0;border-bottom:1px solid #232334"><span style="font-size:13px;font-weight:600">'+esc(r.name)+'</span><span><span class="big" style="font-size:22px;color:#3affb8">'+r.avgPace+'</span> <span class="mono" style="font-size:10px;color:#e8ff3a">→ próx '+(r.avgPace+2)+'</span></span></div>'; });
     html+='</div>';
   }
+  if(fb.metric) html+='<div style="text-align:center;margin-bottom:10px"><span class="big" style="font-size:34px;color:#e8ff3a">'+esc(fb.metric.label)+'</span></div>';
+  if(st._lastCfg&&st._runningFav==null){
+    html+='<button class="btn3'+(fb.saveFav?' sel':'')+'" style="width:100%;margin-bottom:12px" onclick="fbFav()">'+(fb.saveFav?'⭐ Se guardará como favorito':'☆ Guardar como favorito para repetir y mejorar')+'</button>';
+  }
   html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">RPE — esfuerzo percibido</div><div class="chips" style="margin-bottom:12px">';
   for(let i=1;i<=10;i++) html+='<button class="btn3'+(fb.rpe===i?' sel':'')+'" onclick="fbRpe('+i+')">'+i+'</button>';
   html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">FC media (opcional'+(fb.isZ2||fb.z2Expect?' — <span style="color:#3affb8">obligatoria en Z2</span>':'')+')</div><input type="number" id="fbFc" placeholder="ppm del reloj" value="'+(fb.fcAvg||"")+'" style="margin-bottom:12px">';
@@ -1166,6 +1183,7 @@ function showFeedback(){
   overlay(html);
 }
 function fbRpe(v){ st._fb.rpe=v; keepFbInputs(); showFeedback(); }
+function fbFav(){ st._fb.saveFav=!st._fb.saveFav; keepFbInputs(); showFeedback(); }
 function fbFeel(f){ const a=st._fb.feelings; a.includes(f)?a.splice(a.indexOf(f),1):a.push(f); keepFbInputs(); showFeedback(); }
 function keepFbInputs(){ const fc=$("fbFc"),n=$("fbNotes"); if(fc) st._fb.fcAvg=fc.value?parseInt(fc.value):null; if(n) st._fb.notes=n.value; }
 function saveSession(){
@@ -1191,30 +1209,99 @@ function saveSession(){
   if(z2Expected&&!z2ok&&fb.fcAvg) toast("⚠ FC "+fb.fcAvg+" — fuera de Z2. La próxima, más suave.");
   // semana perfecta
   if(pos.week>=1){ const d=disciplineWeek(pos.week); if(d&&d.plannedDue>0&&d.done>=d.plannedDue&&pos.dayIdx===6){ st.perfectWeeks++; addPoints(PTS.weekPerfect,"Semana perfecta S"+pos.week); } }
+  // favoritos: alta y registro de marca
+  const entry=fb.metric?{date:t,v:fb.metric.v,label:fb.metric.label}:{date:t,v:null,label:"hecho"};
+  if(fb.saveFav&&st._lastCfg&&st._runningFav==null){
+    const nm=((fb.formatName||type).split(" — ")[0])+" · "+(exercises.slice(0,2).map(e=>e.name).join("+")||"WOD");
+    st.favorites.push({id:Date.now(),name:nm,cfg:st._lastCfg,hi:fb.metric?fb.metric.hi:true,history:[entry]});
+    toast("⭐ Favorito guardado: "+nm);
+  }
+  if(st._runningFav!=null){
+    const fav=st.favorites.find(f=>f.id===st._runningFav);
+    if(fav&&entry.v!=null){
+      const prev=fav.history.filter(x=>x.v!=null).map(x=>x.v);
+      const isPB=prev.length&&(fav.hi?entry.v>Math.max(...prev):entry.v<Math.min(...prev));
+      fav.history.push(entry);
+      if(isPB){ addPoints(5,"🏆 PB en "+fav.name); setTimeout(()=>toast("🏆 ¡PB! "+entry.label+" en "+fav.name),400); }
+    } else if(fav) fav.history.push(entry);
+  }
+  st._runningFav=null; st._lastCfg=null;
   st._fb=null; save(); closeOverlay(); render(); toast("Sesión guardada · +"+pts+" pts ⚡");
 }
+
+/* ═══════════════════ WODS FAVORITOS ═══════════════════ */
+function openFavs(){
+  let html='<div class="ctitle">⭐ WODs favoritos — repite y mejora</div>';
+  if(!st.favorites.length) html+='<div class="dim" style="font-size:12px;margin-bottom:10px">Aún no tienes favoritos. Al terminar un WOD que merezca la pena repetir, marca "☆ Guardar como favorito" en el feedback. Objetivo: más velocidad o más reps unbroken en cada repetición.</div>';
+  st.favorites.forEach((f,i)=>{
+    const runs=f.history.filter(x=>x.v!=null);
+    const best=runs.length?(f.hi?Math.max(...runs.map(x=>x.v)):Math.min(...runs.map(x=>x.v))):null;
+    const bestE=runs.find(x=>x.v===best);
+    const last=f.history[f.history.length-1];
+    const cfgTxt=f.cfg.type==="builder"?FORMATS[f.cfg.cfg.format].icon+" "+f.cfg.cfg.ex.map(e=>e.name).join(" + "):"🔁 "+f.cfg.wod.map(e=>e.name).join(" + ");
+    html+='<div class="daybox" style="border-left:3px solid #e8ff3a"><div style="font-size:13px;font-weight:600;margin-bottom:2px">'+esc(f.name)+'</div>'+
+      '<div class="dim" style="font-size:10px;margin-bottom:6px">'+esc(cfgTxt)+'</div>'+
+      '<div class="row" style="margin-bottom:8px"><span class="mono" style="font-size:11px;color:#3affb8">Mejor: '+(bestE?esc(bestE.label):"—")+'</span><span class="mono dim" style="font-size:11px">Último: '+(last?esc(last.label)+' ('+last.date.slice(8,10)+'/'+last.date.slice(5,7)+')':"—")+' · '+f.history.length+'×</span></div>'+
+      '<div style="display:flex;gap:8px"><button class="btn3 sel" style="flex:1" onclick="favRun('+f.id+')">▶ REPETIR</button><button class="btn3" onclick="favDel('+i+')">✕</button></div></div>';
+  });
+  html+='<button class="btn2" style="margin-top:8px" onclick="closeOverlay()">Cerrar</button>';
+  overlay(html);
+}
+function favRun(id){
+  const f=st.favorites.find(x=>x.id===id); if(!f) return;
+  st._runningFav=id;
+  if(f.cfg.type==="builder"){ Object.assign(B,JSON.parse(JSON.stringify(f.cfg.cfg))); bStart(); }
+  else { st._wodDraft={wod:JSON.parse(JSON.stringify(f.cfg.wod)),isZ2:!!f.cfg.isZ2}; startWod(); }
+}
+function favDel(i){ st.favorites.splice(i,1); save(); openFavs(); }
 
 /* ═══════════════════ PACER (ergómetros / carrera) ═══════════════════ */
 var PC={timers:[],machine:"CARRERA",bpm:172,running:false,elapsed:0};
 function openPacer(z2){
   PC.z2=!!z2; PC.running=false; PC.elapsed=0;
+  PC.mode=PC.mode||"libre"; PC.work=PC.work||60; PC.restS=PC.restS||60; PC.series=PC.series||6;
+  if(PC.voice==null) PC.voice=true;
+  PC.phase="work"; PC.curSerie=1; PC.phaseLeft=0;
   pcRender();
 }
 function pcRender(){
   const machines=EXDB.filter(e=>e.erg);
   const mx=machines.find(m=>m.name===PC.machine)||machines[3];
   if(!PC._userBpm) PC.bpm=mx.spmDef;
-  const m=String(Math.floor(PC.elapsed/60)).padStart(2,"0"), s=String(PC.elapsed%60).padStart(2,"0");
+  const isInt=PC.mode==="int";
+  const shown=isInt&&(PC.running||PC.phaseLeft>0)?PC.phaseLeft:PC.elapsed;
+  const m=String(Math.floor(shown/60)).padStart(2,"0"), s=String(shown%60).padStart(2,"0");
   let html='<div class="row" style="margin-bottom:10px"><span class="mono dim" style="font-size:10px">PACER'+(PC.z2?' · <span style="color:#3affb8">Z2 — FC ≤130</span>':'')+'</span><button class="btn3" onclick="pcQuit()">✕ Salir</button></div>';
-  html+='<div class="chips" style="margin-bottom:12px">'+machines.map(mm=>'<button class="btn3'+(PC.machine===mm.name?' sel':'')+'" onclick="pcMachine(\''+mm.name+'\')">'+esc(mm.name)+'</button>').join("")+'</div>';
-  html+='<div style="background:#12121a;border:1px solid #2a2a40;border-radius:12px;padding:12px;margin-bottom:10px"><div class="row"><div><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(PC.machine==="CARRERA"?"CADENCIA (pasos/min)":"RITMO (strokes/min)")+'</div><div class="big" style="font-size:44px;color:#e8ff3a">'+PC.bpm+'</div></div><div class="mono dim" style="font-size:10px;text-align:right">beep cada<br>'+(60/PC.bpm).toFixed(2)+'s</div></div>';
+  html+='<div class="chips" style="margin-bottom:10px">'+machines.map(mm=>'<button class="btn3'+(PC.machine===mm.name?' sel':'')+'" onclick="pcMachine(\''+mm.name+'\')">'+esc(mm.name)+'</button>').join("")+'</div>';
+  // modo
+  html+='<div style="display:flex;gap:6px;margin-bottom:10px"><button class="btn3'+(!isInt?' sel':'')+'" style="flex:1" onclick="pcMode(\'libre\')">⏱ Libre</button><button class="btn3'+(isInt?' sel':'')+'" style="flex:1" onclick="pcMode(\'int\')">🔔 Intervalos con audio</button></div>';
+  if(isInt&&!PC.running&&PC.elapsed===0){
+    html+='<div style="font-size:11px;font-weight:600;margin-bottom:4px">Trabajo</div><div class="chips" style="margin-bottom:8px">';
+    [30,45,60,90,120,180,240].forEach(v=>{ html+='<button class="btn3'+(PC.work===v?' sel':'')+'" onclick="pcSet(\'work\','+v+')">'+(v<60?v+'s':(v/60)+"'")+'</button>'; });
+    html+='</div><div style="font-size:11px;font-weight:600;margin-bottom:4px">Descanso</div><div class="chips" style="margin-bottom:8px">';
+    [30,45,60,90,120].forEach(v=>{ html+='<button class="btn3'+(PC.restS===v?' sel':'')+'" onclick="pcSet(\'restS\','+v+')">'+(v<60?v+'s':(v/60)+"'")+'</button>'; });
+    html+='</div><div style="font-size:11px;font-weight:600;margin-bottom:4px">Series</div><div class="chips" style="margin-bottom:8px">';
+    [4,5,6,8,10,12].forEach(v=>{ html+='<button class="btn3'+(PC.series===v?' sel':'')+'" onclick="pcSet(\'series\','+v+')">'+v+'</button>'; });
+    html+='</div><input type="text" id="pcTarget" value="'+esc(PC.target||"")+'" placeholder="Objetivo por serie (ej: 250m ski · 62 splits)" onchange="PC.target=this.value" style="margin-bottom:8px">';
+    html+='<button class="btn3'+(PC.voice?' sel':'')+'" style="width:100%;margin-bottom:10px" onclick="PC.voice=!PC.voice;pcRender()">'+(PC.voice?'🔊 Voz activada (es-ES)':'🔇 Solo beeps')+'</button>';
+  }
+  // cadencia
+  html+='<div style="background:#12121a;border:1px solid #2a2a40;border-radius:12px;padding:12px;margin-bottom:10px"><div class="row"><div><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(PC.machine==="CARRERA"?"CADENCIA (pasos/min)":"RITMO (strokes/min)")+'</div><div class="big" style="font-size:40px;color:#e8ff3a">'+PC.bpm+'</div></div><div class="mono dim" style="font-size:10px;text-align:right">beep cada<br>'+(60/PC.bpm).toFixed(2)+'s</div></div>';
   html+='<div style="display:flex;gap:6px;margin-top:8px;align-items:center"><button class="btn3" onclick="pcBpm(-1)">−</button><input type="range" min="'+mx.spm[0]+'" max="'+mx.spm[1]+'" value="'+PC.bpm+'" oninput="pcBpmSet(this.value)"><button class="btn3" onclick="pcBpm(1)">+</button></div></div>';
   html+='<div style="display:flex;justify-content:center;gap:6px;padding:6px 0">'+Array.from({length:8},(_,i)=>'<div class="beatdot" id="pbd'+i+'"></div>').join("")+'</div>';
-  html+='<div style="text-align:center;margin:4px 0 12px"><div class="big" id="pcclock" style="font-size:56px;letter-spacing:4px;color:'+(PC.running?'#3affb8':'#e8e8f0')+'">'+m+':'+s+'</div><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(PC.running?"EN MARCHA":"LISTO")+'</div></div>';
+  // estado intervalo
+  if(isInt){
+    const workPhase=PC.phase==="work";
+    html+='<div style="text-align:center;margin-bottom:4px"><span class="tagz" id="pcphase" style="background:'+(workPhase?'#ff4f3a22;color:#ff4f3a':'#3affb822;color:#3affb8')+';font-size:12px;padding:4px 12px">'+(workPhase?'🔥 TRABAJO':'💨 DESCANSO')+'</span> <span class="mono" id="pcserie" style="font-size:12px;color:#e8ff3a">SERIE '+PC.curSerie+'/'+PC.series+'</span></div>';
+    if(PC.target) html+='<div style="text-align:center;font-size:13px;color:#8a8aaa;margin-bottom:2px">🎯 '+esc(PC.target)+'</div>';
+  }
+  html+='<div style="text-align:center;margin:4px 0 12px"><div class="big" id="pcclock" style="font-size:56px;letter-spacing:4px;color:'+(PC.running?(isInt&&PC.phase==="work"?'#ff8347':'#3affb8'):'#e8e8f0')+'">'+m+':'+s+'</div><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(PC.running?(isInt?"CUENTA ATRÁS":"EN MARCHA"):"LISTO")+'</div></div>';
   html+='<button class="btn" onclick="pcToggle()">'+(PC.running?'⏸ PARAR':'▶ EMPEZAR')+'</button>';
   html+='<button class="btn2" onclick="pcFinish()">✓ Terminar y registrar sesión</button>';
   overlay(html);
 }
+function pcMode(m2){ PC.mode=m2; pcRender(); }
+function pcSet(k,v){ const t=$("pcTarget"); if(t) PC.target=t.value; PC[k]=v; pcRender(); }
 function pcMachine(n){ PC.machine=n; PC._userBpm=false; pcRender(); }
 function pcBpm(d){ PC.bpm+=d; PC._userBpm=true; if(PC.running) pcMetro(); pcRender(); }
 function pcBpmSet(v){ PC.bpm=parseInt(v); PC._userBpm=true; if(PC.running) pcMetro(); pcRender(); }
@@ -1226,11 +1313,43 @@ function pcMetro(){
   },ms);
   PC.timers.push(PC.metro);
 }
+function pcClock(v){ const el=$("pcclock"); if(el) el.textContent=String(Math.floor(v/60)).padStart(2,"0")+":"+String(v%60).padStart(2,"0"); }
 function pcToggle(){
-  if(!PC.running){ PC.running=true;
-    PC.chron=setInterval(()=>{ PC.elapsed++; const el=$("pcclock"); if(el){const m=String(Math.floor(PC.elapsed/60)).padStart(2,"0"),s=String(PC.elapsed%60).padStart(2,"0"); el.textContent=m+":"+s;} },1000);
-    PC.timers.push(PC.chron); pcMetro(); pcRender(); pcToggleResume();
-  } else { PC.running=false; PC.timers.forEach(clearInterval); PC.timers=[]; pcRender(); }
+  if(!PC.running){
+    PC.running=true;
+    const t=$("pcTarget"); if(t) PC.target=t.value;
+    if(PC.mode==="int"&&PC.elapsed===0){ PC.phase="work"; PC.phaseLeft=PC.work; PC.curSerie=1;
+      say("Serie 1. ¡Vamos!"); beep(990,0.15); }
+    PC.chron=setInterval(()=>{
+      PC.elapsed++;
+      if(PC.mode!=="int"){ pcClock(PC.elapsed); return; }
+      PC.phaseLeft--;
+      pcClock(Math.max(0,PC.phaseLeft));
+      const L=PC.phaseLeft;
+      if(PC.phase==="work"){
+        if(PC.work>=60&&L===Math.floor(PC.work/2)) say("Mitad.");
+        if(PC.work>45&&L===30) say("Treinta segundos.");
+        if(L===15) say("Quince. Si no llegas, aprieta ya.");
+        if(L<=5&&L>0) beep(1200,0.1);
+        if(L<=0){
+          if(PC.curSerie>=PC.series){
+            beep(660,0.4); say("Última serie completada. ¡Hecho!");
+            PC.running=false; PC.timers.forEach(clearInterval); PC.timers=[]; pcRender(); return;
+          }
+          PC.phase="rest"; PC.phaseLeft=PC.restS;
+          beep(660,0.3); say("¡Descanso!"); pcRender();
+        }
+      } else { // rest
+        if(L===10) say("Diez segundos. Prepárate.");
+        if(L<=3&&L>0) beep(440,0.1);
+        if(L<=0){
+          PC.curSerie++; PC.phase="work"; PC.phaseLeft=PC.work;
+          beep(990,0.2); say("Serie "+PC.curSerie+". ¡Vamos!"); pcRender();
+        }
+      }
+    },1000);
+    PC.timers.push(PC.chron); pcMetro(); pcRender();
+  } else { PC.running=false; PC.timers.forEach(clearInterval); PC.timers=[]; try{speechSynthesis.cancel();}catch(e){} pcRender(); }
 }
 function pcToggleResume(){ /* re-render mata el interval visual pero los timers siguen */ }
 function pcQuit(){ PC.timers.forEach(clearInterval); PC.timers=[]; PC.running=false; closeOverlay(); }
@@ -1389,6 +1508,7 @@ function bAdd(name){ const e=allEx().find(x=>x.name===name); if(e) B.ex.push({na
 function bScheme(){ return String(B.scheme).split(/[^0-9]+/).map(Number).filter(n=>n>0); }
 function bStart(){
   if(!B.ex.length) return;
+  st._lastCfg={type:"builder",cfg:JSON.parse(JSON.stringify({format:B.format,mins:B.mins,cap:B.cap,rounds:B.rounds,rest:B.rest,sets:B.sets,scheme:B.scheme,ex:B.ex}))};
   if(B.format==="classic"){
     st._wodDraft={wod:B.ex.map(x=>{ const e=allEx().find(y=>y.name===x.name)||{};
       return {name:x.name,cat:e.cat,sets:B.sets,reps:x.reps,rest:e.rest||90,weight:x.weight,note:e.note,paceMin:e.paceMin||0,paceMax:e.paceMax||0,unit:x.unit}; }),isZ2:false};
@@ -1503,8 +1623,12 @@ function fpFinish(){
   fpClear(); FP.running=false;
   const mins=Math.max(1,Math.round(FP.elapsed/60));
   const rd=FP.fmt==="ladder"?FP.rung:(FP.done||1);
-  st._fb={results:fpResults(FP.fmt,rd,mins),durationMin:mins,mode:"wod",formatName:FORMATS[FP.fmt].name+
-    (FP.fmt==="amrap"?" — "+FP.done+" rondas":FP.fmt==="fortime"?" — "+String(Math.floor(FP.elapsed/60)).padStart(2,"0")+":"+String(FP.elapsed%60).padStart(2,"0"):"")};
+  const tlabel=String(Math.floor(FP.elapsed/60)).padStart(2,"0")+":"+String(FP.elapsed%60).padStart(2,"0");
+  const metric=FP.fmt==="amrap"?{v:FP.done,label:FP.done+" rondas",hi:true}:
+    FP.fmt==="emom"?{v:mins,label:mins+" min",hi:true}:
+    {v:FP.elapsed,label:tlabel,hi:false};
+  st._fb={results:fpResults(FP.fmt,rd,mins),durationMin:mins,mode:"wod",metric,formatName:FORMATS[FP.fmt].name+
+    (FP.fmt==="amrap"?" — "+FP.done+" rondas":FP.fmt==="fortime"?" — "+tlabel:"")};
   showFeedback();
 }
 function fpQuit(){ fpClear(); FP.finished=true; closeOverlay(); }
