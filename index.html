@@ -632,7 +632,8 @@ function renderHoy(){
       '<div class="dim" style="font-size:11px;margin-top:6px">El generador evitará cargar estas zonas.</div></div>'));
   }
 
-  el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openGenerator()">⚙ Generar</button><button class="btn2" style="margin:0;flex:1" onclick="openBuilder()">✏️ Diseñar</button><button class="btn2" style="margin:0;flex:1;border-color:rgba(232,255,58,.35);color:#e8ff3a" onclick="openFavs()">⭐ Favoritos'+(st.favorites.length?' ('+st.favorites.length+')':'')+'</button></div>'));
+  el.appendChild(h('<div style="display:flex;gap:8px;margin-bottom:10px"><button class="btn2" style="margin:0;flex:1" onclick="openGenerator()">⚙ Generar</button><button class="btn2" style="margin:0;flex:1" onclick="openBuilder()">✏️ Diseñar</button><button class="btn2" style="margin:0;flex:1;border-color:rgba(232,255,58,.35);color:#e8ff3a" onclick="openFavs()">⭐ Favoritos'+(st.favorites.length?' ('+st.favorites.length+')':'')+'</button></div>'));
+  el.appendChild(h('<button class="btn2" onclick="openPacer(false)">🔔 Pacer · Intervalos con audio (ergómetros/carrera)</button>'));
   return el;
 }
 function nextRace(){
