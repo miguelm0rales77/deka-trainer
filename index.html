@@ -508,21 +508,45 @@ function dekaScore(){ const s=CATS.map(c=>catScore(c.id)).filter(x=>x!==null); r
 /* ── voz (TTS del sistema, es-ES, funciona offline) ── */
 function say(txt){
   try{ if(!window.speechSynthesis||PC.voice===false) return;
-    const u=new SpeechSynthesisUtterance(txt); u.lang="es-ES"; u.rate=1.08; u.volume=1;
+    const u=new SpeechSynthesisUtterance(txt); u.lang="es-ES"; u.rate=1.05; u.volume=1; u.pitch=1.1;
+    const vs=speechSynthesis.getVoices().filter(v=>/es[-_]/i.test(v.lang));
+    if(vs.length) u.voice=vs.find(v=>/es[-_]ES/i.test(v.lang))||vs[0];
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   }catch(e){}
 }
 
-/* ── audio ── */
-let audioCtx=null;
-function beep(freq,dur){ freq=freq||880; dur=dur||0.06;
-  try{ if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
-    const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-    o.connect(g); g.connect(audioCtx.destination); o.frequency.value=freq; o.type="sine";
-    g.gain.setValueAtTime(0.25,audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+dur);
-    o.start(audioCtx.currentTime); o.stop(audioCtx.currentTime+dur);
+/* ── audio: onda cuadrada + armónico + compresor = mucho más audible sobre música ── */
+let audioCtx=null, masterGain=null, comp=null;
+function vol(){ return (st.audioVol==null?4:st.audioVol)/4; } // 1–8 → 0.25–2
+function audioInit(){
+  if(audioCtx) return audioCtx;
+  try{
+    audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+    comp=audioCtx.createDynamicsCompressor();
+    comp.threshold.value=-18; comp.knee.value=6; comp.ratio.value=12; comp.attack.value=0.002; comp.release.value=0.1;
+    masterGain=audioCtx.createGain(); masterGain.gain.value=1;
+    comp.connect(masterGain); masterGain.connect(audioCtx.destination);
+  }catch(e){}
+  return audioCtx;
+}
+function beep(freq,dur){ freq=freq||880; dur=Math.max(dur||0.06,0.08);
+  try{
+    audioInit(); if(!audioCtx) return;
+    if(audioCtx.state==="suspended") audioCtx.resume();
+    const t=audioCtx.currentTime, g=audioCtx.createGain(), amp=Math.min(1.6,0.85*vol());
+    g.connect(comp);
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(amp,t+0.008);
+    g.gain.setValueAtTime(amp,t+dur*0.6);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    // fundamental cuadrada (rica en armónicos → se cuela entre la música)
+    const o1=audioCtx.createOscillator(); o1.type="square"; o1.frequency.value=freq; o1.connect(g);
+    // octava superior a menor volumen, para el brillo
+    const g2=audioCtx.createGain(); g2.gain.value=0.45; g2.connect(g);
+    const o2=audioCtx.createOscillator(); o2.type="square"; o2.frequency.value=freq*2; o2.connect(g2);
+    o1.start(t); o2.start(t); o1.stop(t+dur); o2.stop(t+dur);
   }catch(e){} }
+function testAudio(){ audioInit(); beep(880,0.12); setTimeout(()=>beep(1200,0.18),220); setTimeout(()=>say("Quince segundos. Aprieta."),650); }
 
 /* ── UI helpers ── */
 const $=id=>document.getElementById(id);
@@ -928,6 +952,16 @@ function renderMas(){
     hbc.appendChild(h('<div class="row" style="padding:6px 0;border-bottom:1px solid #232334"><span style="font-size:13px">'+(x.icon||"✅")+' '+esc(x.name)+' <span class="mono" style="font-size:10px;color:#3affb8">+'+(x.w||1)+'</span></span><button class="btn3" onclick="delHabit('+i+')">✕</button></div>'));
   });
   el.appendChild(hbc);
+  // Audio
+  const au=h('<div class="card"><div class="ctitle">🔊 Audio</div></div>');
+  au.appendChild(h('<div class="row" style="margin-bottom:6px"><span style="font-size:12px">Volumen de beeps y voz</span><span class="mono" style="font-size:13px;color:#e8ff3a">'+(st.audioVol==null?4:st.audioVol)+'/8</span></div>'));
+  const sl=h('<input type="range" min="1" max="8" value="'+(st.audioVol==null?4:st.audioVol)+'" style="width:100%">');
+  sl.oninput=e=>{ st.audioVol=parseInt(e.target.value); save(); };
+  sl.onchange=()=>{ testAudio(); render(); };
+  au.appendChild(sl);
+  au.appendChild(h('<button class="btn2" style="margin-top:10px" onclick="testAudio()">▶ Probar sonido (pon la música y ajusta)</button>'));
+  au.appendChild(h('<div class="dim" style="font-size:11px;line-height:1.5">Si aun así se oye bajo con música: baja el volumen de la música o usa auriculares. iOS mezcla ambos audios sin bajar el de Spotify. Comprueba también que el interruptor lateral no esté en silencio.</div>'));
+  el.appendChild(au);
   // Guía rápida
   const gd=h('<div class="card"><div class="ctitle">❓ Guía rápida</div><div class="chips"></div></div>');
   const gch=gd.querySelector(".chips");
@@ -1046,8 +1080,8 @@ function previewWod(wod,isZ2){
   st._wodDraft={wod,isZ2};
   let html='<div class="ctitle">'+(isZ2?'💚 WOD Z2 — continuo, FC <130':'⚡ WOD generado')+'</div>';
   wod.forEach((e,i)=>{
-    const saved=st.savedPaces[e.name];
-    html+='<div class="daybox"><div class="row"><div><div style="font-size:14px;font-weight:600">'+esc(e.name)+'</div><div class="dim" style="font-size:11px">'+e.sets+'×'+e.reps+(e.unit==="seg"?'s':'')+' · '+esc(e.weight)+' · '+e.rest+'s desc</div></div><div class="mono" style="font-size:10px;color:'+(saved?'#e8ff3a':'#ff4f3a')+'">'+(saved?'pace '+(saved+2):'1ª vez')+'</div></div></div>';
+    const saved=st.savedPaces[e.name], u=e.unit&&e.unit!=="reps"?" "+e.unit:"";
+    html+='<div class="daybox"><div class="row"><div><div style="font-size:14px;font-weight:600">'+(e.erg?"🚣 ":"")+esc(e.name)+'</div><div class="dim" style="font-size:11px">'+e.sets+'×'+e.reps+u+(e.unit==="seg"?'':'')+' · '+(e.erg?'ergómetro':esc(e.weight))+' · '+e.rest+'s desc</div></div><div class="mono" style="font-size:10px;color:'+(e.erg?'#3affb8':saved?'#e8ff3a':'#ff4f3a')+'">'+(e.erg?'cronómetro':saved?'pace '+(saved+2):'1ª vez')+'</div></div></div>';
   });
   if(isZ2) html+='<div style="font-size:11px;color:#3affb8;margin:8px 0">Modo Z2: ritmo cómodo constante, sin buscar PB. Registra FC media al final — cuenta como sesión Z2 si ≤130.</div>';
   html+='<button class="btn" onclick="startWod()">▶ EMPEZAR</button><button class="btn2" onclick="generateWod()">↻ Regenerar</button>';
@@ -1079,7 +1113,9 @@ function pRender(){
   if(P.isZ2) html+='<div style="font-size:11px;color:#3affb8;text-align:center;margin-bottom:8px">💚 Z2 — continuo y cómodo, la FC manda</div>';
   html+='<div class="big" style="font-size:32px;letter-spacing:2px;color:#e8ff3a">'+esc(ex.name)+'</div>';
   html+='<div class="dim" style="font-size:11px;margin-bottom:8px">'+esc(ex.note||"")+'</div>';
-  html+='<div style="display:flex;gap:16px;margin-bottom:10px" class="mono">'+[[ex.sets+'×','series'],[ex.reps+(ex.unit==="seg"?'s':''),'reps'],[ex.rest+'s','descanso'],[esc(ex.weight),'peso']].map(([v,l])=>'<div><div class="dim" style="font-size:8px;text-transform:uppercase">'+l+'</div><div style="font-size:15px">'+v+'</div></div>').join("")+'</div>';
+  const uL=ex.unit&&ex.unit!=="reps"?ex.unit:"reps";
+  html+='<div style="display:flex;gap:16px;margin-bottom:10px" class="mono">'+[[ex.sets+'×','series'],[ex.reps+(uL==="seg"?'s':''),uL],[ex.rest+'s','descanso'],[ex.erg?'—':esc(ex.weight),ex.erg?'máquina':'peso']].map(([v,l])=>'<div><div class="dim" style="font-size:8px;text-transform:uppercase">'+l+'</div><div style="font-size:15px">'+v+'</div></div>').join("")+'</div>';
+  if(ex.erg) html+='<div style="font-size:11px;color:#3affb8;margin-bottom:8px">🚣 Ergómetro: cronómetro puro, sin metrónomo de reps. Marca «completar» al llegar a '+ex.reps+' '+esc(uL)+'.</div>';
   html+='<div style="display:flex;gap:7;justify-content:center;gap:7px;margin-bottom:10px">'+Array.from({length:ex.sets},(_,i)=>'<div style="width:11px;height:11px;border-radius:50%;background:'+(i<P.set-1?'#e8ff3a':'transparent')+';border:2px solid '+(i===P.set-1?'#3affb8':'#2a2a40')+'"></div>').join("")+'</div>';
   // pace
   html+='<div style="background:#12121a;border:1px solid #2a2a40;border-radius:12px;padding:12px;margin-bottom:10px">';
@@ -1441,8 +1477,10 @@ function openBuilder(){
   html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Ejercicios'+(B.format==="ladder"?' (reps las marca la escalera)':'')+'</div>';
   if(!B.ex.length) html+='<div class="dim" style="font-size:11px;margin-bottom:8px">Añade al menos uno.</div>';
   B.ex.forEach((e,i)=>{
-    html+='<div class="daybox" style="display:flex;align-items:center;gap:8px"><div style="flex:1"><div style="font-size:13px;font-weight:600">'+esc(e.name)+'</div><div class="dim" style="font-size:10px">'+esc(e.weight)+'</div></div>'+
-      (B.format!=="ladder"?'<input type="number" value="'+e.reps+'" onchange="bReps('+i+',this.value)" style="width:60px;text-align:center;padding:6px">':'')+
+    const u=e.unit||"reps", isErg=!!e.erg;
+    const ladderSkip=(B.format==="ladder"&&!isErg);
+    html+='<div class="daybox" style="display:flex;align-items:center;gap:8px"><div style="flex:1"><div style="font-size:13px;font-weight:600">'+(isErg?"🚣 ":"")+esc(e.name)+'</div><div class="dim" style="font-size:10px">'+(isErg?"objetivo por ronda":esc(e.weight))+'</div></div>'+
+      (!ladderSkip?'<span style="display:flex;align-items:center;gap:3px"><input type="number" value="'+e.reps+'" onchange="bReps('+i+',this.value)" style="width:64px;text-align:center;padding:6px"><span class="mono dim" style="font-size:10px;width:26px">'+esc(u)+'</span></span>':'')+
       '<button class="btn3" onclick="bDel('+i+')">✕</button></div>';
   });
   html+='<button class="btn2" style="margin-top:6px" onclick="openExPicker()">+ Añadir ejercicio</button>';
@@ -1461,6 +1499,9 @@ function openExPicker(){
     st.exCustom.forEach((e,i)=>{ html+='<span style="display:inline-flex;gap:2px"><button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">'+esc(e.name)+'</button><button class="btn3" style="padding:7px 6px" onclick="delCustomEx('+i+')">✕</button></span>'; });
     html+='</div>';
   }
+  html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">Ergómetros y carrera <span style="text-transform:none;letter-spacing:0">— para WODs mixtos</span></div><div class="chips">';
+  EXDB.filter(e=>e.erg).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">🚣 '+esc(e.name)+' <span class="dim">('+esc(e.unit)+')</span></button>'; });
+  html+='</div>';
   ["hyrox","metabólico","fuerza","core"].forEach(cat=>{
     html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">'+cat+'</div><div class="chips">';
     EXDB.filter(e=>!e.erg&&e.cat===cat).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">'+esc(e.name)+'</button>'; });
@@ -1505,14 +1546,16 @@ function saveCustomEx(){
   CX={cat:"fuerza",p:[],s:[]};
   save(); toast("Ejercicio creado: "+n); openExPicker();
 }
-function bAdd(name){ const e=allEx().find(x=>x.name===name); if(e) B.ex.push({name:e.name,reps:e.reps,weight:e.weight,unit:e.unit}); openBuilder(); }
+function bAdd(name){ const e=allEx().find(x=>x.name===name);
+  if(e) B.ex.push({name:e.name,reps:e.reps,weight:e.weight,unit:e.unit||"reps",erg:!!e.erg});
+  openBuilder(); }
 function bScheme(){ return String(B.scheme).split(/[^0-9]+/).map(Number).filter(n=>n>0); }
 function bStart(){
   if(!B.ex.length) return;
   st._lastCfg={type:"builder",cfg:JSON.parse(JSON.stringify({format:B.format,mins:B.mins,cap:B.cap,rounds:B.rounds,rest:B.rest,sets:B.sets,scheme:B.scheme,ex:B.ex}))};
   if(B.format==="classic"){
     st._wodDraft={wod:B.ex.map(x=>{ const e=allEx().find(y=>y.name===x.name)||{};
-      return {name:x.name,cat:e.cat,sets:B.sets,reps:x.reps,rest:e.rest||90,weight:x.weight,note:e.note,paceMin:e.paceMin||0,paceMax:e.paceMax||0,unit:x.unit}; }),isZ2:false};
+      return {name:x.name,cat:e.cat,sets:B.sets,reps:x.reps,rest:e.rest||90,weight:x.weight,note:e.note,paceMin:e.paceMin||0,paceMax:e.paceMax||0,unit:x.unit,erg:!!x.erg}; }),isZ2:false};
     startWod(); return;
   }
   Object.assign(FP,{fmt:B.format,mins:B.mins,cap:B.cap,rounds:B.rounds,rest:B.rest,scheme:bScheme(),
@@ -1562,11 +1605,12 @@ function fpRender(){
     html+='<div style="text-align:center;margin-bottom:8px"><span class="big" style="font-size:44px;color:#3affb8">'+(sch[FP.rung]!=null?sch[FP.rung]:"✓")+'</span> <span class="mono dim" style="font-size:10px">reps de cada uno</span></div>';
   }
   if(f==="emom"){ const min=Math.floor(FP.elapsed/60); const cur=FP.ex[min%FP.ex.length]; const nxt=FP.ex[(min+1)%FP.ex.length];
-    const inMin=60-(FP.elapsed%60);
-    html+='<div style="text-align:center;margin-bottom:8px"><div class="mono dim" style="font-size:9px;letter-spacing:2px">MINUTO '+(min+1)+'/'+FP.mins+' · quedan <span id="fpinmin">'+inMin+'</span>s</div><div class="big" style="font-size:30px;color:#e8ff3a">'+esc(cur.name)+' ×'+cur.reps+'</div><div class="dim" style="font-size:11px">siguiente: '+esc(nxt.name)+'</div></div>';
+    const inMin=60-(FP.elapsed%60), cu=cur.unit&&cur.unit!=="reps"?" "+cur.unit:"";
+    html+='<div style="text-align:center;margin-bottom:8px"><div class="mono dim" style="font-size:9px;letter-spacing:2px">MINUTO '+(min+1)+'/'+FP.mins+' · quedan <span id="fpinmin">'+inMin+'</span>s</div><div class="big" style="font-size:30px;color:#e8ff3a">'+(cur.erg?"🚣 ":"")+esc(cur.name)+' '+(cu?cur.reps+cu:"×"+cur.reps)+'</div><div class="dim" style="font-size:11px">siguiente: '+esc(nxt.name)+'</div></div>';
   }
   // lista de ejercicios (una ronda)
-  if(f!=="emom") FP.ex.forEach(e=>{ html+='<div class="daybox" style="padding:7px 11px"><div class="row"><span style="font-size:13px;font-weight:600">'+esc(e.name)+'</span><span class="mono" style="font-size:12px;color:#3affb8">'+(f==="ladder"?"↕":"×"+e.reps)+'</span></div></div>'; });
+  if(f!=="emom") FP.ex.forEach(e=>{ const u=e.unit&&e.unit!=="reps"?e.unit:null;
+    html+='<div class="daybox" style="padding:7px 11px"><div class="row"><span style="font-size:13px;font-weight:600">'+(e.erg?"🚣 ":"")+esc(e.name)+'</span><span class="mono" style="font-size:12px;color:#3affb8">'+(f==="ladder"&&!e.erg?"↕":(u?e.reps+" "+u:"×"+e.reps))+'</span></div></div>'; });
   // reloj
   html+='<div style="text-align:center;margin:10px 0"><div class="big" id="fpclock" style="font-size:60px;letter-spacing:4px;color:'+(FP.running?(countdown&&remain<60?'#ff4f3a':'#3affb8'):'#e8e8f0')+'">'+mm+':'+ss+'</div><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(countdown?"CUENTA ATRÁS":"TIEMPO")+(FP.cap&&f==="fortime"?' · CAP '+FP.cap+"'":'')+'</div></div>';
   // rondas
