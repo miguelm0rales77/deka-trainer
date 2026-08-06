@@ -179,6 +179,10 @@ const EXDB = [
   {name:"ZANCADAS MANCUERNAS", cat:"fuerza", wf:1.5, reps:16, sets:3, rest:75, weight:"2×16kg", paceMin:40, paceMax:200, note:"Caminando o estático, torso vertical.", m:{cuads:.8,gluteos:.7,isquios:.3}},
   {name:"ENCOGIMIENTOS", cat:"fuerza", wf:1.5, reps:15, sets:3, rest:60, weight:"2×24kg", paceMin:50, paceMax:250, note:"Shrugs: hombros a orejas, pausa arriba.", m:{espalda:.7,hombros:.3}},
   {name:"PULLOVER", cat:"fuerza", wf:1.4, reps:12, sets:3, rest:60, weight:"20kg", paceMin:40, paceMax:200, note:"Tumbado, brazo casi recto por detrás de la cabeza.", m:{pecho:.5,espalda:.5,core:.3}},
+  /* ── específicos XYBRID ── */
+  {name:"BURPEES TO PLATE", cat:"hyrox", wf:1, reps:20, sets:3, rest:90, weight:"disco", paceMin:40, paceMax:250, note:"Burpee con manos al disco y salto encima. Estación Xybrid (40 reps).", m:{pecho:.6,hombros:.5,core:.5,cuads:.7,gemelos:.4}},
+  {name:"LUNGES TO BOX", cat:"hyrox", wf:1.2, reps:20, sets:3, rest:90, weight:"cajón", paceMin:30, paceMax:180, note:"Zancada con rodilla trasera al cajón. Estación Xybrid (40 reps).", m:{cuads:.8,gluteos:.8,isquios:.4,core:.4}},
+  {name:"SLAM BALL", cat:"hyrox", wf:1.8, reps:15, sets:3, rest:90, weight:"30kg", paceMin:25, paceMax:150, note:"Balón 30kg del suelo por encima de la cabeza y al suelo. Estación Xybrid (30 reps).", m:{lumbar:.6,espalda:.6,hombros:.6,core:.7,gluteos:.5,brazos:.4}},
   {name:"FARMER MANCUERNAS", cat:"fuerza", wf:1.6, reps:1, sets:4, rest:75, weight:"2×24kg · 30m", paceMin:20, paceMax:100, note:"Versión mancuernas del farmers carry.", m:{brazos:.6,core:.5,espalda:.4,gemelos:.3}, unit:"tramos"},
 ];
 function allEx(){ return EXDB.concat(st.exCustom||[]); }
@@ -215,6 +219,7 @@ const HELP={
   mobtests:{t:"📏 Tests de movilidad",b:"6 tests tipo GOWOD, escala 1–5. Hazlos <b>en frío</b> (sin calentar) y repítelos cada 2–4 semanas, siempre en condiciones parecidas.<br><br>· <b>Flexión cadera:</b> pies juntos, rodillas estiradas, baja las manos.<br>· <b>Sentadilla profunda:</b> talones en el suelo, sin ayudarte.<br>· <b>Tobillo:</b> rodilla a la pared sin levantar el talón; mide la distancia dedo gordo–pared.<br>· <b>Rotación cadera:</b> tumbado, rodilla a 90°, deja caer el pie hacia fuera.<br>· <b>Hombro:</b> una mano por encima del hombro, otra por debajo, por la espalda.<br>· <b>Torácica:</b> sentadilla con brazos estirados arriba, ¿se quedan verticales?<br><br>Puntuar ≤2 en un test hace que la sesión de movilidad doble el tiempo en esa zona."},
   z2:{t:"💚 Trabajo en Z2 (Maffetone)",b:"Sesiones a intensidad baja y continua, <b>FC ≤130</b>, para construir base aeróbica y quemar grasa como combustible. Aquí no se busca PB: el objetivo es NO subir pulsaciones.<br><br>La app te pide la <b>FC media del reloj</b> al terminar: si te pasaste de 130, la sesión no cuenta como Z2 válida. Es deliberado — el error clásico es convertir el rodaje suave en tempo."},
   disciplina:{t:"🎯 Score de disciplina",b:"Se calcula por semana:<br><br>· <b>50%</b> adherencia al plan (sesiones hechas / planificadas — la movilidad pesa igual que un WOD y saltártela resta)<br>· <b>30%</b> hábitos marcados en el check-in<br>· <b>20%</b> check-ins hechos.<br><br>Los hábitos evaluados los puedes personalizar en Más → Hábitos."},
+  xybrid:{t:"🏁 XYBRID · sáb 19 sep",b:"Formato tipo HYROX (8 km de carrera intercalados) con <b>estaciones propias</b>:<br><br>· <b>SkiErg</b> 1000m<br>· <b>Sled Push + Sled Pull</b> — <span style='color:#ffb347'>en la misma estación, sin carrera entre medias</span><br>· <b>Burpees to Plate</b> ×40 <span class='dim'>(sustituye a los Burpee Broad Jump)</span><br>· <b>Rowing</b> 1000m<br>· <b>Assault Bike</b> <span class='dim'>(sustituye al Farmers Carry)</span><br>· <b>Lunges to Box</b> ×40<br>· <b>Slam Ball 30kg</b> ×30 <span class='dim'>(en vez de Wall Balls)</span><br><br><b>Qué cambia para ti:</b><br>· Sled push+pull encadenado = pico de lactato mucho mayor que en HYROX. Sal conservador en el push.<br>· Burpees to plate son más rápidos que los BBJ pero castigan más el pecho.<br>· Slam ball de 30kg con 30 reps es la estación más pesada del circuito — bisagra de cadera, no espalda.<br>· El Air Bike sustituye al farmers: es cardio puro, no agarre. Bueno para ti."},
   formats:{t:"✏️ Formatos de WOD",b:"· <b>Series × Reps:</b> clásico con metrónomo, pace y descansos automáticos.<br>· <b>AMRAP:</b> máximas rondas en X minutos. Marca cada ronda completada.<br>· <b>FOR TIME:</b> trabajo fijo (rondas × ejercicios) en el menor tiempo posible, con time cap opcional.<br>· <b>EMOM:</b> cada minuto empieza un ejercicio; lo que sobra del minuto, descansas.<br>· <b>CIRCUITO:</b> rondas completas con descanso fijo entre rondas.<br>· <b>LADDER:</b> escalera de reps (21-15-9, o 1-2-3…10) con los mismos ejercicios."},
 };
 function openHelp(k){ const x=HELP[k]; overlay('<div class="ctitle">'+x.t+'</div><div style="font-size:13px;line-height:1.7">'+x.b+'</div><button class="btn2" style="margin-top:14px" onclick="closeOverlay()">Cerrar</button>'); }
@@ -340,24 +345,24 @@ const PLAN = [
  {d:"Sáb",t:"Tempo",main:"60 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 20 min Z2. Semana dura — si el HRV está bajo, reduce el tempo a 20 min.",fc:"Z2 + Z4"},
  {d:"Dom",t:"Bici Z2",main:"Bici Z2 45 min leyendo.",fc:"Z2 · <125 bpm"}
 ],nutr:"Bicarbonato activado: 0.3g/kg 60–90 min pre-sesión intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario."},
-{w:9,m:3,dates:"15–21 sep",label:"Intensidad específica III",days:[
- {d:"Lun",t:"Descanso",main:"Descanso. HRV: si bajo, reducir volumen duro esta semana."},
- {d:"Mar",t:"Comp. Running",main:"Compromised running HYROX: 5×(Remo 500m + 1 km carrera inmediato) con 2 min descanso entre rondas. FC no baje de 150 al salir a correr.",fc:"Z4-Z5 · 150–168 bpm"},
- {d:"Mié",t:"Carrera",main:"Race simulation: 5 km a pace objetivo competición (<4:20/km). Splits por km.",fc:"Z4 · 150–160 bpm"},
- {d:"Jue",t:"Cluster HYROX",main:"Cluster HYROX intenso: 4×(SkiErg 500m + Sled Push 25m + Sled Pull 25m + Sandbag Lunges 25m + 1 km carrera). 3 min caminar entre rondas.",pre:"PRE-SkiErg: Sit-Up Throw 4×10 @10kg",fc:"Z4-Z5 · 150–168 bpm"},
- {d:"Vie",t:"Ergómetro",main:"Remo 4×500m @race-pace. SkiErg 4×4 min @race-pace. Air Bike 3×2 min Z5 (>18-22 cal/min / >35 km/h).",pre:"PRE-SkiErg: Sit-Up Throw 4×10 @10kg",fc:"Z4-Z5"},
- {d:"Sáb",t:"Tempo",main:"65 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 25 min Z2. Pico de volumen de tempo del plan. Si llegas bien al minuto 25, los últimos 3 min a 4:15.",fc:"Z4 · 148–160 bpm en tempo"},
- {d:"Dom",t:"Movilidad",main:"Sesión completa 20 min. Lumbar, cadera y tren superior post-semana dura."}
-],nutr:"Keto IQ pre-simulacros. Bicarbonato sesiones duras. Post: 40g proteína + CHO. Sueño ≥8h."},
-{w:10,m:3,dates:"22–28 sep",label:"Intensidad específica IV + mini-deload",days:[
- {d:"Lun",t:"Cluster HYROX",main:"Simulacro HYROX completo: las 8 estaciones + 8 km de carrera a carga 75%. Protocolo completo de competición.",pre:"Bicarbonato + Keto IQ + electrolitos · PRE-SkiErg: Sit-Up Throw",fc:"Z4 · 148–162 bpm"},
+{w:9,m:3,dates:"14–20 sep",label:"Mini-taper → XYBRID sáb 19 sep",race:{name:"XYBRID (solo o dobles con tu hijo)",date:"sáb 19 sep"},days:[
+ {d:"Lun",t:"Descanso",main:"Descanso. HRV: si bajo, quita el jueves. Semana de mini-taper: mantener intensidad, recortar volumen."},
+ {d:"Mar",t:"Comp. Running",main:"Compromised running: 3×(Remo 500m + 1 km carrera inmediato) con 2 min entre rondas. Volumen recortado por la carrera del sábado.",fc:"Z4-Z5 · 150–168 bpm",sub:"Última sesión dura antes del Xybrid"},
+ {d:"Mié",t:"Carrera",main:"30 min: 10 min Z2 + 4×3 min Z4 (4:20-4:30/km) + Z2. Piernas despiertas, sin vaciarte.",fc:"Z4 · 150–160 bpm"},
+ {d:"Jue",t:"Activación",main:"Ensayo Xybrid al 60%: 1 ronda → SkiErg 300m + Sled Push 15m + Sled Pull 15m encadenados + Burpees to Plate ×15 + Remo 300m + AirBike 10 cal + Lunges to Box ×15 + Slam Ball ×10.",sub:"Objetivo: automatizar las transiciones nuevas, sobre todo el push+pull encadenado. Sin buscar tiempo.",fc:"Z3 · <150 bpm"},
+ {d:"Vie",t:"Descanso",main:"Descanso total. 3L agua + electrolitos. Carga CHO moderada. Sueño ≥8h.",sub:"Día –1: nada nuevo"},
+ {d:"Sáb",t:"COMPETICIÓN",main:"XYBRID",sub:"Estaciones: SkiErg · Sled Push+Pull (misma estación) · Burpees to Plate ×40 · Remo · AirBike · Lunges to Box ×40 · Slam Ball 30kg ×30. Estrategia: sal conservador en el sled (push+pull encadenado dispara el lactato), recupera en la carrera posterior. Bicarbonato 0.3g/kg 90 min antes + Keto IQ.",fc:"Z4-Z5 · umbral"},
+ {d:"Dom",t:"Movilidad",main:"Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal (slam balls) prioritarios. Proteína alta."}
+],nutr:"Semana de carrera: CHO moderado desde el jueves. Día –1 nada nuevo. Bicarbonato + Keto IQ el sábado. Post-carrera: 40g proteína + CHO rápido."},
+{w:10,m:3,dates:"21–27 sep",label:"Post-Xybrid + simulacro HYROX",days:[
+ {d:"Lun",t:"Descanso",main:"Descanso total post-Xybrid. Analizar la carrera: dónde perdiste tiempo, cómo respondiste al sled encadenado.",sub:"Notas para la estrategia de Valencia"},
  {d:"Mar",t:"Carrera",main:"Recuperación: 25 min Z1.",fc:"Z1 · <120 bpm"},
  {d:"Mié",t:"Ergómetro",main:"Remo 20 min Z2 + SkiErg 15 min Z2. Recuperación activa.",pre:"PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",fc:"Z2 · <130 bpm"},
- {d:"Jue",t:"Carrera",main:"25 min Z2. Sin objetivos.",fc:"Z2 · <130 bpm"},
+ {d:"Jue",t:"Carrera",main:"Tempo corto: 10 min Z2 + 15 min Z4 (4:20-4:30/km) + 10 min Z2. Reactivar sin cargar.",fc:"Z3-Z4"},
  {d:"Vie",t:"Metabólico",main:"EMOM 25 min ligero: Wall Balls 10 + Burpee Broad Jump 5 + descanso. FC <140.",fc:"Z2-Z3 · <140 bpm"},
- {d:"Sáb",t:"Movilidad",main:"Sesión completa 25 min. Prioridad recuperación."},
+ {d:"Sáb",t:"Cluster HYROX",main:"Simulacro HYROX completo: las 8 estaciones + 8 km de carrera a carga 75%. Protocolo completo de competición. Ojo: aquí sí son BBJ, Farmers y Wall Balls (formato HYROX, no Xybrid).",pre:"Bicarbonato + Keto IQ + electrolitos · PRE-SkiErg: Sit-Up Throw",fc:"Z4 · 148–162 bpm"},
  {d:"Dom",t:"Descanso",main:"Descanso total. Recarga glucógeno. Sueño 8–9h."}
-],nutr:"Recarga glucógeno: +CHO moderado todos los días. Reducir intensidad nutricional. Mg + zinc noche."},
+],nutr:"Semana post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno el viernes para el simulacro. Mg + zinc noche."},
 {w:11,m:4,dates:"29 sep–5 oct",label:"Taper Hyathlon Madrid",race:{name:"HYATHLON MADRID con Marchena",date:"sáb 10 oct"},days:[
  {d:"Lun",t:"Fuerza",main:"Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga acumulada."},
  {d:"Mar",t:"Ergómetro",main:"Race-pace: SkiErg 2×3 min + Remo 2×3 min. Recuperación completa entre series.",pre:"PRE-SkiErg: Sit-Up Throw 2×8 @10kg",fc:"Z4 · race-pace"},
@@ -508,19 +513,39 @@ const CATS=[
   {id:"movilidad",label:"MOVIL",full:"Movilidad",icon:"🧘",color:"#3affb8",metric:"Tests tipo GOWOD"},
   {id:"fuerza",label:"FUERZA",full:"Fuerza",icon:"💪",color:"#a78bfa",metric:"Cargas y pace en fuerza"},
 ];
+/* categorías a las que contribuye una sesión: por sus ejercicios, y si no, por su tipo */
+const EXCAT2CAT={"metabólico":"metabólico","hyrox":"metabólico","fuerza":"fuerza","core":"fuerza","ergómetros":"ergómetros","running":"running"};
+function sessionCats(s){
+  const set=new Set();
+  (s.exercises||[]).forEach(e=>{ const ex=allEx().find(x=>x.name===e.name);
+    if(ex&&EXCAT2CAT[ex.cat]) set.add(EXCAT2CAT[ex.cat]);
+    else if(/CARRERA/i.test(e.name)) set.add("running");
+    else if(/REMO|SKIERG|BIKE/i.test(e.name)) set.add("ergómetros"); });
+  if(!set.size){
+    const t=s.type||"";
+    if(/Carrera|Comp\. Running|Tempo/i.test(t)) set.add("running");
+    else if(/Erg[oó]metro|Bici|Test/i.test(t)) set.add("ergómetros");
+    else if(/Fuerza|Activaci[oó]n/i.test(t)) set.add("fuerza");
+    else if(/Metab|Cluster|Playa|COMPETI/i.test(t)) set.add("metabólico");
+    else if(/Umbral/i.test(t)){ set.add("running"); set.add("ergómetros"); }
+  }
+  return [...set];
+}
 function catScore(catId){
   if(catId==="movilidad"){ if(!st.mobHistory.length) return null;
     const last=st.mobHistory[st.mobHistory.length-1]; const v=Object.values(last.scores);
     return v.length?(v.reduce((a,b)=>a+b,0)/v.length)*20:null; }
   if(catId==="disciplina"){ const pos=planPos(); if(pos.week<1) return null;
     const d=disciplineWeek(pos.week); return d?d.score:null; }
-  const paces=st.paceHistory.filter(h=>{const e=allEx().find(x=>x.name===h.exercise);return e&&(e.cat===catId||(catId==="metabólico"&&e.cat==="hyrox"));}).map(h=>h.pace);
-  if(catId==="running"||catId==="ergómetros"){
-    const n=st.sessions.filter(s=>s.mode==="pacer"&&((catId==="running"&&/Carrera|Comp/.test(s.type))||(catId==="ergómetros"&&/Erg|Bici|Umbral|Test/.test(s.type)))).length;
-    if(!n&&!paces.length) return null; return Math.min(99,30+n*4+(paces.length?paces.reduce((a,b)=>a+b,0)/paces.length*0.1:0));
-  }
-  if(!paces.length) return null;
-  return Math.min(99,40+(paces.reduce((a,b)=>a+b,0)/paces.length)*0.18);
+  // volumen: nº de sesiones que tocan la categoría (amortiguado) + minutos
+  const ses=st.sessions.filter(s=>sessionCats(s).includes(catId));
+  const paces=st.paceHistory.filter(h=>{const e=allEx().find(x=>x.name===h.exercise);
+    return e&&EXCAT2CAT[e.cat]===catId;}).map(h=>h.pace);
+  if(!ses.length&&!paces.length) return null;
+  const mins=ses.reduce((a,s)=>a+(s.durationMin||0),0);
+  const vol=Math.min(48, 8*Math.sqrt(ses.length) + Math.min(12,mins/60));
+  const paceBonus=paces.length?Math.min(26, paces.reduce((a,b)=>a+b,0)/paces.length*0.12):0;
+  return Math.min(99, 25 + vol + paceBonus);
 }
 function dekaScore(){ const s=CATS.map(c=>catScore(c.id)).filter(x=>x!==null); return s.length?s.reduce((a,b)=>a+b,0)/s.length:0; }
 
@@ -637,6 +662,7 @@ function renderHoy(){
     const card=h('<div class="card" style="border-top:2px solid '+dt.c+'"></div>');
     card.appendChild(h('<div class="row" style="margin-bottom:8px"><span class="tagz" style="background:'+dt.c+'22;color:'+dt.c+'">'+esc(day.t)+'</span><span class="mono dim" style="font-size:10px">'+esc(meso.title)+'</span></div>'));
     if(day.flag) card.appendChild(h('<div class="tagz" style="background:#CECBF622;color:#CECBF6;margin-bottom:6px">★ '+esc(day.flag)+'</div>'));
+    if(/XYBRID/i.test(day.main||"")||/Xybrid/i.test(day.sub||"")) card.appendChild(h('<button class="btn3" style="margin-bottom:8px" onclick="openHelp(\'xybrid\')">🏁 Ver estaciones Xybrid</button>'));
     if(day.pre) card.appendChild(h('<div style="font-size:11px;color:#ffb347;background:rgba(255,179,71,.08);padding:6px 9px;border-radius:8px;margin-bottom:8px">▲ '+esc(day.pre)+'</div>'));
     card.appendChild(h('<div style="font-size:14px;line-height:1.55">'+esc(day.main)+'</div>'));
     if(day.sub) card.appendChild(h('<div class="dim" style="font-size:11px;margin-top:5px">'+esc(day.sub)+'</div>'));
@@ -701,7 +727,7 @@ function openRefs(){
 }
 function nextRace(){
   const t=todayISO();
-  const races=[{name:"HYATHLON",date:"2026-10-10"},{name:"HYROX VALENCIA",date:"2026-10-18"}];
+  const races=[{name:"XYBRID",date:"2026-09-19"},{name:"HYATHLON",date:"2026-10-10"},{name:"HYROX VALENCIA",date:"2026-10-18"}];
   for(const r of races){ const d=daysBetween(t,r.date); if(d>=0) return {name:r.name,days:d}; }
   return null;
 }
@@ -1155,7 +1181,7 @@ function renderMas(){
   // Guía rápida
   const gd=h('<div class="card"><div class="ctitle">❓ Guía rápida</div><div class="chips"></div></div>');
   const gch=gd.querySelector(".chips");
-  [["pace","⏱ Pace"],["heatmap","🫀 Mapa muscular"],["acwr","📈 ACWR"],["mobtests","📏 Tests movilidad"],["z2","💚 Z2"],["disciplina","🎯 Disciplina"],["formats","✏️ Formatos WOD"]].forEach(([k,lb])=>{
+  [["xybrid","🏁 Xybrid 19 sep"],["pace","⏱ Pace"],["heatmap","🫀 Mapa muscular"],["acwr","📈 ACWR"],["mobtests","📏 Tests movilidad"],["z2","💚 Z2"],["disciplina","🎯 Disciplina"],["formats","✏️ Formatos WOD"]].forEach(([k,lb])=>{
     const b=h('<button class="btn3">'+lb+'</button>'); b.onclick=()=>openHelp(k); gch.appendChild(b);
   });
   el.appendChild(gd);
@@ -1388,6 +1414,27 @@ function pFeedback(){
 
 /* ═══════════════════ FEEDBACK Y GUARDADO ═══════════════════ */
 const FEELINGS=["💪 Bien","😓 Duro","🦵 Piernas cargadas","😴 Fatiga","🤕 Molestia","🔥 En zona","❄️ Sin energía"];
+const SESSTYPES=["Fuerza","Metabólico","Carrera","Tempo","Ergómetro","Umbral Híbrido","Cluster HYROX","Comp. Running","Bici Z2","Movilidad","Activación","Test","Playa","COMPETICIÓN"];
+/* deduce el tipo por el contenido real de la sesión; solo usa el plan si no hay pistas */
+function guessType(fb){
+  const names=(fb.results||[]).map(r=>r.name.toUpperCase());
+  fb.typeAuto=true;
+  if(fb.mode==="mob") return "Movilidad";
+  if(names.length){
+    const cats=[...new Set(names.map(n=>{const e=allEx().find(x=>x.name===n);return e?e.cat:null;}).filter(Boolean))];
+    const hasRun=names.some(n=>/CARRERA/.test(n)), hasErg=names.some(n=>/REMO|SKIERG|BIKE/.test(n));
+    if(hasRun&&(hasErg||cats.some(c=>c!=="running"))) return "Umbral Híbrido";
+    if(hasRun) return fb.isZ2?"Carrera":"Carrera";
+    if(hasErg) return "Ergómetro";
+    if(cats.length===1&&cats[0]==="fuerza") return "Fuerza";
+    if(cats.includes("hyrox")) return "Cluster HYROX";
+    return "Metabólico";
+  }
+  // sin ejercicios (registro manual): propone el del plan
+  const pos=planPos(), day=pos.week>=1?planDay(pos.week,pos.dayIdx):null;
+  if(day&&day.t!=="Descanso") return day.t;
+  return fb.mode==="pacer"?"Carrera":"Fuerza";
+}
 function showFeedback(){
   const fb=st._fb; fb.rpe=fb.rpe||null; fb.feelings=fb.feelings||[];
   let html='<div class="ctitle">✅ Sesión completada — '+fb.durationMin+' min</div>';
@@ -1397,6 +1444,12 @@ function showFeedback(){
     html+='</div>';
   }
   if(fb.metric) html+='<div style="text-align:center;margin-bottom:10px"><span class="big" style="font-size:34px;color:#e8ff3a">'+esc(fb.metric.label)+'</span></div>';
+  // tipo de sesión (prerrellenado con el del plan, pero editable)
+  if(fb.type==null) fb.type=guessType(fb);
+  html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Tipo de sesión '+(fb.typeAuto?'<span class="dim" style="font-weight:400">· cámbialo si no era lo previsto</span>':'')+'</div><div class="chips" style="margin-bottom:12px">';
+  SESSTYPES.forEach(tp=>{ const dt=DTYPE[tp]||{c:"#8a8aaa"};
+    html+='<button class="btn3'+(fb.type===tp?' sel':'')+'" style="'+(fb.type===tp?'border-color:'+dt.c+';color:'+dt.c+';background:'+dt.c+'18':'')+'" onclick="fbType(\''+tp+'\')">'+esc(tp)+'</button>'; });
+  html+='</div>';
   if(st._lastCfg&&st._runningFav==null){
     html+='<button class="btn3'+(fb.saveFav?' sel':'')+'" style="width:100%;margin-bottom:12px" onclick="fbFav()">'+(fb.saveFav?'⭐ Se guardará como favorito':'☆ Guardar como favorito para repetir y mejorar')+'</button>';
   }
@@ -1411,6 +1464,7 @@ function showFeedback(){
 }
 function fbRpe(v){ st._fb.rpe=v; keepFbInputs(); showFeedback(); }
 function fbFav(){ st._fb.saveFav=!st._fb.saveFav; keepFbInputs(); showFeedback(); }
+function fbType(t){ st._fb.type=t; st._fb.typeAuto=false; keepFbInputs(); showFeedback(); }
 function fbFeel(f){ const a=st._fb.feelings; a.includes(f)?a.splice(a.indexOf(f),1):a.push(f); keepFbInputs(); showFeedback(); }
 function keepFbInputs(){ const fc=$("fbFc"),n=$("fbNotes"); if(fc) st._fb.fcAvg=fc.value?parseInt(fc.value):null; if(n) st._fb.notes=n.value; }
 function saveSession(){
@@ -1418,13 +1472,15 @@ function saveSession(){
   const fb=st._fb, pos=planPos(), t=todayISO();
   const day=pos.week>=1?planDay(pos.week,pos.dayIdx):null;
   const isPlanned=!!day&&day.t!=="Descanso";
-  const type=fb.type||(day&&day.t!=="Descanso"?day.t:(fb.mode==="pacer"&&fb.results&&fb.results[0]?fb.results[0].name:(fb.mode==="wod"?"Metabólico":"Libre")));
-  const z2Expected=fb.isZ2||(day&&DTYPE[day.t]&&DTYPE[day.t].z2);
+  const type=fb.type||guessType(fb);
+  // la sesión cuenta como "del plan" solo si coincide con lo previsto
+  const matchesPlan=isPlanned&&day&&(type===day.t||DTYPE[type]&&DTYPE[day.t]&&DTYPE[type].mode===DTYPE[day.t].mode);
+  const z2Expected=fb.isZ2||(day&&DTYPE[day.t]&&DTYPE[day.t].z2&&matchesPlan);
   const z2ok=z2Expected? z2Check(fb.fcAvg) : undefined;
   const exercises=(fb.results||[]).map(r=>({name:r.name,avgPace:r.avgPace||null,totalReps:r.totalReps,sets:r.sets}));
   const muscleLoad=sessionMuscleLoad(exercises);
   const srpe=computeSRPE(fb.rpe,fb.durationMin);
-  const pts=fb.mode==="mob"?PTS.mobilidad:isPlanned?PTS.plan:fb.mode==="wod"?PTS.generado:PTS.libre;
+  const pts=fb.mode==="mob"?PTS.mobilidad:matchesPlan?PTS.plan:fb.mode==="wod"?PTS.generado:PTS.libre;
   const sess={id:Date.now(),date:t,week:pos.week>0?pos.week:null,dayIdx:pos.dayIdx,type,mode:fb.mode,
     exercises,durationMin:fb.durationMin,rpe:fb.rpe,srpe,fcAvg:fb.fcAvg||null,
     z2ok:z2Expected?!!z2ok:undefined,feelings:fb.feelings,notes:fb.notes||"",muscleLoad,points:pts,format:fb.formatName||null};
@@ -1432,7 +1488,7 @@ function saveSession(){
   // actualizar paces
   exercises.forEach(e=>{ if(e.avgPace){ st.savedPaces[e.name]=e.avgPace;
     st.paceHistory.push({exercise:e.name,pace:e.avgPace,date:new Date().toLocaleDateString("es-ES",{day:"2-digit",month:"short"}),cat:(allEx().find(x=>x.name===e.name)||{}).cat}); } });
-  addPoints(pts,(isPlanned?"Sesión del plan":"Sesión "+fb.mode)+" — "+type);
+  addPoints(pts,(matchesPlan?"Sesión del plan":"Sesión libre")+" — "+type);
   if(z2Expected&&!z2ok&&fb.fcAvg) toast("⚠ FC "+fb.fcAvg+" — fuera de Z2. La próxima, más suave.");
   // semana perfecta
   if(pos.week>=1){ const d=disciplineWeek(pos.week); if(d&&d.plannedDue>0&&d.done>=d.plannedDue&&pos.dayIdx===6){ st.perfectWeeks++; addPoints(PTS.weekPerfect,"Semana perfecta S"+pos.week); } }
