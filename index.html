@@ -74,15 +74,48 @@ select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(
 "use strict";
 /* ═══════════════════ DEKA TRAINER v4 — HYROX Valencia ═══════════════════ */
 
-/* ── ZONAS FC ── */
-const ZONES = { Z1:[0,120], Z2:[110,130], Z3:[130,145], Z4:[145,160], Z5:[160,175] };
-/* ── REFERENCIAS · tests base 28 jul 2026 ── */
-const REFS = {
-  tests:[["SkiErg 500m","1:33"],["Remo 500m","1:43"],["1 km carrera","3:46"],["AirBike 25 cal","60s"]],
-  run:[["Z2 · base","5:10–5:45/km"],["Z3 · tempo","4:45–5:05/km"],["Z4 · umbral","4:20–4:35/km"],["Z5 · vVO2","3:55–4:15/km"],["Sprint","<3:55/km"]],
-  erg:[["SkiErg race","1:33/500m"],["Remo race","1:43/500m"],["AirBike sprint",">25 cal/min"]],
-  goals:[["SkiErg 500m","1:25–1:28"],["Remo 500m","sub-1:38"],["HYROX Valencia","~1:05"]],
+/* ═══════════════ PERFIL (por defecto: Miguel) ═══════════════
+   Se sobreescribe con planes/<id>.json cuando la URL lleva ?plan=<id> */
+var PROFILE = {
+  id:"miguel", name:"Miguel", planStart:"2026-07-20",
+  activity:{ level:"alto", note:"Psiquiatra, trabajo mayormente sentado. Entrena 5 días/semana.", extras:[] },
+  zones:{ Z1:[0,120], Z2:[110,130], Z3:[130,145], Z4:[145,160], Z5:[160,175] },
+  refs:{
+    tests:[["SkiErg 500m","1:33"],["Remo 500m","1:43"],["1 km carrera","3:46"],["AirBike 25 cal","60s"]],
+    run:[["Z2 · base","5:10–5:45/km"],["Z3 · tempo","4:45–5:05/km"],["Z4 · umbral","4:20–4:35/km"],["Z5 · vVO2","3:55–4:15/km"],["Sprint","<3:55/km"]],
+    erg:[["SkiErg race","1:33/500m"],["Remo race","1:43/500m"],["AirBike sprint",">25 cal/min"]],
+    goals:[["SkiErg 500m","1:25–1:28"],["Remo 500m","sub-1:38"],["HYROX Valencia","~1:05"]],
+  },
+  races:[{name:"XYBRID",date:"2026-09-19"},{name:"HYATHLON",date:"2026-10-10"},{name:"HYROX VALENCIA",date:"2026-10-18"}],
+  equipment:["ninguno","barra","kb","mancuernas","saco","cajon","anillas","balon","comba","clubbell","chaleco","disco","remo","skierg","bike"],
+  habits:null,  // null = usa los de serie
+  plan:null,    // null = usa el PLAN embebido
 };
+var ZONES = PROFILE.zones, REFS = PROFILE.refs;
+/* material necesario para cada ejercicio (deducido del nombre y el peso) */
+const EQNAMES={ninguno:"Sin material",barra:"Barra y discos",kb:"Kettlebells",mancuernas:"Mancuernas",saco:"Saco / sandbag",cajon:"Cajón",anillas:"Anillas / barra dominadas",balon:"Balón medicinal / wall ball",comba:"Comba",clubbell:"Clubbell",chaleco:"Chaleco lastrado",disco:"Disco",remo:"Remoergómetro",skierg:"SkiErg",bike:"Assault Bike"};
+function exEquip(e){
+  const n=e.name.toUpperCase(), wgt=(e.weight||"").toLowerCase();
+  if(/^REMO$/.test(n)) return "remo";
+  if(n==="SKIERG") return "skierg";
+  if(n==="ASSAULT BIKE") return "bike";
+  if(n==="CARRERA") return "ninguno";
+  if(/CLUBBELL/.test(n)) return "clubbell";
+  if(/COMBA|DOUBLE UNDER/.test(n)||/comba/.test(wgt)) return "comba";
+  if(/ANILLA|RING/.test(n)||/anillas/.test(wgt)) return "anillas";
+  if(/PULL-UPS|TOES TO BAR|HANGING/.test(n)) return "anillas";
+  if(/SANDBAG|BEAR HUG|SACO/.test(n)||/saco/.test(wgt)) return "saco";
+  if(/MANCUERNA|APERTURAS|ELEVACIONES|PULLOVER|ENCOGIMIENTOS|EXTENSIÓN TRÍCEPS/.test(n)||/×\d+kg/.test(wgt)&&/MANCUERNA/.test(n)) return "mancuernas";
+  if(/BARRA|SENTADILLA|PESO MUERTO|PRESS BANCA|PRESS MILITAR|PUSH PRESS|FRONT SQUAT|HIP THRUST|RDL$|REMO CON BARRA|FLOOR PRESS|CURL BÍCEPS/.test(n)||/barra/.test(wgt)) return "barra";
+  if(/TO PLATE/.test(n)||/disco/.test(wgt)) return "disco";
+  if(/BOX|CAJÓN/.test(n)||/cajón/.test(wgt)) return "cajon";
+  if(/WALL BALL|SIT-UP THROW|SLAM BALL|RUSSIAN TWIST/.test(n)||/balón/.test(wgt)) return "balon";
+  if(/KB |KETTLEBELL|GOBLET|FARMER|SUITCASE|OVERHEAD CARRY|THRUSTER|DEAD BALL|LUNGES/.test(n)||/kb/.test(wgt)) return "kb";
+  if(/CHALECO/.test(n)||/chaleco/.test(wgt)) return "chaleco";
+  if(/2×\d|×\d+kg/.test(wgt)) return "mancuernas";
+  return "ninguno";
+}
+function hasEquip(e){ const q=exEquip(e); return q==="ninguno"||(PROFILE.equipment||[]).includes(q); }
 
 /* ── GRUPOS MUSCULARES ── */
 const MUSCLES = [
@@ -209,7 +242,7 @@ const HABITS = [
 const SLEEPOPTS=["<5h30","5h30–6h30","6h30–7h30","7h30–8h30","8h30–9h30",">9h30"];
 const SLEEPQ=[1,2,3,5,4,3]; // calidad relativa de cada franja
 
-function habits(){ return (st.habitsCustom&&st.habitsCustom.length)?st.habitsCustom:HABITS; }
+function habits(){ return (st.habitsCustom&&st.habitsCustom.length)?st.habitsCustom:((PROFILE.habits&&PROFILE.habits.length)?PROFILE.habits:HABITS); }
 
 /* ── AYUDA ── */
 const HELP={
@@ -219,6 +252,7 @@ const HELP={
   mobtests:{t:"📏 Tests de movilidad",b:"6 tests tipo GOWOD, escala 1–5. Hazlos <b>en frío</b> (sin calentar) y repítelos cada 2–4 semanas, siempre en condiciones parecidas.<br><br>· <b>Flexión cadera:</b> pies juntos, rodillas estiradas, baja las manos.<br>· <b>Sentadilla profunda:</b> talones en el suelo, sin ayudarte.<br>· <b>Tobillo:</b> rodilla a la pared sin levantar el talón; mide la distancia dedo gordo–pared.<br>· <b>Rotación cadera:</b> tumbado, rodilla a 90°, deja caer el pie hacia fuera.<br>· <b>Hombro:</b> una mano por encima del hombro, otra por debajo, por la espalda.<br>· <b>Torácica:</b> sentadilla con brazos estirados arriba, ¿se quedan verticales?<br><br>Puntuar ≤2 en un test hace que la sesión de movilidad doble el tiempo en esa zona."},
   z2:{t:"💚 Trabajo en Z2 (Maffetone)",b:"Sesiones a intensidad baja y continua, <b>FC ≤130</b>, para construir base aeróbica y quemar grasa como combustible. Aquí no se busca PB: el objetivo es NO subir pulsaciones.<br><br>La app te pide la <b>FC media del reloj</b> al terminar: si te pasaste de 130, la sesión no cuenta como Z2 válida. Es deliberado — el error clásico es convertir el rodaje suave en tempo."},
   disciplina:{t:"🎯 Score de disciplina",b:"Se calcula por semana:<br><br>· <b>50%</b> adherencia al plan (sesiones hechas / planificadas — la movilidad pesa igual que un WOD y saltártela resta)<br>· <b>30%</b> hábitos marcados en el check-in<br>· <b>20%</b> check-ins hechos.<br><br>Los hábitos evaluados los puedes personalizar en Más → Hábitos."},
+  recup:{t:"🌡️ VFC y fuerza de agarre",b:"Dos marcadores que se registran en el check-in matinal y se leen <b>contra tu propia línea base</b>, no contra valores de referencia.<br><br><b>VFC (variabilidad de la frecuencia cardiaca)</b><br>Refleja el equilibrio del sistema nervioso autónomo. Mídela siempre igual: al despertar, tumbado o sentado, antes del café y antes de mirar el móvil. El valor absoluto importa poco — lo que cuenta es dónde cae hoy respecto a tu media de 7 días. Una caída de más de una desviación suele indicar fatiga, sueño malo, alcohol o algo incubándose.<br><br><b>Fuerza de agarre (dinamómetro)</b><br>Proxy razonable de fatiga neuromuscular central: cuando el sistema nervioso está cansado, el agarre baja antes que otros marcadores. Tres intentos por mano, anota el mejor. Una caída sostenida &gt;10% respecto a tu media merece atención.<br><br><b>Asimetría entre manos</b><br>Diferencias del 5-10% son normales (mano dominante). Por encima del 15%, conviene mirarlo: en HYROX el agarre limita en farmers y remo.<br><br><b>Cautela honesta:</b> la VFC tiene respaldo sólido para guiar el entrenamiento; el agarre como marcador diario es más ruidoso. Ninguno de los dos manda por sí solo — si el dato dice rojo pero te encuentras perfecto, o al revés, hazle caso a la tendencia de varios días, no a un valor suelto."},
   xybrid:{t:"🏁 XYBRID · sáb 19 sep",b:"Formato tipo HYROX (8 km de carrera intercalados) con <b>estaciones propias</b>:<br><br>· <b>SkiErg</b> 1000m<br>· <b>Sled Push + Sled Pull</b> — <span style='color:#ffb347'>en la misma estación, sin carrera entre medias</span><br>· <b>Burpees to Plate</b> ×40 <span class='dim'>(sustituye a los Burpee Broad Jump)</span><br>· <b>Rowing</b> 1000m<br>· <b>Assault Bike</b> <span class='dim'>(sustituye al Farmers Carry)</span><br>· <b>Lunges to Box</b> ×40<br>· <b>Slam Ball 30kg</b> ×30 <span class='dim'>(en vez de Wall Balls)</span><br><br><b>Qué cambia para ti:</b><br>· Sled push+pull encadenado = pico de lactato mucho mayor que en HYROX. Sal conservador en el push.<br>· Burpees to plate son más rápidos que los BBJ pero castigan más el pecho.<br>· Slam ball de 30kg con 30 reps es la estación más pesada del circuito — bisagra de cadera, no espalda.<br>· El Air Bike sustituye al farmers: es cardio puro, no agarre. Bueno para ti."},
   formats:{t:"✏️ Formatos de WOD",b:"· <b>Series × Reps:</b> clásico con metrónomo, pace y descansos automáticos.<br>· <b>AMRAP:</b> máximas rondas en X minutos. Marca cada ronda completada.<br>· <b>FOR TIME:</b> trabajo fijo (rondas × ejercicios) en el menor tiempo posible, con time cap opcional.<br>· <b>EMOM:</b> cada minuto empieza un ejercicio; lo que sobra del minuto, descansas.<br>· <b>CIRCUITO:</b> rondas completas con descanso fijo entre rondas.<br>· <b>LADDER:</b> escalera de reps (21-15-9, o 1-2-3…10) con los mismos ejercicios."},
 };
@@ -264,6 +298,7 @@ const DTYPE = {
   "Comp. Running":{c:"#ffb347",mode:"pacer"},
   "Bici Z2":{c:"#3affb8",mode:"pacer",z2:true},
   "Tempo":{c:"#C5E0A0",mode:"pacer"},
+  "Otra actividad":{c:"#8a8aaa",mode:"otra"},
   "Movilidad":{c:"#3affb8",mode:"mob"},
   "Descanso":{c:"#4a4a5a",mode:"rest"},
   "COMPETICIÓN":{c:"#D85A30",mode:"race"},
@@ -272,7 +307,7 @@ const DTYPE = {
   "Playa":{c:"#3affb8",mode:"wod"},
 };
 
-const PLAN = [
+var PLAN = [
 {w:1,m:1,dates:"21–27 jul",label:"Recuperación activa post-DEKA",days:[
  {d:"Lun",t:"Descanso",main:"Descanso total. Deja que el cuerpo procese Madrid. 3L agua + electrolitos."},
  {d:"Mar",t:"Ergómetro",main:"Sesión suave recuperación: Remo 15 min Z2 + Air Bike 15 min Z2 (7-10 cal/min display). Sin mirar splits. Solo mover sangre.",sub:"Recuperación, no rendimiento",fc:"Z2 · <130 bpm"},
@@ -393,7 +428,7 @@ const PLAN = [
 ];
 
 /* ═══════════════════ CORE: estado, fechas, carga, puntos ═══════════════════ */
-const KEY = "deka-trainer-v4";
+var KEY = "deka-trainer-v4";  // miguel conserva la clave original; el resto añade sufijo
 const defaultState = {
   planStart: "2026-07-20",           // lunes de la S1
   sessions: [],                       // {id,date,week,dayIdx,type,mode,exercises,durationMin,rpe,srpe,fcAvg,z2ok,feelings,notes,muscleLoad,points}
@@ -462,6 +497,57 @@ function muscleStatus(){ // por músculo: {load7, ratio, sore, flag: ok|alto|sob
     out[mu.id]={rel,ratio,sore:s,flag};
   });
   return out;
+}
+
+/* ── métricas matinales: VFC, FC reposo y dinamometría ── */
+function metricSeries(k,days){ // [{date,v}] más antiguo → más reciente
+  const out=[], today=new Date();
+  for(let i=(days||90)-1;i>=0;i--){ const d=new Date(today); d.setDate(today.getDate()-i);
+    const iso=todayISO(d), c=st.checkins[iso];
+    let v=c&&c.metrics?c.metrics[k]:null;
+    if(k==="grip"&&c&&c.metrics){ const a=c.metrics.gripL,b=c.metrics.gripR;
+      v=(a!=null&&b!=null)?(a+b)/2:(a!=null?a:(b!=null?b:null)); }
+    if(v!=null&&!isNaN(v)) out.push({date:iso,v:+v});
+  }
+  return out;
+}
+function baseline(k,excludeToday){ // media y desviación de los últimos 7 y 28 registros
+  let s=metricSeries(k,60);
+  if(excludeToday) s=s.filter(p=>p.date!==todayISO());
+  if(s.length<3) return null;
+  const last7=s.slice(-7).map(p=>p.v), last28=s.slice(-28).map(p=>p.v);
+  const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+  const m7=mean(last7), m28=mean(last28);
+  let sd=Math.sqrt(mean(last28.map(v=>(v-m28)*(v-m28))))||1;
+  // suelo del 5% de la media: si tus datos son muy estables, evita que caídas triviales disparen alarmas
+  sd=Math.max(sd, m28*0.05);
+  return {m7,m28,sd,n:s.length};
+}
+function readiness(dISO){
+  const iso=dISO||todayISO(), c=st.checkins[iso];
+  const mt=(c&&c.metrics)||{};
+  const gripToday=(mt.gripL!=null&&mt.gripR!=null)?(mt.gripL+mt.gripR)/2:(mt.gripL!=null?mt.gripL:mt.gripR);
+  if(mt.hrv==null&&gripToday==null) return null;
+  const bH=baseline("hrv",true), bG=baseline("grip",true);
+  const parts=[]; let score=0, n=0;
+  if(mt.hrv!=null&&bH){ const z=(mt.hrv-bH.m7)/bH.sd; score+=z; n++;
+    parts.push("VFC "+mt.hrv+" ms ("+(z>=0?"+":"")+z.toFixed(1)+" DE sobre tu media de 7 días: "+bH.m7.toFixed(0)+")"); }
+  else if(mt.hrv!=null) parts.push("VFC "+mt.hrv+" ms — aún sin línea base (necesito 3+ días)");
+  if(gripToday!=null&&bG){ const pct=gripToday/bG.m7*100; score+=(pct-100)/7; n++;
+    parts.push("Agarre "+gripToday.toFixed(1)+" kg ("+(pct>=100?"+":"")+(pct-100).toFixed(0)+"% vs tu media)"); }
+  else if(gripToday!=null) parts.push("Agarre "+gripToday.toFixed(1)+" kg — construyendo línea base");
+  // asimetría
+  if(mt.gripL!=null&&mt.gripR!=null){
+    const asym=Math.abs(mt.gripL-mt.gripR)/Math.max(mt.gripL,mt.gripR)*100;
+    if(asym>15) parts.push("⚠ Asimetría "+asym.toFixed(0)+"% entre manos");
+  }
+  if(!n) return {c:"#8a8aaa",icon:"📊",t:"Registrando",msg:parts.join(" · ")};
+  const z=score/n;
+  const r = z>=-0.3 ? {c:"#3affb8",icon:"🟢",t:"Recuperado",msg:"Puedes ir a por la sesión tal como está planificada."}
+        : z>=-1.2 ? {c:"#ffb347",icon:"🟡",t:"Fatiga moderada",msg:"Haz la sesión, pero sin buscar récords. Si es un día de calidad, quédate en el extremo bajo del objetivo."}
+        : {c:"#ff4f3a",icon:"🔴",t:"Fatiga alta",msg:"Tu cuerpo pide margen. Cambia la intensidad por Z2, o descansa. Forzar hoy te cuesta los tres días siguientes."};
+  r.msg=parts.join(" · ")+". "+r.msg;
+  return r;
 }
 
 /* ── sRPE y Z2 ── */
@@ -594,7 +680,9 @@ function testAudio(){ audioInit(); beep(880,0.12); setTimeout(()=>beep(1200,0.18
 
 /* ── UI helpers ── */
 const $=id=>document.getElementById(id);
-function h(html){ const t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstChild; }
+function h(html){ const t=document.createElement("template"); t.innerHTML=html.trim();
+  // si hay varios elementos raíz devuelve un fragmento (si no, se perdería todo menos el primero)
+  return t.content.childNodes.length>1 ? t.content : t.content.firstChild; }
 function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 let toastTimer=null;
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.style.display="block";
@@ -626,7 +714,7 @@ function renderHoy(){
   const sessToday=st.sessions.filter(s=>s.date===t);
   const raceInfo=nextRace();
   const el=h('<div class="screen active"></div>');
-  el.appendChild(h('<div class="hdr"><div class="logo">DEKA TRAINER</div><div class="slbl">'+DAYNAMES[(new Date().getDay()+6)%7]+' '+new Date().getDate()+'<br>'+(pos.week>=1?'Semana '+pos.week+'/13':pos.week===0?'Pre-plan':'Plan finalizado')+'</div></div>'));
+  el.appendChild(h('<div class="hdr"><div><div class="logo">DEKA TRAINER</div>'+(PROFILE.name?'<div style="font-size:11px;color:#7a7a94;margin-top:2px">'+esc(PROFILE.name)+'</div>':'')+'</div><div class="slbl">'+DAYNAMES[(new Date().getDay()+6)%7]+' '+new Date().getDate()+'<br>'+(pos.week>=1?'Semana '+pos.week+'/'+PLAN.length:pos.week===0?'Pre-plan':'Plan finalizado')+'</div></div>'));
 
   // Puntos + racha + carrera
   el.appendChild(h('<div class="card" style="display:flex;gap:0;padding:14px 8px"><div style="flex:1;text-align:center"><div class="big" style="font-size:30px;color:#e8ff3a">'+st.points+'</div><div style="font-size:10px;color:#7a7a94;margin-top:3px">Puntos</div></div><div style="flex:1;text-align:center;border-left:1px solid #23233a"><div class="big" style="font-size:30px;color:#ff8347">'+checkinStreak()+'</div><div style="font-size:10px;color:#7a7a94;margin-top:3px">Racha 🔥</div></div><div style="flex:1.3;text-align:center;border-left:1px solid #23233a"><div class="big" style="font-size:30px;color:#3ab4ff">'+(raceInfo?raceInfo.days+'d':'—')+'</div><div style="font-size:10px;color:#7a7a94;margin-top:3px">'+(raceInfo?esc(raceInfo.name):'Sin carrera')+'</div></div></div>'));
@@ -653,6 +741,9 @@ function renderHoy(){
   ckCard.appendChild(strip);
   if(!checkinDone) ckCard.appendChild(h('<div style="margin-top:12px;font-size:11px;color:#ffb347">☀️ Check-in de hoy pendiente — toca el día</div>'));
   el.appendChild(ckCard);
+  // readiness del día (VFC + agarre)
+  const rd=readiness();
+  if(rd) el.appendChild(h('<div class="card" style="border-color:'+rd.c+'55;background:'+rd.c+'0e"><div class="row" style="margin-bottom:4px"><span style="font-size:14px;font-weight:700;color:'+rd.c+'">'+rd.icon+' '+rd.t+'</span><span class="mono dim" style="font-size:10px">HOY</span></div><div style="font-size:11px;color:#a0a0b8;line-height:1.55">'+esc(rd.msg)+'</div></div>'));
 
   // Día del plan
   if(pos.week===0){
@@ -711,7 +802,7 @@ function renderHoy(){
 
   el.appendChild(h('<div style="display:flex;gap:8px;margin-bottom:10px"><button class="btn2" style="margin:0;flex:1" onclick="openGenerator()">⚙ Generar</button><button class="btn2" style="margin:0;flex:1" onclick="openBuilder()">✏️ Diseñar</button><button class="btn2" style="margin:0;flex:1;border-color:rgba(232,255,58,.35);color:#e8ff3a" onclick="openFavs()">⭐ Favoritos'+(st.favorites.length?' ('+st.favorites.length+')':'')+'</button></div>'));
   el.appendChild(h('<button class="btn2" onclick="openPacer(false)">🔔 Pacer · Intervalos con audio (ergómetros/carrera)</button>'));
-  el.appendChild(h('<button class="btn2" style="margin:0" onclick="openRefs()">📊 Mis ritmos y zonas (tests 28 jul)</button>'));
+  el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openRefs()">📊 Ritmos y zonas</button><button class="btn2" style="margin:0;flex:1" onclick="openOtra()">🏃‍♂️ Otra actividad</button></div>'));
   return el;
 }
 function openRefs(){
@@ -727,7 +818,7 @@ function openRefs(){
 }
 function nextRace(){
   const t=todayISO();
-  const races=[{name:"XYBRID",date:"2026-09-19"},{name:"HYATHLON",date:"2026-10-10"},{name:"HYROX VALENCIA",date:"2026-10-18"}];
+  const races=(PROFILE.races||[]).slice().sort((a,b)=>a.date<b.date?-1:1);
   for(const r of races){ const d=daysBetween(t,r.date); if(d>=0) return {name:r.name,days:d}; }
   return null;
 }
@@ -855,6 +946,15 @@ function openCheckin(dateISO){
     html+='<button class="btn3" style="flex:1;padding:6px 2px;text-align:center;'+(cur?'border-color:#e8ff3a;color:#e8ff3a;':'')+(done?'background:rgba(58,255,184,.12);':'')+(fut?'opacity:.25;':'')+'" '+(fut?'disabled':'onclick="openCheckin(\''+d+'\')"')+'>'+dias[i]+'<br><span style="font-size:10px">'+d.slice(8,10)+'</span>'+(done?'<br><span style="color:#3affb8">✓</span>':'')+'</button>';
   });
   html+='</div>';
+  // métricas objetivas de la mañana
+  const mt=c.metrics||{};
+  html+='<div style="font-size:12px;font-weight:600;margin-bottom:2px">🌡️ Métricas de la mañana</div>';
+  html+='<div class="dim" style="font-size:10px;margin-bottom:8px">Nada más despertar, antes de café. Mismas condiciones cada día.</div>';
+  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">'+
+    [["hrv","VFC (ms)","rMSSD del reloj"],["rhr","FC reposo"," ppm"],["gripL","Agarre izq (kg)","dinamómetro"],["gripR","Agarre der (kg)","dinamómetro"]]
+    .map(([k,lb])=>'<div><div class="dim" style="font-size:10px;margin-bottom:3px">'+lb+'</div><input type="number" inputmode="decimal" id="mt_'+k+'" value="'+(mt[k]!=null?mt[k]:"")+'" onchange="ckMetric(\''+k+'\',this.value)" placeholder="—"></div>').join("")+'</div>';
+  const rd=readiness(t);
+  if(rd) html+='<div style="background:'+rd.c+'18;border:1px solid '+rd.c+'55;border-radius:12px;padding:10px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:'+rd.c+'">'+rd.icon+' '+rd.t+'</div><div style="font-size:11px;color:#a0a0b8;line-height:1.5;margin-top:3px">'+rd.msg+'</div></div>';
   html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">💢 Agujetas (0 nada · 3 fuertes)</div>';
   MUSCLES.forEach(mu=>{
     html+='<div class="row" style="padding:4px 0"><span style="font-size:12px">'+mu.name+'</span><span class="chips">';
@@ -871,11 +971,17 @@ function openCheckin(dateISO){
   st._ckDraft=c;
   overlay(html);
 }
-function ckSore(m,v){ st._ckDraft.soreness[m]=v; ckPersist(); }
-function ckSleep(v){ st._ckDraft.sleep=v; ckPersist(); }
-function ckHabit(id){ st._ckDraft.habits[id]=!st._ckDraft.habits[id]; ckPersist(); }
+function ckMetric(k,v){ const d=st._ckDraft; d.metrics=d.metrics||{};
+  const n=parseFloat(String(v).replace(",",".")); d.metrics[k]=isNaN(n)?null:n;
+  st.checkins[st._ckDate]=d; save(); }
+function ckSore(m,v){ ckKeepMetrics(); st._ckDraft.soreness[m]=v; ckPersist(); }
+function ckKeepMetrics(){ const d=st._ckDraft; d.metrics=d.metrics||{};
+  ["hrv","rhr","gripL","gripR"].forEach(k=>{ const el=$("mt_"+k); if(el){ const n=parseFloat(String(el.value).replace(",",".")); d.metrics[k]=isNaN(n)?null:n; } }); }
+function ckSleep(v){ ckKeepMetrics(); st._ckDraft.sleep=v; ckPersist(); }
+function ckHabit(id){ ckKeepMetrics(); st._ckDraft.habits[id]=!st._ckDraft.habits[id]; ckPersist(); }
 function ckPersist(){ const d=st._ckDraft; st.checkins[st._ckDate]=d; openCheckin(st._ckDate); st._ckDraft=d; }
 function saveCheckin(){
+  ckKeepMetrics();
   const t=st._ckDate||todayISO(), first=!st.checkins[t]||!st.checkins[t]._saved;
   const d=st._ckDraft; d._saved=true; st.checkins[t]=d;
   if(first&&t===todayISO()){ const hw=habits().reduce((a,hb)=>a+((d.habits||{})[hb.id]?(hb.w||1):0),0);
@@ -936,6 +1042,8 @@ function renderProgreso(){
   });
   save();
   el.appendChild(at);
+  // Recuperación: VFC y agarre
+  const rec=recoveryCard(); if(rec) el.appendChild(rec);
   // Training State (ACWR global con banda óptima)
   el.appendChild(trainingStateCard());
   // Load Mix
@@ -973,6 +1081,87 @@ function renderProgreso(){
   }
   return el;
 }
+/* ── Recuperación: VFC, agarre y FC en reposo ── */
+function recoveryCard(){
+  const hrv=metricSeries("hrv",90), grip=metricSeries("grip",90), rhr=metricSeries("rhr",90);
+  if(!hrv.length&&!grip.length&&!rhr.length) return null;
+  const card=h('<div class="card"><div class="row"><div class="ctitle" style="margin-bottom:12px">Recuperación</div>'+helpBtn("recup")+'</div></div>');
+  const rd=readiness();
+  if(rd) card.appendChild(h('<div style="background:'+rd.c+'18;border:1px solid '+rd.c+'55;border-radius:12px;padding:10px;margin-bottom:12px"><div style="font-size:13px;font-weight:700;color:'+rd.c+'">'+rd.icon+' '+rd.t+'</div><div style="font-size:11px;color:#a0a0b8;line-height:1.5;margin-top:3px">'+esc(rd.msg)+'</div></div>'));
+  // resumen numérico
+  const box=(lb,ser,unit,col,hi)=>{
+    if(!ser.length) return '';
+    const b=baseline(lb==="Agarre"?"grip":(lb==="VFC"?"hrv":"rhr"),false);
+    const last=ser[ser.length-1].v, m=b?b.m28:last;
+    const dv=last-m, good=hi?dv>=0:dv<=0;
+    return '<div style="flex:1;text-align:center"><div class="dim" style="font-size:9px;text-transform:uppercase;letter-spacing:1px">'+lb+'</div><div class="big" style="font-size:26px;color:'+col+'">'+(Math.round(last*10)/10)+'</div><div class="mono" style="font-size:9px;color:'+(good?"#3affb8":"#ff8347")+'">'+(dv>=0?"+":"")+dv.toFixed(1)+' vs 28d</div><div class="dim" style="font-size:9px">'+unit+'</div></div>';
+  };
+  card.appendChild(h('<div style="display:flex;gap:6px;margin-bottom:12px">'+box("VFC",hrv,"ms","#3affb8",true)+box("Agarre",grip,"kg media","#e8ff3a",true)+box("FC reposo",rhr,"ppm","#3ab4ff",false)+'</div>'));
+  if(hrv.length>2){ card.appendChild(h('<div class="ctitle mini" style="margin:6px 0 4px">VFC · 90 días</div><canvas id="hrvc"></canvas>'));
+    setTimeout(()=>drawMetric("hrvc",hrv,"#3affb8",true),40); }
+  if(grip.length>2){ card.appendChild(h('<div class="ctitle mini" style="margin:12px 0 4px">Fuerza de agarre · 90 días</div><canvas id="gripc"></canvas>'));
+    setTimeout(()=>drawGrip(),60); }
+  // asimetría
+  const asy=[]; Object.entries(st.checkins).forEach(([d,c])=>{ const m=c.metrics||{};
+    if(m.gripL!=null&&m.gripR!=null) asy.push({date:d,v:Math.abs(m.gripL-m.gripR)/Math.max(m.gripL,m.gripR)*100}); });
+  if(asy.length){ const avg=asy.reduce((a,b)=>a+b.v,0)/asy.length;
+    card.appendChild(h('<div class="row" style="margin-top:12px;padding-top:10px;border-top:1px solid #232334"><span style="font-size:12px">Asimetría media entre manos</span><span class="mono" style="font-size:13px;color:'+(avg>15?"#ff4f3a":avg>10?"#ffb347":"#3affb8")+'">'+avg.toFixed(0)+'%</span></div>'+
+      (avg>10?'<div class="dim" style="font-size:11px;line-height:1.5;margin-top:4px">Por encima del 10-15% conviene mirarlo: puede ser dominancia normal o algo que compensar en carries y remo.</div>':'')));
+  }
+  return card;
+}
+function drawMetric(id,ser,color,showBand){
+  const cv=$(id); if(!cv||ser.length<2) return;
+  const dpr=window.devicePixelRatio||2, W=Math.min(420,cv.parentNode.clientWidth||300), H=120;
+  cv.width=W*dpr; cv.height=H*dpr; cv.style.width="100%"; cv.style.height=H+"px";
+  const ctx=cv.getContext("2d"); ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
+  const x0=32,x1=W-6,y0=8,y1=H-16;
+  const vs=ser.map(p=>p.v); let mn=Math.min(...vs),mx=Math.max(...vs);
+  const pad=(mx-mn)*0.15||1; mn-=pad; mx+=pad;
+  const Y=v=>y1-((v-mn)/(mx-mn))*(y1-y0);
+  // banda de línea base (media 28 ± 1 DE)
+  if(showBand&&ser.length>=4){
+    const last28=vs.slice(-28), m=last28.reduce((a,b)=>a+b,0)/last28.length;
+    const sd=Math.sqrt(last28.map(v=>(v-m)*(v-m)).reduce((a,b)=>a+b,0)/last28.length)||1;
+    ctx.fillStyle=color+"18"; ctx.fillRect(x0,Y(m+sd),x1-x0,Math.max(1,Y(m-sd)-Y(m+sd)));
+    ctx.setLineDash([4,4]); ctx.beginPath(); ctx.moveTo(x0,Y(m)); ctx.lineTo(x1,Y(m));
+    ctx.strokeStyle=color+"88"; ctx.lineWidth=1; ctx.stroke(); ctx.setLineDash([]);
+  }
+  [mx-pad,mn+pad].forEach(v=>{ ctx.fillStyle="#6a6a8a"; ctx.font="9px monospace"; ctx.textAlign="right";
+    ctx.fillText(Math.round(v),x0-4,Y(v)+3); });
+  const step=(x1-x0)/(ser.length-1);
+  ctx.beginPath(); ser.forEach((p,i)=>{const x=x0+i*step,y=Y(p.v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.strokeStyle=color; ctx.lineWidth=2; ctx.lineJoin="round"; ctx.stroke();
+  ser.forEach((p,i)=>{ ctx.beginPath(); ctx.arc(x0+i*step,Y(p.v),i===ser.length-1?4:2.5,0,Math.PI*2);
+    ctx.fillStyle=i===ser.length-1?"#fff":color; ctx.fill(); });
+  ctx.fillStyle="#6a6a8a"; ctx.font="9px monospace"; ctx.textAlign="left";
+  ctx.fillText(ser[0].date.slice(8,10)+"/"+ser[0].date.slice(5,7),x0,H-3);
+  ctx.textAlign="right"; ctx.fillText("hoy",x1,H-3);
+}
+function drawGrip(){
+  const cv=$("gripc"); if(!cv) return;
+  const L=metricSeries("gripL",90), R=metricSeries("gripR",90);
+  if(L.length<2&&R.length<2) return drawMetric("gripc",metricSeries("grip",90),"#e8ff3a",true);
+  const dpr=window.devicePixelRatio||2, W=Math.min(420,cv.parentNode.clientWidth||300), H=120;
+  cv.width=W*dpr; cv.height=H*dpr; cv.style.width="100%"; cv.style.height=H+"px";
+  const ctx=cv.getContext("2d"); ctx.scale(dpr,dpr); ctx.clearRect(0,0,W,H);
+  const x0=32,x1=W-6,y0=8,y1=H-16;
+  const all=L.concat(R).map(p=>p.v); let mn=Math.min(...all),mx=Math.max(...all);
+  const pad=(mx-mn)*0.15||1; mn-=pad; mx+=pad;
+  const Y=v=>y1-((v-mn)/(mx-mn))*(y1-y0);
+  [mx-pad,mn+pad].forEach(v=>{ ctx.fillStyle="#6a6a8a"; ctx.font="9px monospace"; ctx.textAlign="right"; ctx.fillText(Math.round(v),x0-4,Y(v)+3); });
+  [[L,"#e8ff3a","izq"],[R,"#a78bfa","der"]].forEach(([ser,col])=>{
+    if(ser.length<2) return;
+    const step=(x1-x0)/(ser.length-1);
+    ctx.beginPath(); ser.forEach((p,i)=>{const x=x0+i*step,y=Y(p.v); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.strokeStyle=col; ctx.lineWidth=2; ctx.lineJoin="round"; ctx.stroke();
+    ctx.beginPath(); ctx.arc(x1,Y(ser[ser.length-1].v),3.5,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+  });
+  ctx.font="9px monospace"; ctx.textAlign="left";
+  ctx.fillStyle="#e8ff3a"; ctx.fillText("● izquierda",x0,H-3);
+  ctx.fillStyle="#a78bfa"; ctx.fillText("● derecha",x0+62,H-3);
+}
+
 /* ── Training State: ACWR global con banda óptima 0.8–1.3 ── */
 function acwrOn(dISO){
   const by=dailyLoads();
@@ -1181,15 +1370,21 @@ function renderMas(){
   // Guía rápida
   const gd=h('<div class="card"><div class="ctitle">❓ Guía rápida</div><div class="chips"></div></div>');
   const gch=gd.querySelector(".chips");
-  [["xybrid","🏁 Xybrid 19 sep"],["pace","⏱ Pace"],["heatmap","🫀 Mapa muscular"],["acwr","📈 ACWR"],["mobtests","📏 Tests movilidad"],["z2","💚 Z2"],["disciplina","🎯 Disciplina"],["formats","✏️ Formatos WOD"]].forEach(([k,lb])=>{
+  [["recup","🌡️ VFC y agarre"],["xybrid","🏁 Xybrid 19 sep"],["pace","⏱ Pace"],["heatmap","🫀 Mapa muscular"],["acwr","📈 ACWR"],["mobtests","📏 Tests movilidad"],["z2","💚 Z2"],["disciplina","🎯 Disciplina"],["formats","✏️ Formatos WOD"]].forEach(([k,lb])=>{
     const b=h('<button class="btn3">'+lb+'</button>'); b.onclick=()=>openHelp(k); gch.appendChild(b);
   });
   el.appendChild(gd);
   // Export coach + datos
   el.appendChild(h('<button class="btn2" onclick="exportCoach()">📋 Copiar resumen para Coach (Claude)</button>'));
   el.appendChild(h('<button class="btn2" onclick="openData()">💾 Copia de seguridad / restaurar datos</button>'));
-  // Ajustes
-  el.appendChild(h('<div class="card"><div class="ctitle">Ajustes</div><div style="font-size:12px;margin-bottom:6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"><button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button></div>'));
+  // Perfil
+  const pf=h('<div class="card"><div class="ctitle">👤 Perfil · '+esc(PROFILE.name||"—")+'</div></div>');
+  pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #232334"><span style="font-size:12px">Plan cargado</span><span class="mono" style="font-size:12px;color:#e8ff3a">'+esc(PROFILE.id)+' · '+PLAN.length+' semanas</span></div>'));
+  pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #232334"><span style="font-size:12px">Actividad de base</span><span class="mono" style="font-size:12px">'+esc((PROFILE.activity&&PROFILE.activity.level)||"—")+'</span></div>'));
+  if(PROFILE.activity&&PROFILE.activity.note) pf.appendChild(h('<div class="dim" style="font-size:11px;line-height:1.5;margin-top:6px">'+esc(PROFILE.activity.note)+'</div>'));
+  pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' de '+allEx().length+' ejercicios disponibles con tu material.</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
+  pf.appendChild(h('<button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button>'));
+  el.appendChild(pf);
   return el;
 }
 function savePlanStart(){ const v=$("planStartInput").value.trim(); if(/^\d{4}-\d{2}-\d{2}$/.test(v)){ st.planStart=v; save(); toast("Inicio del plan: "+v); render(); } else toast("Formato: YYYY-MM-DD"); }
@@ -1232,6 +1427,12 @@ function exportCoach(){
     "", "CARGA MUSCULAR 7d (ACWR): "+MUSCLES.map(m=>m.name+" "+(ms[m.id].ratio?ms[m.id].ratio.toFixed(1):"—")+(ms[m.id].flag!=="ok"?"⚠":"")).join(" · "),
     disc?"DISCIPLINA SEMANA: "+disc.score+"/100 ("+disc.done+"/"+disc.plannedDue+" entrenos, "+Math.round(disc.hab*100)+"% hábitos)":"",
     "PUNTOS: "+st.points+" | Racha check-in: "+checkinStreak()+"d",
+    (()=>{ const hs=metricSeries("hrv",14), gs=metricSeries("grip",14), rd=readiness();
+      if(!hs.length&&!gs.length) return "";
+      return "\nRECUPERACIÓN (14d):"+
+        (hs.length?"\n• VFC: "+hs.map(p=>p.date.slice(8,10)+"/"+p.date.slice(5,7)+" "+p.v).join(", "):"")+
+        (gs.length?"\n• Agarre medio: "+gs.map(p=>p.date.slice(8,10)+"/"+p.date.slice(5,7)+" "+p.v.toFixed(1)+"kg").join(", "):"")+
+        (rd?"\n• Estado hoy: "+rd.t+" — "+rd.msg:""); })(),
     "", "Analiza mi semana y proponme ajustes para los próximos días del plan HYROX Valencia."
   ].filter(Boolean).join("\n");
   copyText(lines); toast("📋 Copiado — pégalo en Claude");
@@ -1270,8 +1471,8 @@ function generateWod(){
   const ms=muscleStatus();
   const focus=genOpts.focus, mins=genOpts.mins;
   const nEx=mins<=20?3:mins<=30?4:5, nSets=mins>=40?4:3;
-  // base: sin ergómetros y respetando sobrecarga/agujetas SIEMPRE
-  const safe=allEx().filter(e=>!e.erg&&!Object.entries(e.m).some(([mu,c])=>c>=0.5&&(ms[mu].flag==="sobrecarga"||ms[mu].sore>=2)));
+  // base: sin ergómetros, con material disponible y respetando sobrecarga/agujetas SIEMPRE
+  const safe=allEx().filter(e=>!e.erg&&hasEquip(e)&&!Object.entries(e.m).some(([mu,c])=>c>=0.5&&(ms[mu].flag==="sobrecarga"||ms[mu].sore>=2)));
   let pool=safe.slice();
   if(focus==="metabólico") pool=pool.filter(e=>e.cat==="metabólico"||e.cat==="hyrox");
   else if(focus==="fuerza") pool=pool.filter(e=>e.cat==="fuerza");
@@ -1652,6 +1853,37 @@ function manualNext(){
   st._fb={results:[],durationMin:mins,mode:"manual"};
   showFeedback();
 }
+/* ── otras actividades (no específicas): cuentan como carga, no como plan ── */
+const OTRAS=[
+  {n:"Pádel",m:{cuads:.4,gemelos:.4,core:.3,hombros:.3,brazos:.3},k:1},
+  {n:"Fútbol",m:{cuads:.5,isquios:.5,gemelos:.5,gluteos:.3},k:1.1},
+  {n:"Bici / paseo",m:{cuads:.4,gemelos:.3},k:.7},
+  {n:"Caminata / senderismo",m:{cuads:.3,gemelos:.4,gluteos:.2},k:.6},
+  {n:"Natación",m:{espalda:.5,hombros:.5,core:.4},k:.8},
+  {n:"Esquí / montaña",m:{cuads:.6,gluteos:.4,core:.3},k:1},
+  {n:"Trabajo físico",m:{lumbar:.3,espalda:.3,cuads:.2},k:.5},
+  {n:"Otra",m:{core:.2},k:.7},
+];
+var OA={i:0,min:60,rpe:5};
+function openOtra(){
+  let html='<div class="ctitle">🏃‍♂️ Otra actividad</div><div style="font-size:11px;color:#7a7a94;line-height:1.5;margin-bottom:10px">Actividades no específicas que igualmente te generan fatiga. Suman a la carga y al ACWR, pero no cuentan como sesión del plan.</div>';
+  html+='<div class="chips" style="margin-bottom:12px">';
+  OTRAS.forEach((o,i)=>{ html+='<button class="btn3'+(OA.i===i?' sel':'')+'" onclick="OA.i='+i+';openOtra()">'+esc(o.n)+'</button>'; });
+  html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">Duración</div><div class="chips" style="margin-bottom:12px">';
+  [30,45,60,90,120,180].forEach(v=>{ html+='<button class="btn3'+(OA.min===v?' sel':'')+'" onclick="OA.min='+v+';openOtra()">'+(v<60?v+"'":(v/60)+'h')+'</button>'; });
+  html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">Intensidad (RPE)</div><div class="chips" style="margin-bottom:12px">';
+  for(let i=1;i<=10;i++) html+='<button class="btn3'+(OA.rpe===i?' sel':'')+'" onclick="OA.rpe='+i+';openOtra()">'+i+'</button>';
+  html+='</div><button class="btn" onclick="saveOtra()">REGISTRAR ACTIVIDAD</button>';
+  overlay(html);
+}
+function saveOtra(){
+  const o=OTRAS[OA.i], t=todayISO();
+  const load={}; Object.entries(o.m).forEach(([m,c])=>load[m]=c*OA.min*o.k*0.35);
+  st.sessions.push({id:Date.now(),date:t,week:planPos().week>0?planPos().week:null,type:"Otra actividad",subtype:o.n,
+    mode:"otra",exercises:[],durationMin:OA.min,rpe:OA.rpe,srpe:OA.rpe*OA.min,muscleLoad:load,points:2,notes:o.n});
+  addPoints(2,"Actividad: "+o.n);
+  save(); closeOverlay(); render(); toast(o.n+" registrado · +2 pts");
+}
 function startMobilitySession(){
   const last=st.mobHistory[st.mobHistory.length-1];
   const worst=last?MOB_TESTS.filter(t=>last.scores[t.id]<=2):[];
@@ -1746,11 +1978,13 @@ function openExPicker(){
     html+='</div>';
   }
   html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">Ergómetros y carrera <span style="text-transform:none;letter-spacing:0">— para WODs mixtos</span></div><div class="chips">';
-  EXDB.filter(e=>e.erg).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">🚣 '+esc(e.name)+' <span class="dim">('+esc(e.unit)+')</span></button>'; });
+  EXDB.filter(e=>e.erg&&hasEquip(e)).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">🚣 '+esc(e.name)+' <span class="dim">('+esc(e.unit)+')</span></button>'; });
   html+='</div>';
   ["hyrox","metabólico","fuerza","core"].forEach(cat=>{
+    const list=EXDB.filter(e=>!e.erg&&e.cat===cat&&hasEquip(e));
+    if(!list.length) return;
     html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">'+cat+'</div><div class="chips">';
-    EXDB.filter(e=>!e.erg&&e.cat===cat).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">'+esc(e.name)+'</button>'; });
+    list.forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">'+esc(e.name)+'</button>'; });
     html+='</div>';
   });
   html+='<button class="btn2" style="margin-top:12px" onclick="openExCreator()">➕ Crear ejercicio propio</button>';
@@ -1927,8 +2161,32 @@ function fpQuit(){ fpClear(); FP.finished=true; closeOverlay(); }
 /* ═══════════════════ INIT ═══════════════════ */
 const _origClose=closeOverlay;
 closeOverlay=function(){ pClear(); fpClear(); FP.running=false; PC.timers.forEach(clearInterval); PC.timers=[]; PC.running=false; st._ckDate=null; _origClose(); };
-checkBadges();
-render();
+
+function applyProfile(p){
+  PROFILE=Object.assign({},PROFILE,p||{});
+  if(PROFILE.zones) ZONES=PROFILE.zones;
+  if(PROFILE.refs) REFS=PROFILE.refs;
+  if(PROFILE.plan&&PROFILE.plan.length) PLAN=PROFILE.plan;
+  if(PROFILE.id&&PROFILE.id!=="miguel") KEY="deka-trainer-v4-"+PROFILE.id;
+  st=loadState();
+  if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
+}
+async function boot(){
+  const id=(new URLSearchParams(location.search).get("plan")||"").trim().toLowerCase().replace(/[^a-z0-9_-]/g,"");
+  if(id&&id!=="miguel"){
+    try{
+      const r=await fetch("planes/"+id+".json",{cache:"no-cache"});
+      if(!r.ok) throw new Error(r.status);
+      applyProfile(await r.json());
+    }catch(e){
+      document.getElementById("app").innerHTML='<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="location.search=\'\'">Abrir plan por defecto</button></div>';
+      return;
+    }
+  } else applyProfile(null);
+  checkBadges();
+  render();
+}
+boot();
 </script>
 </body>
 </html>
