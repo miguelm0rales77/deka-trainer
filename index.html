@@ -89,6 +89,7 @@ var PROFILE = {
   races:[{name:"XYBRID",date:"2026-09-19"},{name:"HYATHLON",date:"2026-10-10"},{name:"HYROX VALENCIA",date:"2026-10-18"}],
   equipment:["ninguno","barra","kb","mancuernas","saco","cajon","anillas","balon","comba","clubbell","chaleco","disco","remo","skierg","bike"],
   habits:null,  // null = usa los de serie
+  exclude:[],   // ejercicios vetados (lesiones, limitaciones)
   plan:null,    // null = usa el PLAN embebido
 };
 var ZONES = PROFILE.zones, REFS = PROFILE.refs;
@@ -218,7 +219,11 @@ const EXDB = [
   {name:"SLAM BALL", cat:"hyrox", wf:1.8, reps:15, sets:3, rest:90, weight:"30kg", paceMin:25, paceMax:150, note:"Balón 30kg del suelo por encima de la cabeza y al suelo. Estación Xybrid (30 reps).", m:{lumbar:.6,espalda:.6,hombros:.6,core:.7,gluteos:.5,brazos:.4}},
   {name:"FARMER MANCUERNAS", cat:"fuerza", wf:1.6, reps:1, sets:4, rest:75, weight:"2×24kg · 30m", paceMin:20, paceMax:100, note:"Versión mancuernas del farmers carry.", m:{brazos:.6,core:.5,espalda:.4,gemelos:.3}, unit:"tramos"},
 ];
-function allEx(){ return EXDB.concat(st.exCustom||[]); }
+function allEx(){
+  const ex=EXDB.concat(st.exCustom||[]);
+  const skip=(PROFILE&&PROFILE.exclude)||[];
+  return skip.length ? ex.filter(e=>!skip.includes(e.name)) : ex;
+}
 
 /* ── TESTS DE MOVILIDAD ── */
 const MOB_TESTS = [
@@ -1382,7 +1387,7 @@ function renderMas(){
   pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #232334"><span style="font-size:12px">Plan cargado</span><span class="mono" style="font-size:12px;color:#e8ff3a">'+esc(PROFILE.id)+' · '+PLAN.length+' semanas</span></div>'));
   pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #232334"><span style="font-size:12px">Actividad de base</span><span class="mono" style="font-size:12px">'+esc((PROFILE.activity&&PROFILE.activity.level)||"—")+'</span></div>'));
   if(PROFILE.activity&&PROFILE.activity.note) pf.appendChild(h('<div class="dim" style="font-size:11px;line-height:1.5;margin-top:6px">'+esc(PROFILE.activity.note)+'</div>'));
-  pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' de '+allEx().length+' ejercicios disponibles con tu material.</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
+  pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' ejercicios disponibles con tu material.'+((PROFILE.exclude||[]).length?'<br><span style="color:#ffb347">'+PROFILE.exclude.length+' vetados por limitacion: '+esc(PROFILE.exclude.slice(0,4).join(", "))+(PROFILE.exclude.length>4?"...":"")+'</span>':'')+'</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
   pf.appendChild(h('<button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button>'));
   el.appendChild(pf);
   return el;
@@ -1978,10 +1983,10 @@ function openExPicker(){
     html+='</div>';
   }
   html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">Ergómetros y carrera <span style="text-transform:none;letter-spacing:0">— para WODs mixtos</span></div><div class="chips">';
-  EXDB.filter(e=>e.erg&&hasEquip(e)).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">🚣 '+esc(e.name)+' <span class="dim">('+esc(e.unit)+')</span></button>'; });
+  allEx().filter(e=>e.erg&&hasEquip(e)).forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">🚣 '+esc(e.name)+' <span class="dim">('+esc(e.unit)+')</span></button>'; });
   html+='</div>';
   ["hyrox","metabólico","fuerza","core"].forEach(cat=>{
-    const list=EXDB.filter(e=>!e.erg&&e.cat===cat&&hasEquip(e));
+    const list=allEx().filter(e=>!e.erg&&e.cat===cat&&hasEquip(e)&&!(st.exCustom||[]).includes(e));
     if(!list.length) return;
     html+='<div class="mono dim excat" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;margin:10px 0 6px">'+cat+'</div><div class="chips">';
     list.forEach(e=>{ html+='<button class="btn3 exbtn" data-n="'+esc(e.name)+'" onclick="bAdd(\''+esc(e.name)+'\')">'+esc(e.name)+'</button>'; });
