@@ -1,716 +1,716 @@
 {
- "id": "marchena",
- "name": "Marchena",
- "planStart": "2026-08-10",
- "activity": {
-  "level": "muy alto",
-  "note": "Técnico multidisciplinario y monitor de AADD (36 años). Trabaja muchas horas con un gasto calórico muy alto.",
-  "extras": [
-   "Clases dirigidas diarias"
+  "id": "marchena",
+  "name": "Marchena",
+  "planStart": "2026-08-10",
+  "activity": {
+    "level": "muy alto",
+    "note": "Técnico multidisciplinario y monitor de AADD (36 años). Trabaja muchas horas con un gasto calórico muy alto.",
+    "extras": [
+      "Clases dirigidas diarias"
+    ]
+  },
+  "zones": {
+    "Z1": [
+      116,
+      129
+    ],
+    "Z2": [
+      129,
+      143
+    ],
+    "Z3": [
+      143,
+      157
+    ],
+    "Z4": [
+      157,
+      170
+    ],
+    "Z5": [
+      170,
+      184
+    ]
+  },
+  "refs": {
+    "tests": [
+      [
+        "1 km carrera",
+        "— test S1"
+      ],
+      [
+        "Remo 500m",
+        "— test S1"
+      ],
+      [
+        "SkiErg 500m",
+        "— test S1"
+      ]
+    ],
+    "run": [
+      [
+        "Z2 · base",
+        "5:30/km o más suave"
+      ],
+      [
+        "Z3 · tempo",
+        "4:50–5:10/km"
+      ],
+      [
+        "Z4 · umbral",
+        "4:25–4:40/km"
+      ],
+      [
+        "Z5 · máx",
+        "3:50/km"
+      ]
+    ],
+    "erg": [
+      [
+        "Remo race",
+        "tu test 500m –2s"
+      ],
+      [
+        "SkiErg race",
+        "tu test 500m –2s"
+      ],
+      [
+        "AirBike sprint",
+        "máx sostenible 2 min"
+      ]
+    ],
+    "goals": [
+      [
+        "HYROX Valencia (parejas)",
+        "1:00"
+      ],
+      [
+        "Hyathlon Madrid",
+        "1:00"
+      ],
+      [
+        "Wall Balls",
+        "40 sin soltar"
+      ]
+    ]
+  },
+  "races": [
+    {
+      "name": "HYATHLON MADRID",
+      "date": "2026-10-10"
+    },
+    {
+      "name": "HYROX VALENCIA (parejas)",
+      "date": "2026-10-18"
+    }
+  ],
+  "equipment": [
+    "ninguno",
+    "barra",
+    "mancuernas",
+    "kb",
+    "saco",
+    "cajon",
+    "anillas",
+    "balon",
+    "comba",
+    "clubbell",
+    "chaleco",
+    "disco",
+    "remo",
+    "skierg",
+    "bike"
+  ],
+  "habits": [
+    {
+      "id": "sleep7",
+      "name": "Sueño ≥7h",
+      "icon": "😴",
+      "w": 3,
+      "desc": ""
+    },
+    {
+      "id": "hydra",
+      "name": "≥2L agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": ""
+    },
+    {
+      "id": "mob",
+      "name": "Movilidad 10 min",
+      "icon": "🧘",
+      "w": 3,
+      "desc": ""
+    },
+    {
+      "id": "protein",
+      "name": "Proteína 2g/kg",
+      "icon": "🥩",
+      "w": 4,
+      "desc": "Con tu gasto en clases, sin esto no hay hipertrofia."
+    },
+    {
+      "id": "calorias",
+      "name": "Comer suficiente",
+      "icon": "🍽️",
+      "w": 3,
+      "desc": "Gasto muy alto: el déficit involuntario es tu mayor riesgo."
+    },
+    {
+      "id": "creatina",
+      "name": "Creatina 5g",
+      "icon": "💊",
+      "w": 2,
+      "desc": "A diario, da igual la hora."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "10–16 ago",
+      "label": "Base I — arranque y tests",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera 4×5 @70% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R2'",
+          "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Test",
+          "main": "TESTS BASE: (1) SkiErg 500m máximo · 5 min descanso · (2) Remo 500m máximo · 5 min · (3) 1 km carrera a tope. Anota los tres.",
+          "sub": "De aquí salen tus zonas reales. Mételos en Más → Ritmos y zonas.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12 · R60\"",
+          "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
+          "pre": "Calentamiento: 10 min remo Z2"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "Introducción HYROX: 3 rondas → SkiErg 250m + 15 Wall Balls + 20 Lunges + 400m carrera. 2 min descanso entre rondas. Sin buscar tiempo, aprender el patrón.",
+          "fc": "Z3 · 143–157 bpm",
+          "pre": "PRE-SkiErg: 10 sit-up throw con balón"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10 · R2'",
+          "sub": "",
+          "pre": "Calentamiento: 8 min bici Z1"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 45 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Ojo: con las clases dirigidas diarias ya llevas mucha carga encima. Este rodaje tiene que ser MUY fácil — si dudas, ve más lento. Ritmo de referencia: 5:30/km o más suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Base de hipertrofia con gasto calórico muy alto (clases dirigidas): asegura calorías suficientes o no habrá ganancia muscular. Proteína 2g/kg en 4 tomas, creatina 5g/día. No entrenes fuerza en ayunas."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "17–23 ago",
+      "label": "Base II — patrones HYROX",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera 4×5 @72% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R2'",
+          "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Ergómetro",
+          "main": "Potencia en ergómetros: Remo 6×500m con 90s descanso, buscando split constante. SkiErg 4×3 min Z4.",
+          "fc": "Z4 · 157–170 bpm",
+          "pre": "PRE-SkiErg: 3×10 sit-up throw",
+          "sub": "Anota los splits: son tu referencia para todo el plan"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12 · R60\"",
+          "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
+          "pre": "Calentamiento: 10 min remo Z2"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "4 rondas → SkiErg 250m + Sled Push 20m + 15 Wall Balls + 20 Lunges + 400m carrera. 2 min entre rondas.",
+          "fc": "Z4 · 157–170 bpm"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10 · R2'",
+          "sub": "",
+          "pre": "Calentamiento: 8 min bici Z1"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 50 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Si te cuesta mantener Z2 corriendo, alterna 4 min trote + 1 min caminar. La zona manda, no el ritmo. Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Proteína 2-2.2g/kg. CHO alrededor del entreno de fuerza. Magnesio por la noche."
+    },
+    {
+      "w": 3,
+      "m": 1,
+      "dates": "24–30 ago",
+      "label": "Base III — subida de volumen",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera 5×5 @72% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R2'",
+          "sub": "Recuerda registrar las clases dirigidas en 'Otra actividad' — así el mapa de carga y el ACWR reflejan tu fatiga real, no solo estos entrenos.",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Comp. Running",
+          "main": "Compromised running: 3×(Remo 500m + 1 km carrera inmediato), 2 min entre bloques. La sensación de correr con las piernas cargadas es lo que entrenas hoy.",
+          "fc": "Z4 · 157–175 bpm",
+          "sub": "Clave para HYROX. No te asustes si el primer km va lento"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12 · R60\"",
+          "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
+          "pre": "Calentamiento: 10 min remo Z2"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "4 rondas → SkiErg 500m + Sled Push 25m + Sled Pull 25m + 15 Wall Balls + 600m carrera. 3 min entre rondas.",
+          "fc": "Z4-Z5"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10 · R2'",
+          "sub": "",
+          "pre": "Calentamiento: 8 min bici Z1"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 55 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Si te cuesta mantener Z2 corriendo, alterna 4 min trote + 1 min caminar. La zona manda, no el ritmo. Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Semana de más carga: sube CHO los días de Hyrox. Sueño ≥7.5h — la hipertrofia se construye durmiendo."
+    },
+    {
+      "w": 4,
+      "m": 2,
+      "dates": "31 ago–6 sep",
+      "label": "Específico I — fuerza pesada + HYROX",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera 5×5 @75% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R2'",
+          "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Ergómetro",
+          "main": "Remo 5×500m @race-pace (el split de tu test –2s). SkiErg 4×4 min Z4. Air Bike 4×2 min Z5 con 2 min suave · R90\"",
+          "fc": "Z4-Z5",
+          "pre": "PRE-SkiErg: 3×10 sit-up throw"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12 · R60\"",
+          "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
+          "pre": "Calentamiento: 10 min remo Z2"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "5 rondas → SkiErg 500m + Sled Push 25m + Sled Pull 25m + 20 Wall Balls + 800m carrera. 3 min caminando entre rondas.",
+          "fc": "Z4-Z5 · 157–178 bpm",
+          "sub": "Tu rol en dobles: los Wall Balls son tuyos. Practica series de 20 sin soltar"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10 · R2'",
+          "sub": "",
+          "pre": "Calentamiento: 8 min bici Z1"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 60 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min. Últimos 10 min a Z3 si llegas bien.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Pico de volumen del bloque. Proteína alta, CHO alto los jueves. Electrolitos en sesiones >45 min."
+    },
+    {
+      "w": 5,
+      "m": 2,
+      "dates": "7–13 sep",
+      "label": "Descarga — semana ligera",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera descarga 3×5 @65% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R2'",
+          "sub": "Semana de descarga: baja el peso, mantén la técnica",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Carrera",
+          "main": "Suave: 30 min Z2 + 4×20s progresivos al final. Nada más · R2'",
+          "fc": "Z2 · <143 bpm"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA LIGERA: mismo esquema del miércoles pero 3 series en vez de 4 y bajando un 15% el peso. R90\" entre series",
+          "sub": "Semana de descarga. Con tu volumen de clases, la descarga es innegociable: es donde asimilas."
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "3 rondas suaves → SkiErg 250m + 15 Wall Balls + 400m carrera. FC controlada, técnica perfecta. R2' entre rondas",
+          "fc": "Z3 · <157 bpm"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B LIGERA: Sentadilla frontal 3×6 al 70% · Remo con barra 3×8 · Fondos 3×8 · Face Pull 3×15. Sin lastres · R2'",
+          "sub": "Descarga"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 45 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Semana de descarga: mantén la proteína, baja un poco el CHO. Aprovecha para dormir más."
+    },
+    {
+      "w": 6,
+      "m": 2,
+      "dates": "14–20 sep",
+      "label": "Específico II — vuelta a la carga",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Sentadilla trasera 5×4 @80% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45” · R3'",
+          "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
+          "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
+        },
+        {
+          "d": "Mar",
+          "t": "Comp. Running",
+          "main": "4×(Remo 500m + 1 km carrera inmediato) con 2 min entre bloques. Que la FC no baje de 150 al salir a correr.",
+          "fc": "Z4-Z5 · 157–178 bpm"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12 · R60\"",
+          "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
+          "pre": "Calentamiento: 10 min remo Z2"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "5 rondas → SkiErg 500m + Sled Push+Pull 25m cada uno + 20 Wall Balls + 20 Lunges + 800m carrera. 3 min entre rondas.",
+          "fc": "Z4-Z5"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10 · R2'",
+          "sub": "",
+          "pre": "Calentamiento: 8 min bici Z1"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 65 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min. Últimos 12 min Z3.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Vuelta a carga alta. Creatina, proteína 2.2g/kg, CHO peri-entreno. Sueño prioritario."
+    },
+    {
+      "w": 7,
+      "m": 3,
+      "dates": "21–27 sep",
+      "label": "Intensidad I — fuerza a 2 días",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA FUSIONADA · Sentadilla 5×4 @82% · Press banca 4×5 · Dominadas lastradas 4×6 · Hip Thrust 3×8 · Elevaciones laterales 3×12 · Plancha 3×45” · R3'",
+          "sub": "A partir de aquí, 2 días de fuerza. Se mantiene lo pesado y se recorta el accesorio para dejar sitio a lo específico.",
+          "pre": "Calentamiento: 8 min bici + movilidad"
+        },
+        {
+          "d": "Mar",
+          "t": "Cluster HYROX",
+          "main": "Simulacro parcial: SkiErg 1000m + 1 km + Sled Push 25m + 1 km + Remo 1000m + 1 km + 40 Wall Balls + 1 km. Sin descanso entre bloques.",
+          "fc": "Z4 · 157–172 bpm",
+          "pre": "PRE-SkiErg: 4×10 sit-up throw"
+        },
+        {
+          "d": "Mié",
+          "t": "Ergómetro",
+          "main": "Recuperación activa: Remo 20 min Z2 + bici 15 min Z2. Suave de verdad.",
+          "fc": "Z2 · <143 bpm"
+        },
+        {
+          "d": "Jue",
+          "t": "Comp. Running",
+          "main": "5×(Remo 500m + 1 km carrera) con 2 min entre rondas.",
+          "fc": "Z4-Z5 · 157–178 bpm"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA B REDUCIDA · Sentadilla frontal 4×6 · Remo con barra 4×8 · Fondos lastrados 4×8 · Face Pull 3×15 · R2'",
+          "sub": "Fuera curl y press francés: el brazo ya trabaja de sobra en el resto"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 70 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Baja ligeramente el volumen de hipertrofia y sube el CHO: a partir de aquí manda el rendimiento en carrera."
+    },
+    {
+      "w": 8,
+      "m": 3,
+      "dates": "28 sep–4 oct",
+      "label": "Intensidad II — simulacro completo",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA FUSIONADA · Sentadilla 4×4 @85% · Press banca 4×4 · Dominadas lastradas 4×5 · Peso muerto rumano 3×6 · Plancha 3×45” · R3'",
+          "pre": "Calentamiento completo, hoy se mueve peso"
+        },
+        {
+          "d": "Mar",
+          "t": "Cluster HYROX",
+          "main": "4×(SkiErg 500m + Sled Push 25m + Sled Pull 25m + 20 Lunges + 1 km carrera). 3 min caminando entre rondas.",
+          "fc": "Z4-Z5 · 157–178 bpm"
+        },
+        {
+          "d": "Mié",
+          "t": "Carrera",
+          "main": "Tempo: 10 min Z2 + 20 min Z4 continuo + 10 min Z2. El ritmo de Z4 es el que quieres sostener en los 8 km de Valencia.",
+          "fc": "Z4 · 157–170 bpm"
+        },
+        {
+          "d": "Jue",
+          "t": "Cluster HYROX",
+          "main": "SIMULACRO HYROX COMPLETO: las 8 estaciones + 8 km de carrera, al 80%. Protocolo entero de competición (desayuno, suplementos, ropa). · Sin descanso entre estaciones: esto es la carrera.",
+          "sub": "El ensayo general. Anota tiempos por estación para repartir con Miguel",
+          "pre": "Bicarbonato si lo vas a usar en carrera: pruébalo hoy, no el día de la competición",
+          "fc": "Z4 · 157–172 bpm"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "FUERZA LIGERA · Sentadilla frontal 3×5 al 70% · Remo con barra 3×8 · Fondos 3×8 · Face Pull 3×15 · R2'",
+          "sub": "Suave, vienes del simulacro"
+        },
+        {
+          "d": "Sáb",
+          "t": "Carrera",
+          "main": "Long run Z2 · 75 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
+          "fc": "Z2 · 129–143 bpm",
+          "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
+        }
+      ],
+      "nutr": "Semana clave. Prueba hoy todo lo que vayas a usar en carrera: desayuno, geles, bicarbonato. Nada nuevo el día de la prueba."
+    },
+    {
+      "w": 9,
+      "m": 4,
+      "dates": "5–11 oct",
+      "label": "Taper Hyathlon — sáb 10 oct",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA MANTENIMIENTO · Sentadilla 3×3 @82% (mantenimiento) · Press banca 3×5 · Dominadas 3×5 · Face Pull 3×15. Sin llegar al fallo en nada · R3'",
+          "sub": "Mantener el estímulo sin generar fatiga"
+        },
+        {
+          "d": "Mar",
+          "t": "Ergómetro",
+          "main": "Race-pace corto: Remo 3×500m + SkiErg 3×3 min, al ritmo de competición. Recuperación completa entre series.",
+          "fc": "Z4 · race-pace",
+          "pre": "PRE-SkiErg: 2×8 sit-up throw"
+        },
+        {
+          "d": "Mié",
+          "t": "Carrera",
+          "main": "30 min Z2. Sin objetivos de ritmo. · continuo, sin pausas",
+          "fc": "Z2 · <143 bpm"
+        },
+        {
+          "d": "Jue",
+          "t": "Activación",
+          "main": "Activación técnica 20 min: Wall Balls 3×10 · Burpees 3×8 · Lunges 3×20m · SkiErg 3×1 min. Todo al 60% · R90\"",
+          "sub": "Automatizar patrones, cero fatiga"
+        },
+        {
+          "d": "Vie",
+          "t": "Descanso",
+          "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h.",
+          "sub": "Día –1: nada nuevo"
+        },
+        {
+          "d": "Sáb",
+          "t": "COMPETICIÓN",
+          "main": "HYATHLON MADRID con Miguel",
+          "sub": "6 estaciones, 6 km, sin Sled Pull ni Farmers. Cambios rápidos: tú más Wall Balls, Miguel el Sled. Usadlo de ensayo del protocolo para Valencia.",
+          "fc": "Z4-Z5"
+        },
+        {
+          "d": "Dom",
+          "t": "Movilidad",
+          "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Proteína alta."
+        }
+      ],
+      "nutr": "Día –2: CHO moderado. Día –1: nada nuevo. Post-carrera: 40g proteína + CHO rápido.",
+      "race": {
+        "name": "HYATHLON MADRID con Miguel",
+        "date": "sáb 10 oct"
+      }
+    },
+    {
+      "w": 10,
+      "m": 5,
+      "dates": "12–18 oct",
+      "label": "Taper final → HYROX Valencia dom 18",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Ergómetro",
+          "main": "Última calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. Nada más. Analizar el Hyathlon con Miguel · R90\"",
+          "fc": "Z4 · race-pace",
+          "pre": "PRE-SkiErg: 2×8 sit-up throw"
+        },
+        {
+          "d": "Mar",
+          "t": "Fuerza",
+          "main": "FUERZA ACTIVACIÓN · Sentadilla 2×3 @75% activación · Press banca 2×3 al 70% · Dominadas 2×5. 20 min y fuera · R3'",
+          "sub": "Solo para que el sistema nervioso no se duerma"
+        },
+        {
+          "d": "Mié",
+          "t": "Carrera",
+          "main": "25 min Z1-Z2 muy suave + 4×20s progresivos · R2'",
+          "fc": "Z1-Z2 · <143 bpm"
+        },
+        {
+          "d": "Jue",
+          "t": "Activación",
+          "main": "Una ronda de estaciones HYROX al 50%. 20 min. Última activación. R2' entre rondas",
+          "sub": "Repasar transiciones y reparto con Miguel"
+        },
+        {
+          "d": "Vie",
+          "t": "Descanso",
+          "main": "Descanso total. 3L agua + electrolitos. Carga CHO. Sueño ≥8h."
+        },
+        {
+          "d": "Sáb",
+          "t": "Descanso",
+          "main": "Viaje a Valencia. Logística: equipamiento, suplementos, estrategia final con Miguel. Cena conocida.",
+          "sub": "Día –1: nada nuevo, nada de pie de más"
+        },
+        {
+          "d": "Dom",
+          "t": "COMPETICIÓN",
+          "main": "HYROX VALENCIA — PAREJAS MASCULINO OPEN",
+          "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes si lo probaste. Reparto: tú más Wall Balls, Miguel el Sled. Carrera conjunta, que Miguel marque el ritmo desde el km 1. Objetivo ~1:05.",
+          "fc": "Z4-Z5"
+        }
+      ],
+      "nutr": "Día –3 (jue): carga CHO moderada. Día –1 (sáb): nada nuevo. Día de carrera: protocolo completo.",
+      "race": {
+        "name": "HYROX VALENCIA parejas con Miguel",
+        "date": "dom 18 oct"
+      }
+    }
   ]
- },
- "zones": {
-  "Z1": [
-   116,
-   129
-  ],
-  "Z2": [
-   129,
-   143
-  ],
-  "Z3": [
-   143,
-   157
-  ],
-  "Z4": [
-   157,
-   170
-  ],
-  "Z5": [
-   170,
-   184
-  ]
- },
- "refs": {
-  "tests": [
-   [
-    "1 km carrera",
-    "— test S1"
-   ],
-   [
-    "Remo 500m",
-    "— test S1"
-   ],
-   [
-    "SkiErg 500m",
-    "— test S1"
-   ]
-  ],
-  "run": [
-   [
-    "Z2 · base",
-    "5:30/km o más suave"
-   ],
-   [
-    "Z3 · tempo",
-    "4:50–5:10/km"
-   ],
-   [
-    "Z4 · umbral",
-    "4:25–4:40/km"
-   ],
-   [
-    "Z5 · máx",
-    "3:50/km"
-   ]
-  ],
-  "erg": [
-   [
-    "Remo race",
-    "tu test 500m –2s"
-   ],
-   [
-    "SkiErg race",
-    "tu test 500m –2s"
-   ],
-   [
-    "AirBike sprint",
-    "máx sostenible 2 min"
-   ]
-  ],
-  "goals": [
-   [
-    "HYROX Valencia (parejas)",
-    "1:00"
-   ],
-   [
-    "Hyathlon Madrid",
-    "1:00"
-   ],
-   [
-    "Wall Balls",
-    "40 sin soltar"
-   ]
-  ]
- },
- "races": [
-  {
-   "name": "HYATHLON MADRID",
-   "date": "2026-10-10"
-  },
-  {
-   "name": "HYROX VALENCIA (parejas)",
-   "date": "2026-10-18"
-  }
- ],
- "equipment": [
-  "ninguno",
-  "barra",
-  "mancuernas",
-  "kb",
-  "saco",
-  "cajon",
-  "anillas",
-  "balon",
-  "comba",
-  "clubbell",
-  "chaleco",
-  "disco",
-  "remo",
-  "skierg",
-  "bike"
- ],
- "habits": [
-  {
-   "id": "sleep7",
-   "name": "Sueño ≥7h",
-   "icon": "😴",
-   "w": 3,
-   "desc": ""
-  },
-  {
-   "id": "hydra",
-   "name": "≥2L agua",
-   "icon": "💧",
-   "w": 2,
-   "desc": ""
-  },
-  {
-   "id": "mob",
-   "name": "Movilidad 10 min",
-   "icon": "🧘",
-   "w": 3,
-   "desc": ""
-  },
-  {
-   "id": "protein",
-   "name": "Proteína 2g/kg",
-   "icon": "🥩",
-   "w": 4,
-   "desc": "Con tu gasto en clases, sin esto no hay hipertrofia."
-  },
-  {
-   "id": "calorias",
-   "name": "Comer suficiente",
-   "icon": "🍽️",
-   "w": 3,
-   "desc": "Gasto muy alto: el déficit involuntario es tu mayor riesgo."
-  },
-  {
-   "id": "creatina",
-   "name": "Creatina 5g",
-   "icon": "💊",
-   "w": 2,
-   "desc": "A diario, da igual la hora."
-  }
- ],
- "plan": [
-  {
-   "w": 1,
-   "m": 1,
-   "dates": "10–16 ago",
-   "label": "Base I — arranque y tests",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera 4×5 @70% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Test",
-     "main": "TESTS BASE: (1) SkiErg 500m máximo · 5 min descanso · (2) Remo 500m máximo · 5 min · (3) 1 km carrera a tope. Anota los tres.",
-     "sub": "De aquí salen tus zonas reales. Mételos en Más → Ritmos y zonas.",
-     "flag": "TEST"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12",
-     "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
-     "pre": "Calentamiento: 10 min remo Z2"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "Introducción HYROX: 3 rondas → SkiErg 250m + 15 Wall Balls + 20 Lunges + 400m carrera. 2 min descanso entre rondas. Sin buscar tiempo, aprender el patrón.",
-     "fc": "Z3 · 143–157 bpm",
-     "pre": "PRE-SkiErg: 10 sit-up throw con balón"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10",
-     "sub": "",
-     "pre": "Calentamiento: 8 min bici Z1"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 45 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Ojo: con las clases dirigidas diarias ya llevas mucha carga encima. Este rodaje tiene que ser MUY fácil — si dudas, ve más lento. Ritmo de referencia: 5:30/km o más suave."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Base de hipertrofia con gasto calórico muy alto (clases dirigidas): asegura calorías suficientes o no habrá ganancia muscular. Proteína 2g/kg en 4 tomas, creatina 5g/día. No entrenes fuerza en ayunas."
-  },
-  {
-   "w": 2,
-   "m": 1,
-   "dates": "17–23 ago",
-   "label": "Base II — patrones HYROX",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera 4×5 @72% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Ergómetro",
-     "main": "Potencia en ergómetros: Remo 6×500m con 90s descanso, buscando split constante. SkiErg 4×3 min Z4.",
-     "fc": "Z4 · 157–170 bpm",
-     "pre": "PRE-SkiErg: 3×10 sit-up throw",
-     "sub": "Anota los splits: son tu referencia para todo el plan"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12",
-     "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
-     "pre": "Calentamiento: 10 min remo Z2"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "4 rondas → SkiErg 250m + Sled Push 20m + 15 Wall Balls + 20 Lunges + 400m carrera. 2 min entre rondas.",
-     "fc": "Z4 · 157–170 bpm"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10",
-     "sub": "",
-     "pre": "Calentamiento: 8 min bici Z1"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 50 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Si te cuesta mantener Z2 corriendo, alterna 4 min trote + 1 min caminar. La zona manda, no el ritmo. Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Proteína 2-2.2g/kg. CHO alrededor del entreno de fuerza. Magnesio por la noche."
-  },
-  {
-   "w": 3,
-   "m": 1,
-   "dates": "24–30 ago",
-   "label": "Base III — subida de volumen",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera 5×5 @72% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Recuerda registrar las clases dirigidas en 'Otra actividad' — así el mapa de carga y el ACWR reflejan tu fatiga real, no solo estos entrenos.",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Comp. Running",
-     "main": "Compromised running: 3×(Remo 500m + 1 km carrera inmediato), 2 min entre bloques. La sensación de correr con las piernas cargadas es lo que entrenas hoy.",
-     "fc": "Z4 · 157–175 bpm",
-     "sub": "Clave para HYROX. No te asustes si el primer km va lento"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12",
-     "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
-     "pre": "Calentamiento: 10 min remo Z2"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "4 rondas → SkiErg 500m + Sled Push 25m + Sled Pull 25m + 15 Wall Balls + 600m carrera. 3 min entre rondas.",
-     "fc": "Z4-Z5"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10",
-     "sub": "",
-     "pre": "Calentamiento: 8 min bici Z1"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 55 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Si te cuesta mantener Z2 corriendo, alterna 4 min trote + 1 min caminar. La zona manda, no el ritmo. Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Semana de más carga: sube CHO los días de Hyrox. Sueño ≥7.5h — la hipertrofia se construye durmiendo."
-  },
-  {
-   "w": 4,
-   "m": 2,
-   "dates": "31 ago–6 sep",
-   "label": "Específico I — fuerza pesada + HYROX",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera 5×5 @75% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Ergómetro",
-     "main": "Remo 5×500m @race-pace (el split de tu test –2s). SkiErg 4×4 min Z4. Air Bike 4×2 min Z5 con 2 min suave.",
-     "fc": "Z4-Z5",
-     "pre": "PRE-SkiErg: 3×10 sit-up throw"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12",
-     "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
-     "pre": "Calentamiento: 10 min remo Z2"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "5 rondas → SkiErg 500m + Sled Push 25m + Sled Pull 25m + 20 Wall Balls + 800m carrera. 3 min caminando entre rondas.",
-     "fc": "Z4-Z5 · 157–178 bpm",
-     "sub": "Tu rol en dobles: los Wall Balls son tuyos. Practica series de 20 sin soltar"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10",
-     "sub": "",
-     "pre": "Calentamiento: 8 min bici Z1"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 60 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min. Últimos 10 min a Z3 si llegas bien.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Pico de volumen del bloque. Proteína alta, CHO alto los jueves. Electrolitos en sesiones >45 min."
-  },
-  {
-   "w": 5,
-   "m": 2,
-   "dates": "7–13 sep",
-   "label": "Descarga — semana ligera",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera descarga 3×5 @65% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Semana de descarga: baja el peso, mantén la técnica",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Carrera",
-     "main": "Suave: 30 min Z2 + 4×20s progresivos al final. Nada más.",
-     "fc": "Z2 · <143 bpm"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA LIGERA: mismo esquema del miércoles pero 3 series en vez de 4 y bajando un 15% el peso.",
-     "sub": "Semana de descarga. Con tu volumen de clases, la descarga es innegociable: es donde asimilas."
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "3 rondas suaves → SkiErg 250m + 15 Wall Balls + 400m carrera. FC controlada, técnica perfecta.",
-     "fc": "Z3 · <157 bpm"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B LIGERA: Sentadilla frontal 3×6 al 70% · Remo con barra 3×8 · Fondos 3×8 · Face Pull 3×15. Sin lastres.",
-     "sub": "Descarga"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 45 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Semana de descarga: mantén la proteína, baja un poco el CHO. Aprovecha para dormir más."
-  },
-  {
-   "w": 6,
-   "m": 2,
-   "dates": "14–20 sep",
-   "label": "Específico II — vuelta a la carga",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA A · Sentadilla trasera 5×4 @80% · Press banca 4×5-6 · Dominadas lastradas 4×6 · Peso muerto rumano 3×8 · Elevaciones laterales 3×15 · Plancha con peso 3×45”",
-     "sub": "Prensa incluida aquí (movida del miércoles) si te da la sesión: 3×12",
-     "pre": "Calentamiento: 8 min bici Z1 + movilidad cadera y tobillo"
-    },
-    {
-     "d": "Mar",
-     "t": "Comp. Running",
-     "main": "4×(Remo 500m + 1 km carrera inmediato) con 2 min entre bloques. Que la FC no baje de 150 al salir a correr.",
-     "fc": "Z4-Z5 · 157–178 bpm"
-    },
-    {
-     "d": "Mié",
-     "t": "Fuerza",
-     "main": "HIPERTROFIA (torso) · Remo pecho apoyado 4×10 · Press inclinado mancuernas 4×10 · Press militar mancuernas 3×10 · Elevaciones laterales 3×15 · Curl inclinado 3×12 · Extensión cuerda 3×12 · Pallof press 3×12",
-     "sub": "Sin prensa: las piernas necesitan llegar frescas al jueves. Series al fallo técnico, no al fallo absoluto.",
-     "pre": "Calentamiento: 10 min remo Z2"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "5 rondas → SkiErg 500m + Sled Push+Pull 25m cada uno + 20 Wall Balls + 20 Lunges + 800m carrera. 3 min entre rondas.",
-     "fc": "Z4-Z5"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B · Sentadilla frontal 4×6 · Remo con barra 4×6-8 · Fondos lastrados 4×8 · Hip Thrust 3×8 · Face Pull 3×15 · Curl martillo 3×10 · Press francés 3×10",
-     "sub": "",
-     "pre": "Calentamiento: 8 min bici Z1"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 65 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min. Últimos 12 min Z3.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Vuelta a carga alta. Creatina, proteína 2.2g/kg, CHO peri-entreno. Sueño prioritario."
-  },
-  {
-   "w": 7,
-   "m": 3,
-   "dates": "21–27 sep",
-   "label": "Intensidad I — fuerza a 2 días",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA FUSIONADA · Sentadilla 5×4 @82% · Press banca 4×5 · Dominadas lastradas 4×6 · Hip Thrust 3×8 · Elevaciones laterales 3×12 · Plancha 3×45”",
-     "sub": "A partir de aquí, 2 días de fuerza. Se mantiene lo pesado y se recorta el accesorio para dejar sitio a lo específico.",
-     "pre": "Calentamiento: 8 min bici + movilidad"
-    },
-    {
-     "d": "Mar",
-     "t": "Cluster HYROX",
-     "main": "Simulacro parcial: SkiErg 1000m + 1 km + Sled Push 25m + 1 km + Remo 1000m + 1 km + 40 Wall Balls + 1 km. Sin descanso entre bloques.",
-     "fc": "Z4 · 157–172 bpm",
-     "pre": "PRE-SkiErg: 4×10 sit-up throw"
-    },
-    {
-     "d": "Mié",
-     "t": "Ergómetro",
-     "main": "Recuperación activa: Remo 20 min Z2 + bici 15 min Z2. Suave de verdad.",
-     "fc": "Z2 · <143 bpm"
-    },
-    {
-     "d": "Jue",
-     "t": "Comp. Running",
-     "main": "5×(Remo 500m + 1 km carrera) con 2 min entre rondas.",
-     "fc": "Z4-Z5 · 157–178 bpm"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA B REDUCIDA · Sentadilla frontal 4×6 · Remo con barra 4×8 · Fondos lastrados 4×8 · Face Pull 3×15",
-     "sub": "Fuera curl y press francés: el brazo ya trabaja de sobra en el resto"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 70 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Baja ligeramente el volumen de hipertrofia y sube el CHO: a partir de aquí manda el rendimiento en carrera."
-  },
-  {
-   "w": 8,
-   "m": 3,
-   "dates": "28 sep–4 oct",
-   "label": "Intensidad II — simulacro completo",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA FUSIONADA · Sentadilla 4×4 @85% · Press banca 4×4 · Dominadas lastradas 4×5 · Peso muerto rumano 3×6 · Plancha 3×45”",
-     "pre": "Calentamiento completo, hoy se mueve peso"
-    },
-    {
-     "d": "Mar",
-     "t": "Cluster HYROX",
-     "main": "4×(SkiErg 500m + Sled Push 25m + Sled Pull 25m + 20 Lunges + 1 km carrera). 3 min caminando entre rondas.",
-     "fc": "Z4-Z5 · 157–178 bpm"
-    },
-    {
-     "d": "Mié",
-     "t": "Carrera",
-     "main": "Tempo: 10 min Z2 + 20 min Z4 continuo + 10 min Z2. El ritmo de Z4 es el que quieres sostener en los 8 km de Valencia.",
-     "fc": "Z4 · 157–170 bpm"
-    },
-    {
-     "d": "Jue",
-     "t": "Cluster HYROX",
-     "main": "SIMULACRO HYROX COMPLETO: las 8 estaciones + 8 km de carrera, al 80%. Protocolo entero de competición (desayuno, suplementos, ropa).",
-     "sub": "El ensayo general. Anota tiempos por estación para repartir con Miguel",
-     "pre": "Bicarbonato si lo vas a usar en carrera: pruébalo hoy, no el día de la competición",
-     "fc": "Z4 · 157–172 bpm"
-    },
-    {
-     "d": "Vie",
-     "t": "Fuerza",
-     "main": "FUERZA LIGERA · Sentadilla frontal 3×5 al 70% · Remo con barra 3×8 · Fondos 3×8 · Face Pull 3×15",
-     "sub": "Suave, vienes del simulacro"
-    },
-    {
-     "d": "Sáb",
-     "t": "Carrera",
-     "main": "Long run Z2 · 75 min continuos. Ritmo conversacional, respiración nasal los primeros 20 min.",
-     "fc": "Z2 · 129–143 bpm",
-     "sub": "Z2 real: si no puedes hablar frases enteras, estás muy rápido."
-    },
-    {
-     "d": "Dom",
-     "t": "Descanso",
-     "main": "Descanso. Movilidad ligera 10-15 min si te apetece."
-    }
-   ],
-   "nutr": "Semana clave. Prueba hoy todo lo que vayas a usar en carrera: desayuno, geles, bicarbonato. Nada nuevo el día de la prueba."
-  },
-  {
-   "w": 9,
-   "m": 4,
-   "dates": "5–11 oct",
-   "label": "Taper Hyathlon — sáb 10 oct",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Fuerza",
-     "main": "FUERZA MANTENIMIENTO · Sentadilla 3×3 @82% (mantenimiento) · Press banca 3×5 · Dominadas 3×5 · Face Pull 3×15. Sin llegar al fallo en nada.",
-     "sub": "Mantener el estímulo sin generar fatiga"
-    },
-    {
-     "d": "Mar",
-     "t": "Ergómetro",
-     "main": "Race-pace corto: Remo 3×500m + SkiErg 3×3 min, al ritmo de competición. Recuperación completa entre series.",
-     "fc": "Z4 · race-pace",
-     "pre": "PRE-SkiErg: 2×8 sit-up throw"
-    },
-    {
-     "d": "Mié",
-     "t": "Carrera",
-     "main": "30 min Z2. Sin objetivos de ritmo.",
-     "fc": "Z2 · <143 bpm"
-    },
-    {
-     "d": "Jue",
-     "t": "Activación",
-     "main": "Activación técnica 20 min: Wall Balls 3×10 · Burpees 3×8 · Lunges 3×20m · SkiErg 3×1 min. Todo al 60%.",
-     "sub": "Automatizar patrones, cero fatiga"
-    },
-    {
-     "d": "Vie",
-     "t": "Descanso",
-     "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h.",
-     "sub": "Día –1: nada nuevo"
-    },
-    {
-     "d": "Sáb",
-     "t": "COMPETICIÓN",
-     "main": "HYATHLON MADRID con Miguel",
-     "sub": "6 estaciones, 6 km, sin Sled Pull ni Farmers. Cambios rápidos: tú más Wall Balls, Miguel el Sled. Usadlo de ensayo del protocolo para Valencia.",
-     "fc": "Z4-Z5"
-    },
-    {
-     "d": "Dom",
-     "t": "Movilidad",
-     "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Proteína alta."
-    }
-   ],
-   "nutr": "Día –2: CHO moderado. Día –1: nada nuevo. Post-carrera: 40g proteína + CHO rápido.",
-   "race": {
-    "name": "HYATHLON MADRID con Miguel",
-    "date": "sáb 10 oct"
-   }
-  },
-  {
-   "w": 10,
-   "m": 5,
-   "dates": "12–18 oct",
-   "label": "Taper final → HYROX Valencia dom 18",
-   "days": [
-    {
-     "d": "Lun",
-     "t": "Ergómetro",
-     "main": "Última calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. Nada más. Analizar el Hyathlon con Miguel.",
-     "fc": "Z4 · race-pace",
-     "pre": "PRE-SkiErg: 2×8 sit-up throw"
-    },
-    {
-     "d": "Mar",
-     "t": "Fuerza",
-     "main": "FUERZA ACTIVACIÓN · Sentadilla 2×3 @75% activación · Press banca 2×3 al 70% · Dominadas 2×5. 20 min y fuera.",
-     "sub": "Solo para que el sistema nervioso no se duerma"
-    },
-    {
-     "d": "Mié",
-     "t": "Carrera",
-     "main": "25 min Z1-Z2 muy suave + 4×20s progresivos.",
-     "fc": "Z1-Z2 · <143 bpm"
-    },
-    {
-     "d": "Jue",
-     "t": "Activación",
-     "main": "Una ronda de estaciones HYROX al 50%. 20 min. Última activación.",
-     "sub": "Repasar transiciones y reparto con Miguel"
-    },
-    {
-     "d": "Vie",
-     "t": "Descanso",
-     "main": "Descanso total. 3L agua + electrolitos. Carga CHO. Sueño ≥8h."
-    },
-    {
-     "d": "Sáb",
-     "t": "Descanso",
-     "main": "Viaje a Valencia. Logística: equipamiento, suplementos, estrategia final con Miguel. Cena conocida.",
-     "sub": "Día –1: nada nuevo, nada de pie de más"
-    },
-    {
-     "d": "Dom",
-     "t": "COMPETICIÓN",
-     "main": "HYROX VALENCIA — PAREJAS MASCULINO OPEN",
-     "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes si lo probaste. Reparto: tú más Wall Balls, Miguel el Sled. Carrera conjunta, que Miguel marque el ritmo desde el km 1. Objetivo ~1:05.",
-     "fc": "Z4-Z5"
-    }
-   ],
-   "nutr": "Día –3 (jue): carga CHO moderada. Día –1 (sáb): nada nuevo. Día de carrera: protocolo completo.",
-   "race": {
-    "name": "HYROX VALENCIA parejas con Miguel",
-    "date": "dom 18 oct"
-   }
-  }
- ]
 }
