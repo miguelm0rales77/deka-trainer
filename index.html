@@ -511,6 +511,16 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "Otro…": "Other…",
+ "Duración total": "Total duration",
+ "Cada cuánto empieza un ejercicio": "How often a new exercise starts",
+ "Intervalo del EMOM": "EMOM interval",
+ "APLICAR": "APPLY",
+ "Siguiente": "Next",
+ "Un ejercicio cada X minutos": "One exercise every X minutes",
+ "BLOQUE ": "BLOCK ",
+ "▶ HACER LA SESIÓN DEL PLAN": "▶ DO THE PLANNED SESSION",
+ "⚙ Prefiero generar otro WOD": "⚙ Generate a different WOD instead",
  "Plantillas de tu plan": "Templates from your plan",
  "Tus favoritos": "Your favourites",
  "▶ Lanzar con metrónomo": "▶ Launch with metronome",
@@ -1844,7 +1854,14 @@ function renderHoy(){
     // CTAs por modo
     const cta=h('<div style="margin-top:12px"></div>');
     if(dt.mode==="wod"){
-      cta.appendChild(h('<button class="btn" onclick="openGenerator(\'plan\')">▶ WOD CON METRÓNOMO</button>'));
+      const leidos=leerSesionDelPlan(day.main);
+      if(leidos.length){
+        cta.appendChild(h('<button class="btn" onclick="lanzarSesionDelPlan()">▶ HACER LA SESIÓN DEL PLAN</button>'));
+        cta.appendChild(h('<div class="dim" style="font-size:11px;text-align:center;margin:-4px 0 10px">'+leidos.map(x=>x.name+' '+x.sets+'×'+x.reps).join(' · ')+'</div>'));
+        cta.appendChild(h('<button class="btn2" onclick="openGenerator()">⚙ Prefiero generar otro WOD</button>'));
+      } else {
+        cta.appendChild(h('<button class="btn" onclick="openGenerator(\'plan\')">▶ WOD CON METRÓNOMO</button>'));
+      }
       cta.appendChild(h('<button class="btn2" onclick="openManualLog()">✓ Registrar sesión del plan (manual)</button>'));
     } else if(dt.mode==="pacer"){
       cta.appendChild(h('<button class="btn" onclick="openPacer('+(dt.z2?'true':'false')+')">▶ PACER + CRONÓMETRO</button>'));
@@ -2529,6 +2546,70 @@ function openData(){
 }
 function importData(){ try{ const d=JSON.parse($("dataTA").value); st=Object.assign({},defaultState,d); save(); closeOverlay(); render(); toast("Datos restaurados ✓"); }catch(e){ toast("JSON inválido"); } }
 
+/* ═══════════════ LEER LA SESIÓN DEL PLAN ═══════════════
+   Extrae los ejercicios escritos en el texto del día para poder lanzarlos
+   con metrónomo, en vez de tener que reconstruirlos a mano. */
+const ALIAS={
+  "WALL BALL":"WALL BALLS","WALLBALL":"WALL BALLS","WALLBALLS":"WALL BALLS",
+  "SENTADILLA TRASERA":"SENTADILLA","BACK SQUAT":"SENTADILLA","SENTADILLA FRONTAL":"FRONT SQUAT",
+  "PESO MUERTO RUMANO":"PESO MUERTO RUMANO","RDL":"PESO MUERTO RUMANO",
+  "PRESS DE BANCA":"PRESS BANCA","BENCH PRESS":"PRESS BANCA",
+  "DOMINADAS":"PULL-UPS","DOMINADAS LASTRADAS":"PULL-UPS","PULL-UP":"PULL-UPS","PULL UPS":"PULL-UPS",
+  "BURPEE BROAD JUMP":"BURPEE BROAD JUMP","BBJ":"BURPEE BROAD JUMP",
+  "SANDBAG LUNGES":"SANDBAG LUNGES","LUNGES":"REAR LUNGES","ZANCADAS":"REAR LUNGES",
+  "KB SWINGS":"KB SWING","SWINGS":"KB SWING",
+  "SIT-UP THROW":"SIT-UP THROW","SIT UP THROW":"SIT-UP THROW",
+  "FLEXIONES":"PUSH-UPS","PUSH-UP":"PUSH-UPS","PUSH UPS":"PUSH-UPS",
+  "FONDOS":"FONDOS EN CAJÓN","ANILLAS DIPS":"RING DIPS","RING DIP":"RING DIPS",
+  "ANILLAS ROWS":"RING ROW","REMO INVERTIDO":"RING ROW","ANILLAS PULL-UP":"PULL-UPS",
+  "PUSH-UP ANILLAS":"RING PUSH-UP","PLANCHA":"PLANCHA","HOLLOW HOLD":"HOLLOW HOLD",
+  "GOBLET SQUAT":"GOBLET SQUAT","KB GOBLET SQUAT":"GOBLET SQUAT",
+  "PRESS MILITAR":"PRESS MILITAR","ELEVACIONES LATERALES":"ELEVACIONES LATERALES",
+  "HIP THRUST":"HIP THRUST","FACE PULL":"FACE PULL","CURL MARTILLO":"CURL MANCUERNAS",
+  "DEAD BUG":"DEAD BUG","DEADBUG":"DEAD BUG","SLAM BALL":"SLAM BALL",
+};
+function leerSesionDelPlan(texto){
+  if(!texto) return [];
+  // el descanso de la sesion, si viene anotado
+  const rr=texto.match(/R(\d+)(['"])/);
+  const restSesion = rr ? (rr[2]==="'" ? +rr[1]*60 : +rr[1]) : null;
+  // trocear: cada fragmento suele contener un solo ejercicio
+  const trozos=texto.replace(/\s+/g," ").split(/\s*[+·]\s*|\.\s+(?=[A-ZÁÉÍÓÚ])/);
+  const nombres=allEx().filter(e=>!e.erg).map(e=>e.name)
+    .concat(Object.keys(ALIAS)).sort((a,b)=>b.length-a.length);
+  const out=[], vistos=new Set();
+  trozos.forEach(fr=>{
+    const F=fr.toUpperCase();
+    // el nombre mas largo que aparezca en este fragmento
+    const nm=nombres.find(n=>F.includes(n.toUpperCase()));
+    if(!nm) return;
+    const canon=ALIAS[nm]||nm;
+    if(vistos.has(canon)) return;
+    const ex=allEx().find(e=>e.name===canon); if(!ex||ex.erg) return;
+    // series x reps dentro del fragmento
+    const m=fr.match(/(\d+)\s*[x×]\s*(\d+)/);
+    let sets=null, reps=null;
+    if(m){ sets=+m[1]; reps=+m[2]; }
+    else { const m2=fr.match(/[x×]\s*(\d+)/); if(m2){ sets=3; reps=+m2[1]; } }
+    if(!reps) return;
+    // peso: solo el que aparezca en ESTE fragmento
+    const w=fr.match(/@?\s*(\d+(?:[.,]\d+)?)\s*kg/i);
+    vistos.add(canon);
+    out.push({name:canon,cat:ex.cat,sets:Math.max(1,Math.min(8,sets||3)),reps,
+      rest:restSesion||ex.rest||90,
+      weight:w?w[1]+"kg":(ex.weight||"—"),note:ex.note,
+      paceMin:ex.paceMin,paceMax:ex.paceMax,unit:ex.unit,erg:false});
+  });
+  return out;
+}
+function lanzarSesionDelPlan(){
+  const pos=planPos(), day=pos.week>=1?planDay(pos.week,pos.dayIdx):null;
+  if(!day) return;
+  const wod=leerSesionDelPlan(day.main);
+  if(!wod.length){ toast("No he sabido leer los ejercicios — usa el diseñador"); openBuilder(); return; }
+  previewWod(wod,false);
+}
+
 /* ═══════════════════ GENERADOR DE WOD ═══════════════════ */
 var genOpts={focus:"auto",mins:30};
 function openGenerator(source){
@@ -2537,7 +2618,8 @@ function openGenerator(source){
   html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Enfoque</div><div class="chips" style="margin-bottom:12px">';
   foci.forEach(([id,lb])=>{ html+='<button class="btn3'+(genOpts.focus===id?' sel':'')+'" onclick="genSet(\'focus\',\''+id+'\')">'+lb+'</button>'; });
   html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">Duración</div><div class="chips" style="margin-bottom:12px">';
-  [20,30,40].forEach(m=>{ html+='<button class="btn3'+(genOpts.mins===m?' sel':'')+'" onclick="genSet(\'mins\','+m+')">'+m+' min</button>'; });
+  [20,30,40,50].forEach(m=>{ html+='<button class="btn3'+(genOpts.mins===m?' sel':'')+'" onclick="genSet(\'mins\','+m+')">'+m+' min</button>'; });
+  html+='<button class="btn3'+(![20,30,40,50].includes(genOpts.mins)?' sel':'')+'" onclick="pedirNumero(\'Duración\',\'Minutos de sesión\','+genOpts.mins+',10,120,v=>genSet(\'mins\',v))">'+(![20,30,40,50].includes(genOpts.mins)?genOpts.mins+' min':'Otro…')+'</button>';
   html+='</div>';
   const ms=muscleStatus();
   const avoid=MUSCLES.filter(m=>ms[m.id].flag==="sobrecarga"||ms[m.id].sore>=2);
@@ -3009,16 +3091,39 @@ function finishMob(){
   showFeedback();
 }
 
+
+/* pide un numero al usuario: cualquier selector puede tener opcion "Otro" */
+function pedirNumero(titulo,ayuda,valor,min,max,cb){
+  window._numCb=cb;
+  overlay('<div class="ctitle">'+esc(titulo)+'</div>'+
+   (ayuda?'<div class="dim" style="font-size:11px;margin-bottom:10px">'+esc(ayuda)+'</div>':'')+
+   '<input type="number" id="numLibre" value="'+valor+'" min="'+min+'" max="'+max+'" inputmode="numeric">'+
+   '<button class="btn" style="margin-top:14px" onclick="aplicarNumero('+min+','+max+')">APLICAR</button>');
+  setTimeout(()=>{const e=$("numLibre"); if(e){e.focus();e.select();}},60);
+}
+function aplicarNumero(min,max){
+  const v=parseInt($("numLibre").value);
+  if(isNaN(v)||v<min||v>max){ toast("Pon un número entre "+min+" y "+max); return; }
+  const cb=window._numCb; window._numCb=null; cb(v);
+}
+function chipsNum(lista,actual,fn,titulo,ayuda,min,max,suf){
+  let h2='';
+  lista.forEach(v=>{ h2+='<button class="btn3'+(actual===v?' sel':'')+'" onclick="'+fn+'('+v+')">'+v+(suf||'')+'</button>'; });
+  const libre=!lista.includes(actual);
+  h2+='<button class="btn3'+(libre?' sel':'')+'" onclick="pedirNumero(\''+titulo+'\',\''+(ayuda||'')+'\','+actual+','+min+','+max+',v=>'+fn+'(v))">'+(libre?actual+(suf||''):'Otro…')+'</button>';
+  return h2;
+}
+
 /* ═══════════════════ DISEÑADOR DE WODS ═══════════════════ */
 const FORMATS={
   classic:{name:"Series×Reps",icon:"🔁",desc:"Metrónomo + descansos"},
   amrap:{name:"AMRAP",icon:"⏳",desc:"Máx. rondas en X min"},
   fortime:{name:"FOR TIME",icon:"🏁",desc:"Trabajo fijo, a tiempo"},
-  emom:{name:"EMOM",icon:"⏰",desc:"Un ejercicio cada minuto"},
+  emom:{name:"EMOM",icon:"⏰",desc:"Un ejercicio cada X minutos"},
   circuit:{name:"CIRCUITO",icon:"🔄",desc:"Rondas con descanso"},
   ladder:{name:"LADDER",icon:"🪜",desc:"Escalera de reps"},
 };
-var B={format:"amrap",mins:12,cap:20,rounds:4,rest:90,sets:3,scheme:"21-15-9",ex:[]};
+var B={format:"amrap",mins:12,cap:20,rounds:4,rest:90,sets:3,every:1,scheme:"21-15-9",ex:[]};
 function openBuilder(){
   let html='<div class="row"><div class="ctitle" style="margin-bottom:10px">✏️ Diseñar WOD</div>'+helpBtn("formats")+'</div>';
   html+='<div class="chips" style="margin-bottom:12px">';
@@ -3026,23 +3131,27 @@ function openBuilder(){
   html+='</div><div class="dim" style="font-size:11px;margin-bottom:10px">'+FORMATS[B.format].desc+'</div>';
   // parámetros según formato
   if(B.format==="amrap"||B.format==="emom"){
-    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Duración</div><div class="chips" style="margin-bottom:12px">';
-    [8,10,12,15,20,25,30].forEach(m=>{ html+='<button class="btn3'+(B.mins===m?' sel':'')+'" onclick="bSet(\'mins\','+m+')">'+m+"'"+'</button>'; });
-    html+='</div>';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Duración total</div><div class="chips" style="margin-bottom:12px">'
+      + chipsNum([8,10,12,15,20,25,30],B.mins,"bMins","Duración total","Minutos de la sesión",1,120,"'") + '</div>';
+  }
+  if(B.format==="emom"){
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Cada cuánto empieza un ejercicio</div><div class="chips" style="margin-bottom:6px">'
+      + chipsNum([1,2,3,4,5],B.every,"bEvery","Intervalo del EMOM","Cada cuántos minutos empieza el siguiente ejercicio",1,10,"'") + '</div>'
+      + '<p class="dim" style="font-size:11px;margin-bottom:12px">'+(B.every===1?'EMOM clásico: un ejercicio por minuto.':'E'+B.every+'MOM: '+B.every+' minutos por bloque. Más margen para trabajos largos o pesados.')+'</p>';
   }
   if(B.format==="fortime"){
-    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Rondas</div><div class="chips" style="margin-bottom:10px">';
-    [1,2,3,4,5].forEach(r=>{ html+='<button class="btn3'+(B.rounds===r?' sel':'')+'" onclick="bSet(\'rounds\','+r+')">'+r+'</button>'; });
-    html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">Time cap (min)</div><div class="chips" style="margin-bottom:12px">';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Rondas</div><div class="chips" style="margin-bottom:10px">'
+      + chipsNum([1,2,3,4,5],B.rounds,"bRounds","Rondas","",1,30,"") + '</div>';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Time cap (min)</div><div class="chips" style="margin-bottom:12px">';
     [10,15,20,25,30,0].forEach(c=>{ html+='<button class="btn3'+(B.cap===c?' sel':'')+'" onclick="bSet(\'cap\','+c+')">'+(c||"sin cap")+'</button>'; });
+    html+='<button class="btn3'+(![10,15,20,25,30,0].includes(B.cap)?' sel':'')+'" onclick="pedirNumero(\'Time cap\',\'Minutos máximos\','+B.cap+',1,120,v=>bSet(\'cap\',v))">'+(![10,15,20,25,30,0].includes(B.cap)?B.cap+"'":'Otro…')+'</button>';
     html+='</div>';
   }
   if(B.format==="circuit"){
-    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Rondas</div><div class="chips" style="margin-bottom:10px">';
-    [3,4,5,6].forEach(r=>{ html+='<button class="btn3'+(B.rounds===r?' sel':'')+'" onclick="bSet(\'rounds\','+r+')">'+r+'</button>'; });
-    html+='</div><div style="font-size:12px;font-weight:600;margin-bottom:6px">Descanso entre rondas</div><div class="chips" style="margin-bottom:12px">';
-    [60,90,120,180].forEach(r=>{ html+='<button class="btn3'+(B.rest===r?' sel':'')+'" onclick="bSet(\'rest\','+r+')">'+r+'s</button>'; });
-    html+='</div>';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Rondas</div><div class="chips" style="margin-bottom:10px">'
+      + chipsNum([3,4,5,6],B.rounds,"bRounds","Rondas","",1,30,"") + '</div>';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Descanso entre rondas</div><div class="chips" style="margin-bottom:12px">'
+      + chipsNum([60,90,120,180],B.rest,"bRest","Descanso entre rondas","Segundos",10,600,"s") + '</div>';
   }
   if(B.format==="ladder"){
     html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Esquema de reps</div><div class="chips" style="margin-bottom:8px">';
@@ -3050,9 +3159,8 @@ function openBuilder(){
     html+='</div><input type="text" id="bScheme" value="'+esc(B.scheme)+'" placeholder="Personalizado: 21-15-9" onchange="bSet(\'scheme\',this.value)" style="margin-bottom:12px">';
   }
   if(B.format==="classic"){
-    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Series por ejercicio</div><div class="chips" style="margin-bottom:12px">';
-    [2,3,4,5].forEach(s=>{ html+='<button class="btn3'+(B.sets===s?' sel':'')+'" onclick="bSet(\'sets\','+s+')">'+s+'×</button>'; });
-    html+='</div>';
+    html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Series por ejercicio</div><div class="chips" style="margin-bottom:12px">'
+      + chipsNum([2,3,4,5],B.sets,"bSets","Series por ejercicio","",1,20,"×") + '</div>';
   }
   // ejercicios elegidos
   html+='<div style="font-size:12px;font-weight:600;margin-bottom:6px">Ejercicios'+(B.format==="ladder"?' (reps las marca la escalera)':'')+'</div>';
@@ -3070,6 +3178,11 @@ function openBuilder(){
   overlay(html);
 }
 function bSet(k,v){ B[k]=v; openBuilder(); }
+function bMins(v){ B.mins=v; openBuilder(); }
+function bEvery(v){ B.every=v; openBuilder(); }
+function bRounds(v){ B.rounds=v; openBuilder(); }
+function bRest(v){ B.rest=v; openBuilder(); }
+function bSets(v){ B.sets=v; openBuilder(); }
 function bReps(i,v){ B.ex[i].reps=Math.max(1,parseInt(v)||1); }
 function bDel(i){ B.ex.splice(i,1); openBuilder(); }
 function openExPicker(){
@@ -3141,7 +3254,7 @@ function bStart(){
       return {name:x.name,cat:e.cat,sets:B.sets,reps:x.reps,rest:e.rest||90,weight:x.weight,note:e.note,paceMin:e.paceMin||0,paceMax:e.paceMax||0,unit:x.unit,erg:!!x.erg}; }),isZ2:false};
     startWod(); return;
   }
-  Object.assign(FP,{fmt:B.format,mins:B.mins,cap:B.cap,rounds:B.rounds,rest:B.rest,scheme:bScheme(),
+  Object.assign(FP,{fmt:B.format,mins:B.mins,cap:B.cap,rounds:B.rounds,rest:B.rest,every:(B.every||1)*60,scheme:bScheme(),
     ex:B.ex.map(x=>({name:x.name,reps:x.reps,weight:x.weight})),
     elapsed:0,running:false,done:0,rung:0,startTime:Date.now(),finished:false});
   fpRender();
@@ -3166,7 +3279,7 @@ function bLogSave(){
 function fpResults(fmt,roundsDone,mins){
   if(fmt==="ladder"){ const sch=bScheme().slice(0,roundsDone); const tot=sch.reduce((a,b)=>a+b,0);
     return B.ex.map(x=>({name:x.name,avgPace:null,totalReps:tot})); }
-  if(fmt==="emom"){ const perEx=Math.floor(mins/B.ex.length);
+  if(fmt==="emom"){ const perEx=Math.floor((mins/((B.every||1)))/B.ex.length);
     return B.ex.map(x=>({name:x.name,avgPace:null,totalReps:x.reps*perEx})); }
   if(fmt==="classic") return B.ex.map(x=>({name:x.name,avgPace:null,totalReps:x.reps*B.sets}));
   return B.ex.map(x=>({name:x.name,avgPace:null,totalReps:x.reps*roundsDone})); // amrap/fortime/circuit
@@ -3187,9 +3300,10 @@ function fpRender(){
     html+='<div class="chips" style="margin-bottom:10px">'+sch.map((r,i)=>'<span class="tagz" style="background:'+(i<FP.rung?'#A8E63E22;color:#A8E63E':i===FP.rung?'#4B7F3B22;color:#4B7F3B':'#23233f;color:#8A8F98')+'">'+r+'</span>').join("")+'</div>';
     html+='<div style="text-align:center;margin-bottom:8px"><span class="big" style="font-size:44px;color:#4B7F3B">'+(sch[FP.rung]!=null?sch[FP.rung]:"✓")+'</span> <span class="mono dim" style="font-size:10px">reps de cada uno</span></div>';
   }
-  if(f==="emom"){ const min=Math.floor(FP.elapsed/60); const cur=FP.ex[min%FP.ex.length]; const nxt=FP.ex[(min+1)%FP.ex.length];
-    const inMin=60-(FP.elapsed%60), cu=cur.unit&&cur.unit!=="reps"?" "+cur.unit:"";
-    html+='<div style="text-align:center;margin-bottom:8px"><div class="mono dim" style="font-size:9px;letter-spacing:2px">MINUTO '+(min+1)+'/'+FP.mins+' · quedan <span id="fpinmin">'+inMin+'</span>s</div><div class="big" style="font-size:30px;color:#A8E63E">'+(cur.erg?"🚣 ":"")+esc(cur.name)+' '+(cu?cur.reps+cu:"×"+cur.reps)+'</div><div class="dim" style="font-size:11px">siguiente: '+esc(nxt.name)+'</div></div>';
+  if(f==="emom"){ const ev=FP.every||60; const blq=Math.floor(FP.elapsed/ev); const cur=FP.ex[blq%FP.ex.length]; const nxt=FP.ex[(blq+1)%FP.ex.length];
+    const inMin=ev-(FP.elapsed%ev), cu=cur.unit&&cur.unit!=="reps"?" "+cur.unit:"";
+    const totBlq=Math.floor(FP.mins*60/ev);
+    html+='<div style="text-align:center;margin-bottom:8px"><div class="mono dim" style="font-size:9px;letter-spacing:2px">'+(ev===60?'MINUTO ':'BLOQUE ')+(blq+1)+'/'+totBlq+' · quedan <span id="fpinmin">'+inMin+'</span>s</div><div class="big" style="font-size:30px;color:#A8E63E">'+(cur.erg?"🚣 ":"")+esc(cur.name)+' '+(cu?cur.reps+cu:"×"+cur.reps)+'</div><div class="dim" style="font-size:11px">siguiente: '+esc(nxt.name)+'</div></div>';
   }
   // lista de ejercicios (una ronda)
   if(f!=="emom") FP.ex.forEach(e=>{ const u=e.unit&&e.unit!=="reps"?e.unit:null;
@@ -3216,9 +3330,10 @@ function fpToggle(){
     const f=FP.fmt, countdown=(f==="amrap"||f==="emom");
     const totalSec=FP.mins*60;
     if(f==="emom"){
-      const inMin=60-(FP.elapsed%60);
+      const ev=FP.every||60;
+      const inMin=ev-(FP.elapsed%ev);
       const im=$("fpinmin"); if(im) im.textContent=inMin;
-      if(FP.elapsed%60===0&&FP.elapsed<totalSec){ beep(990,0.12); setTimeout(()=>beep(990,0.12),160); fpRender(); fpResume(); return; }
+      if(FP.elapsed%ev===0&&FP.elapsed<totalSec){ beep(990,0.12); setTimeout(()=>beep(990,0.12),160); say(trTxt("Siguiente")); fpRender(); fpResume(); return; }
       if(inMin<=3) beep(440,0.08);
     }
     if(countdown){
