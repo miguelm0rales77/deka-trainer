@@ -511,6 +511,11 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ " ejercicios × ": " exercises × ",
+ " series": " sets",
+ "Si te sabe a poco o a demasiado, cambia la duración.": "If it feels short or long, change the duration.",
+ "Con ": "With ",
+ " min saldrán ": " min you get ",
  "Otro…": "Other…",
  "Duración total": "Total duration",
  "Cada cuánto empieza un ejercicio": "How often a new exercise starts",
@@ -2626,6 +2631,9 @@ function openGenerator(source){
   if(avoid.length) html+='<div style="font-size:11px;color:#ffb347;margin-bottom:10px">Se evitarán: '+avoid.map(m=>m.name).join(", ")+'</div>';
   const low=MUSCLES.map(m=>({m,rel:ms[m.id].rel})).sort((a,b)=>a.rel-b.rel).slice(0,3);
   html+='<div class="dim" style="font-size:11px;margin-bottom:12px">Zonas menos trabajadas (7d): '+low.map(x=>x.m.name).join(", ")+'</div>';
+  const nx = genOpts.mins<=15?2 : genOpts.mins<=22?3 : genOpts.mins<=32?4 : genOpts.mins<=45?5 : genOpts.mins<=60?6 : 7;
+  const ns = genOpts.mins<=25?3 : genOpts.mins<=45?4 : 5;
+  html+='<div class="dim" style="font-size:11px;margin-bottom:12px">Con '+genOpts.mins+' min saldrán <b>'+nx+' ejercicios × '+ns+' series</b>. Si te sabe a poco o a demasiado, cambia la duración.</div>';
   html+='<button class="btn" onclick="generateWod()">GENERAR WOD</button>';
   html+='<button class="btn2" style="margin:0" onclick="openBuilder()">✏️ Prefiero diseñarlo yo (AMRAP, EMOM…)</button>';
   overlay(html);
@@ -2634,7 +2642,9 @@ function genSet(k,v){ genOpts[k]=v; openGenerator(); }
 function generateWod(){
   const ms=muscleStatus();
   const focus=genOpts.focus, mins=genOpts.mins;
-  const nEx=mins<=20?3:mins<=30?4:5, nSets=mins>=40?4:3;
+  // escala proporcional: sirve para 12 minutos y para 90
+  const nEx = mins<=15?2 : mins<=22?3 : mins<=32?4 : mins<=45?5 : mins<=60?6 : 7;
+  const nSets = mins<=15?3 : mins<=25?3 : mins<=45?4 : 5;
   // base: sin ergómetros, con material disponible y respetando sobrecarga/agujetas SIEMPRE
   const safe=allEx().filter(e=>!e.erg&&hasEquip(e)&&!Object.entries(e.m).some(([mu,c])=>c>=0.5&&(ms[mu].flag==="sobrecarga"||ms[mu].sore>=2)));
   let pool=safe.slice();
