@@ -511,6 +511,10 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "↺ Cambiar de plan": "↺ Switch plan",
+ "CARGAR ESE PLAN": "LOAD THAT PLAN",
+ "Cancelar": "Cancel",
+ "Tus datos de cada plan se guardan por separado: cambiar no borra nada.": "Each plan keeps its own data: switching deletes nothing.",
  " ejercicios × ": " exercises × ",
  " series": " sets",
  "Si te sabe a poco o a demasiado, cambia la duración.": "If it feels short or long, change the duration.",
@@ -2488,8 +2492,22 @@ function renderMas(){
   if(PROFILE.activity&&PROFILE.activity.note) pf.appendChild(h('<div class="dim" style="font-size:11px;line-height:1.5;margin-top:6px">'+esc(PROFILE.activity.note)+'</div>'));
   pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' ejercicios disponibles con tu material.'+((PROFILE.exclude||[]).length?'<br><span style="color:#ffb347">'+PROFILE.exclude.length+' vetados por limitacion: '+esc(PROFILE.exclude.slice(0,4).join(", "))+(PROFILE.exclude.length>4?"...":"")+'</span>':'')+'</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
   pf.appendChild(h('<button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button>'));
+  pf.appendChild(h('<button class="btn2" style="margin:0" onclick="cambiarDePlan()">↺ Cambiar de plan</button>'));
   el.appendChild(pf);
   return el;
+}
+function cambiarDePlan(){
+  overlay('<div class="ctitle">↺ Cambiar de plan</div>'+
+   '<div style="font-size:13px;line-height:1.6;color:#8A8F98">Este dispositivo está usando el plan <b style="color:#A8E63E">'+esc(PROFILE.id)+'</b>. Escribe el identificador de otro plan, o déjalo vacío para volver al plan por defecto.</div>'+
+   '<div class="dim" style="font-size:11px;margin:8px 0 10px">Tus datos de cada plan se guardan por separado: cambiar no borra nada.</div>'+
+   '<input type="text" id="planNuevo" value="'+esc(PROFILE.id==="miguel"?"":PROFILE.id)+'" placeholder="marchena, iker, lydia…">'+
+   '<button class="btn" style="margin-top:12px" onclick="aplicarCambioPlan()">CARGAR ESE PLAN</button>'+
+   '<button class="btn2" style="margin:0" onclick="closeOverlay()">Cancelar</button>');
+}
+function aplicarCambioPlan(){
+  const v=($("planNuevo").value||"").trim().toLowerCase().replace(/[^a-z0-9_-]/g,"");
+  recordarPlan(v==="miguel"?"":v);
+  location.href=location.pathname+(v&&v!=="miguel"?"?plan="+v:"");
 }
 function savePlanStart(){ const v=$("planStartInput").value.trim(); if(/^\d{4}-\d{2}-\d{2}$/.test(v)){ st.planStart=v; save(); toast("Inicio del plan: "+v); render(); } else toast("Formato: YYYY-MM-DD"); }
 var _hbW=2;
@@ -3400,15 +3418,22 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
+/* recuerda qué plan usa este dispositivo: al instalar como app, iOS puede
+   perder el ?plan= de la URL, así que no podemos depender solo del parámetro */
+const KEYPLAN="deka-plan-id";
+function planGuardado(){ try{ return localStorage.getItem(KEYPLAN)||""; }catch(e){ return ""; } }
+function recordarPlan(id){ try{ id?localStorage.setItem(KEYPLAN,id):localStorage.removeItem(KEYPLAN); }catch(e){} }
 async function boot(){
-  const id=(new URLSearchParams(location.search).get("plan")||"").trim().toLowerCase().replace(/[^a-z0-9_-]/g,"");
+  const enURL=(new URLSearchParams(location.search).get("plan")||"").trim().toLowerCase().replace(/[^a-z0-9_-]/g,"");
+  if(enURL) recordarPlan(enURL==="miguel"?"":enURL);   // el parámetro manda y se memoriza
+  const id = enURL || planGuardado();
   if(id&&id!=="miguel"){
     try{
       const r=await fetch("planes/"+id+".json",{cache:"no-cache"});
       if(!r.ok) throw new Error(r.status);
       applyProfile(await r.json());
     }catch(e){
-      document.getElementById("app").innerHTML='<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="location.search=\'\'">Abrir plan por defecto</button></div>';
+      document.getElementById("app").innerHTML='<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="recordarPlan(\'\');location.search=\'\'">Abrir plan por defecto</button></div>';
       return;
     }
   } else applyProfile(null);

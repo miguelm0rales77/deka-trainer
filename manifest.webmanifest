@@ -3,8 +3,6 @@
   "short_name": "Hybrid Train",
   "description": "Entrenamiento híbrido · HYROX · DEKA · fuerza, resistencia y mente",
   "lang": "es",
-  "start_url": ".",
-  "scope": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0D0F12",
