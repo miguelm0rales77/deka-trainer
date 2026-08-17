@@ -1,0 +1,375 @@
+{
+  "id": "angel",
+  "name": "Ángel",
+  "lang": "es",
+  "planStart": "2026-08-17",
+  "activity": {
+    "level": "moderado",
+    "note": "16 años, muy alto, juega a voleibol. Actividad normal para su edad. Objetivo: hipertrofia, core y sobre todo capacidad de salto. Del 17 al 30 de agosto entrena con Iker: fitball, mancuernas y barra de unos 12 kg. No necesita trabajo de carrera.",
+    "extras": [
+      "Voleibol",
+      "Entrena con Iker hasta el 30 de agosto"
+    ]
+  },
+  "zones": {
+    "Z1": [
+      0,
+      135
+    ],
+    "Z2": [
+      135,
+      155
+    ],
+    "Z3": [
+      155,
+      170
+    ],
+    "Z4": [
+      170,
+      185
+    ],
+    "Z5": [
+      185,
+      205
+    ]
+  },
+  "refs": {
+    "tests": [
+      [
+        "Alcance de pie",
+        "— test S2"
+      ],
+      [
+        "Salto vertical parado",
+        "— test S2"
+      ],
+      [
+        "Salto con aproximación",
+        "— test S2"
+      ],
+      [
+        "Flexiones seguidas",
+        "—"
+      ]
+    ],
+    "run": [
+      [
+        "No aplica",
+        "Su deporte no pide volumen de carrera"
+      ]
+    ],
+    "erg": [
+      [
+        "No aplica",
+        ""
+      ]
+    ],
+    "goals": [
+      [
+        "Salto vertical",
+        "Ganar centímetros de alcance"
+      ],
+      [
+        "Hipertrofia",
+        "Comiendo y durmiendo bien"
+      ],
+      [
+        "Core",
+        "Plancha 90s y rollout controlado"
+      ],
+      [
+        "Aterrizaje",
+        "Caer sin que la rodilla se meta hacia dentro"
+      ]
+    ]
+  },
+  "races": [],
+  "equipment": [
+    "ninguno",
+    "barra",
+    "mancuernas"
+  ],
+  "exclude": [
+    "PULL-UPS",
+    "TOES TO BAR",
+    "HANGING KNEE RAISE",
+    "RING ROW",
+    "RING DIPS",
+    "RING PUSH-UP",
+    "PRESS BANCA",
+    "APERTURAS",
+    "PULLOVER",
+    "KB SWING",
+    "KB CLEAN & PRESS",
+    "KB SNATCH",
+    "GOBLET SQUAT",
+    "FARMERS CARRY",
+    "SUITCASE CARRY",
+    "OVERHEAD CARRY",
+    "DEAD BALL OVER",
+    "THRUSTER KB",
+    "SANDBAG LUNGES",
+    "SANDBAG CLEAN",
+    "SANDBAG OVER SHOULDER",
+    "BEAR HUG CARRY",
+    "CLUBBELL SWING",
+    "CLUBBELL MILL",
+    "WALL BALLS",
+    "SLAM BALL",
+    "SIT-UP THROW",
+    "BURPEES TO PLATE",
+    "LUNGES TO BOX",
+    "STEP-UP CHALECO",
+    "BOX STEP OVER",
+    "BOX JUMP",
+    "FARMER MANCUERNAS",
+    "HIP THRUST"
+  ],
+  "presets": [
+    {
+      "name": "Pliometría — aterrizaje",
+      "sets": 5,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "BROAD JUMP",
+          "reps": 5,
+          "weight": "—"
+        }
+      ],
+      "note": "Cae y aguanta 3 segundos antes del siguiente salto. Rodilla alineada con el pie, nunca hacia dentro. Si el aterrizaje se te va, has hecho suficientes."
+    },
+    {
+      "name": "Pliometría — salto máximo",
+      "sets": 5,
+      "rest": 180,
+      "ex": [
+        {
+          "name": "SQUAT JUMPS",
+          "reps": 4,
+          "weight": "—"
+        }
+      ],
+      "note": "Cuatro saltos al 100% y descanso largo. Esto es potencia, no acondicionamiento: si el quinto salto es más bajo que el primero, descansa más."
+    },
+    {
+      "name": "Core con fitball",
+      "sets": 3,
+      "rest": 60,
+      "ex": [
+        {
+          "name": "PLANCHA",
+          "reps": 45,
+          "weight": "seg"
+        },
+        {
+          "name": "DEAD BUG",
+          "reps": 12,
+          "weight": "sobre el balón"
+        },
+        {
+          "name": "V-UPS",
+          "reps": 12,
+          "weight": "—"
+        }
+      ],
+      "note": "El balón añade inestabilidad: el abdomen trabaja para no dejarte caer, que es exactamente su función en el remate."
+    }
+  ],
+  "habits": [
+    {
+      "id": "sleep9",
+      "name": "Dormir 8-9 h",
+      "icon": "😴",
+      "w": 4,
+      "desc": "A tu edad es lo que más influye en ganar músculo y en saltar más."
+    },
+    {
+      "id": "protein",
+      "name": "Proteína en las 3 comidas",
+      "icon": "🥩",
+      "w": 4,
+      "desc": "Huevos, pescado, carne, lácteos, legumbres."
+    },
+    {
+      "id": "comer",
+      "name": "Desayunar de verdad",
+      "icon": "🍽️",
+      "w": 3,
+      "desc": "Sin comida suficiente no hay crecimiento muscular."
+    },
+    {
+      "id": "rodilla",
+      "name": "Revisar la rodilla",
+      "icon": "🦵",
+      "w": 3,
+      "desc": "¿Dolor justo debajo de la rótula tras saltar? Anótalo. Es la señal a vigilar en un saltador que está creciendo."
+    },
+    {
+      "id": "hydra",
+      "name": "≥2L agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": ""
+    },
+    {
+      "id": "mob",
+      "name": "Movilidad de tobillo 5 min",
+      "icon": "🦶",
+      "w": 3,
+      "desc": "La dorsiflexión limita la batida. Cinco minutos al día valen mucho."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "17–23 ago",
+      "label": "Base — aprender a aterrizar",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "PIERNA + CORE · Sentadilla frontal con barra 4×12 (baja 3 segundos) · Peso muerto rumano con barra 4×12 · Zancada con mancuernas 3×10 por pierna · Elevación de talones 4×15 (a un pie si puedes) · CORE FITBALL: Stir the pot 3×30s + Dead bug sobre balón 3×12 · R90\"",
+          "sub": "El gemelo y el sóleo importan más de lo que parece para saltar: son los que devuelven la energía en la batida.",
+          "pre": "Calentamiento: 5 min movilidad de tobillo y cadera + 20 sentadillas sin peso"
+        },
+        {
+          "d": "Mar",
+          "t": "Fuerza",
+          "main": "EMPUJE + CORE · Press militar con barra 4×12 · Flexiones 4×12-15 (baja 3 segundos) · Press mancuernas en suelo 4×12 · Elevaciones laterales 3×15 · Face pull con toalla 3×15 · CORE: Rollout sobre balón 3×10 + Plancha 3×45s · R90\"",
+          "sub": "El hombro del rematador sufre mucho. Las elevaciones laterales y el face pull no son estética: son salud del manguito."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "PLIOMETRÍA 1 — ATERRIZAJE · Antes de saltar hay que saber caer. 1) Drop and stick: desde un escalón bajo, cae y aguanta 3 segundos sin que la rodilla se meta hacia dentro. 5×5 · 2) Pogos (saltitos de tobillo, rodilla casi recta) 4×15 · 3) Salto vertical con parada 4×5 · R2' entre series. Total: unos 70 contactos.",
+          "sub": "70 contactos es poco a propósito. Esta semana entrenas la técnica de caída, no la altura. Si notas dolor justo debajo de la rótula, paras y me lo dices.",
+          "fc": "esfuerzo alto pero corto"
+        },
+        {
+          "d": "Jue",
+          "t": "Movilidad",
+          "main": "MOVILIDAD 20 min · Tobillo (rodilla a la pared 3×10 por pierna), cadera (90/90 y couch stretch), torácica y hombro. · CORE LARGO: 3 rondas de plancha 45s + plancha lateral 30s por lado + curl isquios sobre balón 12 + puente sobre balón 15 · R60\"",
+          "sub": "La dorsiflexión de tobillo limita la batida directamente. Insiste ahí."
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "TRACCIÓN + PIERNA · Remo con barra 4×15 (tempo lento) · Remo con mancuerna a una mano 4×12 · Superman 3×15 · Sentadilla búlgara con mancuernas 3×10 por pierna · Puente de glúteo a una pierna 3×12 · R90\"",
+          "sub": "Sin barra de dominadas, el tirón va por volumen. La búlgara es tu mejor ejercicio: el salto se hace con una pierna cada vez."
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Voleibol, o caminata 45 min. Si juegas, cuenta como sesión. · Continuo y suave.",
+          "sub": "Jugar también entrena. Regístralo aquí para que la carga de la app sea la real."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Movilidad ligera si te apetece."
+        }
+      ],
+      "nutr": "16 años y quieres ganar músculo: lo que más manda es COMER SUFICIENTE y DORMIR 8-9 h. Proteína en las tres comidas. Con poco peso disponible, el músculo lo construyen el volumen y el tempo, no la carga."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "24–30 ago",
+      "label": "Salto — potencia y test",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "PIERNA + CORE · Sentadilla frontal 5×12 · Peso muerto rumano 4×15 · Zancada con mancuernas 4×10 por pierna · Elevación de talones a un pie 4×15 · CORE FITBALL: Pike sobre balón 3×10 + Stir the pot 3×40s · R90\"",
+          "sub": "Una serie más que la semana pasada. Sigue bajando en 3 segundos."
+        },
+        {
+          "d": "Mar",
+          "t": "Fuerza",
+          "main": "EMPUJE + CORE · Press militar 5×12 · Flexiones con pies en el balón 4×10 · Press mancuernas en suelo 4×12 · Elevaciones laterales 4×15 · Face pull 3×15 · CORE: Rollout 3×12 + Plancha con peso 3×45s · R90\"",
+          "sub": "Flexiones con los pies en el fitball: el core trabaja el doble sin añadir un solo ejercicio."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "PLIOMETRÍA 2 — POTENCIA · 1) Pogos 4×20 · 2) Salto vertical máximo con brazos 5×4 (recupera del todo entre series) · 3) Salto con aproximación de voleibol 5×3, como en un remate · 4) Salto a una pierna con parada 3×5 por lado · R2-3' entre series. Total: unos 95 contactos.",
+          "sub": "Cada salto al 100% o no cuenta. Si notas que ya no saltas igual de alto, para: la pliometría con fatiga no entrena potencia, solo desgasta el tendón.",
+          "fc": "máximo, series cortas"
+        },
+        {
+          "d": "Jue",
+          "t": "Movilidad",
+          "main": "MOVILIDAD 20 min · Mismo trabajo de tobillo y cadera. · CORE LARGO: 4 rondas de plancha 50s + lateral 35s por lado + curl isquios sobre balón 15 + V-ups 12 · R60\"",
+          "sub": "Día fácil entre los dos días de salto. No lo saltes: el tendón se adapta descansando."
+        },
+        {
+          "d": "Vie",
+          "t": "Test",
+          "main": "TEST DE SALTO · Con tiza en los dedos y de cara a una pared: 1) Alcance de pie (sin saltar) · 2) Salto vertical parado, mejor de 3 intentos · 3) Salto con carrera de aproximación, mejor de 3. Anota los tres. R3' entre intentos. Después: 3×12 remo con barra suave.",
+          "sub": "La diferencia entre el alcance de pie y el salto es tu salto real. Anótalo en la app y lo repites en unas semanas.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Voleibol o caminata 45-50 min. · Continuo y suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Última semana con Iker — cuéntame qué material tendrás después."
+        }
+      ],
+      "nutr": "Semana de más intensidad. Duerme más si puedes: la potencia depende del sistema nervioso, y eso se recupera durmiendo, no comiendo."
+    },
+    {
+      "w": 3,
+      "m": 2,
+      "dates": "31 ago–6 sep",
+      "label": "Continuidad — con lo que tengas",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "PIERNA + CORE · Sentadilla 4×12 · Peso muerto rumano 4×12 · Zancada 3×10 por pierna · Talones 4×15 · Core 10 min · R90\"",
+          "sub": "Si ya tienes más material en casa, sube el peso y baja a 4×8-10. Si no, mantén el tempo lento."
+        },
+        {
+          "d": "Mar",
+          "t": "Fuerza",
+          "main": "EMPUJE + CORE · Press militar 4×12 · Flexiones 4×máximas · Press mancuernas 4×12 · Elevaciones laterales 3×15 · Core 10 min · R90\""
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "PLIOMETRÍA 3 · Pogos 4×20 · Salto vertical máximo 5×4 · Salto con aproximación 4×3 · R2-3'. Unos 85 contactos.",
+          "sub": "Mantener, no forzar. Dos sesiones de salto por semana es el techo sensato a tu edad."
+        },
+        {
+          "d": "Jue",
+          "t": "Movilidad",
+          "main": "MOVILIDAD 20 min + CORE 4 rondas · R60\""
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "TRACCIÓN + PIERNA · Remo con barra 4×15 · Remo mancuerna 4×12 · Búlgara 3×10 por pierna · Puente a una pierna 3×12 · R90\"",
+          "sub": "Si has recuperado barra de dominadas, mételas: 4×máximas en vez del remo con barra."
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Voleibol o actividad libre. · Continuo y suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Escríbele a Miguel cómo ha ido y con qué material cuentas para seguir."
+        }
+      ],
+      "nutr": "Mantén las comidas y el sueño al volver a la rutina normal. Es cuando más fácil es descuidarse."
+    }
+  ]
+}
