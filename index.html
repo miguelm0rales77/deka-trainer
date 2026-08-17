@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="manifest" href="manifest.webmanifest">
+<!-- el manifest se genera al vuelo con el plan de cada persona -->
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:#0D0F12}
@@ -511,6 +511,11 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "¿De quién es este plan?": "Whose plan is this?",
+ "CONTINUAR": "CONTINUE",
+ "Usar el plan por defecto": "Use the default plan",
+ " · instalada": " · installed",
+ " · en navegador": " · in browser",
  "↺ Cambiar de plan": "↺ Switch plan",
  "CARGAR ESE PLAN": "LOAD THAT PLAN",
  "Cancelar": "Cancel",
@@ -2493,6 +2498,7 @@ function renderMas(){
   pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' ejercicios disponibles con tu material.'+((PROFILE.exclude||[]).length?'<br><span style="color:#ffb347">'+PROFILE.exclude.length+' vetados por limitacion: '+esc(PROFILE.exclude.slice(0,4).join(", "))+(PROFILE.exclude.length>4?"...":"")+'</span>':'')+'</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
   pf.appendChild(h('<button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button>'));
   pf.appendChild(h('<button class="btn2" style="margin:0" onclick="cambiarDePlan()">↺ Cambiar de plan</button>'));
+  pf.appendChild(h('<div class="dim mono" style="font-size:10px;text-align:center;margin-top:10px">'+VERSION+(esStandalone()?' · instalada':' · en navegador')+'</div>'));
   el.appendChild(pf);
   return el;
 }
@@ -3418,6 +3424,27 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
+const VERSION="v12 · 17 ago 2026";
+/* El manifest se construye en caliente para que start_url conserve el ?plan=.
+   Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
+function manifestDinamico(id){
+  try{
+    const m={name:"Hybrid Train",short_name:"Hybrid Train",lang:"es",display:"standalone",
+      orientation:"portrait",background_color:"#0D0F12",theme_color:"#0D0F12",
+      start_url:location.pathname+(id?"?plan="+id:""),
+      scope:location.pathname,
+      icons:[{src:"icon-192.png",sizes:"192x192",type:"image/png"},
+             {src:"icon-512.png",sizes:"512x512",type:"image/png"},
+             {src:"icon-512.png",sizes:"512x512",type:"image/png",purpose:"any maskable"}]};
+    const url=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:"application/manifest+json"}));
+    const l=document.createElement("link"); l.rel="manifest"; l.href=url;
+    document.head.appendChild(l);
+  }catch(e){}
+}
+function esStandalone(){
+  return window.navigator.standalone===true ||
+    (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+}
 /* recuerda qué plan usa este dispositivo: al instalar como app, iOS puede
    perder el ?plan= de la URL, así que no podemos depender solo del parámetro */
 const KEYPLAN="deka-plan-id";
@@ -3436,9 +3463,31 @@ async function boot(){
       document.getElementById("app").innerHTML='<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="recordarPlan(\'\');location.search=\'\'">Abrir plan por defecto</button></div>';
       return;
     }
-  } else applyProfile(null);
+  } else {
+    // primera vez en la app instalada, sin parámetro ni memoria: preguntar en vez de asumir
+    if(!enURL && !planGuardado() && esStandalone() && !localStorage.getItem("deka-trainer-v4")){
+      manifestDinamico("");
+      return elegirPlanInicial();
+    }
+    applyProfile(null);
+  }
+  manifestDinamico(PROFILE.id==="miguel"?"":PROFILE.id);
   checkBadges();
   render();
+}
+function elegirPlanInicial(){
+  document.getElementById("app").innerHTML=
+   '<div class="card" style="margin:48px 14px"><div class="ctitle">¿De quién es este plan?</div>'+
+   '<div style="font-size:13px;line-height:1.6;color:#8A8F98;margin-bottom:14px">Al instalar la app se ha perdido el identificador del enlace. Escribe el tuyo una sola vez y ya queda guardado en este móvil.</div>'+
+   '<input type="text" id="planIni" placeholder="marchena, iker, lydia…" autocapitalize="off" autocorrect="off">'+
+   '<button class="btn" style="margin-top:12px" onclick="fijarPlanInicial()">CONTINUAR</button>'+
+   '<button class="btn2" style="margin:0" onclick="fijarPlanInicial(true)">Usar el plan por defecto</button></div>';
+  setTimeout(()=>{const e=document.getElementById("planIni"); if(e) e.focus();},80);
+}
+function fijarPlanInicial(defecto){
+  const v=defecto?"":((document.getElementById("planIni").value||"").trim().toLowerCase().replace(/[^a-z0-9_-]/g,""));
+  recordarPlan(v==="miguel"?"":v);
+  location.href=location.pathname+(v&&v!=="miguel"?"?plan="+v:"?plan=miguel");
 }
 boot();
 </script>
