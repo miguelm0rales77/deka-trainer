@@ -3460,7 +3460,12 @@ async function boot(){
       if(!r.ok) throw new Error(r.status);
       applyProfile(await r.json());
     }catch(e){
-      document.getElementById("app").innerHTML='<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="recordarPlan(\'\');location.search=\'\'">Abrir plan por defecto</button></div>';
+      /* sin cobertura el plan puede estar simplemente sin descargar todavía:
+         decir "no encontrado" ahí sería mentir y mandarte a buscar un enlace
+         que está bien */
+      document.getElementById("app").innerHTML = navigator.onLine===false
+        ? '<div class="card" style="margin:60px 14px"><div class="ctitle">Sin conexión</div><div style="font-size:13px;line-height:1.6">Este plan todavía no está guardado en el móvil. Ábrelo una vez con datos o wifi y a partir de ahí funcionará también sin cobertura.</div><button class="btn" style="margin-top:12px" onclick="location.reload()">REINTENTAR</button></div>'
+        : '<div class="card" style="margin:60px 14px"><div class="ctitle">Plan no encontrado</div><div style="font-size:13px;line-height:1.6">No he podido cargar <b>planes/'+esc(id)+'.json</b>.<br><br>Comprueba el enlace o pide uno nuevo. Mientras, puedes usar el plan por defecto:</div><button class="btn" style="margin-top:12px" onclick="recordarPlan(\'\');location.search=\'\'">Abrir plan por defecto</button></div>';
       return;
     }
   } else {
@@ -3490,6 +3495,13 @@ function fijarPlanInicial(defecto){
   location.href=location.pathname+(v&&v!=="miguel"?"?plan="+v:"?plan=miguel");
 }
 boot();
+
+/* Service worker: guarda la app en el móvil para que abra al instante y
+   funcione sin cobertura. Solo en https, que es lo que sirve GitHub Pages;
+   abriendo el archivo en local no se registra y no pasa nada. */
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  window.addEventListener("load",()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); });
+}
 </script>
 </body>
 </html>
