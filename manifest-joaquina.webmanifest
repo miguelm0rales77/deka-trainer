@@ -1,12 +1,12 @@
 {
-  "name": "Hybrid Train · Miguel",
-  "short_name": "Hybrid Train",
+  "name": "Entrenamiento · Joaquina",
+  "short_name": "Entrenamiento",
   "lang": "es",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0D0F12",
   "theme_color": "#0D0F12",
-  "start_url": "./",
+  "start_url": "./?plan=joaquina",
   "scope": "./",
   "icons": [
     {
