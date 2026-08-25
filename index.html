@@ -96,6 +96,7 @@ var PROFILE = {
   equipment:["ninguno","barra","kb","mancuernas","saco","cajon","anillas","balon","comba","clubbell","chaleco","disco","remo","skierg","bike"],
   habits:null,  // null = usa los de serie
   exclude:[],   // ejercicios vetados (lesiones, limitaciones)
+  soloCuerpo:false, // true = el generador solo propone ejercicios de peso corporal
   presets:[     // plantillas de sesión listas para lanzar con metrónomo
     {name:"Wall Balls — sin soltar", sets:5, rest:90,
      ex:[{name:"WALL BALLS", reps:20, weight:"10kg · diana 3m"}],
@@ -511,6 +512,7 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "Generador limitado a peso corporal": "Generator limited to bodyweight",
  "Eficiencia": "Efficiency",
  "Cuesta": "Hills",
  "Umbral+HYROX": "Threshold+HYROX",
@@ -2499,7 +2501,7 @@ function renderMas(){
   pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #242A32"><span style="font-size:12px">Plan cargado</span><span class="mono" style="font-size:12px;color:#A8E63E">'+esc(PROFILE.id)+' · '+PLAN.length+' semanas</span></div>'));
   pf.appendChild(h('<div class="row" style="padding:5px 0;border-bottom:1px solid #242A32"><span style="font-size:12px">Actividad de base</span><span class="mono" style="font-size:12px">'+esc((PROFILE.activity&&PROFILE.activity.level)||"—")+'</span></div>'));
   if(PROFILE.activity&&PROFILE.activity.note) pf.appendChild(h('<div class="dim" style="font-size:11px;line-height:1.5;margin-top:6px">'+esc(PROFILE.activity.note)+'</div>'));
-  pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' ejercicios disponibles con tu material.'+((PROFILE.exclude||[]).length?'<br><span style="color:#ffb347">'+PROFILE.exclude.length+' vetados por limitacion: '+esc(PROFILE.exclude.slice(0,4).join(", "))+(PROFILE.exclude.length>4?"...":"")+'</span>':'')+'</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
+  pf.appendChild(h('<div><div style="font-size:12px;margin:12px 0 6px">Material disponible:</div><div class="chips">'+(PROFILE.equipment||[]).filter(q=>q!=="ninguno").map(q=>'<span class="tagz" style="background:#23233f;color:#a0a0c0">'+esc(EQNAMES[q]||q)+'</span>').join("")+'</div><div class="dim" style="font-size:11px;margin-top:8px">'+allEx().filter(e=>hasEquip(e)).length+' ejercicios disponibles con tu material.'+(PROFILE.soloCuerpo?'<br><span style="color:#A8E63E">Generador limitado a peso corporal</span>':'')+((PROFILE.exclude||[]).length?'<br><span style="color:#ffb347">'+PROFILE.exclude.length+' vetados por limitacion: '+esc(PROFILE.exclude.slice(0,4).join(", "))+(PROFILE.exclude.length>4?"...":"")+'</span>':'')+'</div><div style="font-size:12px;margin:12px 0 6px">Lunes de inicio del plan (S1):</div><input type="text" id="planStartInput" value="'+st.planStart+'" placeholder="YYYY-MM-DD"></div>'));
   pf.appendChild(h('<button class="btn2" style="margin-top:8px" onclick="savePlanStart()">Guardar inicio del plan</button>'));
   pf.appendChild(h('<button class="btn2" style="margin:0" onclick="cambiarDePlan()">↺ Cambiar de plan</button>'));
   pf.appendChild(h('<div class="dim mono" style="font-size:10px;text-align:center;margin-top:10px">'+VERSION+(esStandalone()?' · instalada':' · en navegador')+'</div>'));
@@ -2657,6 +2659,7 @@ function openGenerator(source){
   const ms=muscleStatus();
   const avoid=MUSCLES.filter(m=>ms[m.id].flag==="sobrecarga"||ms[m.id].sore>=2);
   if(avoid.length) html+='<div style="font-size:11px;color:#ffb347;margin-bottom:10px">Se evitarán: '+avoid.map(m=>m.name).join(", ")+'</div>';
+  if(PROFILE.soloCuerpo) html+='<div style="font-size:11px;color:#A8E63E;margin-bottom:10px">Solo ejercicios de peso corporal. Para trabajar con material, usa la sesion del plan o las plantillas.</div>';
   const low=MUSCLES.map(m=>({m,rel:ms[m.id].rel})).sort((a,b)=>a.rel-b.rel).slice(0,3);
   html+='<div class="dim" style="font-size:11px;margin-bottom:12px">Zonas menos trabajadas (7d): '+low.map(x=>x.m.name).join(", ")+'</div>';
   const nx = genOpts.mins<=15?2 : genOpts.mins<=22?3 : genOpts.mins<=32?4 : genOpts.mins<=45?5 : genOpts.mins<=60?6 : 7;
@@ -2674,7 +2677,10 @@ function generateWod(){
   const nEx = mins<=15?2 : mins<=22?3 : mins<=32?4 : mins<=45?5 : mins<=60?6 : 7;
   const nSets = mins<=15?3 : mins<=25?3 : mins<=45?4 : 5;
   // base: sin ergómetros, con material disponible y respetando sobrecarga/agujetas SIEMPRE
-  const safe=allEx().filter(e=>!e.erg&&hasEquip(e)&&!Object.entries(e.m).some(([mu,c])=>c>=0.5&&(ms[mu].flag==="sobrecarga"||ms[mu].sore>=2)));
+  const soloCuerpo=!!PROFILE.soloCuerpo;
+  const safe=allEx().filter(e=>!e.erg&&hasEquip(e)
+    &&(!soloCuerpo||exEquip(e)==="ninguno")
+    &&!Object.entries(e.m).some(([mu,c])=>c>=0.5&&(ms[mu].flag==="sobrecarga"||ms[mu].sore>=2)));
   let pool=safe.slice();
   if(focus==="metabólico") pool=pool.filter(e=>e.cat==="metabólico"||e.cat==="hyrox");
   else if(focus==="fuerza") pool=pool.filter(e=>e.cat==="fuerza");
@@ -3428,7 +3434,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v13 · 24 ago 2026";
+const VERSION="v14 · 26 ago 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){
