@@ -511,6 +511,9 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "Eficiencia": "Efficiency",
+ "Cuesta": "Hills",
+ "Umbral+HYROX": "Threshold+HYROX",
  "¿De quién es este plan?": "Whose plan is this?",
  "CONTINUAR": "CONTINUE",
  "Usar el plan por defecto": "Use the default plan",
@@ -829,6 +832,10 @@ const DTYPE = {
   "Bici Z2":{c:"#4B7F3B",mode:"pacer",z2:true},
   "Tempo":{c:"#C5E0A0",mode:"pacer"},
   "Otra actividad":{c:"#8A8F98",mode:"otra"},
+  "Eficiencia":{c:"#3affb8",mode:"pacer"},
+  "Umbral+HYROX":{c:"#ffb347",mode:"wod"},
+  "Cuesta":{c:"#ff8347",mode:"pacer"},
+  "XYBRID":{c:"#D85A30",mode:"race"},
   "Movilidad":{c:"#4B7F3B",mode:"mob"},
   "Descanso":{c:"#4a4a5a",mode:"rest"},
   "COMPETICIÓN":{c:"#D85A30",mode:"race"},
@@ -841,70 +848,70 @@ var PLAN = [
  {
   "w": 1,
   "m": 1,
-  "dates": "21–27 jul",
+  "dates": "20–26 jul",
   "label": "Recuperación activa post-DEKA",
   "days": [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso total. Deja que el cuerpo procese Madrid. 3L agua + electrolitos."
+    "main": "Descanso total. 3L agua + electrolitos."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
-    "main": "Sesión suave recuperación: Remo 15 min Z2 + Air Bike 15 min Z2 (7-10 cal/min display). Sin mirar splits. Solo mover sangre.",
-    "sub": "Recuperación, no rendimiento",
+    "main": "Remo 15 min Z2 + Air Bike 15 min Z2 (7-10 cal/min). Sin mirar splits. Solo mover sangre. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "Carrera suave 25 min Z1–Z2. Nasal breathing. Cadencia >170. Sin objetivos de pace. · continuo, sin pausas",
+    "main": "25 min Z1–Z2 suave. Nasal breathing. Sin objetivos de pace. · continuo, sin pausas",
     "fc": "Z1-Z2 · <130 bpm"
    },
    {
     "d": "Jue",
     "t": "Bici Z2",
-    "main": "Bici Z2 45 min mientras lees. FC estable. No subir de 130 bpm. Combustible grasa. · continuo, sin pausas",
+    "main": "Bici Z2 45 min leyendo. FC <125 bpm. · continuo, sin pausas",
     "fc": "Z2 · 110–125 bpm"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
-    "main": "Remo técnico: 4×5 min Z2 con foco en finalización completa y drive ratio 1:2. Stroke rate 18–20 spm. SkiErg 15 min Z2 · R2'",
+    "main": "Remo técnico: 4×5 min Z2 (stroke rate 18-20, drive ratio 1:2). SkiErg 15 min Z2. · R2'",
+    "pre": "PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",
     "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Sáb",
     "t": "Carrera",
-    "main": "Long run 40 min Z2. Terreno llano. Nasal breathing. · continuo, sin pausas",
+    "main": "Long run 40 min Z2. Nasal breathing. · continuo, sin pausas",
     "fc": "Z2 · 110–130 bpm"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad completa 20 min: bloques mañana + noche. Prioridad extensión torácica y cadera."
+    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs."
    }
   ],
-  "nutr": "Semana de recuperación: proteína alta 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad absoluta."
+  "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad."
  },
  {
   "w": 2,
   "m": 1,
-  "dates": "28 jul–3 ago",
+  "dates": "27 jul–2 ago",
   "label": "Transición — tests base completados",
   "days": [
    {
     "d": "Lun",
     "t": "Test",
-    "main": "Tests base HYROX completados: SkiErg 500m → 1:33 · Remo 500m → 1:43 · AirBike 25 cal → 60s / 48.1 km/h · 1km carrera → 3:46/km (HR 155/162). Resultados integrados en todas las zonas del plan. R5' entre tests",
-    "sub": "Datos base confirmados. VO2max estimado COROS: 60 ml/kg/min",
+    "main": "Tests base HYROX completados: SkiErg 500m 1:33 · Remo 500m 1:43 · AirBike 25cal 60s · 1km 3:46/km (HR 155/162). VO2max COROS ~60. · R5' entre tests",
+    "sub": "Datos integrados en todas las zonas del plan",
     "flag": "TEST"
    },
    {
     "d": "Mar",
     "t": "Carrera",
-    "main": "35 min Z2. Nasal breathing. Recuperación activa post-tests.",
+    "main": "35 min Z2. Nasal breathing. Recuperación activa.",
     "fc": "Z2 · <130 bpm"
    },
    {
@@ -916,13 +923,13 @@ var PLAN = [
    {
     "d": "Jue",
     "t": "Fuerza",
-    "main": "Fuerza general HYROX: 3×6 Sentadilla trasera 65% + 3×8 Peso muerto 65% + 3×6 Pull-ups + Wall Balls 4×15 @10kg con diana 3m · R2'",
-    "sub": "Reintroducir carga después de la recuperación"
+    "main": "Fuerza general HYROX: 3×6 Sentadilla 65% + 3×8 Peso muerto 65% + 3×6 Pull-ups + Wall Balls 4×15 @10kg. · R2'",
+    "sub": "Reintroducir carga progresivamente"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
-    "main": "Remo 4×500m @pace fuerte (registrar splits vs test lunes). SkiErg 3×3 min Z4. Air Bike 15 min Z2 (7-10 cal/min) · R90\"",
+    "main": "Remo 4×500m @pace fuerte (registrar splits). SkiErg 3×3 min Z4. Air Bike 15 min Z2. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×8 @10kg",
     "fc": "Remo Z4-Z5 · SkiErg Z4"
    },
@@ -939,13 +946,13 @@ var PLAN = [
     "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino días de entrenamiento. Mg noche."
+  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino. Mg noche."
  },
  {
   "w": 3,
   "m": 2,
-  "dates": "4–10 ago",
-  "label": "Base HYROX I — Remo y SkiErg potencia",
+  "dates": "3–9 ago",
+  "label": "Base HYROX I — Remo potencia + arnés 2kg",
   "days": [
    {
     "d": "Lun",
@@ -955,21 +962,22 @@ var PLAN = [
    {
     "d": "Mar",
     "t": "Ergómetro",
-    "main": "Remo intervalos de potencia: 6×500m con 90s descanso. Objetivo: bajar splits vs S2. Registrar cada uno. SkiErg 4×3 min Z4.",
+    "main": "Remo intervalos potencia: 6×500m con 90s descanso. Registrar cada split. SkiErg 4×3 min Z4.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
     "fc": "Remo Z4-Z5 · SkiErg Z4"
    },
    {
     "d": "Mié",
-    "t": "Carrera",
-    "main": "Intervalos: 5×1 km a pace objetivo competición (<4:30/km) con 90s recuperación Z1.",
-    "fc": "Z4 · 148–160 bpm"
+    "t": "Eficiencia",
+    "main": "Eficiencia técnica carrera (Rich Ryan #4): 8×300m a pace 5k (3:55-4:05/km) con descanso largo (FC baje a <135 entre series). Foco: postura, cadencia, técnica. No agota el sistema.",
+    "sub": "No es cardio — es práctica de mecánica de carrera rápida",
+    "fc": "FC sube en los 300m, baja en descanso"
    },
    {
     "d": "Jue",
     "t": "Fuerza",
-    "main": "Fuerza HYROX: Sentadilla 4×5 @75% + Press banca 4×5 + Burpee Broad Jump 4×10 (técnica 30cm) + Sandbag Lunges 4×20m @20kg · R2'",
-    "sub": "Foco en Burpees y Lunges — tus armas en HYROX"
+    "main": "Fuerza HYROX: Sentadilla 4×5 @75% + Press banca 4×5 + Burpee Broad Jump 4×10 + Sandbag Lunges 4×20m @20kg. · R2'",
+    "sub": "Foco en Burpees y Lunges — tus armas"
    },
    {
     "d": "Vie",
@@ -981,8 +989,8 @@ var PLAN = [
    {
     "d": "Sáb",
     "t": "Tempo",
-    "main": "55 min: 15 min Z2 calentamiento + 20 min tempo continuo Z4 (4:20-4:25/km) + 20 min Z2 enfriamiento. El tempo es continuo, sin parar. Si pierdes el ritmo, reduce a 4:30 y aguanta.",
-    "sub": "Primera sesión de tempo puro del plan — la base del umbral se construye aquí",
+    "main": "55 min: 15 min Z2 + 20 min tempo continuo Z4 (4:20-4:25/km) + 20 min Z2. Tempo sin parar. Si pierdes ritmo reduce a 4:30 y aguanta.",
+    "sub": "Primera sesión de tempo puro — base del umbral HYROX",
     "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
@@ -992,12 +1000,12 @@ var PLAN = [
     "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "+40g CHO perientrino días de entrenamiento intenso. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg."
+  "nutr": "+40g CHO días intensos. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg."
  },
  {
   "w": 4,
   "m": 2,
-  "dates": "11–17 ago",
+  "dates": "10–16 ago",
   "label": "Base HYROX II — Carrera y fuerza",
   "days": [
    {
@@ -1008,26 +1016,26 @@ var PLAN = [
    {
     "d": "Mar",
     "t": "Comp. Running",
-    "main": "Compromised running post-Remo: 1000m Remo Z4 + inmediato 1 km carrera + 1000m Remo + 1 km carrera + 1000m Remo + 1 km carrera. Sin descanso entre bloques.",
-    "sub": "La secuencia clave para HYROX: salir a correr con el Remo en las piernas",
+    "main": "Compromised running: 1000m Remo Z4 + 1km carrera inmediato × 3 bloques. Sin descanso entre bloques.",
+    "sub": "Secuencia clave HYROX: salir a correr con el Remo en las piernas",
     "fc": "Z4-Z5 · 150–168 bpm"
    },
    {
     "d": "Mié",
     "t": "Fuerza",
-    "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m · R3'"
+    "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m. · R3'"
    },
    {
     "d": "Jue",
     "t": "Ergómetro",
-    "main": "Remo 5×500m @race-pace (registrar splits). Air Bike 5×2 min Z5 (>18-22 cal/min / >35 km/h). SkiErg 3×3 min Z4 · R90\"",
+    "main": "Remo 5×500m @race-pace (registrar). Air Bike 5×2 min Z5 (>18-22 cal/min). SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
     "fc": "Z4-Z5"
    },
    {
     "d": "Vie",
     "t": "Tempo",
-    "main": "55 min: 20 min Z2 + 20 min tempo continuo Z4 (4:20-4:25/km) + 15 min Z2. Primera vez que el tempo llega a 20 min continuos. Objetivo: mantener ritmo estable, no acelerar.",
+    "main": "55 min: 20 min Z2 + 20 min tempo Z4 (4:20-4:25/km) + 15 min Z2. Mantener ritmo estable, no acelerar. · continuo, sin pausas",
     "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
@@ -1044,109 +1052,107 @@ var PLAN = [
     "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días de entrenamiento duro. Sin déficit calórico."
+  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días duros. Sin déficit."
  },
  {
   "w": 5,
   "m": 2,
-  "dates": "18–24 ago",
+  "dates": "17–23 ago",
   "label": "Playa I — Kettlebell + Anillas + Carrera",
   "days": [
    {
     "d": "Lun",
     "t": "Carrera",
-    "main": "Carrera mañana temprana 30 min Z2. Antes del calor. Nasal breathing. · continuo, sin pausas",
+    "main": "30 min Z2 temprano. Antes del calor. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm",
     "flag": "PLAYA"
    },
    {
     "d": "Mar",
     "t": "Playa",
-    "main": "Bodyweight + kettlebell: 4 rondas → KB Swings 24kg ×20 + Anillas rows ×10 + Lunges ×20 + Burpee Broad Jump ×8 + Push-up anillas ×10. Descanso 90s.",
-    "sub": "Replicar patrón metabólico HYROX sin ergómetros",
+    "main": "4 rondas → KB Swings 24kg ×20 + Anillas rows ×10 + Lunges ×20 + Burpee Broad Jump ×8 + Push-up anillas ×10. Descanso 90s.",
     "flag": "PLAYA"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "Carrera 35 min: 10 min Z2 + 15 min Z3 + 10 min Z2. Temprano. · continuo, sin pausas",
+    "main": "35 min: 10 min Z2 + 15 min Z3 + 10 min Z2. Temprano. · continuo, sin pausas",
     "fc": "Z2–Z3",
     "flag": "PLAYA"
    },
    {
     "d": "Jue",
     "t": "Playa",
-    "main": "Wall Balls 5×15 @10kg + KB Goblet squat 4×12 @24kg + Anillas dips 3×10 + Hollow hold 3×30s + Dead bug 3×10. 35 min · R90\"",
-    "sub": "Fuerza funcional con lo disponible",
+    "main": "Wall Balls 5×15 @10kg + KB Goblet squat 4×12 @24kg + Anillas dips 3×10 + Hollow hold 3×30s + Dead bug 3×10. · R60\"",
     "flag": "PLAYA"
    },
    {
     "d": "Vie",
     "t": "Carrera",
-    "main": "Long run 45 min Z2. Temprano. Hidratación extra por calor. · continuo, sin pausas",
-    "fc": "Z2 · 110–130 bpm",
+    "main": "Long run 45 min Z2. Hidratación extra por calor. · continuo, sin pausas",
+    "fc": "Z2 · <130 bpm",
     "flag": "PLAYA"
    },
    {
     "d": "Sáb",
     "t": "Playa",
-    "main": "Circuito HYROX sin ergómetros: 5 rondas → Burpee Broad Jump ×10 + Sandbag Lunges 20m (saco 20kg) + KB Farmers Carry 24kg 30m + Wall Balls ×15 + 400m carrera. Descanso 2 min.",
+    "main": "5 rondas → Burpee Broad Jump ×10 + Sandbag Lunges 20m + KB Farmers Carry 24kg 30m + Wall Balls ×15 + 400m carrera. Descanso 2 min.",
     "fc": "Z3-Z4",
     "flag": "PLAYA"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad completa 20 min. Extensión torácica + cadera + cervicales. Playa o habitación.",
+    "main": "Movilidad 20 min. Extensión torácica + cadera + cervicales.",
     "flag": "PLAYA"
    }
   ],
-  "nutr": "Playa: hidratación ++. Mínimo 3.5L agua + electrolitos por el calor. Proteína 2g/kg. CHO moderado. Comida local sin complicar."
+  "nutr": "Playa: 3.5L agua + electrolitos. Proteína 2g/kg. CHO moderado. Comida local sin complicar."
  },
  {
   "w": 6,
   "m": 2,
-  "dates": "25–31 ago",
+  "dates": "24–30 ago",
   "label": "Playa II — Intensidad progresiva",
   "days": [
    {
     "d": "Lun",
     "t": "Carrera",
-    "main": "Carrera 30 min: 5 min Z2 + 4×4 min Z4 (4:20-4:35/km) con 2 min Z2 entre series.",
+    "main": "30 min: 5 min Z2 + 4×4 min Z4 (4:20-4:35/km) + 2 min Z2 entre series.",
     "fc": "Z4 · 148–160 bpm",
     "flag": "PLAYA"
    },
    {
     "d": "Mar",
     "t": "Playa",
-    "main": "Fuerza + metabólico: KB Swing 24kg 5×20 + Anillas pull-up 4×8 + Push-up anillas 4×12 + Wall Balls 4×20 + Burpee Broad Jump 4×10. Descanso 90s entre ejercicios.",
+    "main": "KB Swing 24kg 5×20 + Anillas pull-up 4×8 + Push-up anillas 4×12 + Wall Balls 4×20 + Burpee Broad Jump 4×10. Descanso 90s.",
     "flag": "PLAYA"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "Long run 50 min Z2. Temprano. Últimos 8 min Z3. · continuo, sin pausas",
+    "main": "Long run 50 min Z2. Últimos 8 min Z3. · continuo, sin pausas",
     "fc": "Z2–Z3",
     "flag": "PLAYA"
    },
    {
     "d": "Jue",
     "t": "Playa",
-    "main": "Circuito intensidad: 4 rondas → Sandbag Lunges 25m + KB Farmers Carry 30m + Burpee Broad Jump ×12 + Wall Balls ×20 + 500m carrera all-out. 3 min descanso.",
+    "main": "4 rondas → Sandbag Lunges 25m + KB Farmers Carry 30m + Burpee Broad Jump ×12 + Wall Balls ×20 + 500m carrera all-out. 3 min descanso.",
     "fc": "Z4-Z5",
     "flag": "PLAYA"
    },
    {
     "d": "Vie",
     "t": "Carrera",
-    "main": "Carrera 35 min Z2–Z3. Nasal breathing primeros 20 min. · continuo, sin pausas",
+    "main": "35 min Z2–Z3. Nasal breathing primeros 20 min. · continuo, sin pausas",
     "fc": "Z2–Z3",
     "flag": "PLAYA"
    },
    {
     "d": "Sáb",
     "t": "Playa",
-    "main": "Sesión larga metabólica: AMRAP 30 min → 10 KB Swings + 8 Anillas rows + 15 Wall Balls + 10 Burpees + 200m carrera. · Sin descanso: el AMRAP es continuo, dosifica.",
+    "main": "AMRAP 30 min → 10 KB Swings + 8 Anillas rows + 15 Wall Balls + 10 Burpees + 200m carrera.",
     "fc": "Z3-Z4",
     "flag": "PLAYA"
    },
@@ -1157,49 +1163,49 @@ var PLAN = [
     "flag": "PLAYA"
    }
   ],
-  "nutr": "Última semana playa: igual que S5. Al volver a casa: retomar protocolo completo — creatina, Mg, electrolitos, CHO perientrino."
+  "nutr": "Igual que S5. Al volver: retomar creatina, Mg, electrolitos, CHO perientrino."
  },
  {
   "w": 7,
   "m": 3,
-  "dates": "1–7 sep",
+  "dates": "31 ago–6 sep",
   "label": "Intensidad específica I — Vuelta a casa",
   "days": [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. Vuelta del verano. HRV mañana — reajuste post-playa."
+    "main": "Descanso. HRV mañana. Reajuste post-playa."
    },
    {
     "d": "Mar",
     "t": "Test",
-    "main": "Re-test base: Remo 500m máximo + SkiErg 500m máximo. Comparar vs S2. Esperar mejora pese al paréntesis de playa. R5' entre tests",
+    "main": "Re-test: Remo 500m máximo + SkiErg 500m máximo. Comparar vs S2. · R5' entre tests",
     "flag": "TEST"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "Intervalos: 6×1 km a pace objetivo (<4:20/km) con 90s recuperación.",
+    "main": "6×1 km a pace objetivo (<4:20/km) con 90s recuperación.",
     "fc": "Z4 · 148–160 bpm"
    },
    {
     "d": "Jue",
     "t": "Cluster HYROX",
-    "main": "Cluster HYROX: 4×(SkiErg 250m + Sled Push 20m + Sled Pull 20m + Burpee Broad Jump ×10 + 400m carrera). 3 min caminar entre rondas. Banda de pecho.",
+    "main": "Cluster HYROX: 4×(SkiErg 250m + Sled Push 20m + Sled Pull 20m + Burpee Broad Jump ×10 + 400m carrera). 3 min caminar entre rondas.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
     "fc": "Z4-Z5 · 150–170 bpm"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
-    "main": "Remo 5×500m @race-pace. Air Bike 4×2 min Z5 (>18-22 cal/min / >35 km/h). SkiErg 3×3 min Z4 · R90\"",
+    "main": "Remo 5×500m @race-pace. Air Bike 4×2 min Z5. SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 4×8 @10kg",
     "fc": "Z4-Z5"
    },
    {
     "d": "Sáb",
     "t": "Tempo",
-    "main": "60 min: 15 min Z2 calentamiento + 25 min tempo continuo Z4 (4:20-4:22/km) + 20 min Z2. Si los splits van bien, los últimos 5 min del tempo aprieta a 4:18.",
+    "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:20-4:22/km) + 20 min Z2. Si splits bien, últimos 5 min aprieta a 4:18. · continuo, sin pausas",
     "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
@@ -1209,12 +1215,12 @@ var PLAN = [
     "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Retomar protocolo completo: creatina 5g/día + Mg 300mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8."
+  "nutr": "Retomar protocolo completo: creatina + Mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8."
  },
  {
   "w": 8,
   "m": 3,
-  "dates": "8–14 sep",
+  "dates": "7–13 sep",
   "label": "Intensidad específica II — Simulacro HYROX",
   "days": [
    {
@@ -1225,34 +1231,34 @@ var PLAN = [
    {
     "d": "Mar",
     "t": "Cluster HYROX",
-    "main": "Simulacro HYROX parcial: SkiErg 1000m + 1 km carrera + Sled Push 25m + 1 km carrera + Remo 1000m + 1 km carrera + Burpee Broad Jump ×20 + 1 km carrera. Sin descanso.",
-    "pre": "PRE-SkiErg: Sit-Up Throw 4×10 @10kg · Bicarbonato PRIMERA VEZ: 0.3g/kg 90 min antes",
+    "main": "Simulacro HYROX parcial: SkiErg 1000m + 1km carrera + Sled Push 25m + 1km carrera + Remo 1000m + 1km carrera + Burpee Broad Jump ×20 + 1km carrera. Sin descanso.",
+    "pre": "PRE-SkiErg: Sit-Up Throw 4×10 @10kg · Bicarbonato PRIMERA VEZ 0.3g/kg 90 min antes",
     "fc": "Z4 · 148–162 bpm"
    },
    {
     "d": "Mié",
-    "t": "Carrera",
-    "main": "Recuperación: 25 min Z1–Z2.",
-    "fc": "Z2 · <130 bpm"
+    "t": "Umbral+HYROX",
+    "main": "Rich Ryan #2 — Umbral DESPUÉS de estaciones: estaciones HYROX completas (SkiErg+Sled+Remo+Burpees+Lunges+Wall Balls sin carrera). 7 min descanso. Después: 3×5 min Z4 carrera con 1 min descanso.",
+    "sub": "El descanso es necesario para alcanzar velocidad de umbral real",
+    "fc": "Z4 · 148–160 bpm en series de carrera"
    },
    {
     "d": "Jue",
     "t": "Fuerza",
-    "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m · R3'",
-    "sub": "Carga de competición en Wall Balls y Lunges"
+    "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m. · R3'"
    },
    {
     "d": "Vie",
     "t": "Umbral Híbrido",
-    "main": "Umbral largo: 4×8 min (2' carrera Z4 + 2' Remo Z4 + 2' SkiErg Z3 + 2' carrera). 2 min trote entre bloques.",
-    "pre": "PRE cada bloque SkiErg: 5 Sit-Up Throw @10kg",
-    "fc": "Z4 · 148–160 bpm"
+    "main": "Rich Ryan #1 — Umbral ANTES de HYROX: 4×5 min Z4 (4:20-4:30/km) con 1 min descanso. Al terminar, directo a estaciones HYROX: SkiErg + Remo + Burpees + Lunges.",
+    "pre": "PRE-SkiErg en la parte HYROX: Sit-Up Throw @10kg",
+    "fc": "Z4 · 148–158 bpm en carrera · Z4-Z5 en estaciones"
    },
    {
     "d": "Sáb",
     "t": "Tempo",
-    "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 20 min Z2. Semana dura — si el HRV está bajo, reduce el tempo a 20 min. · continuo, sin pausas",
-    "fc": "Z2 + Z4"
+    "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 20 min Z2. Si HRV bajo, reduce tempo a 20 min. · continuo, sin pausas",
+    "fc": "Z4"
    },
    {
     "d": "Dom",
@@ -1261,7 +1267,7 @@ var PLAN = [
     "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Bicarbonato activado: 0.3g/kg 60–90 min pre-sesión intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario."
+  "nutr": "Bicarbonato: 0.3g/kg 60-90 min pre-intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario."
  },
  {
   "w": 9,
@@ -1276,60 +1282,58 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV: si bajo, quita el jueves. Semana de mini-taper: mantener intensidad, recortar volumen."
+    "main": "Descanso. HRV. Mini-taper: mantener intensidad, recortar volumen."
    },
    {
     "d": "Mar",
     "t": "Comp. Running",
-    "main": "Compromised running: 3×(Remo 500m + 1 km carrera inmediato) con 2 min entre rondas. Volumen recortado por la carrera del sábado.",
-    "fc": "Z4-Z5 · 150–168 bpm",
-    "sub": "Última sesión dura antes del Xybrid"
+    "main": "Compromised running: 3×(Remo 500m + 1km carrera inmediato). 2 min entre rondas. Última sesión dura pre-Xybrid.",
+    "fc": "Z4-Z5 · 150–168 bpm"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "30 min: 10 min Z2 + 4×3 min Z4 (4:20-4:30/km) + Z2. Piernas despiertas, sin vaciarte · R90\"",
+    "main": "30 min: 10 min Z2 + 4×3 min Z4 (4:20-4:30/km) + Z2. Piernas despiertas, sin vaciarte. · R3'",
     "fc": "Z4 · 150–160 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Ensayo Xybrid al 60%: 1 ronda → SkiErg 300m + Sled Push 15m + Sled Pull 15m encadenados + Burpees to Plate ×15 + Remo 300m + AirBike 10 cal + Lunges to Box ×15 + Slam Ball ×10. R2' entre rondas",
-    "sub": "Objetivo: automatizar las transiciones nuevas, sobre todo el push+pull encadenado. Sin buscar tiempo.",
+    "main": "Ensayo Xybrid al 60%: 1 ronda → SkiErg 300m + Sled Push 15m + Sled Pull 15m encadenados + Burpees to Plate ×15 + Remo 300m + AirBike 10 cal + Lunges to Box ×15 + Slam Ball ×10. · R2' entre rondas",
+    "sub": "Automatizar transiciones nuevas, especialmente push+pull encadenado. Sin buscar tiempo.",
     "fc": "Z3 · <150 bpm"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua + electrolitos. Carga CHO moderada. Sueño ≥8h.",
-    "sub": "Día –1: nada nuevo"
+    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h."
    },
    {
     "d": "Sáb",
-    "t": "COMPETICIÓN",
+    "t": "XYBRID",
     "main": "XYBRID",
-    "sub": "Estaciones: SkiErg · Sled Push+Pull (misma estación) · Burpees to Plate ×40 · Remo · AirBike · Lunges to Box ×40 · Slam Ball 30kg ×30. Estrategia: sal conservador en el sled (push+pull encadenado dispara el lactato), recupera en la carrera posterior. Bicarbonato 0.3g/kg 90 min antes + Keto IQ.",
+    "sub": "Estaciones: SkiErg · Sled Push+Pull encadenado · Burpees to Plate ×40 · Remo · AirBike · Lunges to Box ×40 · Slam Ball 30kg ×30. Estrategia: conservador en sled (dispara lactato), recupera en carrera. Bicarbonato 0.3g/kg 90 min antes + Keto IQ.",
     "fc": "Z4-Z5 · umbral"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal (slam balls) prioritarios. Proteína alta."
+    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios."
    }
   ],
-  "nutr": "Semana de carrera: CHO moderado desde el jueves. Día –1 nada nuevo. Bicarbonato + Keto IQ el sábado. Post-carrera: 40g proteína + CHO rápido."
+  "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido."
  },
  {
   "w": 10,
   "m": 3,
   "dates": "21–27 sep",
-  "label": "Post-Xybrid + simulacro HYROX",
+  "label": "Post-Xybrid + simulacro HYROX completo",
   "days": [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso total post-Xybrid. Analizar la carrera: dónde perdiste tiempo, cómo respondiste al sled encadenado.",
-    "sub": "Notas para la estrategia de Valencia"
+    "main": "Descanso total post-Xybrid. Analizar: dónde perdiste tiempo, cómo respondió el sled encadenado.",
+    "sub": "Notas para estrategia Valencia"
    },
    {
     "d": "Mar",
@@ -1346,35 +1350,37 @@ var PLAN = [
    },
    {
     "d": "Jue",
-    "t": "Carrera",
-    "main": "Tempo corto: 10 min Z2 + 15 min Z4 (4:20-4:30/km) + 10 min Z2. Reactivar sin cargar. · continuo, sin pausas",
-    "fc": "Z3-Z4"
+    "t": "Cuesta",
+    "main": "Sprints en cuesta (Rich Ryan #5): 6×30s sprint cuesta 6-8% (o cinta 8% inclinación) con recuperación completa caminando. FC que llegue a Z5.",
+    "sub": "Potencia neuromuscular sin impacto excesivo. Primera sesión del plan.",
+    "fc": "Z5 picos en cada sprint"
    },
    {
     "d": "Vie",
-    "t": "Metabólico",
-    "main": "EMOM 25 min ligero: Wall Balls 10 + Burpee Broad Jump 5 + descanso. FC <140.",
-    "fc": "Z2-Z3 · <140 bpm"
+    "t": "Umbral+HYROX",
+    "main": "Rich Ryan #1 — Umbral ANTES de HYROX: 5×5 min Z4 con 1 min descanso. Directo a simulacro estaciones: SkiErg + Sled + Remo + Burpees + Lunges + Wall Balls.",
+    "pre": "PRE-SkiErg: Sit-Up Throw @10kg",
+    "fc": "Z4 en carrera · Z4-Z5 en estaciones"
    },
    {
     "d": "Sáb",
     "t": "Cluster HYROX",
-    "main": "Simulacro HYROX completo: las 8 estaciones + 8 km de carrera a carga 75%. Protocolo completo de competición. Ojo: aquí sí son BBJ, Farmers y Wall Balls (formato HYROX, no Xybrid). · Sin descanso entre estaciones: esto es la carrera.",
+    "main": "Simulacro HYROX completo: 8 estaciones + 8 km carrera a carga 75%. Protocolo completo. · Sin descanso entre estaciones: esto es la carrera.",
     "pre": "Bicarbonato + Keto IQ + electrolitos · PRE-SkiErg: Sit-Up Throw",
     "fc": "Z4 · 148–162 bpm"
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Descanso total. Recarga glucógeno. Sueño 8–9h."
+    "main": "Descanso total. Recarga glucógeno. Sueño 8-9h."
    }
   ],
-  "nutr": "Semana post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno el viernes para el simulacro. Mg + zinc noche."
+  "nutr": "Post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno viernes para simulacro."
  },
  {
   "w": 11,
   "m": 4,
-  "dates": "29 sep–5 oct",
+  "dates": "28 sep–4 oct",
   "label": "Taper Hyathlon Madrid",
   "race": {
    "name": "HYATHLON MADRID con Marchena",
@@ -1384,26 +1390,25 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Fuerza",
-    "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga acumulada · R3'"
+    "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga. · R3'"
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
-    "main": "Race-pace: SkiErg 2×3 min + Remo 2×3 min. Recuperación completa entre series.",
+    "main": "Race-pace: SkiErg 2×3 min + Remo 2×3 min. Recuperación completa.",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
     "fc": "Z4 · race-pace"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "30 min Z2. Sin objetivos de ritmo. · continuo, sin pausas",
+    "main": "30 min Z2. Sin objetivos. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m · R90\"",
-    "sub": "Sin fatiga. Automatizar patrones Hyathlon."
+    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m. · R60\" entre ejercicios"
    },
    {
     "d": "Vie",
@@ -1413,7 +1418,7 @@ var PLAN = [
    {
     "d": "Sáb",
     "t": "Descanso",
-    "main": "Descanso. Carga CHO moderada. Preparar logística con Marchena."
+    "main": "Descanso. CHO moderado. Preparar logística con Marchena."
    },
    {
     "d": "Dom",
@@ -1421,12 +1426,12 @@ var PLAN = [
     "main": "Descanso. Cena conocida: CHO + proteína, sin grasa excesiva."
    }
   ],
-  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2–3h antes. Bicarbonato + Keto IQ."
+  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2-3h antes. Bicarbonato + Keto IQ."
  },
  {
   "w": 12,
   "m": 5,
-  "dates": "6–12 oct",
+  "dates": "5–11 oct",
   "label": "Post-Hyathlon + última semana calidad",
   "race": {
    "name": "HYATHLON MADRID con Marchena",
@@ -1436,45 +1441,44 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. Estrategia con Marchena para el sábado: orden de estaciones y relevos."
+    "main": "Descanso. Estrategia con Marchena para el sábado."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
-    "main": "Última sesión de calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. Nada más · R90\"",
+    "main": "Última sesión calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
     "fc": "Z4 · race-pace"
    },
    {
     "d": "Mié",
     "t": "Carrera",
-    "main": "20 min Z1 muy suave. Solo mover las piernas. · continuo, sin pausas",
+    "main": "20 min Z1 muy suave. · continuo, sin pausas",
     "fc": "Z1 · <120 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Activación ligera: una ronda de estaciones HYROX al 50%. 20 min. R2' entre rondas"
+    "main": "Una ronda estaciones HYROX al 50%. 20 min. · R2' entre rondas"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h.",
-    "sub": "Día –1 del Hyathlon: nada nuevo"
+    "main": "Descanso total. CHO moderado. Sueño ≥8h."
    },
    {
     "d": "Sáb",
     "t": "COMPETICIÓN",
     "main": "HYATHLON MADRID",
-    "sub": "Con Marchena. 6 estaciones, 6 km. Estrategia: cambios rápidos, Marchena más Wall Balls. Bicarbonato + Keto IQ. Usar como ensayo de protocolo para Valencia."
+    "sub": "Con Marchena. 6 estaciones, 6 km. Cambios rápidos. Marchena más Wall Balls. Bicarbonato + Keto IQ. Ensayo protocolo Valencia."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Recuperación activa post-Hyathlon. Caminar 20 min. Proteína alta."
+    "main": "Recuperación post-Hyathlon. Caminar 20 min. Proteína alta."
    }
   ],
-  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación prioritaria antes de Valencia. Mg + omega-3 noche."
+  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación antes de Valencia. Mg + omega-3 noche."
  },
  {
   "w": 13,
@@ -1489,7 +1493,7 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Activación",
-    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min total · R2'"
+    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min. · R60\" entre ejercicios"
    },
    {
     "d": "Mar",
@@ -1506,27 +1510,27 @@ var PLAN = [
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Una ronda estaciones HYROX al 50%. 20 min. R2' entre rondas"
+    "main": "Una ronda HYROX al 50%. 20 min. · R2' entre rondas"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua + electrolitos. Sueño ≥8h."
+    "main": "Descanso total. 3L agua. Sueño ≥8h."
    },
    {
     "d": "Sáb",
     "t": "Descanso",
-    "main": "Viaje a Valencia. Preparación logística: equipamiento, ropa, suplementos. Confirmar estrategia final con Marchena. Cena conocida: CHO + proteína, sin grasa excesiva. Nada nuevo hoy.",
+    "main": "Viaje a Valencia. Logística, ropa, suplementos. Confirmar estrategia con Marchena. Cena conocida.",
     "sub": "Día –1: nada nuevo, nada de pie de más"
    },
    {
     "d": "Dom",
     "t": "COMPETICIÓN",
     "main": "HYROX VALENCIA — PAREJAS MASCULINO OPEN",
-    "sub": "Desayuno 2–3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min antes. Electrolitos. Estrategia: cambios rápidos, Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05."
+    "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min. Electrolitos. Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05."
    }
   ],
-  "nutr": "Día –3 (jue): carga CHO moderada. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo activado."
+  "nutr": "Día –3 (jue): CHO moderado. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo."
  }
 ];
 
@@ -3424,7 +3428,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v12 · 17 ago 2026";
+const VERSION="v13 · 24 ago 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){

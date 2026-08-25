@@ -16,7 +16,7 @@
    Si tocas index.html, sube VERSION. Si no, los móviles que ya la tengan
    instalada seguirán abriendo la versión vieja. */
 
-const VERSION = "deka-v1";
+const VERSION = "deka-v2";
 const SHELL = [
   "./",
   "index.html",
@@ -25,7 +25,9 @@ const SHELL = [
   "icon-192.png",
   "icon-512.png",
   "planes/angel.json",
-  "planes/iker.json"
+  "planes/iker.json",
+  "planes/marchena.json",
+  "planes/lydia.json"
 ];
 
 self.addEventListener("install", (e) => {
