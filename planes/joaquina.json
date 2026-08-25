@@ -1,0 +1,444 @@
+{
+  "id": "joaquina",
+  "name": "Joaquina",
+  "lang": "es",
+  "planStart": "2026-08-31",
+  "activity": {
+    "level": "moderado",
+    "note": "82 años. Hacía yoga, ahora pesas muy ligeras. Camina bastante. Problemas de sueño y de apetito, peso bajo para su altura, cifosis. No usa bici ni piscina. Tres días de fuerza a la semana.",
+    "extras": [
+      "Paseos casi diarios"
+    ]
+  },
+  "zones": {
+    "Z1": [
+      0,
+      90
+    ],
+    "Z2": [
+      90,
+      105
+    ],
+    "Z3": [
+      105,
+      120
+    ],
+    "Z4": [
+      120,
+      132
+    ],
+    "Z5": [
+      132,
+      145
+    ]
+  },
+  "refs": {
+    "tests": [
+      [
+        "Levantarse de la silla en 30s",
+        "— prueba S4"
+      ],
+      [
+        "Equilibrio pie delante de pie",
+        "— prueba S4"
+      ],
+      [
+        "Caminar 4 metros",
+        "— prueba S4"
+      ]
+    ],
+    "run": [
+      [
+        "Guíate por la sensación",
+        "No hace falta mirar el pulso"
+      ],
+      [
+        "Cómodo",
+        "Puedes hablar mientras andas"
+      ]
+    ],
+    "erg": [
+      [
+        "No aplica",
+        ""
+      ]
+    ],
+    "goals": [
+      [
+        "Levantarse sin manos",
+        "De la silla, las veces que quieras"
+      ],
+      [
+        "Postura",
+        "Menos curva, más espalda alta"
+      ],
+      [
+        "Equilibrio",
+        "30 segundos sin apoyarte"
+      ],
+      [
+        "Ganar algo de peso",
+        "En músculo, no en otra cosa"
+      ]
+    ]
+  },
+  "races": [],
+  "equipment": [
+    "ninguno",
+    "mancuernas",
+    "anillas"
+  ],
+  "exclude": [
+    "BURPEES",
+    "BURPEE BROAD JUMP",
+    "BROAD JUMP",
+    "BOX JUMP",
+    "BOX STEP OVER",
+    "SQUAT JUMPS",
+    "DOUBLE UNDERS",
+    "JUMPING JACKS",
+    "MOUNTAIN CLIMBERS",
+    "SPRAWLS",
+    "BEAR CRAWL",
+    "DEVIL PRESS",
+    "MAN MAKERS",
+    "WALL WALK",
+    "V-UPS",
+    "RUSSIAN TWIST",
+    "TOES TO BAR",
+    "HANGING KNEE RAISE",
+    "L-SIT",
+    "FLUTTER KICKS",
+    "HOLLOW HOLD",
+    "PULL-UPS",
+    "RING DIPS",
+    "SENTADILLA",
+    "FRONT SQUAT",
+    "PESO MUERTO",
+    "PESO MUERTO RUMANO",
+    "PRESS BANCA",
+    "PRESS MILITAR",
+    "PUSH PRESS",
+    "REMO CON BARRA",
+    "ZANCADA BÚLGARA",
+    "HIP THRUST",
+    "KB SWING",
+    "KB SNATCH",
+    "KB CLEAN & PRESS",
+    "GOBLET SQUAT",
+    "THRUSTER KB",
+    "WALL BALLS",
+    "SLAM BALL",
+    "DEAD BALL OVER",
+    "SANDBAG LUNGES",
+    "SANDBAG CLEAN",
+    "SANDBAG OVER SHOULDER",
+    "FARMERS CARRY",
+    "CLUBBELL SWING",
+    "CLUBBELL MILL",
+    "CALF RAISES",
+    "ZANCADAS MANCUERNAS",
+    "REAR LUNGES",
+    "FARMER MANCUERNAS",
+    "SUITCASE CARRY",
+    "OVERHEAD CARRY",
+    "BEAR HUG CARRY",
+    "PULLOVER",
+    "APERTURAS",
+    "FLOOR PRESS"
+  ],
+  "habits": [
+    {
+      "id": "protein",
+      "name": "Proteína en las 3 comidas",
+      "icon": "🥩",
+      "w": 4,
+      "desc": "Con peso bajo y poco apetito, es lo que más importa. Huevo, queso, pescado, yogur griego, legumbre."
+    },
+    {
+      "id": "comer",
+      "name": "Comer aunque no apetezca",
+      "icon": "🍽️",
+      "w": 4,
+      "desc": "Mejor cinco tomas pequeñas que tres grandes si te llenas enseguida."
+    },
+    {
+      "id": "postura",
+      "name": "Rodillo de espalda 5 min",
+      "icon": "🧘",
+      "w": 3,
+      "desc": "Tumbada sobre el rodillo, abriendo los brazos. Va directo contra la curva."
+    },
+    {
+      "id": "equilibrio",
+      "name": "Equilibrio 5 min",
+      "icon": "🦶",
+      "w": 3,
+      "desc": "Junto a la encimera. Previene caídas, que a tu edad es lo que más cuenta."
+    },
+    {
+      "id": "sueno",
+      "name": "Rutina de sueño",
+      "icon": "😴",
+      "w": 3,
+      "desc": "Misma hora, sin pantallas antes. Si sigue costando, coméntalo con Miguel."
+    },
+    {
+      "id": "agua",
+      "name": "Beber agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": "La sed se nota menos con la edad."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sesión A",
+      "sets": 3,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "RING ROW",
+          "reps": 10,
+          "weight": "TRX"
+        },
+        {
+          "name": "PUSH-UPS",
+          "reps": 10,
+          "weight": "en la pared"
+        },
+        {
+          "name": "SUPERMAN",
+          "reps": 8,
+          "weight": "suave"
+        }
+      ],
+      "note": "Sin metrónomo la primera vez. Despacio y apretando los omóplatos: la calidad importa más que la velocidad."
+    },
+    {
+      "name": "Espalda alta y postura",
+      "sets": 3,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "RING ROW",
+          "reps": 12,
+          "weight": "TRX"
+        },
+        {
+          "name": "SUPERMAN",
+          "reps": 10,
+          "weight": "suave"
+        },
+        {
+          "name": "FACE PULL",
+          "reps": 12,
+          "weight": "con goma o toalla"
+        }
+      ],
+      "note": "Los tres van contra la cifosis. Puedes hacerlos cualquier día, incluso fuera de la sesión."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "31 ago–6 sep",
+      "label": "Empezamos — postura y levantarse",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "SESIÓN A · Levantarse de la silla 3×8 (con manos si hace falta) · Remo en TRX 3×10 · Flexiones en la pared 3×10 · Peso muerto con mancuerna ligera 3×10 · Elevación de talones 3×12 con apoyo · Y-T-W tumbada boca abajo 3×8 de cada · R2'",
+          "sub": "Las Y-T-W son las más importantes de tu sesión: van directas contra la curva de la espalda. Despacio, apretando los omóplatos.",
+          "pre": "Calentamiento: 5 min de brazos y hombros, y respirar hondo 10 veces"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Paseo 30-40 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "SESIÓN B · Sentadilla a la silla 3×8 · Remo TRX 3×10 · Press de hombro con mancuernas muy ligeras 3×10 · Puente de glúteo 3×10 · Marcha en el sitio con rodilla alta 3×20 pasos · Bird dog 3×6 por lado · R2'",
+          "sub": "Nada de abdominales en el banco: encorvar la espalda con carga es justo lo que no conviene con cifosis. Tu abdomen se trabaja con el bird dog y la plancha."
+        },
+        {
+          "d": "Jue",
+          "t": "Otra actividad",
+          "main": "Paseo 30-40 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "SESIÓN C · Levantarse de la silla 3×8 · Remo TRX 3×10 · Flexiones en la pared 3×10 · Extensión de espalda tumbada (superman suave) 3×8 · Talones 3×12 · Y-T-W 3×8 · R2'"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo de espuma bajo la espalda alta, tumbada, abriendo brazos: 5 min · Movilidad de hombro · EQUILIBRIO: de pie junto a la encimera, un pie delante del otro 3×20s · Apoyo a una pierna con dedo apoyado 3×15s por lado",
+          "sub": "El rodillo bajo la espalda alta es de lo mejor que puedes hacer por la postura. Cinco minutos, respirando."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Paseo tranquilo si te apetece."
+        }
+      ],
+      "nutr": "Con poco apetito y peso bajo, lo importante no es comer mucho de una vez sino comer a menudo y que cada bocado cuente. Proteína en las tres comidas: huevo, queso, pescado, yogur griego, legumbre. Si te llenas enseguida, mejor cinco tomas pequeñas que tres grandes."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "7–13 sep",
+      "label": "Un poco más",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "SESIÓN A · Levantarse de la silla 3×10 · Remo TRX 3×12 · Flexiones en la pared 3×12 · Peso muerto con mancuerna 3×12 · Talones 3×15 · Y-T-W 3×10 · R2'"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Paseo 35-45 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "SESIÓN B · Sentadilla a la silla 3×10 · Remo TRX 3×12 · Press de hombro 3×12 · Puente 3×12 · Marcha con rodilla alta 3×25 · Bird dog 3×8 por lado · R2'"
+        },
+        {
+          "d": "Jue",
+          "t": "Otra actividad",
+          "main": "Paseo 30-40 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "SESIÓN C · Levantarse de la silla 3×10 · Remo TRX 3×12 · Flexiones en la pared 3×12 · Superman suave 3×10 · Talones 3×15 · Y-T-W 3×10 · R2'"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo 5 min · EQUILIBRIO: pie delante de pie 3×25s · Apoyo a una pierna 3×20s · Caminar en línea recta 3×10 pasos junto a la pared"
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Paseo tranquilo si te apetece."
+        }
+      ],
+      "nutr": "Sigue con las cinco tomas si te resulta más fácil. Un vaso de leche o un yogur entre horas suma más de lo que parece."
+    },
+    {
+      "w": 3,
+      "m": 1,
+      "dates": "14–20 sep",
+      "label": "Empezamos a cargar",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "SESIÓN A · Levantarse de la silla 3×10 SIN MANOS si puedes · Remo TRX 3×12 · Flexiones en la pared, un paso más atrás 3×10 · Peso muerto con mancuerna algo más pesada 3×10 · Talones a un pie con apoyo 3×10 · Y-T-W 3×12 · R2'",
+          "sub": "Primera vez que subimos el peso. Si el gesto se descompone, vuelve al anterior: la técnica manda."
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Paseo 40-45 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "SESIÓN B · Sentadilla a la silla 3×10 sin manos · Remo TRX 3×12 · Press de hombro 3×12 · Puente 3×15 · Subir un escalón 3×8 por pierna con barandilla · Bird dog 3×10 · R2'"
+        },
+        {
+          "d": "Jue",
+          "t": "Otra actividad",
+          "main": "Paseo 30-40 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "SESIÓN C · Levantarse de la silla 3×12 · Remo TRX 3×12 · Flexiones en la pared 3×12 · Superman 3×12 · Talones 3×15 · Y-T-W 3×12 · R2'"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo 5 min · Equilibrio con los ojos entornados 3×15s (con la encimera al lado) · Caminar en línea 3×12 pasos"
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Paseo tranquilo si te apetece."
+        }
+      ],
+      "nutr": "Estás cargando un poco más, así que la proteína importa aún más esta semana. Y el sueño: si duermes mal, cuéntaselo a Miguel, que hay cosas que se pueden mirar."
+    },
+    {
+      "w": 4,
+      "m": 1,
+      "dates": "21–27 sep",
+      "label": "Ver lo ganado",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "SESIÓN A · Levantarse de la silla 4×10 · Remo TRX 4×12 · Flexiones en la pared 4×12 · Peso muerto 3×12 · Talones 3×15 · Y-T-W 3×12 · R2'"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Paseo 45 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Fuerza",
+          "main": "SESIÓN B · Sentadilla a la silla 4×10 · Remo TRX 4×12 · Press de hombro 3×12 · Puente 3×15 · Escalón 3×10 por pierna · Bird dog 3×10 · R2'"
+        },
+        {
+          "d": "Jue",
+          "t": "Otra actividad",
+          "main": "Paseo 30-40 min a paso vivo. Si puedes, en cuesta suave.",
+          "sub": "Caminar sostiene el hueso y el ánimo. Regístralo aquí.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Vie",
+          "t": "Test",
+          "main": "PRUEBA SENCILLA · 1) Levantarse y sentarse de la silla, máximas veces en 30 segundos · 2) Pie delante de pie, segundos que aguantas · 3) Caminar 4 metros, cuánto tardas. R3' entre pruebas.",
+          "sub": "Apunta los tres números en la app. Son las mismas pruebas que se usan en consulta para valorar la autonomía, y vas a verlas mejorar.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo y equilibrio como siempre."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Paseo tranquilo si te apetece."
+        }
+      ],
+      "nutr": "Fin del primer bloque. Lo que has hecho estas cuatro semanas es lo que mejor protege el hueso y la autonomía a tu edad. No es poca cosa."
+    }
+  ],
+  "soloCuerpo": true
+}

@@ -1,0 +1,436 @@
+{
+  "id": "leyre",
+  "name": "Leyre",
+  "lang": "es",
+  "planStart": "2026-08-31",
+  "activity": {
+    "level": "bajo",
+    "note": "16 años. Danza urbana. Poco ejercicio estructurado, algo de glúteo y abdominales sin constancia. Entrena en casa de Miguel semanas alternas: una semana con material y otra solo con peso corporal. Ligero sobrepeso, posible SOP y posible resistencia a la insulina.",
+    "extras": [
+      "Danza urbana",
+      "Semanas alternas con y sin material"
+    ]
+  },
+  "zones": {
+    "Z1": [
+      0,
+      120
+    ],
+    "Z2": [
+      120,
+      145
+    ],
+    "Z3": [
+      145,
+      160
+    ],
+    "Z4": [
+      160,
+      175
+    ],
+    "Z5": [
+      175,
+      195
+    ]
+  },
+  "refs": {
+    "tests": [
+      [
+        "Sentadillas en 1 min",
+        "— prueba S4"
+      ],
+      [
+        "Plancha máxima",
+        "— prueba S4"
+      ],
+      [
+        "Flexiones inclinadas",
+        "— prueba S4"
+      ]
+    ],
+    "run": [
+      [
+        "Guíate por la sensación",
+        "No hace falta pulsómetro"
+      ],
+      [
+        "Cómodo",
+        "Puedes hablar"
+      ],
+      [
+        "Fuerte",
+        "Frases cortas, pero acabas"
+      ]
+    ],
+    "erg": [
+      [
+        "Bici",
+        "Lo que más te va a gustar"
+      ]
+    ],
+    "goals": [
+      [
+        "Constancia",
+        "Tres sesiones a la semana, cuatro semanas seguidas"
+      ],
+      [
+        "Fuerza",
+        "Que el peso de hoy te parezca fácil en un mes"
+      ],
+      [
+        "Plancha",
+        "Llegar a un minuto"
+      ],
+      [
+        "Energía",
+        "Notarte con más chispa por las tardes"
+      ]
+    ]
+  },
+  "races": [],
+  "equipment": [
+    "ninguno",
+    "mancuernas",
+    "kb",
+    "bike",
+    "anillas"
+  ],
+  "exclude": [
+    "BURPEES",
+    "BURPEE BROAD JUMP",
+    "BROAD JUMP",
+    "BOX JUMP",
+    "SQUAT JUMPS",
+    "DOUBLE UNDERS",
+    "JUMPING JACKS",
+    "SPRAWLS",
+    "BEAR CRAWL",
+    "DEVIL PRESS",
+    "MAN MAKERS",
+    "WALL WALK",
+    "KB SNATCH",
+    "THRUSTER KB",
+    "SLAM BALL",
+    "DEAD BALL OVER",
+    "BURPEES TO PLATE",
+    "LUNGES TO BOX",
+    "STEP-UP CHALECO",
+    "BOX STEP OVER",
+    "TOES TO BAR",
+    "HANGING KNEE RAISE",
+    "L-SIT",
+    "PULL-UPS",
+    "RING DIPS",
+    "SENTADILLA",
+    "FRONT SQUAT",
+    "PESO MUERTO",
+    "PRESS BANCA",
+    "PRESS MILITAR",
+    "PUSH PRESS",
+    "REMO CON BARRA",
+    "SANDBAG LUNGES",
+    "SANDBAG CLEAN",
+    "SANDBAG OVER SHOULDER",
+    "CLUBBELL SWING",
+    "CLUBBELL MILL",
+    "WALL BALLS",
+    "SIT-UP THROW",
+    "FARMERS CARRY",
+    "KB SWING",
+    "KB CLEAN & PRESS",
+    "REAR LUNGES",
+    "OVERHEAD CARRY",
+    "BEAR HUG CARRY",
+    "SUITCASE CARRY"
+  ],
+  "habits": [
+    {
+      "id": "protein",
+      "name": "Proteína en cada comida",
+      "icon": "🍳",
+      "w": 4,
+      "desc": "Huevo, pollo, atún, yogur griego, legumbre. Es lo que hace que una comida llene de verdad."
+    },
+    {
+      "id": "fibra",
+      "name": "Verdura o fruta entera",
+      "icon": "🥗",
+      "w": 3,
+      "desc": "Empezar la comida por la ensalada o la verdura cambia mucho cuánto acabas comiendo, sin quitarte nada."
+    },
+    {
+      "id": "mover",
+      "name": "Moverme después de comer",
+      "icon": "🚶‍♀️",
+      "w": 3,
+      "desc": "Diez minutos de paseo tras la comida principal. Pequeño gesto, efecto real."
+    },
+    {
+      "id": "sesion",
+      "name": "Hacer la sesión de hoy",
+      "icon": "💪",
+      "w": 4,
+      "desc": "Aunque sea a medias. Media sesión hecha vale infinitamente más que una entera pensada."
+    },
+    {
+      "id": "agua",
+      "name": "Beber agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": ""
+    },
+    {
+      "id": "sueno",
+      "name": "Dormir 8h",
+      "icon": "😴",
+      "w": 3,
+      "desc": "Dormir poco aumenta el hambre al día siguiente. No es fuerza de voluntad, es hormonal."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Glúteo y core",
+      "sets": 3,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "HIP THRUST",
+          "reps": 15,
+          "weight": "con mancuerna o sin peso"
+        },
+        {
+          "name": "DEAD BUG",
+          "reps": 12,
+          "weight": "—"
+        },
+        {
+          "name": "PLANCHA",
+          "reps": 25,
+          "weight": "seg"
+        }
+      ],
+      "note": "Lo que ya hacías, pero con progresión: cada semana una repetición o cinco segundos más."
+    },
+    {
+      "name": "Cuerpo entero exprés",
+      "sets": 3,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "GOBLET SQUAT",
+          "reps": 12,
+          "weight": "mancuerna"
+        },
+        {
+          "name": "PUSH-UPS",
+          "reps": 10,
+          "weight": "inclinadas"
+        },
+        {
+          "name": "REMO MANCUERNA 1 BRAZO",
+          "reps": 12,
+          "weight": "mancuerna"
+        }
+      ],
+      "note": "Veinte minutos. Para los días en que no te apetece nada: hazla igual y te vas a alegrar."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "31 ago–6 sep",
+      "label": "Semana 1 — empezar sin agobios",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "CUERPO ENTERO · Sentadilla con mancuernas 3×10 · Puente de glúteo 3×15 · Remo con mancuerna 3×10 por brazo · Press de hombro con mancuernas 3×10 · Plancha 3×20s · R90\"",
+          "sub": "25 minutos y fuera. Elige un peso con el que la última repetición aún salga bien. No busques agujetas: buscamos que mañana quieras volver.",
+          "pre": "Calentamiento: 5 min de bici suave"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Danza urbana. · Continuo y suave.",
+          "sub": "Tu clase cuenta como entrenamiento. Regístrala aquí para que la app lo tenga en cuenta."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "CIRCUITO SUAVE · 3 rondas, sin prisa: 10 sentadillas · 10 puentes de glúteo · 8 flexiones inclinadas (manos en el sofá o la encimera) · 20 pasos de marcha con rodilla alta · 30s plancha. R90\" entre rondas.",
+          "sub": "Cortito y hecho. Si acabas con ganas de más, perfecto: eso es exactamente lo que queremos la primera semana.",
+          "fc": "Cómodo-duro · frases cortas"
+        },
+        {
+          "d": "Jue",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "GLÚTEO Y CORE · Peso muerto rumano con mancuernas 3×12 · Zancada con apoyo 3×8 por pierna · Puente a una pierna 3×10 · Dead bug 3×10 · Plancha lateral 3×15s por lado · R90\"",
+          "sub": "Lo que ya hacías con tu madre, pero ordenado y progresando."
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Bici 20-25 min tranquila, o paseo largo. · Continuo y suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        }
+      ],
+      "nutr": "Nada de contar calorías ni pesarse. El cambio que más se nota es otro: que cada comida lleve algo de PROTEÍNA (huevo, pollo, atún, yogur griego, legumbre) y algo de FIBRA (verdura o fruta entera). Esa combinación llena de verdad, y llegar sin hambre a la merienda es lo que evita acabar picando lo que no querías."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "7–13 sep",
+      "label": "Semana 2 — en tu casa, sin material",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "CUERPO ENTERO · Sentadilla 3×15 · Puente de glúteo 3×20 · Flexiones inclinadas 3×10 · Remo con mochila cargada 3×12 · Plancha 3×25s · R90\"",
+          "sub": "Sin pesas, el estímulo lo pones bajando despacio: 3 segundos en cada repetición y notarás la diferencia."
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Danza urbana. · Continuo y suave.",
+          "sub": "Tu clase cuenta como entrenamiento. Regístrala aquí para que la app lo tenga en cuenta."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "CIRCUITO · 3 rondas: 12 sentadillas · 12 puentes · 10 flexiones inclinadas · 20 zancadas alternas sin peso · 30s plancha. R90\".",
+          "fc": "Cómodo-duro"
+        },
+        {
+          "d": "Jue",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "GLÚTEO Y CORE · Puente a una pierna 3×12 · Sentadilla búlgara con el pie de atrás en el sofá 3×8 por pierna · Patada de glúteo a cuatro apoyos 3×15 · Dead bug 3×12 · Plancha lateral 3×20s · R90\""
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Paseo 40 min o baile en casa. · Continuo y suave.",
+          "sub": "Caminar después de comer ayuda especialmente si hay resistencia a la insulina. Y no cuesta nada."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        }
+      ],
+      "nutr": "Mismo principio: proteína y fibra en cada comida. Un truco que funciona: empieza la comida por la verdura o la ensalada. Llegas al resto con menos hambre y sin quitarte nada."
+    },
+    {
+      "w": 3,
+      "m": 2,
+      "dates": "14–20 sep",
+      "label": "Semana 3 — subimos un poco",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "CUERPO ENTERO · Sentadilla con mancuernas 3×12 (más peso que la S1) · Puente con peso 3×15 · Remo con mancuerna 3×12 · Press de hombro 3×12 · Plancha 3×30s · R90\"",
+          "sub": "Si la sentadilla de la semana 1 se te quedó corta, sube. La mejor señal de que vas bien es que el peso de hace dos semanas ahora te parece fácil."
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Danza urbana. · Continuo y suave.",
+          "sub": "Tu clase cuenta como entrenamiento. Regístrala aquí para que la app lo tenga en cuenta."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "INTERVALOS EN BICI · 5 min suave + 6 × (1 min fuerte + 2 min suave) + 5 min suave. En la bici de casa o la airbike.",
+          "sub": "Un minuto fuerte se hace corto y es de lo que más mejora la forma de usar el azúcar. Si te cuesta, haz 4 en vez de 6.",
+          "fc": "Fuerte pero acabas las series"
+        },
+        {
+          "d": "Jue",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        },
+        {
+          "d": "Vie",
+          "t": "Fuerza",
+          "main": "GLÚTEO Y CORE · Peso muerto rumano 3×12 · Zancada con mancuernas 3×10 por pierna · Puente a una pierna 3×12 · Dead bug 3×12 · Plancha lateral 3×25s · R90\""
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Bici 25-30 min o paseo largo. · Continuo y suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        }
+      ],
+      "nutr": "Vas tres semanas seguidas. Eso ya no es un intento, es un hábito empezando. Sigue con proteína y fibra y no cambies nada más de momento."
+    },
+    {
+      "w": 4,
+      "m": 2,
+      "dates": "21–27 sep",
+      "label": "Semana 4 — ver lo que has ganado",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "CUERPO ENTERO · Sentadilla 3×15 lenta · Puente 3×20 · Flexiones inclinadas 3×12 · Remo con mochila 3×15 · Plancha 3×35s · R90\""
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Danza urbana. · Continuo y suave.",
+          "sub": "Tu clase cuenta como entrenamiento. Regístrala aquí para que la app lo tenga en cuenta."
+        },
+        {
+          "d": "Mié",
+          "t": "Metabólico",
+          "main": "CIRCUITO · 4 rondas: 12 sentadillas · 15 puentes · 10 flexiones inclinadas · 20 zancadas · 30s plancha. R90\".",
+          "sub": "Una ronda más que la semana 2. Compara: hace tres semanas hacías tres.",
+          "fc": "Cómodo-duro"
+        },
+        {
+          "d": "Jue",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        },
+        {
+          "d": "Vie",
+          "t": "Test",
+          "main": "PRUEBA SENCILLA · 1) Máximas sentadillas en 1 minuto · 2) Plancha máxima · 3) Máximas flexiones inclinadas seguidas. R3' entre pruebas.",
+          "sub": "Anótalas en la app. Estas son tus cifras de partida de verdad, y en un mes las vas a mirar con cariño.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Sáb",
+          "t": "Otra actividad",
+          "main": "Paseo o baile. · Continuo y suave."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Día libre. Si te apetece moverte, un paseo y ya."
+        }
+      ],
+      "nutr": "Fin del primer mes. Si has hecho aunque sea la mitad de las sesiones, ya has cambiado algo. Lo que viene ahora es más de lo mismo, un poco más fuerte."
+    }
+  ],
+  "soloCuerpo": true
+}

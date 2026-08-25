@@ -1,0 +1,450 @@
+{
+  "id": "miguelpadre",
+  "name": "Miguel (padre)",
+  "lang": "es",
+  "planStart": "2026-08-31",
+  "activity": {
+    "level": "moderado",
+    "note": "73 años. Bici a diario (7 km, 30 min) y natación. Hipertensión controlada y anticoagulación. Dejó los betabloqueantes. Fractura de clavícula por caída en bici, ya recuperada. Empieza con 2 días de fuerza a la semana y se amplía cuando toque.",
+    "extras": [
+      "Bici 7 km casi a diario",
+      "Natación"
+    ]
+  },
+  "zones": {
+    "Z1": [
+      0,
+      95
+    ],
+    "Z2": [
+      95,
+      115
+    ],
+    "Z3": [
+      115,
+      130
+    ],
+    "Z4": [
+      130,
+      142
+    ],
+    "Z5": [
+      142,
+      155
+    ]
+  },
+  "refs": {
+    "tests": [
+      [
+        "Levantarse de la silla en 30s",
+        "— prueba S4"
+      ],
+      [
+        "Apoyo a una pierna",
+        "— prueba S4"
+      ],
+      [
+        "Levantarse del suelo",
+        "— prueba S4"
+      ]
+    ],
+    "run": [
+      [
+        "Guíate por la respiración",
+        "No por el pulso"
+      ],
+      [
+        "Cómodo",
+        "Puedes hablar frases enteras"
+      ],
+      [
+        "Algo más fuerte",
+        "Frases cortas"
+      ]
+    ],
+    "erg": [
+      [
+        "Bici",
+        "30 min cómodo"
+      ],
+      [
+        "Natación",
+        "25-30 min cómodo"
+      ]
+    ],
+    "goals": [
+      [
+        "Mantener la fuerza",
+        "Es lo que sostiene la autonomía"
+      ],
+      [
+        "Equilibrio",
+        "30 segundos a una pierna"
+      ],
+      [
+        "Levantarse de la silla",
+        "Sin usar las manos"
+      ]
+    ]
+  },
+  "races": [],
+  "equipment": [
+    "ninguno",
+    "barra",
+    "mancuernas",
+    "kb",
+    "anillas",
+    "disco",
+    "bike"
+  ],
+  "exclude": [
+    "BURPEES",
+    "BURPEE BROAD JUMP",
+    "BROAD JUMP",
+    "BOX JUMP",
+    "SQUAT JUMPS",
+    "DOUBLE UNDERS",
+    "JUMPING JACKS",
+    "MOUNTAIN CLIMBERS",
+    "SPRAWLS",
+    "BEAR CRAWL",
+    "DEVIL PRESS",
+    "MAN MAKERS",
+    "KB SNATCH",
+    "THRUSTER KB",
+    "WALL BALLS",
+    "SLAM BALL",
+    "DEAD BALL OVER",
+    "BURPEES TO PLATE",
+    "LUNGES TO BOX",
+    "BOX STEP OVER",
+    "STEP-UP CHALECO",
+    "WALL WALK",
+    "TOES TO BAR",
+    "HANGING KNEE RAISE",
+    "L-SIT",
+    "PULL-UPS",
+    "RING DIPS",
+    "SANDBAG LUNGES",
+    "SANDBAG CLEAN",
+    "SANDBAG OVER SHOULDER",
+    "CLUBBELL SWING",
+    "CLUBBELL MILL",
+    "SENTADILLA",
+    "FRONT SQUAT",
+    "PESO MUERTO",
+    "PRESS BANCA",
+    "ZANCADA BÚLGARA",
+    "KB SWING",
+    "KB CLEAN & PRESS",
+    "REAR LUNGES",
+    "SUITCASE CARRY",
+    "OVERHEAD CARRY",
+    "BEAR HUG CARRY"
+  ],
+  "habits": [
+    {
+      "id": "protein",
+      "name": "Proteína en las 3 comidas",
+      "icon": "🥩",
+      "w": 4,
+      "desc": "A partir de los 70 el músculo aprovecha peor la proteína: hay que repartirla, no concentrarla en la cena."
+    },
+    {
+      "id": "fuerza",
+      "name": "Los 2 días de fuerza",
+      "icon": "💪",
+      "w": 4,
+      "desc": "La bici cuida el corazón, pero el músculo solo lo mantiene la fuerza."
+    },
+    {
+      "id": "equilibrio",
+      "name": "Equilibrio 5 min",
+      "icon": "🦶",
+      "w": 3,
+      "desc": "A una pierna, junto a la encimera. Es la mejor prevención de caídas que existe."
+    },
+    {
+      "id": "agua",
+      "name": "Beber agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": "La sed se nota menos con la edad; hay que beber sin esperar a tenerla."
+    },
+    {
+      "id": "sueno",
+      "name": "Dormir bien",
+      "icon": "😴",
+      "w": 3,
+      "desc": ""
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fuerza A",
+      "sets": 3,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "GOBLET SQUAT",
+          "reps": 10,
+          "weight": "a la silla, sin peso o con KB 12kg"
+        },
+        {
+          "name": "RING ROW",
+          "reps": 10,
+          "weight": "TRX"
+        },
+        {
+          "name": "PRESS MANCUERNAS",
+          "reps": 10,
+          "weight": "cómodo"
+        },
+        {
+          "name": "PESO MUERTO RUMANO",
+          "reps": 10,
+          "weight": "KB 12kg"
+        }
+      ],
+      "note": "Sin metrónomo la primera vez: hazla a tu ritmo y la app calcula tu referencia. Sube con intención y baja despacio."
+    },
+    {
+      "name": "Fuerza B",
+      "sets": 3,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "GOBLET SQUAT",
+          "reps": 10,
+          "weight": "a la silla"
+        },
+        {
+          "name": "RING ROW",
+          "reps": 10,
+          "weight": "TRX"
+        },
+        {
+          "name": "PRESS HOMBRO MANCUERNAS",
+          "reps": 10,
+          "weight": "ligero"
+        },
+        {
+          "name": "PLANCHA",
+          "reps": 20,
+          "weight": "seg"
+        }
+      ],
+      "note": "El press de hombro suave mientras el hombro termine de asentarse."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "31 ago–6 sep",
+      "label": "Empezamos — aprender los movimientos",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Levantarse de la silla 3×10 (sin manos si puedes) · Remo en TRX 3×10 · Press con mancuernas tumbado 3×10 · Peso muerto con kettlebell 12kg 3×10 · Elevación de talones 3×12 · Bird dog 3×8 por lado · R2'",
+          "sub": "Primera semana: pesos cómodos y aprender el gesto. Deberías acabar pensando «podría haber hecho más». Es a propósito.",
+          "pre": "Calentamiento: 5 min de bici suave + círculos de hombro"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Otra actividad",
+          "main": "Natación 25-30 min a ritmo cómodo.",
+          "sub": "El agua no carga las articulaciones y te viene bien para el hombro."
+        },
+        {
+          "d": "Jue",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla a la silla 3×10 · Remo TRX 3×10 · Press de hombro con mancuernas 3×10 (peso ligero, respeta el hombro) · Zancada corta con apoyo 3×8 por pierna · Puente de glúteo 3×12 · Plancha de rodillas 3×20s · R2'",
+          "sub": "El press de hombro va suave: la clavícula lleva poco tiempo curada. Si molesta, lo cambias por elevaciones frontales ligeras."
+        },
+        {
+          "d": "Vie",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo de espuma: dorsal y cuádriceps 5 min · Movilidad de hombro y cadera · EQUILIBRIO: apoyo a una pierna 3×20s por lado (junto a una pared, por si acaso) · Caminar talón-punta 3×10 pasos",
+          "sub": "El equilibrio es lo que evita las caídas, y con anticoagulantes una caída pesa más que en otra persona. Cinco minutos al día valen mucho."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Si te apetece, paseo tranquilo."
+        }
+      ],
+      "nutr": "A los 73 el músculo se pierde solo si no se le da motivo para quedarse. Y para que se quede hacen falta dos cosas: estímulo y proteína. Reparte la proteína en las tres comidas — el cuerpo mayor aprovecha peor una sola dosis grande."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "7–13 sep",
+      "label": "Subimos un poco",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Levantarse de la silla 3×12 · Remo TRX 3×12 (pies más adelante = más difícil) · Press con mancuernas 3×12 · Peso muerto kettlebell 3×12 · Elevación de talones 3×15 · Bird dog 3×10 por lado · R2'",
+          "sub": "Misma sesión, dos repeticiones más. Así de simple es progresar."
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Otra actividad",
+          "main": "Natación 25-30 min a ritmo cómodo.",
+          "sub": "El agua no carga las articulaciones y te viene bien para el hombro."
+        },
+        {
+          "d": "Jue",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla a la silla 3×12 · Remo TRX 3×12 · Press de hombro 3×12 · Zancada corta 3×10 por pierna · Puente de glúteo 3×15 · Plancha 3×25s · R2'"
+        },
+        {
+          "d": "Vie",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo + movilidad · EQUILIBRIO: apoyo a una pierna 3×25s · Talón-punta 3×12 pasos · Levantarse del suelo y volver a sentarse 3 veces, como puedas",
+          "sub": "Lo de levantarse del suelo parece una tontería y es de los mejores predictores de autonomía que hay."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Si te apetece, paseo tranquilo."
+        }
+      ],
+      "nutr": "Proteína en las tres comidas. Si el desayuno es solo café y tostada, ahí tienes el hueco más fácil de arreglar: un huevo, queso fresco o yogur griego."
+    },
+    {
+      "w": 3,
+      "m": 1,
+      "dates": "14–20 sep",
+      "label": "Añadimos velocidad",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Levantarse de la silla 4×10 SUBIENDO RÁPIDO (bajar despacio, subir con intención) · Remo TRX 4×10 · Press con mancuernas 3×12 · Peso muerto kettlebell 3×12 · Talones 3×15 · Bird dog 3×10 · R2'",
+          "sub": "Novedad: subir rápido. A partir de cierta edad se pierde antes la velocidad que la fuerza, y es la velocidad la que te salva de un tropiezo.",
+          "pre": "Calentamiento completo antes de la parte rápida"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Si te apetece, mete 4 tramos de 1 minuto un poco más fuerte.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Otra actividad",
+          "main": "Natación 25-30 min a ritmo cómodo.",
+          "sub": "El agua no carga las articulaciones y te viene bien para el hombro."
+        },
+        {
+          "d": "Jue",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla a la silla 4×10 rápido al subir · Remo TRX 4×10 · Press de hombro 3×12 · Zancada 3×10 por pierna · Puente 3×15 · Plancha 3×30s · R2'"
+        },
+        {
+          "d": "Vie",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Sáb",
+          "t": "Movilidad",
+          "main": "MOVILIDAD Y EQUILIBRIO 20 min · Rodillo + movilidad · Apoyo a una pierna 3×30s · Talón-punta con giro de cabeza 3×10 pasos · Levantarse del suelo 4 veces",
+          "sub": "Girar la cabeza mientras caminas en línea es más difícil de lo que parece: entrena el equilibrio de verdad."
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Si te apetece, paseo tranquilo."
+        }
+      ],
+      "nutr": "Sigue con la proteína. Y si hay días que comes poco, que no sean los días de fuerza."
+    },
+    {
+      "w": 4,
+      "m": 1,
+      "dates": "21–27 sep",
+      "label": "Consolidar y valorar",
+      "days": [
+        {
+          "d": "Lun",
+          "t": "Fuerza",
+          "main": "FUERZA A · Levantarse de la silla 4×12 rápido · Remo TRX 4×12 · Press con mancuernas 4×12 · Peso muerto kettlebell 4×12 · Talones 4×15 · Bird dog 3×12 · R2'"
+        },
+        {
+          "d": "Mar",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Mié",
+          "t": "Otra actividad",
+          "main": "Natación 30 min a ritmo cómodo.",
+          "sub": "El agua no carga las articulaciones y te viene bien para el hombro."
+        },
+        {
+          "d": "Jue",
+          "t": "Fuerza",
+          "main": "FUERZA B · Sentadilla a la silla 4×12 · Remo TRX 4×12 · Press de hombro 4×12 · Zancada 4×10 · Puente 4×15 · Plancha 3×35s · R2'"
+        },
+        {
+          "d": "Vie",
+          "t": "Otra actividad",
+          "main": "Bici 30 min, tus 7 km de siempre. Ritmo cómodo, puedes hablar.",
+          "sub": "Regístralo aquí para que la app cuente tu actividad real.",
+          "fc": "Cómodo · puedes hablar"
+        },
+        {
+          "d": "Sáb",
+          "t": "Test",
+          "main": "PRUEBA SENCILLA · 1) Levantarse y sentarse de la silla, máximas veces en 30 segundos · 2) Apoyo a una pierna, segundos que aguantas en cada lado · 3) Levantarse del suelo, cuánto tardas. R3' entre pruebas.",
+          "sub": "Apunta los tres números en la app. Los repetiremos dentro de unas semanas y vas a ver la diferencia.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Dom",
+          "t": "Descanso",
+          "main": "Descanso. Si te apetece, paseo tranquilo."
+        }
+      ],
+      "nutr": "Fin del primer bloque. Si estos cuatro semanas han ido bien, hablamos con Miguel de pasar a tres días de fuerza."
+    }
+  ],
+  "soloCuerpo": true
+}
