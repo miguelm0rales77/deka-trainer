@@ -513,6 +513,12 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "🧘 Fichas de movilidad": "🧘 Mobility cards",
+ "Todas": "All",
+ "← Volver": "← Back",
+ "← Volver a las fichas": "← Back to cards",
+ "✓ COMPLETADA": "✓ DONE",
+ "Sesión rápida": "Quick session",
  "Saco de boxeo": "Punching bag",
  "Generador limitado a peso corporal": "Generator limited to bodyweight",
  "Eficiencia": "Efficiency",
@@ -770,6 +776,7 @@ const MOB_TESTS = [
 
 /* ── HÁBITOS DIARIOS ── */
 const HABITS = [
+  {id:"aquiles", name:"Isométricos de Aquiles", icon:"🦵", w:4, desc:"5×45s en escalón, ANTES de la sesión. El alivio dura 20-40 min y es lo que te permite entrenar sin que el tendón se queje. Diario, sin excepción."},
   {id:"suppl", name:"Suplementación", icon:"💊", w:2, desc:"Creatina 5g + Mg noche + omega-3"},
   {id:"screens", name:"Sin pantallas 1h antes de dormir", icon:"📵", w:3, desc:"Evita móvil, tablet y TV la última hora"},
   {id:"nutrition", name:"Nutrición según protocolo", icon:"🥗", w:3, desc:"Low-carb base + CHO perientreno (Curro Clavero)"},
@@ -896,7 +903,7 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs."
+    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
    }
   ],
   "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad."
@@ -930,7 +937,8 @@ var PLAN = [
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza general HYROX: 3×6 Sentadilla 65% + 3×8 Peso muerto 65% + 3×6 Pull-ups + Wall Balls 4×15 @10kg. · R2'",
-    "sub": "Reintroducir carga progresivamente"
+    "sub": "Reintroducir carga progresivamente",
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
@@ -983,7 +991,8 @@ var PLAN = [
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza HYROX: Sentadilla 4×5 @75% + Press banca 4×5 + Burpee Broad Jump 4×10 + Sandbag Lunges 4×20m @20kg. · R2'",
-    "sub": "Foco en Burpees y Lunges — tus armas"
+    "sub": "Foco en Burpees y Lunges — tus armas",
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
@@ -1029,7 +1038,8 @@ var PLAN = [
    {
     "d": "Mié",
     "t": "Fuerza",
-    "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m. · R3'"
+    "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m. · R3'",
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Jue",
@@ -1109,7 +1119,7 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad 20 min. Extensión torácica + cadera + cervicales.",
+    "main": "Movilidad 20 min. Extensión torácica + cadera + cervicales. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
     "flag": "PLAYA"
    }
   ],
@@ -1165,7 +1175,7 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad 20 min + descanso activo. Último día de playa.",
+    "main": "Movilidad 20 min + descanso activo. Último día de playa. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
     "flag": "PLAYA"
    }
   ],
@@ -1251,7 +1261,8 @@ var PLAN = [
    {
     "d": "Jue",
     "t": "Fuerza",
-    "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m. · R3'"
+    "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m. · R3'",
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
@@ -1324,7 +1335,7 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios."
+    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
    }
   ],
   "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido."
@@ -1396,7 +1407,8 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Fuerza",
-    "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga. · R3'"
+    "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga. · R3'",
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Mar",
@@ -1891,7 +1903,8 @@ function renderHoy(){
       cta.appendChild(h('<button class="btn" onclick="openPacer('+(dt.z2?'true':'false')+')">▶ PACER + CRONÓMETRO</button>'));
       cta.appendChild(h('<button class="btn2" onclick="openManualLog()">✓ Registrar sesión (manual)</button>'));
     } else if(dt.mode==="mob"){
-      cta.appendChild(h('<button class="btn" style="background:#4B7F3B" onclick="startMobilitySession()">▶ SESIÓN DE MOVILIDAD</button>'));
+      cta.appendChild(h('<button class="btn" style="background:#4B7F3B" onclick="abrirFichas()">🧘 ABRIR FICHAS DE MOVILIDAD</button>'));
+      cta.appendChild(h('<button class="btn2" onclick="startMobilitySession()">▶ Sesión rápida (20\')</button>'));
     } else if(dt.mode==="race"){
       cta.appendChild(h('<div style="text-align:center;font-size:22px;padding:8px" class="big">🏁 DÍA DE COMPETICIÓN</div>'));
     } else {
@@ -2018,7 +2031,8 @@ function renderCuerpo(){
     if(worst.length) mob.appendChild(h('<div style="font-size:11px;color:#ffb347;margin-bottom:8px">Prioriza: '+worst.map(t=>t.name).join(", ")+'</div>'));
   } else mob.appendChild(h('<div class="dim" style="font-size:12px;margin-bottom:8px">Sin tests aún. Haz el primero para tener referencia.</div>'));
   mob.appendChild(h('<button class="btn2" style="margin:0 0 8px" onclick="openMobTests()">📏 Hacer tests de movilidad</button>'));
-  mob.appendChild(h('<button class="btn" style="background:#4B7F3B;margin:0" onclick="startMobilitySession()">▶ SESIÓN DE MOVILIDAD (20\')</button>'));
+  mob.appendChild(h('<button class="btn" style="background:#4B7F3B;margin:0 0 8px" onclick="abrirFichas()">🧘 FICHAS DE MOVILIDAD ('+fichas().length+')</button>'));
+  mob.appendChild(h('<button class="btn2" style="margin:0" onclick="startMobilitySession()">▶ Sesión rápida (20\')</button>'));
   el.appendChild(mob);
   return el;
 }
@@ -3117,6 +3131,58 @@ function saveOtra(){
   addPoints(2,"Actividad: "+o.n);
   save(); closeOverlay(); render(); toast(o.n+" registrado · +2 pts");
 }
+
+/* ═══════════ FICHAS DE MOVILIDAD ═══════════
+   Vienen del cuaderno de tarjetas. Cada perfil puede traer las suyas en
+   PROFILE.mobility; si no, se usan estas. */
+const MOBCATS = [{"id":"manana","label":"Mañana","color":"#1D9E75"},{"id":"preentren","label":"Pre-entreno","color":"#378ADD"},{"id":"noche","label":"Noche / post","color":"#D4537E"},{"id":"emergencia","label":"Emergencia","color":"#BA7517"},{"id":"rehab","label":"Rehab","color":"#7C3AED"}];
+const MOBCARDS = [{"id":"c1","cat":"manana","title":"Despertar articular","time":"8 min","why":"Revierte el patrón de sedentarismo: activa glúteos inhibidos, abre psoas acortado y despierta la rotación torácica que el escritorio mata.","steps":[{"t":"90-90 con rotación activa","d":"Siéntate en 90-90. Rota el torso despacio hacia la pierna delantera llevando el brazo al suelo. Vuelve. Sin forzar el rango.","time":"5 rep/lado · 2 series"},{"t":"Hip flexor stretch con rotación","d":"Posición de caballero. Brazo del lado de la rodilla adelantada sube y rota al techo. Mantén la pelvis neutra.","time":"30s/lado · 2 series"},{"t":"Cat-Camel con pausa en extensión","d":"En cuadrupedia, ondula la columna. En extensión máxima aguanta 3 segundos antes de volver a flexión.","time":"8 rep · pausa 3s arriba"},{"t":"Dead bug contralateral","d":"Tumbado boca arriba. Extiende brazo y pierna opuestos lentamente hasta casi el suelo. Zona lumbar pegada al suelo.","time":"8 rep/lado · lento"},{"t":"Wall angel","d":"Espalda y cabeza pegadas a la pared. Brazos en W. Sube a Y manteniendo contacto de codos y muñecas.","time":"10 rep · muy controlado"}],"tip":"Si solo tienes 3 minutos: 90-90 + Dead bug. Son los dos que más compensan las horas de consulta."},{"id":"c2","cat":"preentren","title":"Activación pre-sesión","time":"6 min","why":"No es estiramiento. Es activar los patrones que el HYROX va a necesitar: cadera libre, tobillo móvil, torácica rotada.","steps":[{"t":"Hip CARs","d":"De pie o apoyado. Dibuja el círculo más grande posible con la rodilla, controlando cada grado. Sin compensar con la columna lumbar.","time":"5 círculos/lado"},{"t":"Movilidad de tobillo en pared","d":"Pie a 10cm de la pared. Rodilla hacia la pared manteniendo el talón en el suelo. Avanza el pie si no hay problema.","time":"10 rep/lado"},{"t":"Rotación torácica en cuadrupedia","d":"Mano detrás de la cabeza. Lleva el codo al suelo y luego al techo, rotando solo desde el torso. Pelvis quieta.","time":"8 rep/lado"},{"t":"Squat to reach","d":"Sentadilla profunda con talones en el suelo. Desde abajo, lleva brazos arriba y rota alternando lados. Sube lento.","time":"10 rep · lento"},{"t":"Shoulder CARs","d":"Brazo pegado al cuerpo. Dibuja el círculo más grande posible con el hombro controlando escápula. Sin elevar el trapecio.","time":"5 círculos/lado"}],"tip":"Obligatorio antes de cualquier sesión con SkiErg o Sled. El tobillo y la torácica son los dos grandes limitadores."},{"id":"c3","cat":"noche","title":"Restauración nocturna","time":"10 min","why":"Lo que el HYROX nunca entrena: rotación, extensión real de columna, plano frontal. Y lo que el sillón más destruye: extensión torácica y glúteo medio.","steps":[{"t":"Extensión torácica sobre respaldo o rodillo","d":"Apoya el segmento torácico (no lumbar) sobre el borde de una silla o rodillo. Brazos cruzados en el pecho. Deja caer suavemente. Avanza segmento a segmento.","time":"30s · 8-10 segmentos"},{"t":"Pigeon pose activo","d":"Posición de paloma. Cada 15s contrae activamente el glúteo del lado de la pierna posterior 5 segundos.","time":"60s/lado · 2 series"},{"t":"Rotación torácica en decúbito","d":"Tumbado de lado, rodillas dobladas al 90°. El brazo superior gira lentamente hacia el techo y al suelo del otro lado. Rodillas no se separan.","time":"10 rep lentas/lado"},{"t":"Estiramiento de pectoral en marco","d":"Antebrazo apoyado en el marco de una puerta. Gira el cuerpo hasta notar el pectoral. A tres alturas: baja, media y alta.","time":"45s · 3 alturas/lado"},{"t":"Puente unilateral lento","d":"Tumbado, un pie en el suelo, el otro extendido. Sube la cadera apretando el glúteo. Pausa 2s arriba. Baja muy lento.","time":"10 rep/lado · pausa arriba"},{"t":"Neck CARs","d":"Sentado. Dibuja el círculo más pequeño posible con la cabeza, muy despacio. Sin dolor.","time":"3 círculos/dirección"}],"tip":"La extensión torácica sobre respaldo de silla es el ejercicio más importante. 2 minutos ahí equivalen a 20 minutos de lo demás."},{"id":"c4","cat":"emergencia","title":"Cervicales y trapecios","time":"4 min","why":"Para cuando llevas horas sobre un informe o el cuello empieza a protestar. No requiere suelo ni ropa de deporte.","steps":[{"t":"Chin tuck","d":"Sentado. Empuja suavemente la barbilla hacia atrás (doble papada). Mantén 5s. Corrige la proyección anterior de cabeza.","time":"10 rep · 5s cada una"},{"t":"Rotación cervical asistida","d":"Lleva la oreja hacia el hombro. Con la mano del mismo lado añade presión suave. Respira. Sin tirar con fuerza.","time":"30s/lado"},{"t":"Trapecio superior stretch","d":"Oreja hacia el hombro opuesto. Mano en la sien añade peso del brazo. El hombro del lado estirado hacia abajo.","time":"40s/lado"},{"t":"Shoulder rolls + retracción escapular","d":"Círculos de hombros lentos hacia atrás. Después: lleva los omóplatos juntos y abajo. Mantén 3s.","time":"10 círculos + 8 retracciones"}],"tip":"Puedes hacerlo en la silla entre pacientes o informes. Nadie notará que estiras el cuello en tu propia consulta."},{"id":"c5","cat":"emergencia","title":"Cadera y lumbar urgente","time":"5 min","why":"Cuando el psoas tira después de muchas horas sentado o tras una sesión con mucho Sled y Lunges.","steps":[{"t":"Knee to chest + rotación","d":"Tumbado boca arriba. Abraza una rodilla al pecho. Después llévala al lado opuesto cruzando la línea media. Hombros pegados al suelo.","time":"60s/lado"},{"t":"Hip flexor en caballero","d":"Rodilla en el suelo, pie delantero adelantado. Activa el glúteo del lado de la rodilla en el suelo. Empuja la cadera hacia delante sin inclinar el tronco.","time":"45s/lado · 2 series"},{"t":"Figure 4 stretch","d":"Tumbado boca arriba. Cruza el tobillo sobre la rodilla opuesta. Empuja suavemente la rodilla cruzada hacia fuera. Respira profundo.","time":"60s/lado"},{"t":"Child's pose con apertura lateral","d":"Postura del niño. Desde ahí camina las manos hacia un lado y mantén. Cambia al otro lado.","time":"30s centro + 30s/lado"}],"tip":"Si tienes molestia lumbar después de una sesión con peso, empieza siempre por Knee to chest y luego Figure 4. En ese orden."},{"id":"c6","cat":"emergencia","title":"Hombros y tren superior","time":"4 min","why":"Post-SkiErg, post-Sled Pull o cuando sientes los trapecios cargados. Para soltar la tensión acumulada en el tren superior.","steps":[{"t":"Doorway pec stretch","d":"Antebrazo en el marco. Rota el cuerpo. Hazlo en tres posiciones del brazo: 45°, 90° y 120° para cubrir todo el pectoral.","time":"30s · 3 posiciones/lado"},{"t":"Lat stretch en barra o marco","d":"Agarra un punto fijo a la altura de la cadera. Inclínate hacia atrás dejando que el dorsal se alargue. Rodillas ligeramente flexionadas.","time":"45s · 2 series"},{"t":"Cross-body shoulder stretch","d":"Lleva el brazo al pecho con el codo estirado. El otro brazo empuja suavemente por encima del codo. Hombro hacia abajo.","time":"40s/lado"},{"t":"Thoracic rotation de pie","d":"De pie, manos en los hombros, codos hacia fuera. Rota solo desde el torso. Las caderas quietas. Busca el máximo rango.","time":"10 rep lentas/lado"}],"tip":"El Lat stretch es el más ignorado y el más importante tras el SkiErg. El dorsal acortado limita la extensión torácica que necesitas para el tirón potente."},{"id":"c7","cat":"rehab","title":"Cuádriceps — Vasto lateral + Recto femoral","time":"8 min","urgente":true,"why":"Vasto lateral hipertónico (tensión lateral del muslo) que tracciona la rótula y sobrecarga el recto femoral y vasto medial en su zona distal. La causa está en el vasto lateral — libéralo primero, después trabaja la zona de dolor.","steps":[{"t":"Rodillo en vasto lateral","d":"Tumbado de lado, rodillo en la cara externa del muslo. Desde la cadera hasta 3 dedos por encima de la rótula. Pausas largas (40s) donde duela. No rodar rápido — presión sostenida.","time":"3-4 min · pausas largas"},{"t":"Pelota en zona de dolor (vasto medial / recto distal)","d":"Pelota de lacrosse o tenis en la zona interna del muslo distal (donde duele). Rodilla ligeramente flexionada. Presión sostenida 30-40s. No masajear — comprimir.","time":"2-3 puntos · 30-40s cada uno"},{"t":"Couch stretch","d":"Posición de caballero con el pie trasero elevado en una silla o sofá. Pelvis en retroversión (meter el abdomen y bascular pelvis hacia atrás ANTES de inclinar). Mantener sin dolor agudo.","time":"60-90s/lado · 2 series"},{"t":"Estiramiento IT band / vasto lateral de pie","d":"De pie, cruza la pierna afectada detrás de la sana. Inclínate lateralmente hacia el lado contrario con el brazo del lado afectado arriba. Nota el estiramiento en la cara externa del muslo.","time":"45-60s/lado · 3 series"},{"t":"Clamshell con banda","d":"Tumbado de lado, banda por encima de las rodillas. Abre la rodilla superior como una almeja sin mover la pelvis. Aprieta el glúteo medio en la cima. El glúteo medio débil es la causa raíz del vasto lateral hipertónico.","time":"15 rep/lado · 3 series"},{"t":"Wall sit excéntrico","d":"Espalda en la pared, rodillas a 90°. Mantén 20s. Después sube MUY LENTO (5-6 segundos). Reconstruye tolerancia del cuádriceps sin sobrecargar la zona dolorosa.","time":"3×10 · 5-6s subiendo"}],"tip":"Orden obligatorio: primero liberar el vasto lateral con el rodillo (la causa), después trabajar la zona de dolor (el efecto). Hacer esto en orden inverso es menos efectivo. Frecuencia mínima: rodillo diario, el resto 3×/semana."},{"id":"c8","cat":"rehab","title":"Aquiles bilateral — Protocolo isométricos + excéntricos","time":"7 min","why":"Tendinopatía de cuerpo medio bilateral. Los isométricos calman el dolor y estimulan la síntesis de colágeno. Los excéntricos reconstruyen la capacidad de carga del tendón. Protocolo de 8-12 semanas mínimo.","steps":[{"t":"Isométricos en escalón (DIARIO)","d":"De pie en un escalón, talón en el borde, rodilla ligeramente flexionada. Sube a puntas y mantén 45 segundos a una intensidad donde el dolor sea 3-4/10. Bajar lento. Hacer ANTES de cualquier actividad que cargue el tendón — el alivio post-isométrico dura 20-40 min.","time":"5×45s · ambos pies · diario"},{"t":"Heel drops excéntricos — rodilla recta","d":"En el borde de un escalón, sube con ambos pies. Baja SOLO con el pie a trabajar, muy lento (4-5 segundos bajando). El gastrocnemio es el protagonista.","time":"3×12/pie · 3×/semana"},{"t":"Heel drops excéntricos — rodilla flexionada","d":"Igual que el anterior pero con la rodilla ligeramente doblada. Ahora el sóleo trabaja más. Imprescindible para tendinopatía de cuerpo medio.","time":"3×12/pie · 3×/semana"},{"t":"Calf raise bilateral con carga progresiva","d":"Con peso adicional (mochila, chaleco) cuando los excéntricos sin carga ya no duelen. Progresión semanal.","time":"3×15 · cuando tolere"}],"tip":"SEÑAL DE ALARMA: si al día siguiente de entrenar tienes rigidez matutina >20 min, el volumen de ese día fue excesivo — reducir. Si el dolor en el tendón es >5/10 durante el ejercicio, parar. El dolor 3-4/10 durante los isométricos es normal y esperado."},{"id":"c9","cat":"rehab","title":"Cuello — Movilidad + Arnés progresivo","time":"6 min","why":"Rigidez cervical, contracturas y pérdida de extensión por sedentarismo + desequilibrio con el resto del cuerpo. Objetivo: cuello fuerte y móvil. Progresión muy conservadora — el cuello responde mal a cargas excesivas iniciales.","steps":[{"t":"Neck CARs (diario)","d":"Sentado con la espalda recta. Dibuja el círculo más pequeño y controlado posible con la cabeza. Muy despacio. Sin dolor agudo.","time":"3 círculos/dirección · diario"},{"t":"Extensión cervical asistida","d":"Con la mano en la nuca (no tirando, solo guiando), lleva suavemente la cabeza hacia atrás hasta el límite sin dolor. Mantén 20-30s. El movimiento más limitado — trabajarlo con más frecuencia.","time":"3×20-30s · diario"},{"t":"Isométrico manual — 4 direcciones","d":"Mano contra frente: empuja y resiste. Mano contra sien derecha: empuja y resiste. Mano contra sien izquierda. Mano contra nuca. Sin movimiento — solo tensión isométrica.","time":"5×10s cada dirección · diario"},{"t":"Arnés — Flexión y lateral (S3+)","d":"Con arnés, solo FLEXIÓN y movimiento LATERAL. Carga inicial 2kg. Progresión: +1kg cada 2 semanas si sin molestia al día siguiente. Hacer al final de sesión de fuerza, nunca de primero.","time":"3×12 flex + 3×10 lateral · 2-3×/semana"},{"t":"Arnés — Extensión (S4+, comenzar con 1kg)","d":"Solo cuando flexión y lateral estén asentadas y sin molestia posterior. Empezar con 1kg (menos que flexión). NUNCA empezar con 6kg — causa contractura en espalda alta.","time":"3×12 · 2-3×/semana · +1kg/2 semanas"}],"tip":"La contractura de espalda alta post-arnés significa que la carga fue excesiva. Volver a la mitad del peso y quedarte ahí 2 semanas. 6kg es el objetivo de diciembre, no de ahora."}];
+function fichas(){ return (PROFILE.mobility&&PROFILE.mobility.length)?PROFILE.mobility:MOBCARDS; }
+var mobCat="todas";
+function abrirFichas(cat){
+  if(cat) mobCat=cat;
+  const cards=fichas().filter(c=>mobCat==="todas"||c.cat===mobCat);
+  let html='<div class="ctitle">🧘 Fichas de movilidad</div>';
+  html+='<div class="chips" style="margin-bottom:14px">';
+  html+='<button class="btn3'+(mobCat==="todas"?' sel':'')+'" onclick="abrirFichas(\'todas\')">Todas</button>';
+  MOBCATS.forEach(c=>{ const n=fichas().filter(x=>x.cat===c.id).length; if(!n) return;
+    html+='<button class="btn3'+(mobCat===c.id?' sel':'')+'" style="'+(mobCat===c.id?'border-color:'+c.color+';color:'+c.color+';background:'+c.color+'18':'')+'" onclick="abrirFichas(\''+c.id+'\')">'+esc(c.label)+'</button>'; });
+  html+='</div>';
+  cards.forEach(c=>{
+    const col=(MOBCATS.find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
+    html+='<div class="daybox" style="border-left:3px solid '+col+';cursor:pointer" onclick="verFicha(\''+c.id+'\')">'+
+      '<div class="row"><span style="font-size:13px;font-weight:600">'+esc(c.title)+'</span>'+
+      '<span class="mono dim" style="font-size:11px">'+esc(c.time||'')+'</span></div>'+
+      '<div class="dim" style="font-size:11px;margin-top:3px">'+esc((c.why||'').slice(0,90))+(((c.why||'').length>90)?'…':'')+'</div></div>';
+  });
+  if(!cards.length) html+='<p class="dim" style="font-size:12px">No hay fichas en esta categoría.</p>';
+  html+='<button class="btn2" style="margin-top:10px" onclick="closeOverlay()">Cerrar</button>';
+  overlay(html);
+}
+function verFicha(id){
+  const c=fichas().find(x=>x.id===id); if(!c) return;
+  const col=(MOBCATS.find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
+  let html='<div class="row" style="align-items:flex-start"><div><div class="ctitle mini" style="color:'+col+'">'+esc((MOBCATS.find(x=>x.id===c.cat)||{label:''}).label)+' · '+esc(c.time||'')+'</div>'+
+    '<div class="ctitle" style="margin:4px 0 0">'+esc(c.title)+'</div></div>'+
+    '<button class="btn3" onclick="abrirFichas()">← Volver</button></div>';
+  if(c.why) html+='<div style="background:'+col+'14;border-left:3px solid '+col+';padding:10px 12px;border-radius:0 8px 8px 0;font-size:12px;line-height:1.6;margin:12px 0">'+esc(c.why)+'</div>';
+  (c.steps||[]).forEach((p,i)=>{
+    html+='<div class="daybox"><div class="row" style="margin-bottom:4px"><span style="font-size:13px;font-weight:600">'+(i+1)+'. '+esc(p.t)+'</span>'+
+      (p.time?'<span class="mono" style="font-size:11px;color:'+col+'">'+esc(p.time)+'</span>':'')+'</div>'+
+      '<div style="font-size:12px;line-height:1.6;color:#a0a0b8">'+esc(p.d||'')+'</div></div>';
+  });
+  if(c.tip) html+='<div style="background:#FBF1DE14;border:1px solid #ffb34755;border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.6;color:#ffb347;margin-top:12px">'+esc(c.tip)+'</div>';
+  html+='<button class="btn" style="margin-top:14px;background:#4B7F3B;color:#fff" onclick="fichaHecha(\''+c.id+'\')">✓ COMPLETADA</button>';
+  html+='<button class="btn2" style="margin:0" onclick="abrirFichas()">← Volver a las fichas</button>';
+  overlay(html);
+}
+function fichaHecha(id){
+  const c=fichas().find(x=>x.id===id);
+  const min=parseInt((c.time||"10").replace(/[^0-9]/g,""))||10;
+  st._fb={results:[],durationMin:min,mode:"mob",type:"Movilidad",feelings:[],notes:c.title};
+  showFeedback();
+}
+
 function startMobilitySession(){
   const last=st.mobHistory[st.mobHistory.length-1];
   const worst=last?MOB_TESTS.filter(t=>last.scores[t.id]<=2):[];
@@ -3438,7 +3504,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v16 · 26 ago 2026";
+const VERSION="v17 · 26 ago 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){
