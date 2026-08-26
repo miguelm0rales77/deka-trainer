@@ -757,6 +757,11 @@ const EXDB = [
   {name:"LUNGES TO BOX", cat:"hyrox", wf:1.2, reps:20, sets:3, rest:90, weight:"cajón", paceMin:30, paceMax:180, note:"Zancada con rodilla trasera al cajón. Estación Xybrid (40 reps).", m:{cuads:.8,gluteos:.8,isquios:.4,core:.4}},
   {name:"SLAM BALL", cat:"hyrox", wf:1.8, reps:15, sets:3, rest:90, weight:"30kg", paceMin:25, paceMax:150, note:"Balón 30kg del suelo por encima de la cabeza y al suelo. Estación Xybrid (30 reps).", m:{lumbar:.6,espalda:.6,hombros:.6,core:.7,gluteos:.5,brazos:.4}},
   {name:"FARMER MANCUERNAS", cat:"fuerza", wf:1.6, reps:1, sets:4, rest:75, weight:"2×24kg · 30m", paceMin:20, paceMax:100, note:"Versión mancuernas del farmers carry.", m:{brazos:.6,core:.5,espalda:.4,gemelos:.3}, unit:"tramos"},
+  /* ── espalda alta y bisagra sin barra: los nombran las plantillas de Leyre,
+       Joaquina y Lydia. Sin ficha aquí esas sesiones se lanzaban igual, pero
+       presetToWod caía en {} y no sumaban carga muscular ni entraban en ACWR ── */
+  {name:"FACE PULL", cat:"fuerza", wf:1.2, reps:15, sets:3, rest:60, weight:"goma o toalla", paceMin:40, paceMax:200, note:"Tira hacia la cara separando las manos. Deltoides posterior y espalda alta: es postura, no estética.", m:{hombros:.7,espalda:.5,brazos:.2}},
+  {name:"KB DEADLIFT", cat:"fuerza", wf:1.7, reps:15, sets:4, rest:90, weight:"KB 24kg", paceMin:25, paceMax:150, note:"Kettlebell entre los pies, bisagra de cadera y espalda neutra. Menos exigente de técnica que la barra.", m:{isquios:.8,gluteos:.8,lumbar:.6,espalda:.4,brazos:.3}},
 ];
 function allEx(){
   const ex=EXDB.concat(st.exCustom||[]);
@@ -3496,6 +3501,11 @@ closeOverlay=function(){ pClear(); fpClear(); FP.running=false; PC.timers.forEac
 
 function applyProfile(p){
   PROFILE=Object.assign({},PROFILE,p||{});
+  /* Las plantillas NO se heredan. Object.assign le daba las de Miguel a
+     cualquier perfil que no declarase `presets`, y eso le puso a Iker —
+     operado del dedo, sin material — un botón de "Burpee Broad Jump bajo
+     fatiga". Quien quiera plantillas, que las declare en su JSON. */
+  if(p && !Object.prototype.hasOwnProperty.call(p,"presets")) PROFILE.presets=[];
   if(PROFILE.zones) ZONES=PROFILE.zones;
   if(PROFILE.refs) REFS=PROFILE.refs;
   if(PROFILE.plan&&PROFILE.plan.length) PLAN=PROFILE.plan;
@@ -3504,7 +3514,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v17 · 26 ago 2026";
+const VERSION="v18 · 26 ago 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){
