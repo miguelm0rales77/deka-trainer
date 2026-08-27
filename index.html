@@ -826,7 +826,7 @@ const BADGES = [
 ];
 
 /* ── PUNTOS ── */
-const PTS = { plan:10, mobilidad:10, generado:5, libre:5, checkin:2, habit:1, mobSkip:-5, weekPerfect:20 };
+const PTS = { plan:10, mobilidad:10, generado:5, libre:5, checkin:2, habit:1, mobSkip:-5, weekPerfect:20, rehab:4 };
 
 /* ── PLAN 13 SEMANAS — HYROX VALENCIA ── */
 const MESOS = [
@@ -872,46 +872,54 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua + electrolitos."
+    "main": "Descanso total. 3L agua + electrolitos.",
+    "rehab": "AQUILES: isométricos 5×45s en escalón (3-4/10 dolor). CUELLO: Neck CARs 3 círculos/dirección + rotación asistida manual 30s/lado. Sin arnés."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Remo 15 min Z2 + Air Bike 15 min Z2 (7-10 cal/min). Sin mirar splits. Solo mover sangre. · continuo, sin pausas",
-    "fc": "Z2 · <130 bpm"
+    "fc": "Z2 · <130 bpm",
+    "rehab": "AQUILES: heel drops excéntricos en escalón 3×12 (rodilla recta + flexionada). CUELLO: isométrico manual 4 dir. 5×10s."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "25 min Z1–Z2 suave. Nasal breathing. Sin objetivos de pace. · continuo, sin pausas",
-    "fc": "Z1-Z2 · <130 bpm"
+    "fc": "Z1-Z2 · <130 bpm",
+    "rehab": "AQUILES: isométricos 5×45s antes de correr — aprovechar alivio post-iso para la carrera. CUELLO: movilidad + extensión torácica 5 min."
    },
    {
     "d": "Jue",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. FC <125 bpm. · continuo, sin pausas",
-    "fc": "Z2 · 110–125 bpm"
+    "fc": "Z2 · 110–125 bpm",
+    "rehab": "AQUILES: isométricos 5×45s. CUELLO: Neck CARs + chin tuck 10 reps + trapecio superior stretch 40s/lado."
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo técnico: 4×5 min Z2 (stroke rate 18-20, drive ratio 1:2). SkiErg 15 min Z2. · R2'",
     "pre": "PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",
-    "fc": "Z2 · <130 bpm"
+    "fc": "Z2 · <130 bpm",
+    "rehab": "AQUILES: heel drops 3×12 ambas piernas. CUELLO: isométrico manual 4 dir. Si no hay molestia cervical residual."
    },
    {
     "d": "Sáb",
     "t": "Carrera",
     "main": "Long run 40 min Z2. Nasal breathing. · continuo, sin pausas",
-    "fc": "Z2 · 110–130 bpm"
+    "fc": "Z2 · 110–130 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera 5×45s. Vigilar rigidez matutina — si >20 min, reducir volumen de carrera."
    },
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
+    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
+    "rehab": "CUELLO: día de movilidad pura. Extensión cervical asistida 30s×3. Rotación 10 rep/lado lenta. Sin carga."
    }
   ],
-  "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad."
+  "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad.",
+  "rehabNote": "AQUILES: isométricos diarios (5×45s, dolor 3-4/10). Excéntricos 3×/semana. Si rigidez matutina >20 min al día siguiente de entrenar: reducir carga. CUELLO: sin arnés esta semana. Solo movilidad manual e isométricos con la mano."
  },
  {
   "w": 2,
@@ -924,48 +932,56 @@ var PLAN = [
     "t": "Test",
     "main": "Tests base HYROX completados: SkiErg 500m 1:33 · Remo 500m 1:43 · AirBike 25cal 60s · 1km 3:46/km (HR 155/162). VO2max COROS ~60. · R5' entre tests",
     "sub": "Datos integrados en todas las zonas del plan",
-    "flag": "TEST"
+    "flag": "TEST",
+    "rehab": "AQUILES: isométricos 5×45s. Día ligero post-tests. CUELLO: movilidad + isométrico manual."
    },
    {
     "d": "Mar",
     "t": "Carrera",
     "main": "35 min Z2. Nasal breathing. Recuperación activa.",
-    "fc": "Z2 · <130 bpm"
+    "fc": "Z2 · <130 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera. Heel drops 3×12 por la tarde."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "35 min: 25 min Z2 + últimos 10 min Z3. · continuo, sin pausas",
-    "fc": "Z2–Z3"
+    "fc": "Z2–Z3",
+    "rehab": "AQUILES: isométricos pre-carrera. CUELLO: Neck CARs + extensión asistida."
    },
    {
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza general HYROX: 3×6 Sentadilla 65% + 3×8 Peso muerto 65% + 3×6 Pull-ups + Wall Balls 4×15 @10kg. · R2'",
     "sub": "Reintroducir carga progresivamente",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
+    "rehab": "AQUILES: heel drops 3×15 al final de la sesión. CUELLO: isométrico manual 4 dir. 5×10s al final."
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo 4×500m @pace fuerte (registrar splits). SkiErg 3×3 min Z4. Air Bike 15 min Z2. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×8 @10kg",
-    "fc": "Remo Z4-Z5 · SkiErg Z4"
+    "fc": "Remo Z4-Z5 · SkiErg Z4",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Sáb",
     "t": "Carrera",
     "main": "Long run 45 min Z2. Últimos 8 min Z3. · continuo, sin pausas",
-    "fc": "Z2–Z3"
+    "fc": "Z2–Z3",
+    "rehab": "AQUILES: isométricos pre-carrera 5×45s."
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. FC <125 bpm. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm"
+    "fc": "Z2 · <125 bpm",
+    "rehab": "CUELLO: movilidad completa 10 min. Extensión torácica sobre respaldo silla."
    }
   ],
-  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino. Mg noche."
+  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino. Mg noche.",
+  "rehabNote": "AQUILES: isométricos diarios + excéntricos 3×/semana. CUELLO: fin de semana evaluar si hay molestia residual de la contractura. Si no hay, lunes siguiente puedes introducir arnés 2kg solo en FLEXIÓN (no extensión aún)."
  },
  {
   "w": 3,
@@ -976,14 +992,16 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana."
+    "main": "Descanso. HRV mañana.",
+    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés 2kg — flexión 3×12 + lateral 3×10/lado. NO extensión aún. Si molestia posterior: volver a manual."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Remo intervalos potencia: 6×500m con 90s descanso. Registrar cada split. SkiErg 4×3 min Z4.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Remo Z4-Z5 · SkiErg Z4"
+    "fc": "Remo Z4-Z5 · SkiErg Z4",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
@@ -997,30 +1015,35 @@ var PLAN = [
     "t": "Fuerza",
     "main": "Fuerza HYROX: Sentadilla 4×5 @75% + Press banca 4×5 + Burpee Broad Jump 4×10 + Sandbag Lunges 4×20m @20kg. · R2'",
     "sub": "Foco en Burpees y Lunges — tus armas",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
+    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés 2kg flexión + lateral al final de sesión."
    },
    {
     "d": "Vie",
     "t": "Umbral Híbrido",
     "main": "Umbral largo híbrido: 3×8 min (2' carrera Z4 + 2' Remo Z4 + 2' SkiErg Z3 + 2' carrera Z4). 2 min trote Z1 entre bloques.",
     "pre": "PRE cada bloque SkiErg: 5 Sit-Up Throw @10kg",
-    "fc": "Z4 · media 148–158 bpm"
+    "fc": "Z4 · media 148–158 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "55 min: 15 min Z2 + 20 min tempo continuo Z4 (4:20-4:25/km) + 20 min Z2. Tempo sin parar. Si pierdes ritmo reduce a 4:30 y aguanta.",
     "sub": "Primera sesión de tempo puro — base del umbral HYROX",
-    "fc": "Z4 · 148–158 bpm en tempo"
+    "fc": "Z4 · 148–158 bpm en tempo",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm"
+    "fc": "Z2 · <125 bpm",
+    "rehab": "CUELLO: movilidad + neck CARs. Evaluar tolerancia al arnés de esta semana."
    }
   ],
-  "nutr": "+40g CHO días intensos. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg."
+  "nutr": "+40g CHO días intensos. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg.",
+  "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Evaluar rigidez matutina — si mejora, el protocolo funciona. CUELLO: arnés 2kg solo flexión y lateral. Si sin molestia al final de semana, añadir extensión la semana siguiente con 1kg (menos que flexión)."
  },
  {
   "w": 4,
@@ -1031,49 +1054,57 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana."
+    "main": "Descanso. HRV mañana.",
+    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés 2kg flexión + lateral + extensión 1kg (primera vez). Evaluar tolerancia."
    },
    {
     "d": "Mar",
     "t": "Comp. Running",
     "main": "Compromised running: 1000m Remo Z4 + 1km carrera inmediato × 3 bloques. Sin descanso entre bloques.",
     "sub": "Secuencia clave HYROX: salir a correr con el Remo en las piernas",
-    "fc": "Z4-Z5 · 150–168 bpm"
+    "fc": "Z4-Z5 · 150–168 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Fuerza",
     "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
+    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés 2kg flexión/lateral + extensión 1kg al final."
    },
    {
     "d": "Jue",
     "t": "Ergómetro",
     "main": "Remo 5×500m @race-pace (registrar). Air Bike 5×2 min Z5 (>18-22 cal/min). SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Z4-Z5"
+    "fc": "Z4-Z5",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Vie",
     "t": "Tempo",
     "main": "55 min: 20 min Z2 + 20 min tempo Z4 (4:20-4:25/km) + 15 min Z2. Mantener ritmo estable, no acelerar. · continuo, sin pausas",
-    "fc": "Z4 · 148–158 bpm en tempo"
+    "fc": "Z4 · 148–158 bpm en tempo",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Sáb",
     "t": "Umbral Híbrido",
     "main": "Umbral largo: 25 min continuo → 3' carrera Z4 + 2' SkiErg Z3 sin parar.",
     "pre": "PRE-SkiErg: 5 Sit-Up Throw @10kg en cada bloque",
-    "fc": "Z4 · 148–158 bpm"
+    "fc": "Z4 · 148–158 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm"
+    "fc": "Z2 · <125 bpm",
+    "rehab": "CUELLO: movilidad + neck CARs. Valorar tolerancia a la extensión con 1kg."
    }
   ],
-  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días duros. Sin déficit."
+  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días duros. Sin déficit.",
+  "rehabNote": "AQUILES: a estas alturas deberías notar reducción de rigidez matutina. Si no mejora, consultar fisio. CUELLO: si la extensión con 1kg no dio molestia, esta semana sube a 2kg en extensión también. Flexión/lateral puedes ir a 3kg."
  },
  {
   "w": 5,
@@ -1086,49 +1117,57 @@ var PLAN = [
     "t": "Carrera",
     "main": "30 min Z2 temprano. Antes del calor. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera. Llevar banda elástica para heel drops."
    },
    {
     "d": "Mar",
     "t": "Playa",
     "main": "4 rondas → KB Swings 24kg ×20 + Anillas rows ×10 + Lunges ×20 + Burpee Broad Jump ×8 + Push-up anillas ×10. Descanso 90s.",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: heel drops en escalón de piscina o bordillo 3×12. CUELLO: neck CARs + isométrico manual (sin arnés en playa)."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "35 min: 10 min Z2 + 15 min Z3 + 10 min Z2. Temprano. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Jue",
     "t": "Playa",
     "main": "Wall Balls 5×15 @10kg + KB Goblet squat 4×12 @24kg + Anillas dips 3×10 + Hollow hold 3×30s + Dead bug 3×10. · R60\"",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: heel drops 3×15. CUELLO: movilidad extensión + rotación."
    },
    {
     "d": "Vie",
     "t": "Carrera",
     "main": "Long run 45 min Z2. Hidratación extra por calor. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Sáb",
     "t": "Playa",
     "main": "5 rondas → Burpee Broad Jump ×10 + Sandbag Lunges 20m + KB Farmers Carry 24kg 30m + Wall Balls ×15 + 400m carrera. Descanso 2 min.",
     "fc": "Z3-Z4",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Dom",
     "t": "Movilidad",
     "main": "Movilidad 20 min. Extensión torácica + cadera + cervicales. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "CUELLO: movilidad completa cervical. Extensión asistida 30s×3."
    }
   ],
-  "nutr": "Playa: 3.5L agua + electrolitos. Proteína 2g/kg. CHO moderado. Comida local sin complicar."
+  "nutr": "Playa: 3.5L agua + electrolitos. Proteína 2g/kg. CHO moderado. Comida local sin complicar.",
+  "rehabNote": "AQUILES: sin arnés en playa — usar bordillo de piscina o escalón para heel drops. Isométricos diarios con banda o bodyweight. CUELLO: sin arnés en playa. Movilidad manual + neck CARs."
  },
  {
   "w": 6,
@@ -1141,50 +1180,58 @@ var PLAN = [
     "t": "Carrera",
     "main": "30 min: 5 min Z2 + 4×4 min Z4 (4:20-4:35/km) + 2 min Z2 entre series.",
     "fc": "Z4 · 148–160 bpm",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Mar",
     "t": "Playa",
     "main": "KB Swing 24kg 5×20 + Anillas pull-up 4×8 + Push-up anillas 4×12 + Wall Balls 4×20 + Burpee Broad Jump 4×10. Descanso 90s.",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: heel drops 3×15. CUELLO: movilidad + extensión asistida."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "Long run 50 min Z2. Últimos 8 min Z3. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Jue",
     "t": "Playa",
     "main": "4 rondas → Sandbag Lunges 25m + KB Farmers Carry 30m + Burpee Broad Jump ×12 + Wall Balls ×20 + 500m carrera all-out. 3 min descanso.",
     "fc": "Z4-Z5",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Vie",
     "t": "Carrera",
     "main": "35 min Z2–Z3. Nasal breathing primeros 20 min. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Sáb",
     "t": "Playa",
     "main": "AMRAP 30 min → 10 KB Swings + 8 Anillas rows + 15 Wall Balls + 10 Burpees + 200m carrera.",
     "fc": "Z3-Z4",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Dom",
     "t": "Movilidad",
     "main": "Movilidad 20 min + descanso activo. Último día de playa. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "flag": "PLAYA"
+    "flag": "PLAYA",
+    "rehab": "CUELLO: movilidad completa. Al volver a casa: retomar arnés."
    }
   ],
-  "nutr": "Igual que S5. Al volver: retomar creatina, Mg, electrolitos, CHO perientrino."
+  "nutr": "Igual que S5. Al volver: retomar creatina, Mg, electrolitos, CHO perientrino.",
+  "rehabNote": "AQUILES: evaluar al volver a casa. Si la rigidez matutina es mínima o nula, empezar a introducir cargas más progresivas en heel drops. CUELLO: al volver, retomar arnés. Flexión/lateral 3kg, extensión 2kg."
  },
  {
   "w": 7,
@@ -1195,48 +1242,56 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana. Reajuste post-playa."
+    "main": "Descanso. HRV mañana. Reajuste post-playa.",
+    "rehab": "AQUILES: retomar isométricos con escalón en casa. CUELLO: retomar arnés — flexión/lateral 3kg, extensión 2kg."
    },
    {
     "d": "Mar",
     "t": "Test",
     "main": "Re-test: Remo 500m máximo + SkiErg 500m máximo. Comparar vs S2. · R5' entre tests",
-    "flag": "TEST"
+    "flag": "TEST",
+    "rehab": "AQUILES: isométricos pre-test."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "6×1 km a pace objetivo (<4:20/km) con 90s recuperación.",
-    "fc": "Z4 · 148–160 bpm"
+    "fc": "Z4 · 148–160 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera. Vigilar respuesta al volumen de intervalos."
    },
    {
     "d": "Jue",
     "t": "Cluster HYROX",
     "main": "Cluster HYROX: 4×(SkiErg 250m + Sled Push 20m + Sled Pull 20m + Burpee Broad Jump ×10 + 400m carrera). 3 min caminar entre rondas.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Z4-Z5 · 150–170 bpm"
+    "fc": "Z4-Z5 · 150–170 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión. El Sled carga el tendón — vigilar el día siguiente."
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo 5×500m @race-pace. Air Bike 4×2 min Z5. SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 4×8 @10kg",
-    "fc": "Z4-Z5"
+    "fc": "Z4-Z5",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:20-4:22/km) + 20 min Z2. Si splits bien, últimos 5 min aprieta a 4:18. · continuo, sin pausas",
-    "fc": "Z4 · 148–158 bpm en tempo"
+    "fc": "Z4 · 148–158 bpm en tempo",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm"
+    "fc": "Z2 · <125 bpm",
+    "rehab": "CUELLO: arnés flexión/lateral 3kg + extensión 2kg. Neck CARs post."
    }
   ],
-  "nutr": "Retomar protocolo completo: creatina + Mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8."
+  "nutr": "Retomar protocolo completo: creatina + Mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8.",
+  "rehabNote": "AQUILES: a 6 semanas de protocolo. Deberías notar mejora clara en rigidez matutina. Si no, valorar fisio. CUELLO: subir flexión a 4kg si tolerancia buena. Extensión se queda en 2kg hasta S9."
  },
  {
   "w": 8,
@@ -1247,49 +1302,57 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana."
+    "main": "Descanso. HRV mañana.",
+    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés flexión 4kg + lateral 3kg + extensión 2kg."
    },
    {
     "d": "Mar",
     "t": "Cluster HYROX",
     "main": "Simulacro HYROX parcial: SkiErg 1000m + 1km carrera + Sled Push 25m + 1km carrera + Remo 1000m + 1km carrera + Burpee Broad Jump ×20 + 1km carrera. Sin descanso.",
     "pre": "PRE-SkiErg: Sit-Up Throw 4×10 @10kg · Bicarbonato PRIMERA VEZ 0.3g/kg 90 min antes",
-    "fc": "Z4 · 148–162 bpm"
+    "fc": "Z4 · 148–162 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Umbral+HYROX",
     "main": "Rich Ryan #2 — Umbral DESPUÉS de estaciones: estaciones HYROX completas (SkiErg+Sled+Remo+Burpees+Lunges+Wall Balls sin carrera). 7 min descanso. Después: 3×5 min Z4 carrera con 1 min descanso.",
     "sub": "El descanso es necesario para alcanzar velocidad de umbral real",
-    "fc": "Z4 · 148–160 bpm en series de carrera"
+    "fc": "Z4 · 148–160 bpm en series de carrera",
+    "rehab": "AQUILES: isométricos pre-sesión. Sesión larga — vigilar respuesta."
    },
    {
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
+    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés al final de sesión."
    },
    {
     "d": "Vie",
     "t": "Umbral Híbrido",
     "main": "Rich Ryan #1 — Umbral ANTES de HYROX: 4×5 min Z4 (4:20-4:30/km) con 1 min descanso. Al terminar, directo a estaciones HYROX: SkiErg + Remo + Burpees + Lunges.",
     "pre": "PRE-SkiErg en la parte HYROX: Sit-Up Throw @10kg",
-    "fc": "Z4 · 148–158 bpm en carrera · Z4-Z5 en estaciones"
+    "fc": "Z4 · 148–158 bpm en carrera · Z4-Z5 en estaciones",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 20 min Z2. Si HRV bajo, reduce tempo a 20 min. · continuo, sin pausas",
-    "fc": "Z4"
+    "fc": "Z4",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm"
+    "fc": "Z2 · <125 bpm",
+    "rehab": "CUELLO: movilidad + arnés suave. Neck CARs."
    }
   ],
-  "nutr": "Bicarbonato: 0.3g/kg 60-90 min pre-intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario."
+  "nutr": "Bicarbonato: 0.3g/kg 60-90 min pre-intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario.",
+  "rehabNote": "AQUILES: semana muy cargada. Si hay reactivación (dolor >5/10 o rigidez matutina aumenta), quitar una sesión de carrera. CUELLO: mantener cargas esta semana — no subir con la fatiga acumulada."
  },
  {
   "w": 9,
@@ -1304,31 +1367,36 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV. Mini-taper: mantener intensidad, recortar volumen."
+    "main": "Descanso. HRV. Mini-taper: mantener intensidad, recortar volumen.",
+    "rehab": "AQUILES: isométricos. CUELLO: movilidad ligera."
    },
    {
     "d": "Mar",
     "t": "Comp. Running",
     "main": "Compromised running: 3×(Remo 500m + 1km carrera inmediato). 2 min entre rondas. Última sesión dura pre-Xybrid.",
-    "fc": "Z4-Z5 · 150–168 bpm"
+    "fc": "Z4-Z5 · 150–168 bpm",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "30 min: 10 min Z2 + 4×3 min Z4 (4:20-4:30/km) + Z2. Piernas despiertas, sin vaciarte. · R3'",
-    "fc": "Z4 · 150–160 bpm"
+    "fc": "Z4 · 150–160 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Jue",
     "t": "Activación",
     "main": "Ensayo Xybrid al 60%: 1 ronda → SkiErg 300m + Sled Push 15m + Sled Pull 15m encadenados + Burpees to Plate ×15 + Remo 300m + AirBike 10 cal + Lunges to Box ×15 + Slam Ball ×10. · R2' entre rondas",
     "sub": "Automatizar transiciones nuevas, especialmente push+pull encadenado. Sin buscar tiempo.",
-    "fc": "Z3 · <150 bpm"
+    "fc": "Z3 · <150 bpm",
+    "rehab": "AQUILES: isométricos pre-activación. CUELLO: neck CARs."
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h."
+    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h.",
+    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
    },
    {
     "d": "Sáb",
@@ -1340,10 +1408,12 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
+    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
+    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad completa."
    }
   ],
-  "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido."
+  "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido.",
+  "rehabNote": "AQUILES: reducir heel drops esta semana — solo isométricos. No estresar el tendón pre-carrera. CUELLO: sin arnés desde miércoles hasta después del Xybrid."
  },
  {
   "w": 10,
@@ -1355,20 +1425,23 @@ var PLAN = [
     "d": "Lun",
     "t": "Descanso",
     "main": "Descanso total post-Xybrid. Analizar: dónde perdiste tiempo, cómo respondió el sled encadenado.",
-    "sub": "Notas para estrategia Valencia"
+    "sub": "Notas para estrategia Valencia",
+    "rehab": "AQUILES: isométricos. CUELLO: retomar arnés."
    },
    {
     "d": "Mar",
     "t": "Carrera",
     "main": "Recuperación: 25 min Z1.",
-    "fc": "Z1 · <120 bpm"
+    "fc": "Z1 · <120 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Mié",
     "t": "Ergómetro",
     "main": "Remo 20 min Z2 + SkiErg 15 min Z2. Recuperación activa.",
     "pre": "PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",
-    "fc": "Z2 · <130 bpm"
+    "fc": "Z2 · <130 bpm",
+    "rehab": "AQUILES: isométricos. CUELLO: arnés flexión 4kg + lateral 3kg + extensión 2kg."
    },
    {
     "d": "Jue",
@@ -1389,15 +1462,18 @@ var PLAN = [
     "t": "Cluster HYROX",
     "main": "Simulacro HYROX completo: 8 estaciones + 8 km carrera a carga 75%. Protocolo completo. · Sin descanso entre estaciones: esto es la carrera.",
     "pre": "Bicarbonato + Keto IQ + electrolitos · PRE-SkiErg: Sit-Up Throw",
-    "fc": "Z4 · 148–162 bpm"
+    "fc": "Z4 · 148–162 bpm",
+    "rehab": "AQUILES: isométricos pre-simulacro."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Descanso total. Recarga glucógeno. Sueño 8-9h."
+    "main": "Descanso total. Recarga glucógeno. Sueño 8-9h.",
+    "rehab": "CUELLO: movilidad. Sin arnés."
    }
   ],
-  "nutr": "Post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno viernes para simulacro."
+  "nutr": "Post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno viernes para simulacro.",
+  "rehabNote": "AQUILES: semana de alta carga. Priorizar isométricos diarios. Si hay reactivación post-simulacro, reducir carrera la semana siguiente. CUELLO: si tolerancia buena, esta semana extensión sube a 3kg."
  },
  {
   "w": 11,
@@ -1413,43 +1489,51 @@ var PLAN = [
     "d": "Lun",
     "t": "Fuerza",
     "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
+    "rehab": "AQUILES: isométricos + heel drops ligeros. CUELLO: arnés suave al final."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Race-pace: SkiErg 2×3 min + Remo 2×3 min. Recuperación completa.",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
-    "fc": "Z4 · race-pace"
+    "fc": "Z4 · race-pace",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "30 min Z2. Sin objetivos. · continuo, sin pausas",
-    "fc": "Z2 · <130 bpm"
+    "fc": "Z2 · <130 bpm",
+    "rehab": "AQUILES: isométricos pre-carrera."
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m. · R60\" entre ejercicios"
+    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m. · R60\" entre ejercicios",
+    "rehab": "AQUILES: isométricos. CUELLO: neck CARs + movilidad."
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Sueño ≥8h."
+    "main": "Descanso total. 3L agua. Sueño ≥8h.",
+    "rehab": "AQUILES: isométricos suaves."
    },
    {
     "d": "Sáb",
     "t": "Descanso",
-    "main": "Descanso. CHO moderado. Preparar logística con Marchena."
+    "main": "Descanso. CHO moderado. Preparar logística con Marchena.",
+    "rehab": "CUELLO: movilidad."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Descanso. Cena conocida: CHO + proteína, sin grasa excesiva."
+    "main": "Descanso. Cena conocida: CHO + proteína, sin grasa excesiva.",
+    "rehab": "AQUILES: isométricos. Último día antes de semana de competición."
    }
   ],
-  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2-3h antes. Bicarbonato + Keto IQ."
+  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2-3h antes. Bicarbonato + Keto IQ.",
+  "rehabNote": "AQUILES: reducir heel drops esta semana — solo isométricos diarios. CUELLO: sin arnés desde jueves hasta después del Hyathlon."
  },
  {
   "w": 12,
@@ -1464,44 +1548,52 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. Estrategia con Marchena para el sábado."
+    "main": "Descanso. Estrategia con Marchena para el sábado.",
+    "rehab": "AQUILES: isométricos. CUELLO: retomar arnés."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Última sesión calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
-    "fc": "Z4 · race-pace"
+    "fc": "Z4 · race-pace",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "20 min Z1 muy suave. · continuo, sin pausas",
-    "fc": "Z1 · <120 bpm"
+    "fc": "Z1 · <120 bpm",
+    "rehab": "AQUILES: isométricos."
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Una ronda estaciones HYROX al 50%. 20 min. · R2' entre rondas"
+    "main": "Una ronda estaciones HYROX al 50%. 20 min. · R2' entre rondas",
+    "rehab": "AQUILES: isométricos. CUELLO: neck CARs."
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. CHO moderado. Sueño ≥8h."
+    "main": "Descanso total. CHO moderado. Sueño ≥8h.",
+    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
    },
    {
     "d": "Sáb",
     "t": "COMPETICIÓN",
     "main": "HYATHLON MADRID",
-    "sub": "Con Marchena. 6 estaciones, 6 km. Cambios rápidos. Marchena más Wall Balls. Bicarbonato + Keto IQ. Ensayo protocolo Valencia."
+    "sub": "Con Marchena. 6 estaciones, 6 km. Cambios rápidos. Marchena más Wall Balls. Bicarbonato + Keto IQ. Ensayo protocolo Valencia.",
+    "rehab": "Post-carrera: hielo en Aquiles si hay molestia."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Recuperación post-Hyathlon. Caminar 20 min. Proteína alta."
+    "main": "Recuperación post-Hyathlon. Caminar 20 min. Proteína alta.",
+    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
    }
   ],
-  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación antes de Valencia. Mg + omega-3 noche."
+  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación antes de Valencia. Mg + omega-3 noche.",
+  "rehabNote": "AQUILES: a 12 semanas de protocolo — deberías tener mínima o ninguna rigidez matutina. CUELLO: sin arnés desde jueves hasta después de Valencia."
  },
  {
   "w": 13,
@@ -1516,44 +1608,52 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Activación",
-    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min. · R60\" entre ejercicios"
+    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min. · R60\" entre ejercicios",
+    "rehab": "AQUILES: isométricos."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "3×2 min @race-pace (SkiErg + Remo). Recuperación completa.",
-    "pre": "PRE-SkiErg: Sit-Up Throw 2×6 @10kg"
+    "pre": "PRE-SkiErg: Sit-Up Throw 2×6 @10kg",
+    "rehab": "AQUILES: isométricos pre-sesión."
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "2 km Z1 muy suave. · continuo, sin pausas",
-    "fc": "Z1 · <120 bpm"
+    "fc": "Z1 · <120 bpm",
+    "rehab": "AQUILES: isométricos."
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Una ronda HYROX al 50%. 20 min. · R2' entre rondas"
+    "main": "Una ronda HYROX al 50%. 20 min. · R2' entre rondas",
+    "rehab": "AQUILES: isométricos. CUELLO: neck CARs."
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Sueño ≥8h."
+    "main": "Descanso total. 3L agua. Sueño ≥8h.",
+    "rehab": "AQUILES: isométricos suaves."
    },
    {
     "d": "Sáb",
     "t": "Descanso",
     "main": "Viaje a Valencia. Logística, ropa, suplementos. Confirmar estrategia con Marchena. Cena conocida.",
-    "sub": "Día –1: nada nuevo, nada de pie de más"
+    "sub": "Día –1: nada nuevo, nada de pie de más",
+    "rehab": "CUELLO: movilidad cervical suave en el hotel."
    },
    {
     "d": "Dom",
     "t": "COMPETICIÓN",
     "main": "HYROX VALENCIA — PAREJAS MASCULINO OPEN",
-    "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min. Electrolitos. Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05."
+    "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min. Electrolitos. Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05.",
+    "rehab": "Post-carrera: isométricos suaves si hay molestia en Aquiles. Celebrar el trabajo de 13 semanas. 🏆"
    }
   ],
-  "nutr": "Día –3 (jue): CHO moderado. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo."
+  "nutr": "Día –3 (jue): CHO moderado. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo.",
+  "rehabNote": "AQUILES: isométricos diarios hasta el día de la carrera. En el calentamiento pre-HYROX: 2×30s isométrico para activar y reducir dolor. CUELLO: sin carga desde el lunes."
  }
 ];
 
@@ -1568,9 +1668,10 @@ const defaultState = {
   points: 0, pointsLog: [],
   rewards: [], badges: [], perfectWeeks: 0,
   favorites: [], exCustom: [],
+  rehabDone: {},                      // "YYYY-MM-DD": true — prehab del día hecho
 };
 var st = loadState();
-function loadState(){ try{ const r=localStorage.getItem(KEY); if(r) return Object.assign({},defaultState,JSON.parse(r)); }catch(e){} return JSON.parse(JSON.stringify(defaultState)); }
+function loadState(){ try{ const r=localStorage.getItem(KEY); if(r){ const o=Object.assign({},defaultState,JSON.parse(r)); if(!o.rehabDone) o.rehabDone={}; return o; } }catch(e){} return JSON.parse(JSON.stringify(defaultState)); }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
 
 /* ── fechas ── */
@@ -1888,6 +1989,7 @@ function renderHoy(){
     if(day.flag) card.appendChild(h('<div class="tagz" style="background:#CECBF622;color:#CECBF6;margin-bottom:6px">★ '+esc(day.flag)+'</div>'));
     if(/XYBRID/i.test(day.main||"")||/Xybrid/i.test(day.sub||"")) card.appendChild(h('<button class="btn3" style="margin-bottom:8px" onclick="openHelp(\'xybrid\')">🏁 Ver estaciones Xybrid</button>'));
     if(day.pre) card.appendChild(h('<div style="font-size:11px;color:#ffb347;background:rgba(255,179,71,.08);padding:6px 9px;border-radius:8px;margin-bottom:8px">▲ '+esc(day.pre)+'</div>'));
+    if(day.rehab) card.appendChild(h('<div style="font-size:11px;color:#c4a6ff;background:rgba(124,58,237,.14);padding:6px 9px;border-radius:8px;margin-bottom:8px;line-height:1.5">🔧 '+esc(day.rehab)+'</div>'));
     card.appendChild(h('<div style="font-size:14px;line-height:1.55">'+esc(day.main)+'</div>'));
     if(day.sub) card.appendChild(h('<div class="dim" style="font-size:11px;margin-top:5px">'+esc(day.sub)+'</div>'));
     if(day.fc) card.appendChild(h('<div class="tagz" style="background:#E6F1FB22;color:#7ab8f0;margin-top:8px">♥ '+esc(day.fc)+'</div>'));
@@ -1914,6 +2016,16 @@ function renderHoy(){
       cta.appendChild(h('<div style="text-align:center;font-size:22px;padding:8px" class="big">🏁 DÍA DE COMPETICIÓN</div>'));
     } else {
       cta.appendChild(h('<div class="dim" style="text-align:center;font-size:12px;padding:6px">Día de descanso — el check-in también suma 🎯</div>'));
+    }
+    /* Segundo botón: el prehab del día se marca aparte del entrenamiento.
+       Son dos cosas distintas y se hacen en momentos distintos — si comparten
+       botón, el que se olvida es siempre el mismo. */
+    if(day.rehab){
+      const hecho=!!st.rehabDone[t];
+      cta.appendChild(h('<button class="btn2" style="margin-top:4px;'+(hecho
+        ?'border-color:rgba(124,58,237,.5);color:#c4a6ff;background:rgba(124,58,237,.12)'
+        :'border-color:rgba(124,58,237,.35);color:#c4a6ff')+'" onclick="marcarRehab()">'+
+        (hecho?'✓ Prehab hecho hoy'+(rehabStreak()>1?' · '+rehabStreak()+' días seguidos 🔥':' — toca para deshacer'):'🔧 He hecho el prehab de hoy')+'</button>'));
     }
     card.appendChild(cta);
     el.appendChild(card);
@@ -1945,6 +2057,20 @@ function renderHoy(){
   el.appendChild(h('<button class="btn2" onclick="openPacer(false)">🔔 Pacer · Intervalos con audio (ergómetros/carrera)</button>'));
   el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openRefs()">📊 Ritmos y zonas</button><button class="btn2" style="margin:0;flex:1" onclick="openOtra()">🏃‍♂️ Otra actividad</button></div>'));
   return el;
+}
+/* Prehab del día: se marca solo, sin pasar por el registro de sesiones.
+   No entra en sRPE ni en ACWR a propósito — isométricos y movilidad no son
+   carga de entrenamiento, y contarlos como tal ensuciaría el ratio. */
+function marcarRehab(){
+  const t=todayISO();
+  if(st.rehabDone[t]){ delete st.rehabDone[t]; addPoints(-PTS.rehab,"prehab deshecho"); toast("Prehab desmarcado"); }
+  else { st.rehabDone[t]=true; addPoints(PTS.rehab,"prehab del día"); toast("🔧 Prehab hecho — bien ahí"); }
+  save(); render();
+}
+function rehabStreak(){
+  let n=0; const d=new Date();
+  for(;;){ const iso=todayISO(d); if(!st.rehabDone[iso]) break; n++; d.setDate(d.getDate()-1); }
+  return n;
 }
 function openRefs(){
   const tbl=(t,rows,col)=>'<div class="ctitle mini" style="margin:14px 0 6px">'+t+'</div>'+rows.map(([a,b])=>
@@ -1990,10 +2116,12 @@ function renderPlan(){
       body.appendChild(h('<div class="daybox" style="border-left:3px solid '+dt.c+'"><div class="row" style="margin-bottom:3px"><span style="font-size:11px;font-weight:600" class="mono">'+day.d+' '+dates[i].slice(8,10)+'/'+dates[i].slice(5,7)+' <span class="tagz" style="background:'+dt.c+'22;color:'+dt.c+'">'+esc(day.t)+'</span></span><span style="font-size:12px">'+(done?'<span style="color:#4B7F3B">✓</span>':'')+'</span></div>'+
         (day.pre?'<div style="font-size:10px;color:#ffb347;margin-bottom:2px">▲ '+esc(day.pre)+'</div>':'')+
         '<div style="font-size:12px;line-height:1.5">'+esc(day.main)+'</div>'+
+        (day.rehab?'<div style="font-size:10px;color:#c4a6ff;background:rgba(124,58,237,.12);padding:4px 7px;border-radius:6px;margin-top:4px;line-height:1.45">🔧 '+esc(day.rehab)+(st.rehabDone[dates[i]]?' <span style="color:#A8E63E">✓</span>':'')+'</div>':'')+
         (day.sub?'<div class="dim" style="font-size:10px;margin-top:2px">'+esc(day.sub)+'</div>':'')+
         (day.fc?'<span class="tagz" style="background:#E6F1FB18;color:#7ab8f0;margin-top:4px">♥ '+esc(day.fc)+'</span>':'')+'</div>'));
     });
     body.appendChild(h('<div class="dim" style="font-size:11px;padding:4px 10px;line-height:1.5"><b>Nutrición:</b> '+esc(wk.nutr)+'</div>'));
+    if(wk.rehabNote) body.appendChild(h('<div style="font-size:11px;padding:6px 10px;margin:4px 0 0;line-height:1.5;color:#c4a6ff;background:rgba(124,58,237,.10);border-radius:8px"><b>🔧 Rehab de la semana:</b> '+esc(wk.rehabNote)+'</div>'));
     el.appendChild(head); el.appendChild(body);
   });
   return el;
@@ -3514,7 +3642,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v18 · 26 ago 2026";
+const VERSION="v19 · 27 ago 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){
