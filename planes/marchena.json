@@ -712,5 +712,69 @@
         "date": "dom 18 oct"
       }
     }
+  ],
+  "presets": [
+    {
+      "name": "Wall Balls — sin soltar",
+      "sets": 5,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "WALL BALLS",
+          "reps": 20,
+          "weight": "10kg · diana 3m"
+        }
+      ],
+      "note": "En dobles los wall balls son tu reparto: 40 sin soltar es el objetivo. La primera vez, cronómetro puro sin beep — de ahí sale tu pace base; después el metrónomo va a ese pace +2. La cadencia que aguantas 20 no es la que aguantas 40: apunta a un 15% menos para la carrera."
+    },
+    {
+      "name": "Lunges — ritmo de carrera",
+      "sets": 4,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "SANDBAG LUNGES",
+          "reps": 25,
+          "weight": "saco 20kg"
+        }
+      ],
+      "note": "25 zancadas por serie, unos 25m. En carrera son 100m sin soltar el saco. Busca un paso corto y constante: el error es salir largo y tener que parar a recolocar."
+    },
+    {
+      "name": "Lunges + Wall Balls — final de HYROX",
+      "sets": 4,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "SANDBAG LUNGES",
+          "reps": 25,
+          "weight": "saco 20kg"
+        },
+        {
+          "name": "WALL BALLS",
+          "reps": 20,
+          "weight": "10kg"
+        }
+      ],
+      "note": "Las dos estaciones tal como llegan al final de la carrera, encadenadas. Aquí es donde se decide el crono: llegar a los wall balls con los cuádriceps quemados y aun así no soltar."
+    },
+    {
+      "name": "SkiErg + Wall Balls — tu bloque",
+      "sets": 4,
+      "rest": 120,
+      "ex": [
+        {
+          "name": "SKIERG",
+          "reps": 500,
+          "weight": "m"
+        },
+        {
+          "name": "WALL BALLS",
+          "reps": 20,
+          "weight": "10kg"
+        }
+      ],
+      "note": "El encadenado que más repites en los clusters del jueves. Sal del ski y entra a los wall balls sin negociar el primer bloque de 10."
+    }
   ]
 }
