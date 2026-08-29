@@ -140,9 +140,18 @@
     "REAR LUNGES",
     "SUITCASE CARRY",
     "OVERHEAD CARRY",
-    "BEAR HUG CARRY"
+    "BEAR HUG CARRY",
+    "POGOS",
+    "SALTO VERTICAL"
   ],
   "habits": [
+    {
+      "id": "apix_noche",
+      "name": "Apixabán de la noche",
+      "icon": "💊",
+      "w": 4,
+      "desc": "La de la mañana ya la tienes controlada con el calendario: sigue con él, funciona. Marca aquí solo la de la noche, que es la que se escapa. Cada 12 horas y sin saltarse ninguna."
+    },
     {
       "id": "protein",
       "name": "Proteína en las 3 comidas",
@@ -177,6 +186,13 @@
       "icon": "😴",
       "w": 3,
       "desc": ""
+    },
+    {
+      "id": "ta",
+      "name": "Tomar la tensión",
+      "icon": "🩺",
+      "w": 2,
+      "desc": "Un par de veces por semana, sentado y en reposo. Anótala en las notas de la sesión si sube algo raro."
     }
   ],
   "presets": [
@@ -446,5 +462,6 @@
       "nutr": "Fin del primer bloque. Si estos cuatro semanas han ido bien, hablamos con Miguel de pasar a tres días de fuerza."
     }
   ],
-  "soloCuerpo": true
+  "soloCuerpo": true,
+  "appName": "Entrenamiento"
 }

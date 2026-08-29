@@ -1,0 +1,292 @@
+{
+ "id": "nombre-persona",
+ "name": "Nombre",
+ "lang": "es",
+ "planStart": "2026-09-07",
+ "activity": {
+  "level": "moderado",
+  "note": "Describe su trabajo y actividad diaria fuera del entrenamiento.",
+  "extras": [
+   "Pádel 2×/semana"
+  ]
+ },
+ "zones": {
+  "Z1": [
+   0,
+   125
+  ],
+  "Z2": [
+   115,
+   135
+  ],
+  "Z3": [
+   135,
+   150
+  ],
+  "Z4": [
+   150,
+   165
+  ],
+  "Z5": [
+   165,
+   185
+  ]
+ },
+ "refs": {
+  "tests": [
+   [
+    "1 km carrera",
+    "4:30"
+   ],
+   [
+    "Remo 500m",
+    "1:50"
+   ]
+  ],
+  "run": [
+   [
+    "Z2 · base",
+    "5:40–6:15/km"
+   ],
+   [
+    "Z4 · umbral",
+    "4:45–5:00/km"
+   ]
+  ],
+  "erg": [
+   [
+    "Remo race",
+    "1:50/500m"
+   ]
+  ],
+  "goals": [
+   [
+    "Objetivo principal",
+    "—"
+   ]
+  ]
+ },
+ "races": [
+  {
+   "name": "CARRERA OBJETIVO",
+   "date": "2026-11-15"
+  }
+ ],
+ "equipment": [
+  "ninguno",
+  "kb",
+  "cajon",
+  "balon",
+  "comba"
+ ],
+ "habits": [
+  {
+   "id": "sleep7",
+   "name": "Sueño ≥7h",
+   "icon": "😴",
+   "w": 3,
+   "desc": ""
+  },
+  {
+   "id": "hydra",
+   "name": "≥2L agua",
+   "icon": "💧",
+   "w": 2,
+   "desc": ""
+  },
+  {
+   "id": "mob",
+   "name": "Movilidad 10 min",
+   "icon": "🧘",
+   "w": 3,
+   "desc": ""
+  }
+ ],
+ "plan": [
+  {
+   "w": 1,
+   "m": 1,
+   "dates": "—",
+   "label": "Semana 1 — adaptación",
+   "days": [
+    {
+     "d": "Lun",
+     "t": "Fuerza",
+     "main": "Describe aquí la sesión del lun."
+    },
+    {
+     "d": "Mar",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del mar.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Mié",
+     "t": "Movilidad",
+     "main": "Describe aquí la sesión del mié."
+    },
+    {
+     "d": "Jue",
+     "t": "Metabólico",
+     "main": "Describe aquí la sesión del jue."
+    },
+    {
+     "d": "Vie",
+     "t": "Ergómetro",
+     "main": "Describe aquí la sesión del vie."
+    },
+    {
+     "d": "Sáb",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del sáb.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Dom",
+     "t": "Descanso",
+     "main": "Describe aquí la sesión del dom."
+    }
+   ],
+   "nutr": "Notas de nutrición de la semana."
+  },
+  {
+   "w": 2,
+   "m": 1,
+   "dates": "—",
+   "label": "Semana 2",
+   "days": [
+    {
+     "d": "Lun",
+     "t": "Fuerza",
+     "main": "Describe aquí la sesión del lun."
+    },
+    {
+     "d": "Mar",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del mar.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Mié",
+     "t": "Movilidad",
+     "main": "Describe aquí la sesión del mié."
+    },
+    {
+     "d": "Jue",
+     "t": "Metabólico",
+     "main": "Describe aquí la sesión del jue."
+    },
+    {
+     "d": "Vie",
+     "t": "Ergómetro",
+     "main": "Describe aquí la sesión del vie."
+    },
+    {
+     "d": "Sáb",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del sáb.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Dom",
+     "t": "Descanso",
+     "main": "Describe aquí la sesión del dom."
+    }
+   ],
+   "nutr": "Notas de nutrición de la semana."
+  },
+  {
+   "w": 3,
+   "m": 1,
+   "dates": "—",
+   "label": "Semana 3",
+   "days": [
+    {
+     "d": "Lun",
+     "t": "Fuerza",
+     "main": "Describe aquí la sesión del lun."
+    },
+    {
+     "d": "Mar",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del mar.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Mié",
+     "t": "Movilidad",
+     "main": "Describe aquí la sesión del mié."
+    },
+    {
+     "d": "Jue",
+     "t": "Metabólico",
+     "main": "Describe aquí la sesión del jue."
+    },
+    {
+     "d": "Vie",
+     "t": "Ergómetro",
+     "main": "Describe aquí la sesión del vie."
+    },
+    {
+     "d": "Sáb",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del sáb.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Dom",
+     "t": "Descanso",
+     "main": "Describe aquí la sesión del dom."
+    }
+   ],
+   "nutr": "Notas de nutrición de la semana."
+  },
+  {
+   "w": 4,
+   "m": 1,
+   "dates": "—",
+   "label": "Semana 4 — descarga",
+   "days": [
+    {
+     "d": "Lun",
+     "t": "Fuerza",
+     "main": "Describe aquí la sesión del lun."
+    },
+    {
+     "d": "Mar",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del mar.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Mié",
+     "t": "Movilidad",
+     "main": "Describe aquí la sesión del mié."
+    },
+    {
+     "d": "Jue",
+     "t": "Metabólico",
+     "main": "Describe aquí la sesión del jue."
+    },
+    {
+     "d": "Vie",
+     "t": "Ergómetro",
+     "main": "Describe aquí la sesión del vie."
+    },
+    {
+     "d": "Sáb",
+     "t": "Carrera",
+     "main": "Describe aquí la sesión del sáb.",
+     "fc": "Z2 · <140 bpm"
+    },
+    {
+     "d": "Dom",
+     "t": "Descanso",
+     "main": "Describe aquí la sesión del dom."
+    }
+   ],
+   "nutr": "Notas de nutrición de la semana."
+  }
+ ],
+ "exclude": []
+}

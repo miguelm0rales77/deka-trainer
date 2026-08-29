@@ -1,0 +1,533 @@
+{
+  "id": "elena",
+  "name": "Elena",
+  "lang": "es",
+  "planStart": "2026-08-31",
+  "appName": "Entrenamiento",
+  "activity": {
+    "level": "muy alto",
+    "note": "10 años. Gimnasia artística, unas 3 h al día 6 días por semana. Fuerte en barra fija y suelo; el salto es lo que peor se le da. Se le añaden 2 sesiones cortas de fin de semana enfocadas a la batida, más un protocolo de cabeza para el miedo y los bloqueos.",
+    "extras": [
+      "Gimnasia artística ~18 h/semana",
+      "Prepa con bastante core en el club",
+      "Sesiones propias: sábado y domingo"
+    ]
+  },
+  "zones": {
+    "Z1": [0, 130],
+    "Z2": [130, 155],
+    "Z3": [155, 175],
+    "Z4": [175, 190],
+    "Z5": [190, 205]
+  },
+  "refs": {
+    "tests": [
+      ["Salto vertical parado (CMJ)", "— prueba S1, S4 y S8"],
+      ["Squat jump (sin rebote)", "— prueba S1, S4 y S8"],
+      ["Broad jump", "— prueba S1, S4 y S8"],
+      ["Salto de gimnasia", "el que diga tu entrenadora, siempre el mismo"]
+    ],
+    "run": [
+      ["Aquí no se mira el pulso", "Guíate por cómo te sientes"],
+      ["Bien", "Puedes hablar mientras lo haces"],
+      ["Fuerte", "Frases cortas, pero lo acabas"]
+    ],
+    "erg": [
+      ["No aplica", ""]
+    ],
+    "goals": [
+      ["Saltar más alto", "Que la batida te suba más"],
+      ["Sentirte más fuerte", "Que el peso de hoy te parezca fácil en un mes"],
+      ["Talón y rodilla sanos", "Llegar a la semana 8 sin molestias"],
+      ["Mi rutina de 30 segundos", "Hacerla siempre, también en los entrenos"],
+      ["Bajar un escalón sin drama", "Que retroceder deje de dar vergüenza"]
+    ]
+  },
+  "races": [],
+  "equipment": ["ninguno", "mancuernas", "kb", "cajon"],
+  "soloCuerpo": true,
+  "exclude": [
+    "BURPEES", "BURPEE BROAD JUMP", "BURPEES TO PLATE", "BROAD JUMP", "BOX JUMP",
+    "BOX STEP OVER", "STEP-UP CHALECO", "LUNGES TO BOX", "SQUAT JUMPS",
+    "DOUBLE UNDERS", "JUMPING JACKS", "MOUNTAIN CLIMBERS", "SPRAWLS", "BEAR CRAWL",
+    "DEVIL PRESS", "MAN MAKERS", "WALL WALK", "WALL BALLS", "SLAM BALL",
+    "DEAD BALL OVER", "SIT-UP THROW", "RUSSIAN TWIST",
+    "SENTADILLA", "FRONT SQUAT", "PESO MUERTO", "PESO MUERTO RUMANO",
+    "PRESS BANCA", "PRESS MILITAR", "PUSH PRESS", "REMO CON BARRA", "FLOOR PRESS",
+    "CURL BÍCEPS", "PULLOVER", "APERTURAS", "ENCOGIMIENTOS", "HIP THRUST",
+    "KB SWING", "KB SNATCH", "KB CLEAN & PRESS", "KB DEADLIFT", "THRUSTER KB",
+    "SANDBAG LUNGES", "SANDBAG CLEAN", "SANDBAG OVER SHOULDER",
+    "CLUBBELL SWING", "CLUBBELL MILL",
+    "FARMERS CARRY", "FARMER MANCUERNAS", "SUITCASE CARRY", "OVERHEAD CARRY", "BEAR HUG CARRY",
+    "PULL-UPS", "RING DIPS", "TOES TO BAR", "HANGING KNEE RAISE", "L-SIT",
+    "REAR LUNGES", "ZANCADA BÚLGARA", "ZANCADAS MANCUERNAS",
+    "V-UPS", "HOLLOW HOLD", "FLUTTER KICKS",
+    "EXTENSIÓN TRÍCEPS", "ELEVACIONES LATERALES", "SACO DE BOXEO"
+  ],
+  "habits": [
+    {
+      "id": "sueno",
+      "name": "Dormir 9-10 h",
+      "icon": "😴",
+      "w": 4,
+      "desc": "Con 18 horas de gimnasia a la semana, dormir no es un lujo: es la mitad del entrenamiento. Es cuando el cuerpo crece y cuando lo que aprendiste hoy se te queda."
+    },
+    {
+      "id": "desayuno",
+      "name": "Desayunar antes de entrenar",
+      "icon": "🍳",
+      "w": 4,
+      "desc": "Entrenar sin haber comido es entrenar a medias: te cansas antes y los saltos salen más bajos."
+    },
+    {
+      "id": "comer",
+      "name": "Comer suficiente para crecer",
+      "icon": "🍽️",
+      "w": 4,
+      "desc": "Estás creciendo y entrenando a la vez, que son las dos cosas que más energía piden. Comer bien en las tres comidas es lo que hace posibles las dos."
+    },
+    {
+      "id": "rutina",
+      "name": "Mi rutina de 30 segundos",
+      "icon": "🧠",
+      "w": 3,
+      "desc": "Ancla, respiración, palabra y ver el primer movimiento. Hazla también en los entrenamientos: si solo la usas en competición, ese día te parecerá rara."
+    },
+    {
+      "id": "talon",
+      "name": "Revisar talón y rodilla",
+      "icon": "🦶",
+      "w": 3,
+      "desc": "¿Molesta el talón o justo debajo de la rótula, hoy o al día siguiente de saltar? Anótalo. Avisar pronto es lo que evita parar semanas."
+    },
+    {
+      "id": "agua",
+      "name": "Beber agua",
+      "icon": "💧",
+      "w": 2,
+      "desc": ""
+    },
+    {
+      "id": "sesion",
+      "name": "Hacer la sesión del finde",
+      "icon": "💪",
+      "w": 3,
+      "desc": "Aunque sea a medias. Media sesión hecha vale más que una entera pensada."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Día fuerte — salto y fuerza",
+      "sets": 3,
+      "rest": 90,
+      "ex": [
+        { "name": "SALTO VERTICAL", "reps": 3, "weight": "máxima altura" },
+        { "name": "GOBLET SQUAT", "reps": 6, "weight": "KB ligera" },
+        { "name": "SPLIT SQUAT", "reps": 6, "weight": "por pierna" },
+        { "name": "RDL MANCUERNAS", "reps": 8, "weight": "mancuernas ligeras" },
+        { "name": "CALF RAISES", "reps": 12, "weight": "sin peso" },
+        { "name": "PALLOF PRESS", "reps": 10, "weight": "goma · por lado" }
+      ],
+      "note": "Los saltos van los primeros y en fresco: son 9 en total y tienen que ser los 9 buenos. Si el tercero de una serie sale más bajo, corta ahí. Después, fuerza con peso cómodo: tienes que poder hacer 2 o 3 repeticiones más de las que haces."
+    },
+    {
+      "name": "Día ligero — tendón y control",
+      "sets": 3,
+      "rest": 60,
+      "ex": [
+        { "name": "POGOS", "reps": 10, "weight": "rebote de tobillo" },
+        { "name": "CALF RAISES", "reps": 8, "weight": "a una pierna, lento" },
+        { "name": "SPLIT SQUAT", "reps": 8, "weight": "poco o ningún peso" },
+        { "name": "SIDE PLANK", "reps": 20, "weight": "seg/lado" },
+        { "name": "BIRD DOG", "reps": 8, "weight": "por lado" }
+      ],
+      "note": "Hoy no hay saltos máximos. Los pogos son rebote corto de tobillo, no salto. El gemelo a una pierna va lento y sin rebotar: es el trabajo que protege el Aquiles, y a tu edad es el que más falta hace."
+    },
+    {
+      "name": "Calentamiento",
+      "sets": 1,
+      "rest": 30,
+      "ex": [
+        { "name": "AIR SQUATS", "reps": 10, "weight": "sin peso" },
+        { "name": "SPLIT SQUAT", "reps": 6, "weight": "por pierna, suave" },
+        { "name": "POGOS", "reps": 10, "weight": "suaves" },
+        { "name": "SALTO VERTICAL", "reps": 3, "weight": "50%, 75%, 90%" }
+      ],
+      "note": "Cinco minutos antes de cualquiera de las dos sesiones. Los tres saltos progresivos son para despertar la batida, no para medirte."
+    }
+  ],
+  "mobTitle": "🧠 Mis fichas",
+  "mobBtn": "🧠 MIS FICHAS",
+  "rehabLabel": "rutina de hoy",
+  "rehabArt": "la",
+  "mobCats": [
+    { "id": "antes", "label": "Antes de subir", "color": "#378ADD" },
+    { "id": "bloqueo", "label": "Cuando no me sale", "color": "#D85A30" },
+    { "id": "cabeza", "label": "Entrenar la cabeza", "color": "#7C3AED" },
+    { "id": "cuerpo", "label": "Cuerpo", "color": "#1D9E75" },
+    { "id": "familia", "label": "Para papá y mamá", "color": "#8A8F98" }
+  ],
+  "mobility": [
+    {
+      "id": "e1",
+      "cat": "antes",
+      "title": "Mi rutina de 30 segundos",
+      "time": "30 seg",
+      "sinRegistro": true,
+      "why": "Los 30 segundos antes de subirte al aparato son tuyos. Hacer siempre lo mismo le dice a tu cuerpo «ya sé lo que viene», y eso te ayuda a concentrarte aunque haya ruido, jueces o gente mirando.",
+      "steps": [
+        { "t": "Ancla", "d": "Pisa fuerte con los dos pies y nota el suelo. O aprieta las manos con magnesio. Da igual cuál elijas: lo importante es que sea siempre el mismo gesto.", "time": "3 seg" },
+        { "t": "Respira 4-6", "d": "Coge aire por la nariz contando hasta 4. Suéltalo despacio por la boca contando hasta 6. Dos veces. Soltar más largo que coger es justo lo que baja las pulsaciones.", "time": "15 seg" },
+        { "t": "Tu palabra", "d": "Una sola palabra que te diga qué hacer, no cómo estar. «Estirada». «Fuerte». «Arriba». Elige la tuya y no la cambies.", "time": "2 seg" },
+        { "t": "Ver el primer movimiento", "d": "Dos segundos con los ojos cerrados viendo SOLO el primer movimiento, saliendo perfecto. No la serie entera: el primero.", "time": "2 seg" }
+      ],
+      "tip": "Esta rutina se entrena. Hazla también en los entrenamientos, no solo en competición: si el día importante es la primera vez, te va a parecer rara."
+    },
+    {
+      "id": "e2",
+      "cat": "antes",
+      "title": "Los nervios son gasolina",
+      "time": "2 min",
+      "sinRegistro": true,
+      "why": "Las mariposas en la tripa, el corazón rápido y las manos frías no significan que lo vayas a hacer mal. Es tu cuerpo dándote energía. A las gimnastas que compiten bien también les pasa: lo que cambia es cómo lo interpretan.",
+      "steps": [
+        { "t": "Ponle otro nombre", "d": "Di por dentro «estoy activada», no «estoy nerviosa». Es exactamente la misma sensación, pero el nombre cambia lo que haces con ella.", "time": "5 seg" },
+        { "t": "Acuérdate de para qué sirve", "d": "Ese subidón es lo que te va a dar altura en la batida. Si no lo tuvieras, saltarías menos.", "time": "5 seg" },
+        { "t": "Respira largo al soltar", "d": "4 al coger, 6 al soltar. No es para quitarte los nervios, es para que no te desborden. Los nervios se quedan; tú decides el volumen.", "time": "1 min" }
+      ],
+      "tip": "Y si algún día no estás nerviosa antes de competir, tampoco pasa nada. No hay una única forma correcta de sentirse."
+    },
+    {
+      "id": "e3",
+      "cat": "bloqueo",
+      "title": "Cuando no me sale",
+      "time": "5 min",
+      "sinRegistro": true,
+      "why": "A veces el cuerpo dice que no. Te preparas, coges carrera y frenas. Eso le pasa a todas las gimnastas, incluso a las que van a los Juegos Olímpicos. No es que seas miedosa ni que te falte valentía: es tu cerebro protegiéndote porque en ese momento no se ve capaz.",
+      "steps": [
+        { "t": "Dos intentos, no tres", "d": "Si lo has abortado dos veces seguidas, para. El tercer intento normalmente solo le enseña a tu cerebro que ese elemento da miedo.", "time": "—" },
+        { "t": "Baja un escalón", "d": "Vuelve a una versión donde SÍ te sale: en el suelo, con línea, con la barra baja, con más colchoneta, o con tu entrenadora ayudándote.", "time": "—" },
+        { "t": "Hazlo bien tres veces ahí", "d": "Tres veces seguidas, bien y sin susto, en el escalón fácil. Eso es lo que reconstruye la confianza. Forzar el difícil, no.", "time": "—" },
+        { "t": "Sube un escalón, no cinco", "d": "Al día siguiente, solo uno más. Con prisa se vuelve al principio.", "time": "—" }
+      ],
+      "tip": "Bajar un escalón NO es rendirse: es la forma lista de volver a subir. Díselo a tu entrenadora sin vergüenza — es información útil, no una queja."
+    },
+    {
+      "id": "e4",
+      "cat": "bloqueo",
+      "title": "Foco fuera, no dentro",
+      "time": "3 min",
+      "sinRegistro": true,
+      "why": "Cuando piensas en tus propias partes del cuerpo —«estira las rodillas», «junta los pies»— el movimiento se pone tieso y más lento. Cuando piensas en algo de fuera —hacia dónde empujas, dónde miras— el cuerpo se organiza solo y sale más fluido.",
+      "steps": [
+        { "t": "Cambia la instrucción", "d": "En vez de «estira las rodillas», piensa «llega al techo con los pies». En vez de «aprieta el abdomen», piensa «ponte larga como una tabla».", "time": "—" },
+        { "t": "Elige un punto para mirar", "d": "Un punto fijo en la pared o en el final de la barra. Mirar a un sitio concreto ordena todo lo demás sin que tengas que pensarlo.", "time": "—" },
+        { "t": "Empuja el suelo", "d": "En la batida, piensa «empujo el suelo lejos» en vez de «salto alto». Es la misma acción y sale mejor.", "time": "—" }
+      ],
+      "tip": "Esto vale sobre todo para lo que ya te sabes. Para aprender un elemento nuevo sí hacen falta las instrucciones de siempre."
+    },
+    {
+      "id": "e5",
+      "cat": "cabeza",
+      "title": "Ver la serie antes de hacerla",
+      "time": "8 min",
+      "sinRegistro": true,
+      "why": "Imaginarte haciendo la serie enciende casi las mismas zonas del cerebro que hacerla de verdad. Pero solo funciona si te la imaginas bien: de pie, en el gimnasio y a la velocidad real.",
+      "steps": [
+        { "t": "De pie, no tumbada", "d": "Ponte de pie, en posición de salida, con la ropa de entrenar. Si puedes, en el gimnasio.", "time": "—" },
+        { "t": "A velocidad real", "d": "Si tu serie de suelo dura 80 segundos, la película mental dura 80 segundos. Ni rápida ni a cámara lenta.", "time": "—" },
+        { "t": "Siéntelo, no solo lo veas", "d": "Nota el magnesio en las manos, el suelo, el aire. Que no sea una peli que miras: que sea como estar ahí.", "time": "—" },
+        { "t": "Desde dentro y desde fuera", "d": "Una vez desde tus propios ojos, para el vuelo. Y otra como si te vieras en vídeo, para la forma — que es lo que ven los jueces.", "time": "—" },
+        { "t": "Solo lo que ya sabes hacer", "d": "Imagínate elementos que están a tu alcance. Los imposibles no entrenan nada.", "time": "—" }
+      ],
+      "tip": "Tres veces por semana, unos 10 minutos. Es de lo poco que puedes seguir entrenando el día que estás cansada o lesionada."
+    },
+    {
+      "id": "e6",
+      "cat": "cabeza",
+      "title": "Lo que depende de mí",
+      "time": "3 min",
+      "sinRegistro": true,
+      "why": "Los nervios se disparan cuando gastas energía en cosas que no puedes controlar: los jueces, las demás, lo que diga la gente. Eso no es tuyo y no te lo puedes llevar al aparato.",
+      "steps": [
+        { "t": "Haz las dos listas", "d": "En una hoja. A la izquierda, lo que depende de ti: mi calentamiento, mi esfuerzo, cómo respiro, qué hago después de un fallo. A la derecha, lo que no: las notas, las demás, el público.", "time": "—" },
+        { "t": "Elige una de la izquierda", "d": "Antes de competir, elige UNA sola cosa de la izquierda. Esa es tu misión del día, pase lo que pase con la nota.", "time": "—" },
+        { "t": "Cuando la cabeza se vaya a la derecha", "d": "Vuelve a tu palabra clave. Sin regañarte: solo vuelve. Se va a ir muchas veces y eso es normal.", "time": "—" }
+      ],
+      "tip": "Una nota es la opinión de alguien sobre 30 segundos de tu vida. Tus meses de trabajo no caben en ese número."
+    },
+    {
+      "id": "e7",
+      "cat": "cabeza",
+      "title": "Hablarme bien",
+      "time": "3 min",
+      "sinRegistro": true,
+      "why": "Después de un fallo es facilísimo decirte cosas que no le dirías nunca a una amiga. Y eso empeora el siguiente pase, no lo mejora.",
+      "steps": [
+        { "t": "Pilla la frase", "d": "Cuando falles, fíjate en qué te estás diciendo. «Soy un desastre». «Siempre igual». Solo con pillarla ya pierde fuerza.", "time": "—" },
+        { "t": "¿Se lo dirías a una amiga?", "d": "Si tu mejor amiga se cae de la barra, ¿le dices «eres un desastre»? Pues eso.", "time": "—" },
+        { "t": "Cámbiala por una instrucción", "d": "En vez de «soy un desastre», «la próxima, mirada al frente». Una orden concreta en lugar de un juicio sobre ti.", "time": "—" }
+      ],
+      "tip": "Fallar es información: te dice qué ajustar. No es una nota sobre quién eres."
+    },
+    {
+      "id": "e8",
+      "cat": "cuerpo",
+      "title": "Calentamiento de las sesiones del finde",
+      "time": "5 min",
+      "why": "Cinco minutos antes de cualquiera de las dos sesiones. No es estirar: es despertar el tobillo y la cadera, que son los que mandan en la batida.",
+      "steps": [
+        { "t": "Tobillo a la pared", "d": "Pie a un palmo de la pared, lleva la rodilla hacia la pared sin levantar el talón. Si llega fácil, separa más el pie.", "time": "8 por pierna" },
+        { "t": "Sentadillas y zancadas", "d": "10 sentadillas sin peso y 6 zancadas por pierna, tranquilas.", "time": "1 min" },
+        { "t": "Pogos suaves", "d": "Rebote corto de tobillo, rodilla casi recta. Sin buscar altura.", "time": "10 rep" },
+        { "t": "Tres saltos progresivos", "d": "Uno al 50%, otro al 75% y otro al 90%. Para despertar la batida, no para medirte.", "time": "3 saltos" }
+      ],
+      "tip": "Si un día vas justa de tiempo, quédate con el tobillo a la pared y los tres saltos."
+    },
+    {
+      "id": "e9",
+      "cat": "cuerpo",
+      "title": "Cuidar el talón y la rodilla",
+      "time": "4 min",
+      "urgente": true,
+      "why": "A tu edad y con la cantidad de saltos que haces, el talón y la rodilla son los dos sitios que más se quejan. Cuatro minutos ahora evitan parar semanas después.",
+      "steps": [
+        { "t": "Gemelo a una pierna, lento", "d": "De pie, sube a puntas con una sola pierna y baja MUY despacio, contando hasta 4. Es aburrido y es lo que más protege el Aquiles.", "time": "3×8 por pierna" },
+        { "t": "Chequeo del talón", "d": "Aprieta con el dedo la parte de atrás y de abajo del talón. ¿Duele? ¿Duele al levantarte por la mañana?", "time": "20 seg" },
+        { "t": "Chequeo de la rodilla", "d": "Aprieta justo debajo de la rótula, donde el tendón. ¿Duele al saltar? ¿Al día siguiente?", "time": "20 seg" },
+        { "t": "Si algo duele", "d": "Esa semana se quitan los saltos de las sesiones del finde y se deja solo la fuerza. Y se lo dices a papá y a tu entrenadora el mismo día.", "time": "—" }
+      ],
+      "tip": "Avisar pronto no es quejarse. Es la diferencia entre perderse una semana o perderse dos meses."
+    },
+    {
+      "id": "e10",
+      "cat": "familia",
+      "title": "Para papá y mamá",
+      "time": "3 min",
+      "sinRegistro": true,
+      "why": "Esta ficha no es para Elena. Es un recordatorio para los adultos, que es donde se decide buena parte de cómo vive ella la competición.",
+      "steps": [
+        { "t": "Pregunta por el esfuerzo, no por la nota", "d": "«¿Qué tal lo has pasado?» y «¿qué has intentado hoy?» antes que «¿cuánto has sacado?». Lo primero que se pregunta es lo que ella entiende que importa.", "time": "—" },
+        { "t": "Corrige en sándwich", "d": "Algo que salió bien, luego la corrección concreta, y cierra con confianza en que lo ajusta. El orden importa más de lo que parece.", "time": "—" },
+        { "t": "Separa el cariño del resultado", "d": "Que no tenga que ganar para sentirse querida. Es lo que más la va a proteger el día que llegue una lesión o una mala temporada.", "time": "—" },
+        { "t": "El error es información", "d": "Normalizar el fallo en casa vale más que cualquier técnica que aprenda en el gimnasio.", "time": "—" }
+      ],
+      "tip": "Su identidad no es su medalla. A los 10 años eso se construye en casa mucho más que en el gimnasio."
+    }
+  ],
+  "plan": [
+    {
+      "w": 1,
+      "m": 1,
+      "dates": "31 ago–6 sep",
+      "label": "Semana 1 — aprender los movimientos y medir",
+      "rehabNote": "Esta semana la rutina de 30 segundos se practica en los ENTRENAMIENTOS, no en competición. Es cuando toca hacerla rara y torpe, para que el día que importe salga sola.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "sub": "Regístrala aquí para que la app cuente tu carga real.", "rehab": "Elige tu PALABRA CLAVE. Una sola, que diga qué hacer: «estirada», «fuerte», «arriba»." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Practica la respiración 4-6 dos veces antes de tu primer aparato." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos completa antes de un aparato. Solo uno, el que elijas." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Hoy, foco fuera: cambia una instrucción tuya por una de fuera («empujo el suelo lejos»)." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos antes de dos aparatos." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE + TEST · Calentamiento 5 min · TEST: salto vertical parado ×3, squat jump ×3, broad jump ×3 (R2' entre pruebas, anota el mejor) · Goblet squat 3×6 · Split squat 2×6 por pierna · Peso muerto rumano con mancuernas 2×8 · Gemelo 2×12 · Pallof press 2×10 por lado · R90\"",
+          "sub": "Hoy los saltos son la prueba: son tus números de partida y en la semana 8 los vas a mirar con cariño. Las cargas, cómodas — tienes que poder hacer 2 o 3 repeticiones más.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Antes de los tres saltos del test: rutina de 30 segundos completa. Es el mejor sitio para practicarla.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×10 · Gemelo a una pierna 3×8 por lado (lento, bajando en 4 segundos) · Split squat 2×8 por pierna sin peso · Puente de isquios a una pierna 2×8 · Plancha lateral 2×20s por lado · Bird dog 2×8 por lado · R60\"",
+          "sub": "Hoy no hay saltos máximos, a propósito: ayer ya los hiciste. Los pogos son rebote de tobillo, no salto.",
+          "rehab": "Ficha «Cuidar el talón y la rodilla»: hazla entera, hoy toca chequeo."
+        }
+      ],
+      "nutr": "Estás creciendo y entrenando 18 horas a la semana, que son las dos cosas que más energía piden. Desayunar antes de entrenar y comer bien en las tres comidas es lo que hace posibles las dos. Y dormir 9-10 horas: es cuando el cuerpo construye lo que has entrenado."
+    },
+    {
+      "w": 2,
+      "m": 1,
+      "dates": "7–13 sep",
+      "label": "Semana 2 — técnica y aterrizaje",
+      "rehabNote": "Semana de foco externo. Cada día una instrucción tuya cambiada por una de fuera. Al final de la semana deberías tener tres o cuatro que te funcionan.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Foco fuera en barra: elige un punto fijo donde mirar y no lo cambies en toda la serie." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos antes de cada aparato. Hoy en todos." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Si hoy frenas en algo dos veces, para y baja un escalón. Sin darle vueltas." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Ficha «Ver la serie antes de hacerla»: 10 minutos, de pie, en el gimnasio si puedes." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos + palabra clave." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE · Calentamiento 5 min · Salto vertical 3×3 (cae y aguanta 3 segundos) · Goblet squat 3×6 · Split squat 2×6 por pierna · Peso muerto rumano 2×8 · Gemelo 2×12 · Pallof press 2×10 por lado · R90\"",
+          "sub": "Los saltos de esta semana son de aterrizaje: cae y quédate quieta 3 segundos, rodilla alineada con el pie. Aterrizar bien es lo que permite saltar más después.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Rutina de 30 segundos antes del primer salto."
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×10 · Gemelo a una pierna 3×8 por lado · Split squat 2×8 por pierna · Puente de isquios a una pierna 2×8 · Plancha lateral 2×20s · Bird dog 2×8 por lado · R60\"",
+          "rehab": "Chequeo de talón y rodilla. Si algo molesta, se dice hoy."
+        }
+      ],
+      "nutr": "Misma idea: desayuno antes de entrenar y las tres comidas completas. Si algún día acabas el entreno con hambre de verdad, eso se arregla comiendo más, no aguantando."
+    },
+    {
+      "w": 3,
+      "m": 1,
+      "dates": "14–20 sep",
+      "label": "Semana 3 — sube la fuerza",
+      "rehabNote": "Entra la ficha «Lo que depende de mí». Haz las dos listas en papel una vez y guárdalas: se usan antes de cada competición.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Haz las dos listas de la ficha «Lo que depende de mí». En papel." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos en todos los aparatos." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Cuando falles hoy, fíjate en qué te dices. Solo fíjate, no hace falta cambiarlo aún." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min, a velocidad real." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Elige UNA cosa de tu lista izquierda como misión del día." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE · Calentamiento 5 min · Salto vertical 3×3 a máxima altura · Goblet squat 3×6 (más peso si todo salió limpio) · Split squat 2×6 por pierna · Peso muerto rumano 2×8 · Gemelo 2×12 · Pallof press 2×10 por lado · R90\"",
+          "sub": "Primera subida de peso, y solo si la semana pasada TODAS las repeticiones salieron limpias. Si alguna se descompuso, te quedas donde estabas: no pasa nada.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Rutina de 30 segundos. Y hoy los saltos ya van a máxima altura."
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×10 · Gemelo a una pierna 3×8 por lado · Split squat 2×8 por pierna · Nordic asistido 2×5 (bájate solo lo que controles, ayúdate con las manos) · Plancha lateral 2×20s · Bird dog 2×8 por lado · R60\"",
+          "sub": "Entra el Nordic, muy poquito. Si al día siguiente tienes agujetas fuertes de isquios, la semana que viene se hace solo 1 serie.",
+          "rehab": "Chequeo de talón y rodilla."
+        }
+      ],
+      "nutr": "Semana de más carga. Nada cambia: come bien, duerme y no te saltes el desayuno los días de gimnasia."
+    },
+    {
+      "w": 4,
+      "m": 1,
+      "dates": "21–27 sep",
+      "label": "Semana 4 — consolidar y volver a medir",
+      "rehabNote": "Semana de test. Buen momento para usar la rutina completa: es lo más parecido a competir que vas a tener este mes.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Ficha «Hablarme bien»: hoy cambia una frase de castigo por una instrucción." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Foco fuera en el aparato que peor lleves." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos y misión del día." },
+        {
+          "d": "Sáb", "t": "Test",
+          "main": "TEST · Calentamiento completo · Salto vertical parado ×3 · Squat jump ×3 (desde media sentadilla aguantada 2 segundos, sin rebote) · Broad jump ×3 · R3' entre pruebas · Después: Goblet squat 2×6 y gemelo 2×12, suave",
+          "sub": "Mismas condiciones que en la semana 1: mismo calzado, misma superficie, descansada. Anota los tres. Compararlos entre ellos dice más que cada uno por separado.",
+          "pre": "Calentamiento completo, sin prisa. Hoy los números cuentan.",
+          "rehab": "Rutina de 30 segundos antes de cada prueba. Esto es un ensayo de competir.",
+          "flag": "TEST"
+        },
+        { "d": "Dom", "t": "Descanso", "main": "Descanso o paseo. Hoy no toca sesión.", "rehab": "Chequeo de talón y rodilla, y ya está." }
+      ],
+      "nutr": "Mitad del programa. Si has hecho aunque sea la mitad de las sesiones del finde, ya has cambiado algo."
+    },
+    {
+      "w": 5,
+      "m": 2,
+      "dates": "28 sep–4 oct",
+      "label": "Semana 5 — entra el salto largo",
+      "rehabNote": "A partir de aquí los saltos son a máxima intensidad. La regla de los dos intentos también vale aquí: si un salto sale peor que el anterior, se corta la serie.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min, una vez desde dentro y otra como si te vieras en vídeo." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Si hoy te bloqueas: dos intentos y bajas escalón. Sin discutirlo contigo misma." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Foco fuera. Punto fijo donde mirar en cada serie." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE · Calentamiento 5 min · Salto vertical 3×3 · Broad jump 3×3 · Goblet squat 3×6 · Split squat 2×6 por pierna · Peso muerto rumano 2×8 · Gemelo 2×12 · Pallof press 2×10 por lado · R90\"",
+          "sub": "Entra el broad jump: máxima distancia pero cayendo estable. Si el aterrizaje se descoloca, ese salto no cuenta y se descansa más.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Rutina de 30 segundos antes del primer salto de cada tipo."
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×12 · Gemelo a una pierna 3×8 por lado · Split squat 2×8 por pierna · Nordic asistido 2×5 · Plancha lateral 2×20s · Bird dog 2×8 por lado · R60\"",
+          "rehab": "Chequeo de talón y rodilla. Con los saltos subiendo, esto importa más que antes."
+        }
+      ],
+      "nutr": "Sube la intensidad de los saltos. Duerme más si puedes: la potencia depende del sistema nervioso, y eso se recupera durmiendo."
+    },
+    {
+      "w": 6,
+      "m": 2,
+      "dates": "5–11 oct",
+      "label": "Semana 6 — velocidad",
+      "rehabNote": "Semana de intención: la misma carga de siempre, pero subiendo rápido. En la cabeza igual — una sola orden por movimiento, no cinco.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Una sola instrucción por elemento. Si te descubres pensando tres cosas, vuelve a la palabra clave." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Repasa tus dos listas de «lo que depende de mí»." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE · Calentamiento 5 min · Salto vertical 3×3 · Broad jump 3×3 · Goblet squat 3×6 (misma carga, SUBIENDO RÁPIDO) · Split squat 2×6 por pierna · Peso muerto rumano 2×8 · Gemelo 2×12 · Pallof press 2×10 por lado · R90\"",
+          "sub": "Novedad: bajas controlada y subes lo más rápido que puedas. Mismo peso, distinta intención. Eso es lo que se transfiere a la batida.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Rutina de 30 segundos."
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×12 · Gemelo a una pierna 3×8 por lado · Split squat 2×8 por pierna · Nordic asistido 2×5 · Plancha lateral 2×25s · Bird dog 2×8 por lado · R60\"",
+          "rehab": "Chequeo de talón y rodilla."
+        }
+      ],
+      "nutr": "Sigue igual. Si notas que llegas al sábado sin fuerza, mira primero el sueño de la semana antes que nada."
+    },
+    {
+      "w": 7,
+      "m": 2,
+      "dates": "12–18 oct",
+      "label": "Semana 7 — potencia",
+      "rehabNote": "La semana de más salto de todo el programa. Es también la mejor para probar la rutina completa en el gimnasio, con gente mirando si se puede.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos, y hoy con alguien mirando si se puede." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min, con el nervio incluido: siéntelo, no lo quites." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Foco fuera en todo lo que ya te sabes." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Ficha «Los nervios son gasolina», entera." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos y misión del día." },
+        {
+          "d": "Sáb", "t": "Fuerza",
+          "main": "DÍA FUERTE · Calentamiento 5 min · Salto vertical 3×3 · Broad jump 3×3 · Salto al cajón 3×3 (cajón bajo, subir saltando y bajar andando) · Goblet squat 3×6 rápido al subir · Split squat 2×6 por pierna · Gemelo 2×12 · R90\"",
+          "sub": "Entra el cajón, bajito. Se sube saltando y se BAJA ANDANDO, siempre: bajar de un salto es lo que carga la rodilla sin darte nada a cambio.",
+          "pre": "Calentamiento: tobillo a la pared, 10 sentadillas, 6 zancadas por pierna, 10 pogos, 3 saltos progresivos",
+          "rehab": "Rutina de 30 segundos. Hoy es la sesión con más saltos del programa: si alguno sale claramente peor, se corta."
+        },
+        {
+          "d": "Dom", "t": "Fuerza",
+          "main": "DÍA LIGERO · Pogos 3×12 · Gemelo a una pierna 3×8 por lado · Split squat 2×8 por pierna · Nordic asistido 2×5 · Plancha lateral 2×25s · Bird dog 2×8 por lado · R60\"",
+          "rehab": "Chequeo de talón y rodilla, obligatorio hoy. Vienes de la semana con más saltos."
+        }
+      ],
+      "nutr": "Semana fuerte. Come y duerme como si fuera semana de competición, porque para tus piernas lo es."
+    },
+    {
+      "w": 8,
+      "m": 3,
+      "dates": "19–25 oct",
+      "label": "Semana 8 — ver lo que has ganado",
+      "rehabNote": "Última semana. Además de los números de salto, mira hacia atrás: ¿la rutina de 30 segundos te sale ya sola? ¿Bajar un escalón te cuesta menos que en septiembre? Eso también se ha entrenado.",
+      "days": [
+        { "d": "Lun", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos." },
+        { "d": "Mar", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Visualización 10 min." },
+        { "d": "Mié", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Día tranquilo de cabeza. Solo la rutina antes de cada aparato." },
+        { "d": "Jue", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Descansa también la cabeza: hoy nada, solo entrena." },
+        { "d": "Vie", "t": "Otra actividad", "main": "Gimnasia. · Continuo.", "rehab": "Rutina de 30 segundos, suave." },
+        {
+          "d": "Sáb", "t": "Test",
+          "main": "TEST FINAL · Calentamiento completo · Salto vertical parado ×3 · Squat jump ×3 · Broad jump ×3 · Salto de gimnasia ×3 (el que diga tu entrenadora) · R3' entre pruebas",
+          "sub": "Compara con la semana 1 y la 4. Y mira los tres juntos: si suben el squat jump y el vertical pero el salto de gimnasia no se mueve, lo que falta ya no es pierna, es carrera y batida — y eso es trabajo con tu entrenadora.",
+          "pre": "Descansada, mismo calzado, misma superficie que en septiembre.",
+          "rehab": "Rutina de 30 segundos antes de cada prueba, como si fuera competición.",
+          "flag": "TEST"
+        },
+        { "d": "Dom", "t": "Descanso", "main": "Descanso. Fin del bloque.", "rehab": "Nada. Hoy toca celebrarlo." }
+      ],
+      "nutr": "Fin de las ocho semanas. A partir de aquí se decide con tu entrenadora si se repite el bloque subiendo cargas o se cambia el foco."
+    }
+  ]
+}

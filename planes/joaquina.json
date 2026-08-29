@@ -145,9 +145,19 @@
     "BEAR HUG CARRY",
     "PULLOVER",
     "APERTURAS",
-    "FLOOR PRESS"
+    "FLOOR PRESS",
+    "POGOS",
+    "SALTO VERTICAL",
+    "SPLIT SQUAT"
   ],
   "habits": [
+    {
+      "id": "medic",
+      "name": "Pastillas de la mañana",
+      "icon": "💊",
+      "w": 3,
+      "desc": "A la misma hora cada día. Si alguna se te olvida a menudo, díselo a Miguel."
+    },
     {
       "id": "protein",
       "name": "Proteína en las 3 comidas",
@@ -440,5 +450,6 @@
       "nutr": "Fin del primer bloque. Lo que has hecho estas cuatro semanas es lo que mejor protege el hueso y la autonomía a tu edad. No es poca cosa."
     }
   ],
-  "soloCuerpo": true
+  "soloCuerpo": true,
+  "appName": "Entrenamiento"
 }

@@ -4,10 +4,11 @@
   "planStart": "2026-08-10",
   "activity": {
     "level": "moderado",
-    "note": "16 años, estudiante. Fútbol 11 (parón hasta septiembre) y gimnasio ocasional. Operado del dedo del pie, con granuloma y posible reintervención en septiembre: la carrera es condicional y el cardio va por vías sin impacto.",
+    "note": "16 años, estudiante. Fútbol 11 (parón hasta septiembre) y gimnasio ocasional. Operado del dedo gordo para retirar dos fragmentos óseos intraarticulares que bloqueaban la flexo-extensión; recuperando bien, con un punto que se infectó. Del 17 al 30 de agosto: sin parque de calistenia, solo peso corporal y una barra de 10-12 kg, y sin correr. Prioridad: recuperar el rango del dedo y trabajar core.",
     "extras": [
-      "Fútbol 11 desde septiembre",
-      "Rehabilitación del dedo gordo a diario"
+      "Rehabilitación del dedo gordo a diario",
+      "Caminatas como cardio sin impacto",
+      "Fútbol 11 desde septiembre"
     ]
   },
   "zones": {
@@ -39,16 +40,16 @@
         "— test S3"
       ],
       [
-        "Dominadas seguidas",
-        "— test S3"
-      ],
-      [
         "Plancha máxima",
         "— test S3"
       ],
       [
-        "Remo 500m",
-        "— S5"
+        "Sentadillas en 2 min",
+        "— test S3"
+      ],
+      [
+        "Dominadas",
+        "desde septiembre"
       ]
     ],
     "run": [
@@ -85,21 +86,19 @@
         "Recuperar la extensión completa"
       ],
       [
-        "Hipertrofia",
-        "Ganar músculo comiendo y durmiendo bien"
+        "Core",
+        "Plancha 90s y hollow 60s"
       ],
       [
-        "Dominadas",
-        "Llegar a 12 seguidas"
+        "Hipertrofia",
+        "Ganar músculo comiendo y durmiendo bien"
       ]
     ]
   },
   "races": [],
   "equipment": [
     "ninguno",
-    "anillas",
-    "kb",
-    "disco"
+    "barra"
   ],
   "exclude": [
     "BURPEES",
@@ -120,7 +119,13 @@
     "BURPEES TO PLATE",
     "LUNGES TO BOX",
     "ZANCADA BÚLGARA",
-    "WALL WALK"
+    "WALL WALK",
+    "PRESS BANCA",
+    "APERTURAS",
+    "PULLOVER",
+    "HIP THRUST",
+    "POGOS",
+    "SALTO VERTICAL"
   ],
   "habits": [
     {
@@ -224,103 +229,104 @@
       "w": 2,
       "m": 1,
       "dates": "17–23 ago",
-      "label": "Base II — subir volumen",
+      "label": "Sin parque — cuerpo y barra ligera",
       "days": [
         {
           "d": "Lun",
           "t": "Fuerza",
-          "main": "EMPUJE + CORE · Flexiones con pies elevados 4×8-12 · Fondos en paralelas 4×8-12 · Pike push-up 4×8 · Plancha 3×50s · Hollow hold 3×40s · R90\"",
-          "sub": "Una serie más que la semana pasada. Baja 3s, sube explosivo. · PROGRESIÓN: cuando llegues al tope de repeticiones en todas las series, pasa a la variante más difícil."
+          "main": "EMPUJE + CORE · Flexiones 4×10-15 (baja 3 segundos, sube normal) · Pike push-up 3×8 · Press militar con barra 4×12 · Fondos entre dos sillas 3×10 · CORE: Hollow hold 3×30s + Plancha 3×45s + Dead bug 3×12 · R90\"",
+          "sub": "Con la barra ligera el peso no va a ser el estímulo: lo es el tempo. Baja despacio y controla cada repetición.",
+          "pre": "Calentamiento: 5 min movilidad de hombro + 20 círculos de brazos"
         },
         {
           "d": "Mar",
-          "t": "Otra actividad",
-          "main": "Cardio suave 30 min (bici/elíptica). Si el punto ya cerró y te han dado el visto bueno: natación, alternando 4 largos suaves + 1 más fuerte. · continuo, sin pausas",
-          "fc": "Fácil-moderado"
+          "t": "Metabólico",
+          "main": "COMPLEJO CON BARRA · 5 rondas sin soltar la barra: 6 peso muerto rumano + 6 remo + 6 press militar + 6 sentadilla frontal. R2' entre rondas. Después, caminata 20 min.",
+          "sub": "Un complejo es cardio y fuerza a la vez, y no da un solo impacto en el pie. Si la barra se te cae de las manos antes de acabar la ronda, esa es la dosis correcta.",
+          "fc": "Z3 · cómodo-duro"
         },
         {
           "d": "Mié",
           "t": "Fuerza",
-          "main": "TRACCIÓN + PIERNA · Dominadas 4×máx · Remo invertido 4×12 · Goblet squat 4×15 · Peso muerto rumano 4×12 · Puente de glúteo a una pierna 3×12 · R60\"",
-          "sub": "Si las dominadas ya te salen 8+, empieza a hacerlas más lentas (3s de bajada)."
+          "main": "TRACCIÓN + PIERNA · Remo con barra 4×15 (tempo lento, aprieta 1 segundo arriba) · Superman 3×15 · Y-T-W tumbado 3×10 de cada · Sentadilla frontal 4×15 · Peso muerto rumano 4×12 · Puente de glúteo a una pierna 3×12 · R90\"",
+          "sub": "Sin barra de dominadas hay que tirar por volumen y tempo. No es lo mismo, pero mantiene el patrón hasta que vuelvas a tener parque."
         },
         {
           "d": "Jue",
           "t": "Movilidad",
-          "main": "MOVILIDAD 20 min · BLOQUE DEL DEDO (lo más importante para ti ahora): flexión y extensión pasiva del dedo gordo 2×15 muy suave · estiramiento en rodillas con dedos apoyados 3×20s (solo hasta donde no duela) · rodar pelota bajo la planta 2 min. Después: cadera, tobillo, torácica y hombro · R60\"",
-          "sub": "Para esto te operaron: recuperar el rango del dedo. Trabájalo a diario aunque no toque sesión — sin dolor, insistiendo poco a poco."
+          "main": "MOVILIDAD 20 min · BLOQUE DEL DEDO: flexión y extensión pasiva 2×15 muy suave · estiramiento en rodillas con dedos apoyados 3×20s · pelota bajo la planta 2 min. Después cadera, tobillo y torácica. · CORE: 3 rondas de plancha 40s + plancha lateral 30s por lado + 15 dead bug + 20 flutter kicks · R60\"",
+          "sub": "Sigue siendo lo más importante de tu semana. El rango del dedo es lo que decide cuándo vuelves a correr."
         },
         {
           "d": "Vie",
           "t": "Fuerza",
-          "main": "FULL BODY · Flexiones arqueras o diamante 3×8 · Dominadas supinas 3×máx · Zancada estática con pesa 3×10 por pierna (sin saltar) · Remo invertido 3×12 · Hollow 3×40s · R90\"",
-          "sub": "Zancada SIN impulso ni salto: apoya el pie plano, cuida el dedo."
+          "main": "FULL BODY · Sentadilla frontal 4×12 · Flexiones 4×máximas · Remo con barra 4×12 · Buenos días 3×12 · Russian twist con disco 3×20 · Plancha con peso 3×40s · R90\"",
+          "sub": "Deja 1-2 repeticiones en el depósito en cada serie. No hace falta el fallo para crecer, y menos con poco peso."
         },
         {
           "d": "Sáb",
           "t": "Otra actividad",
-          "main": "Caminata 45 min en arena dura (nunca blanda: el pie se hunde y fuerza el dedo). O natación si está autorizada. · Continuo y suave.",
-          "fc": "Fácil"
+          "main": "Caminata 50-60 min a buen ritmo. Terreno llano y firme. Después, core corto: 3×45s plancha + 3×15 V-ups. · Continuo y suave.",
+          "sub": "La caminata es tu cardio estas dos semanas: nada de impacto y mantiene la base."
         },
         {
           "d": "Dom",
           "t": "Descanso",
-          "main": "Descanso. Si te apetece, movilidad suave 10 min."
+          "main": "Descanso. Movilidad del dedo 10 min si te apetece."
         }
       ],
-      "nutr": "Proteína en cada comida y desayuno de verdad. Si comes poco, el entrenamiento no sirve de nada. Agua abundante con el calor."
+      "nutr": "Cambio de sitio y menos material, pero la hipertrofia sigue dependiendo de lo mismo: comer suficiente y dormir 8-9 h. Proteína en las tres comidas. Con poco peso disponible, el músculo se construye con volumen y tempo, no con carga."
     },
     {
       "w": 3,
       "m": 1,
       "dates": "24–30 ago",
-      "label": "Base III — última de playa",
+      "label": "Progresión con lo que hay",
       "days": [
         {
           "d": "Lun",
           "t": "Fuerza",
-          "main": "EMPUJE + CORE · Flexiones declinadas 4×10-15 · Fondos 4×10-12 · Pike push-up 4×10 (o en pared si controlas) · Plancha 3×60s · L-sit progresión 4×15s · R90\"",
-          "sub": "Última semana de playa: aprieta un poco más. · PROGRESIÓN: cuando llegues al tope de repeticiones en todas las series, pasa a la variante más difícil."
+          "main": "EMPUJE + CORE · Flexiones con pies elevados 4×10-15 · Pike push-up 4×10 · Press militar con barra 5×12 · Fondos entre sillas 4×10 · CORE: Hollow 3×40s + Plancha 3×60s + Dead bug 3×15 · R90\"",
+          "sub": "Una serie más que la semana pasada en press y fondos. Los pies elevados en las flexiones son tu forma de añadir carga sin discos."
         },
         {
           "d": "Mar",
-          "t": "Otra actividad",
-          "main": "Cardio 35 min con 6 tramos fuertes de 1 min. Bici o natación (si autorizada). · Continuo y suave.",
-          "fc": "Moderado"
+          "t": "Metabólico",
+          "main": "COMPLEJO CON BARRA · 6 rondas sin soltar: 8 peso muerto rumano + 8 remo + 8 press militar + 8 sentadilla frontal. R2' entre rondas. Después, caminata 20 min.",
+          "sub": "De 6 a 8 repeticiones por movimiento. Aquí ya vas a notar el agarre y la respiración.",
+          "fc": "Z3-Z4"
         },
         {
           "d": "Mié",
           "t": "Fuerza",
-          "main": "TRACCIÓN + PIERNA · Dominadas 5×máx · Remo invertido 4×12 lento · Goblet squat 4×15 · Peso muerto rumano 4×12 · Puente a una pierna 3×15 · R60\"",
-          "sub": "Anota cuántas dominadas haces en total: es tu referencia para septiembre."
+          "main": "TRACCIÓN + PIERNA · Remo con barra 5×15 · Superman 3×20 · Y-T-W tumbado 3×12 · Sentadilla frontal 5×15 · Peso muerto rumano 4×15 · Zancada estática con barra 3×10 por pierna (apoyo plano, sin impulso) · R90\"",
+          "sub": "Ojo con la zancada: pie plano, sin saltar y sin apoyar los dedos de atrás. Si molesta el dedo, la quitas."
         },
         {
           "d": "Jue",
           "t": "Movilidad",
-          "main": "MOVILIDAD 20 min · BLOQUE DEL DEDO (lo más importante para ti ahora): flexión y extensión pasiva del dedo gordo 2×15 muy suave · estiramiento en rodillas con dedos apoyados 3×20s (solo hasta donde no duela) · rodar pelota bajo la planta 2 min. Después: cadera, tobillo, torácica y hombro · R60\"",
-          "sub": "Para esto te operaron: recuperar el rango del dedo. Trabájalo a diario aunque no toque sesión — sin dolor, insistiendo poco a poco."
+          "main": "MOVILIDAD 20 min · Mismo bloque del dedo, insistiendo en la extensión. Después cadera y torácica. · CORE LARGO: 4 rondas de plancha 45s + plancha lateral 35s por lado + 15 V-ups + 20 flutter kicks · R60\"",
+          "sub": "Cuarta ronda de core. Si el dedo ya dobla con holgura, dímelo: es la señal para empezar a trotar en septiembre."
         },
         {
           "d": "Vie",
-          "t": "Fuerza",
-          "main": "FULL BODY + TEST · Test sencillo: máximas flexiones seguidas · máximas dominadas seguidas · plancha máxima. Descansa 3 min entre cada uno. Luego 3×15 goblet squat.",
-          "sub": "Apunta los tres números en la app (Más → Ritmos y zonas). Los repetirás al final del bloque.",
+          "t": "Test",
+          "main": "TEST SENCILLO · Máximas flexiones seguidas · Plancha máxima · Máximas sentadillas en 2 minutos. R5' entre tests. Después: 3×12 remo con barra suave.",
+          "sub": "Anota los tres números en la app (Más → Ritmos y zonas). Sin dominadas esta vez porque no tienes barra: las retomamos en septiembre.",
           "flag": "TEST"
         },
         {
           "d": "Sáb",
-          "t": "Carrera",
-          "main": "PRIMER CONTACTO CON EL TROTE: 6 series de 30 segundos trotando MUY suave + 90 segundos caminando. Total: 3 minutos de trote. Sobre arena dura junto a la orilla o hierba, nunca asfalto ni arena blanda.",
-          "sub": "Es una dosis mínima a propósito: se trata de que el dedo y el tendón se vayan acostumbrando, no de entrenar. Si el dedo va rígido o molesta, hoy solo caminas.",
-          "fc": "Muy fácil"
+          "t": "Otra actividad",
+          "main": "Caminata 60 min a buen ritmo. Después core: 3×50s plancha + 3×20 russian twist. · Continuo y suave."
         },
         {
           "d": "Dom",
           "t": "Descanso",
-          "main": "Descanso. Si te apetece, movilidad suave 10 min."
+          "main": "Descanso. Última semana sin material — la que viene recuperas todo."
         }
       ],
-      "nutr": "Fin de playa. Al volver a casa mantén las comidas: es cuando más fácil es descuidarse. Esta semana empieza la vuelta al trote — con calma."
+      "nutr": "Semana de más volumen. Mantén las comidas y el sueño: con poco peso, el estímulo viene del número de repeticiones y eso también hay que recuperarlo."
     },
     {
       "w": 4,
@@ -332,7 +338,7 @@
           "d": "Lun",
           "t": "Fuerza",
           "main": "EMPUJE · Press banca con barra 4×8 (peso cómodo, aprende técnica) · Press militar mancuernas 3×10 · Fondos 3×máx · Elevaciones laterales 3×15 · Plancha 3×60s · R60\"",
-          "sub": "Primeras semanas con barra: prioriza la técnica sobre el peso. Nada de buscar tu máximo.",
+          "sub": "Primeras semanas con barra cargada: prioriza la técnica sobre el peso. Nada de buscar tu máximo.\n\nYa tienes todo el material otra vez. Dile a tu padre que te amplíe el equipamiento en la app para que el generador te proponga de todo.",
           "pre": "Calentamiento: 10 min bici suave + movilidad de hombro"
         },
         {
@@ -572,5 +578,6 @@
       ],
       "nutr": "Fin del primer bloque. Toca revisar con tu padre cómo ha ido el pie y qué hacer después: si te operan, el siguiente bloque será de tren superior y core mientras te recuperas."
     }
-  ]
+  ],
+  "presets": []
 }
