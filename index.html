@@ -3600,6 +3600,20 @@ boot();
 if("serviceWorker" in navigator && location.protocol==="https:"){
   window.addEventListener("load",()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); });
 }
+/* ── v21 · arreglo del bug de hábitos ─────────────────────────────────────
+   HABITS es la lista de serie (la de Miguel). Al sembrar desde ahí, añadir o
+   borrar un hábito le borraba a cada persona los suyos. habits() sí respeta
+   los del perfil. Se redefinen aquí para no tocar el resto del archivo.     */
+window.addHabit=function(){
+  const n=$("hbName").value.trim(); if(!n){ toast("Escribe el hábito"); return; }
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
+  st.habitsCustom.push({id:"h"+Date.now(),name:n,icon:($("hbIcon").value.trim()||"✅"),desc:$("hbDesc").value.trim(),w:_hbW});
+  save(); closeOverlay(); render(); toast("Hábito añadido (+"+_hbW+")");
+};
+window.delHabit=function(i){
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
+  st.habitsCustom.splice(i,1); save(); render();
+};   
 </script>
 </body>
 </html>
