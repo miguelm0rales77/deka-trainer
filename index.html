@@ -513,6 +513,8 @@ var I18N = { en: {
  "Otra actividad": "Other activity",
  "⭐ WODs favoritos — repite y mejora": "⭐ Favourite WODs — repeat and improve",
  "⏱ Descansos": "⏱ Rest periods",
+ "¿Restaurar tus hábitos?": "Restore your habits?",
+ "Hábitos restaurados": "Habits restored",
  "🧘 Fichas de movilidad": "🧘 Mobility cards",
  "Todas": "All",
  "← Volver": "← Back",
@@ -757,20 +759,6 @@ const EXDB = [
   {name:"LUNGES TO BOX", cat:"hyrox", wf:1.2, reps:20, sets:3, rest:90, weight:"cajón", paceMin:30, paceMax:180, note:"Zancada con rodilla trasera al cajón. Estación Xybrid (40 reps).", m:{cuads:.8,gluteos:.8,isquios:.4,core:.4}},
   {name:"SLAM BALL", cat:"hyrox", wf:1.8, reps:15, sets:3, rest:90, weight:"30kg", paceMin:25, paceMax:150, note:"Balón 30kg del suelo por encima de la cabeza y al suelo. Estación Xybrid (30 reps).", m:{lumbar:.6,espalda:.6,hombros:.6,core:.7,gluteos:.5,brazos:.4}},
   {name:"FARMER MANCUERNAS", cat:"fuerza", wf:1.6, reps:1, sets:4, rest:75, weight:"2×24kg · 30m", paceMin:20, paceMax:100, note:"Versión mancuernas del farmers carry.", m:{brazos:.6,core:.5,espalda:.4,gemelos:.3}, unit:"tramos"},
-  /* ── espalda alta y bisagra sin barra: los nombran las plantillas de Leyre,
-       Joaquina y Lydia. Sin ficha aquí esas sesiones se lanzaban igual, pero
-       presetToWod caía en {} y no sumaban carga muscular ni entraban en ACWR ── */
-  {name:"FACE PULL", cat:"fuerza", wf:1.2, reps:15, sets:3, rest:60, weight:"goma o toalla", paceMin:40, paceMax:200, note:"Tira hacia la cara separando las manos. Deltoides posterior y espalda alta: es postura, no estética.", m:{hombros:.7,espalda:.5,brazos:.2}},
-  {name:"KB DEADLIFT", cat:"fuerza", wf:1.7, reps:15, sets:4, rest:90, weight:"KB 24kg", paceMin:25, paceMax:150, note:"Kettlebell entre los pies, bisagra de cadera y espalda neutra. Menos exigente de técnica que la barra.", m:{isquios:.8,gluteos:.8,lumbar:.6,espalda:.4,brazos:.3}},
-  /* ── patrones que ya nombraban los planes de Elena, Leyre, Joaquina e Iker
-       sin tener ficha. Todos resuelven a material "ninguno": ojo, eso los hace
-       proponibles en los perfiles con soloCuerpo, así que los de impacto van
-       vetados en joaquina, miguelpadre, iker y leyre ── */
-  {name:"PALLOF PRESS", cat:"core", wf:1.1, reps:10, sets:3, rest:45, weight:"goma o banda", paceMin:30, paceMax:150, note:"Antirrotación: la goma tira de lado y tú no dejas que te gire. De pie, brazos al frente.", m:{core:.8,hombros:.3}},
-  {name:"BIRD DOG", cat:"core", wf:1, reps:10, sets:3, rest:45, weight:"—", paceMin:20, paceMax:120, note:"Cuadrupedia, brazo y pierna opuestos. Lento y con la pelvis quieta.", m:{core:.7,lumbar:.4,gluteos:.3}},
-  {name:"SPLIT SQUAT", cat:"fuerza", wf:1.3, reps:8, sets:3, rest:75, weight:"sin peso o mancuernas ligeras", paceMin:30, paceMax:150, note:"Zancada estática. Tronco vertical, rodilla alineada con el pie. Por pierna.", m:{cuads:.8,gluteos:.7,isquios:.3}},
-  {name:"POGOS", cat:"metabólico", wf:1, reps:10, sets:3, rest:45, weight:"—", paceMin:100, paceMax:400, note:"Rebote corto desde el tobillo, rodilla casi recta. Rigidez elástica, no salto.", m:{gemelos:.8,cuads:.3,core:.2}},
-  {name:"SALTO VERTICAL", cat:"metabólico", wf:1, reps:3, sets:3, rest:90, weight:"—", paceMin:10, paceMax:60, note:"Máxima altura con contramovimiento. Aterrizaje silencioso. Si un salto es más bajo que el anterior, se corta la serie.", m:{cuads:.8,gluteos:.6,gemelos:.6,core:.2}},
 ];
 function allEx(){
   const ex=EXDB.concat(st.exCustom||[]);
@@ -835,7 +823,7 @@ const BADGES = [
 ];
 
 /* ── PUNTOS ── */
-const PTS = { plan:10, mobilidad:10, generado:5, libre:5, checkin:2, habit:1, mobSkip:-5, weekPerfect:20, rehab:4 };
+const PTS = { plan:10, mobilidad:10, generado:5, libre:5, checkin:2, habit:1, mobSkip:-5, weekPerfect:20 };
 
 /* ── PLAN 13 SEMANAS — HYROX VALENCIA ── */
 const MESOS = [
@@ -881,54 +869,46 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua + electrolitos.",
-    "rehab": "AQUILES: isométricos 5×45s en escalón (3-4/10 dolor). CUELLO: Neck CARs 3 círculos/dirección + rotación asistida manual 30s/lado. Sin arnés."
+    "main": "Descanso total. 3L agua + electrolitos."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Remo 15 min Z2 + Air Bike 15 min Z2 (7-10 cal/min). Sin mirar splits. Solo mover sangre. · continuo, sin pausas",
-    "fc": "Z2 · <130 bpm",
-    "rehab": "AQUILES: heel drops excéntricos en escalón 3×12 (rodilla recta + flexionada). CUELLO: isométrico manual 4 dir. 5×10s."
+    "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "25 min Z1–Z2 suave. Nasal breathing. Sin objetivos de pace. · continuo, sin pausas",
-    "fc": "Z1-Z2 · <130 bpm",
-    "rehab": "AQUILES: isométricos 5×45s antes de correr — aprovechar alivio post-iso para la carrera. CUELLO: movilidad + extensión torácica 5 min."
+    "fc": "Z1-Z2 · <130 bpm"
    },
    {
     "d": "Jue",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. FC <125 bpm. · continuo, sin pausas",
-    "fc": "Z2 · 110–125 bpm",
-    "rehab": "AQUILES: isométricos 5×45s. CUELLO: Neck CARs + chin tuck 10 reps + trapecio superior stretch 40s/lado."
+    "fc": "Z2 · 110–125 bpm"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo técnico: 4×5 min Z2 (stroke rate 18-20, drive ratio 1:2). SkiErg 15 min Z2. · R2'",
     "pre": "PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",
-    "fc": "Z2 · <130 bpm",
-    "rehab": "AQUILES: heel drops 3×12 ambas piernas. CUELLO: isométrico manual 4 dir. Si no hay molestia cervical residual."
+    "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Sáb",
     "t": "Carrera",
     "main": "Long run 40 min Z2. Nasal breathing. · continuo, sin pausas",
-    "fc": "Z2 · 110–130 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera 5×45s. Vigilar rigidez matutina — si >20 min, reducir volumen de carrera."
+    "fc": "Z2 · 110–130 bpm"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "rehab": "CUELLO: día de movilidad pura. Extensión cervical asistida 30s×3. Rotación 10 rep/lado lenta. Sin carga."
+    "main": "Movilidad completa 20 min: extensión torácica + 90-90 + pigeon + deadbug + neck CARs. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
    }
   ],
-  "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad.",
-  "rehabNote": "AQUILES: isométricos diarios (5×45s, dolor 3-4/10). Excéntricos 3×/semana. Si rigidez matutina >20 min al día siguiente de entrenar: reducir carga. CUELLO: sin arnés esta semana. Solo movilidad manual e isométricos con la mano."
+  "nutr": "Recuperación: proteína 2.2g/kg, CHO moderado, sin déficit. Mg 300mg noche. Omega-3 3g. Sueño prioridad."
  },
  {
   "w": 2,
@@ -941,56 +921,48 @@ var PLAN = [
     "t": "Test",
     "main": "Tests base HYROX completados: SkiErg 500m 1:33 · Remo 500m 1:43 · AirBike 25cal 60s · 1km 3:46/km (HR 155/162). VO2max COROS ~60. · R5' entre tests",
     "sub": "Datos integrados en todas las zonas del plan",
-    "flag": "TEST",
-    "rehab": "AQUILES: isométricos 5×45s. Día ligero post-tests. CUELLO: movilidad + isométrico manual."
+    "flag": "TEST"
    },
    {
     "d": "Mar",
     "t": "Carrera",
     "main": "35 min Z2. Nasal breathing. Recuperación activa.",
-    "fc": "Z2 · <130 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera. Heel drops 3×12 por la tarde."
+    "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "35 min: 25 min Z2 + últimos 10 min Z3. · continuo, sin pausas",
-    "fc": "Z2–Z3",
-    "rehab": "AQUILES: isométricos pre-carrera. CUELLO: Neck CARs + extensión asistida."
+    "fc": "Z2–Z3"
    },
    {
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza general HYROX: 3×6 Sentadilla 65% + 3×8 Peso muerto 65% + 3×6 Pull-ups + Wall Balls 4×15 @10kg. · R2'",
     "sub": "Reintroducir carga progresivamente",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
-    "rehab": "AQUILES: heel drops 3×15 al final de la sesión. CUELLO: isométrico manual 4 dir. 5×10s al final."
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo 4×500m @pace fuerte (registrar splits). SkiErg 3×3 min Z4. Air Bike 15 min Z2. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×8 @10kg",
-    "fc": "Remo Z4-Z5 · SkiErg Z4",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Remo Z4-Z5 · SkiErg Z4"
    },
    {
     "d": "Sáb",
     "t": "Carrera",
     "main": "Long run 45 min Z2. Últimos 8 min Z3. · continuo, sin pausas",
-    "fc": "Z2–Z3",
-    "rehab": "AQUILES: isométricos pre-carrera 5×45s."
+    "fc": "Z2–Z3"
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. FC <125 bpm. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm",
-    "rehab": "CUELLO: movilidad completa 10 min. Extensión torácica sobre respaldo silla."
+    "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino. Mg noche.",
-  "rehabNote": "AQUILES: isométricos diarios + excéntricos 3×/semana. CUELLO: fin de semana evaluar si hay molestia residual de la contractura. Si no hay, lunes siguiente puedes introducir arnés 2kg solo en FLEXIÓN (no extensión aún)."
+  "nutr": "Retomar creatina 5g/día. Proteína 2g/kg. +30g CHO perientrino. Mg noche."
  },
  {
   "w": 3,
@@ -1001,16 +973,14 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana.",
-    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés 2kg — flexión 3×12 + lateral 3×10/lado. NO extensión aún. Si molestia posterior: volver a manual."
+    "main": "Descanso. HRV mañana."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Remo intervalos potencia: 6×500m con 90s descanso. Registrar cada split. SkiErg 4×3 min Z4.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Remo Z4-Z5 · SkiErg Z4",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Remo Z4-Z5 · SkiErg Z4"
    },
    {
     "d": "Mié",
@@ -1024,35 +994,30 @@ var PLAN = [
     "t": "Fuerza",
     "main": "Fuerza HYROX: Sentadilla 4×5 @75% + Press banca 4×5 + Burpee Broad Jump 4×10 + Sandbag Lunges 4×20m @20kg. · R2'",
     "sub": "Foco en Burpees y Lunges — tus armas",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
-    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés 2kg flexión + lateral al final de sesión."
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
     "t": "Umbral Híbrido",
     "main": "Umbral largo híbrido: 3×8 min (2' carrera Z4 + 2' Remo Z4 + 2' SkiErg Z3 + 2' carrera Z4). 2 min trote Z1 entre bloques.",
     "pre": "PRE cada bloque SkiErg: 5 Sit-Up Throw @10kg",
-    "fc": "Z4 · media 148–158 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · media 148–158 bpm"
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "55 min: 15 min Z2 + 20 min tempo continuo Z4 (4:20-4:25/km) + 20 min Z2. Tempo sin parar. Si pierdes ritmo reduce a 4:30 y aguanta.",
     "sub": "Primera sesión de tempo puro — base del umbral HYROX",
-    "fc": "Z4 · 148–158 bpm en tempo",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm",
-    "rehab": "CUELLO: movilidad + neck CARs. Evaluar tolerancia al arnés de esta semana."
+    "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "+40g CHO días intensos. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg.",
-  "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Evaluar rigidez matutina — si mejora, el protocolo funciona. CUELLO: arnés 2kg solo flexión y lateral. Si sin molestia al final de semana, añadir extensión la semana siguiente con 1kg (menos que flexión)."
+  "nutr": "+40g CHO días intensos. Keto IQ pre-sesión larga. Electrolitos >45 min. Proteína 2.2g/kg."
  },
  {
   "w": 4,
@@ -1063,57 +1028,49 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana.",
-    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés 2kg flexión + lateral + extensión 1kg (primera vez). Evaluar tolerancia."
+    "main": "Descanso. HRV mañana."
    },
    {
     "d": "Mar",
     "t": "Comp. Running",
     "main": "Compromised running: 1000m Remo Z4 + 1km carrera inmediato × 3 bloques. Sin descanso entre bloques.",
     "sub": "Secuencia clave HYROX: salir a correr con el Remo en las piernas",
-    "fc": "Z4-Z5 · 150–168 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4-Z5 · 150–168 bpm"
    },
    {
     "d": "Mié",
     "t": "Fuerza",
     "main": "Fuerza: Peso muerto 4×4 @78% + Pull-ups lastrados 3×5 + Wall Balls 5×15 @10kg + Sandbag Lunges 4×25m. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
-    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés 2kg flexión/lateral + extensión 1kg al final."
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Jue",
     "t": "Ergómetro",
     "main": "Remo 5×500m @race-pace (registrar). Air Bike 5×2 min Z5 (>18-22 cal/min). SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Z4-Z5",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4-Z5"
    },
    {
     "d": "Vie",
     "t": "Tempo",
     "main": "55 min: 20 min Z2 + 20 min tempo Z4 (4:20-4:25/km) + 15 min Z2. Mantener ritmo estable, no acelerar. · continuo, sin pausas",
-    "fc": "Z4 · 148–158 bpm en tempo",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
     "d": "Sáb",
     "t": "Umbral Híbrido",
     "main": "Umbral largo: 25 min continuo → 3' carrera Z4 + 2' SkiErg Z3 sin parar.",
     "pre": "PRE-SkiErg: 5 Sit-Up Throw @10kg en cada bloque",
-    "fc": "Z4 · 148–158 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · 148–158 bpm"
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm",
-    "rehab": "CUELLO: movilidad + neck CARs. Valorar tolerancia a la extensión con 1kg."
+    "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días duros. Sin déficit.",
-  "rehabNote": "AQUILES: a estas alturas deberías notar reducción de rigidez matutina. Si no mejora, consultar fisio. CUELLO: si la extensión con 1kg no dio molestia, esta semana sube a 2kg en extensión también. Flexión/lateral puedes ir a 3kg."
+  "nutr": "Proteína 2.2g/kg. Creatina 5g/día. +50g CHO días duros. Sin déficit."
  },
  {
   "w": 5,
@@ -1126,57 +1083,49 @@ var PLAN = [
     "t": "Carrera",
     "main": "30 min Z2 temprano. Antes del calor. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera. Llevar banda elástica para heel drops."
+    "flag": "PLAYA"
    },
    {
     "d": "Mar",
     "t": "Playa",
     "main": "4 rondas → KB Swings 24kg ×20 + Anillas rows ×10 + Lunges ×20 + Burpee Broad Jump ×8 + Push-up anillas ×10. Descanso 90s.",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: heel drops en escalón de piscina o bordillo 3×12. CUELLO: neck CARs + isométrico manual (sin arnés en playa)."
+    "flag": "PLAYA"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "35 min: 10 min Z2 + 15 min Z3 + 10 min Z2. Temprano. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "flag": "PLAYA"
    },
    {
     "d": "Jue",
     "t": "Playa",
     "main": "Wall Balls 5×15 @10kg + KB Goblet squat 4×12 @24kg + Anillas dips 3×10 + Hollow hold 3×30s + Dead bug 3×10. · R60\"",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: heel drops 3×15. CUELLO: movilidad extensión + rotación."
+    "flag": "PLAYA"
    },
    {
     "d": "Vie",
     "t": "Carrera",
     "main": "Long run 45 min Z2. Hidratación extra por calor. · continuo, sin pausas",
     "fc": "Z2 · <130 bpm",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "flag": "PLAYA"
    },
    {
     "d": "Sáb",
     "t": "Playa",
     "main": "5 rondas → Burpee Broad Jump ×10 + Sandbag Lunges 20m + KB Farmers Carry 24kg 30m + Wall Balls ×15 + 400m carrera. Descanso 2 min.",
     "fc": "Z3-Z4",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "flag": "PLAYA"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
     "main": "Movilidad 20 min. Extensión torácica + cadera + cervicales. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "flag": "PLAYA",
-    "rehab": "CUELLO: movilidad completa cervical. Extensión asistida 30s×3."
+    "flag": "PLAYA"
    }
   ],
-  "nutr": "Playa: 3.5L agua + electrolitos. Proteína 2g/kg. CHO moderado. Comida local sin complicar.",
-  "rehabNote": "AQUILES: sin arnés en playa — usar bordillo de piscina o escalón para heel drops. Isométricos diarios con banda o bodyweight. CUELLO: sin arnés en playa. Movilidad manual + neck CARs."
+  "nutr": "Playa: 3.5L agua + electrolitos. Proteína 2g/kg. CHO moderado. Comida local sin complicar."
  },
  {
   "w": 6,
@@ -1189,58 +1138,50 @@ var PLAN = [
     "t": "Carrera",
     "main": "30 min: 5 min Z2 + 4×4 min Z4 (4:20-4:35/km) + 2 min Z2 entre series.",
     "fc": "Z4 · 148–160 bpm",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "flag": "PLAYA"
    },
    {
     "d": "Mar",
     "t": "Playa",
     "main": "KB Swing 24kg 5×20 + Anillas pull-up 4×8 + Push-up anillas 4×12 + Wall Balls 4×20 + Burpee Broad Jump 4×10. Descanso 90s.",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: heel drops 3×15. CUELLO: movilidad + extensión asistida."
+    "flag": "PLAYA"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "Long run 50 min Z2. Últimos 8 min Z3. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "flag": "PLAYA"
    },
    {
     "d": "Jue",
     "t": "Playa",
     "main": "4 rondas → Sandbag Lunges 25m + KB Farmers Carry 30m + Burpee Broad Jump ×12 + Wall Balls ×20 + 500m carrera all-out. 3 min descanso.",
     "fc": "Z4-Z5",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "flag": "PLAYA"
    },
    {
     "d": "Vie",
     "t": "Carrera",
     "main": "35 min Z2–Z3. Nasal breathing primeros 20 min. · continuo, sin pausas",
     "fc": "Z2–Z3",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "flag": "PLAYA"
    },
    {
     "d": "Sáb",
     "t": "Playa",
     "main": "AMRAP 30 min → 10 KB Swings + 8 Anillas rows + 15 Wall Balls + 10 Burpees + 200m carrera.",
     "fc": "Z3-Z4",
-    "flag": "PLAYA",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "flag": "PLAYA"
    },
    {
     "d": "Dom",
     "t": "Movilidad",
     "main": "Movilidad 20 min + descanso activo. Último día de playa. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "flag": "PLAYA",
-    "rehab": "CUELLO: movilidad completa. Al volver a casa: retomar arnés."
+    "flag": "PLAYA"
    }
   ],
-  "nutr": "Igual que S5. Al volver: retomar creatina, Mg, electrolitos, CHO perientrino.",
-  "rehabNote": "AQUILES: evaluar al volver a casa. Si la rigidez matutina es mínima o nula, empezar a introducir cargas más progresivas en heel drops. CUELLO: al volver, retomar arnés. Flexión/lateral 3kg, extensión 2kg."
+  "nutr": "Igual que S5. Al volver: retomar creatina, Mg, electrolitos, CHO perientrino."
  },
  {
   "w": 7,
@@ -1251,56 +1192,48 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana. Reajuste post-playa.",
-    "rehab": "AQUILES: retomar isométricos con escalón en casa. CUELLO: retomar arnés — flexión/lateral 3kg, extensión 2kg."
+    "main": "Descanso. HRV mañana. Reajuste post-playa."
    },
    {
     "d": "Mar",
     "t": "Test",
     "main": "Re-test: Remo 500m máximo + SkiErg 500m máximo. Comparar vs S2. · R5' entre tests",
-    "flag": "TEST",
-    "rehab": "AQUILES: isométricos pre-test."
+    "flag": "TEST"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "6×1 km a pace objetivo (<4:20/km) con 90s recuperación.",
-    "fc": "Z4 · 148–160 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera. Vigilar respuesta al volumen de intervalos."
+    "fc": "Z4 · 148–160 bpm"
    },
    {
     "d": "Jue",
     "t": "Cluster HYROX",
     "main": "Cluster HYROX: 4×(SkiErg 250m + Sled Push 20m + Sled Pull 20m + Burpee Broad Jump ×10 + 400m carrera). 3 min caminar entre rondas.",
     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
-    "fc": "Z4-Z5 · 150–170 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión. El Sled carga el tendón — vigilar el día siguiente."
+    "fc": "Z4-Z5 · 150–170 bpm"
    },
    {
     "d": "Vie",
     "t": "Ergómetro",
     "main": "Remo 5×500m @race-pace. Air Bike 4×2 min Z5. SkiErg 3×3 min Z4. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 4×8 @10kg",
-    "fc": "Z4-Z5",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4-Z5"
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:20-4:22/km) + 20 min Z2. Si splits bien, últimos 5 min aprieta a 4:18. · continuo, sin pausas",
-    "fc": "Z4 · 148–158 bpm en tempo",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z4 · 148–158 bpm en tempo"
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm",
-    "rehab": "CUELLO: arnés flexión/lateral 3kg + extensión 2kg. Neck CARs post."
+    "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Retomar protocolo completo: creatina + Mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8.",
-  "rehabNote": "AQUILES: a 6 semanas de protocolo. Deberías notar mejora clara en rigidez matutina. Si no, valorar fisio. CUELLO: subir flexión a 4kg si tolerancia buena. Extensión se queda en 2kg hasta S9."
+  "nutr": "Retomar protocolo completo: creatina + Mg + CHO perientrino + electrolitos. Bicarbonato preparado para S8."
  },
  {
   "w": 8,
@@ -1311,57 +1244,49 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV mañana.",
-    "rehab": "AQUILES: isométricos 5×45s. CUELLO: arnés flexión 4kg + lateral 3kg + extensión 2kg."
+    "main": "Descanso. HRV mañana."
    },
    {
     "d": "Mar",
     "t": "Cluster HYROX",
     "main": "Simulacro HYROX parcial: SkiErg 1000m + 1km carrera + Sled Push 25m + 1km carrera + Remo 1000m + 1km carrera + Burpee Broad Jump ×20 + 1km carrera. Sin descanso.",
     "pre": "PRE-SkiErg: Sit-Up Throw 4×10 @10kg · Bicarbonato PRIMERA VEZ 0.3g/kg 90 min antes",
-    "fc": "Z4 · 148–162 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · 148–162 bpm"
    },
    {
     "d": "Mié",
     "t": "Umbral+HYROX",
     "main": "Rich Ryan #2 — Umbral DESPUÉS de estaciones: estaciones HYROX completas (SkiErg+Sled+Remo+Burpees+Lunges+Wall Balls sin carrera). 7 min descanso. Después: 3×5 min Z4 carrera con 1 min descanso.",
     "sub": "El descanso es necesario para alcanzar velocidad de umbral real",
-    "fc": "Z4 · 148–160 bpm en series de carrera",
-    "rehab": "AQUILES: isométricos pre-sesión. Sesión larga — vigilar respuesta."
+    "fc": "Z4 · 148–160 bpm en series de carrera"
    },
    {
     "d": "Jue",
     "t": "Fuerza",
     "main": "Fuerza específica: Sentadilla 4×4 @80% + Peso muerto 4×3 @80% + Wall Balls 5×20 @10kg + Sandbag Lunges 4×25m. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
-    "rehab": "AQUILES: heel drops 3×15 al final. CUELLO: arnés al final de sesión."
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Vie",
     "t": "Umbral Híbrido",
     "main": "Rich Ryan #1 — Umbral ANTES de HYROX: 4×5 min Z4 (4:20-4:30/km) con 1 min descanso. Al terminar, directo a estaciones HYROX: SkiErg + Remo + Burpees + Lunges.",
     "pre": "PRE-SkiErg en la parte HYROX: Sit-Up Throw @10kg",
-    "fc": "Z4 · 148–158 bpm en carrera · Z4-Z5 en estaciones",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · 148–158 bpm en carrera · Z4-Z5 en estaciones"
    },
    {
     "d": "Sáb",
     "t": "Tempo",
     "main": "60 min: 15 min Z2 + 25 min tempo Z4 (4:18-4:22/km) + 20 min Z2. Si HRV bajo, reduce tempo a 20 min. · continuo, sin pausas",
-    "fc": "Z4",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z4"
    },
    {
     "d": "Dom",
     "t": "Bici Z2",
     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
-    "fc": "Z2 · <125 bpm",
-    "rehab": "CUELLO: movilidad + arnés suave. Neck CARs."
+    "fc": "Z2 · <125 bpm"
    }
   ],
-  "nutr": "Bicarbonato: 0.3g/kg 60-90 min pre-intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario.",
-  "rehabNote": "AQUILES: semana muy cargada. Si hay reactivación (dolor >5/10 o rigidez matutina aumenta), quitar una sesión de carrera. CUELLO: mantener cargas esta semana — no subir con la fatiga acumulada."
+  "nutr": "Bicarbonato: 0.3g/kg 60-90 min pre-intensa. Keto IQ pre-simulacros. Proteína 2.2g/kg. HRV diario."
  },
  {
   "w": 9,
@@ -1376,36 +1301,31 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. HRV. Mini-taper: mantener intensidad, recortar volumen.",
-    "rehab": "AQUILES: isométricos. CUELLO: movilidad ligera."
+    "main": "Descanso. HRV. Mini-taper: mantener intensidad, recortar volumen."
    },
    {
     "d": "Mar",
     "t": "Comp. Running",
     "main": "Compromised running: 3×(Remo 500m + 1km carrera inmediato). 2 min entre rondas. Última sesión dura pre-Xybrid.",
-    "fc": "Z4-Z5 · 150–168 bpm",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4-Z5 · 150–168 bpm"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "30 min: 10 min Z2 + 4×3 min Z4 (4:20-4:30/km) + Z2. Piernas despiertas, sin vaciarte. · R3'",
-    "fc": "Z4 · 150–160 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z4 · 150–160 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
     "main": "Ensayo Xybrid al 60%: 1 ronda → SkiErg 300m + Sled Push 15m + Sled Pull 15m encadenados + Burpees to Plate ×15 + Remo 300m + AirBike 10 cal + Lunges to Box ×15 + Slam Ball ×10. · R2' entre rondas",
     "sub": "Automatizar transiciones nuevas, especialmente push+pull encadenado. Sin buscar tiempo.",
-    "fc": "Z3 · <150 bpm",
-    "rehab": "AQUILES: isométricos pre-activación. CUELLO: neck CARs."
+    "fc": "Z3 · <150 bpm"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h.",
-    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
+    "main": "Descanso total. 3L agua. Carga CHO moderada. Sueño ≥8h."
    },
    {
     "d": "Sáb",
@@ -1417,12 +1337,10 @@ var PLAN = [
    {
     "d": "Dom",
     "t": "Movilidad",
-    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s).",
-    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad completa."
+    "main": "Recuperación activa: caminar 20 min + movilidad 20 min. Lumbar y dorsal prioritarios. · AQUILES: heel drops excéntricos 3×12 por pie, rodilla recta y rodilla flexionada. Muy lento al bajar (4-5 s)."
    }
   ],
-  "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido.",
-  "rehabNote": "AQUILES: reducir heel drops esta semana — solo isométricos. No estresar el tendón pre-carrera. CUELLO: sin arnés desde miércoles hasta después del Xybrid."
+  "nutr": "Semana taper: CHO moderado desde jueves. Día –1 nada nuevo. Post-Xybrid: 40g proteína + CHO rápido."
  },
  {
   "w": 10,
@@ -1434,23 +1352,20 @@ var PLAN = [
     "d": "Lun",
     "t": "Descanso",
     "main": "Descanso total post-Xybrid. Analizar: dónde perdiste tiempo, cómo respondió el sled encadenado.",
-    "sub": "Notas para estrategia Valencia",
-    "rehab": "AQUILES: isométricos. CUELLO: retomar arnés."
+    "sub": "Notas para estrategia Valencia"
    },
    {
     "d": "Mar",
     "t": "Carrera",
     "main": "Recuperación: 25 min Z1.",
-    "fc": "Z1 · <120 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z1 · <120 bpm"
    },
    {
     "d": "Mié",
     "t": "Ergómetro",
     "main": "Remo 20 min Z2 + SkiErg 15 min Z2. Recuperación activa.",
     "pre": "PRE-SkiErg: Deadbug 3×8 + Hollow hold 3×20s",
-    "fc": "Z2 · <130 bpm",
-    "rehab": "AQUILES: isométricos. CUELLO: arnés flexión 4kg + lateral 3kg + extensión 2kg."
+    "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Jue",
@@ -1471,18 +1386,15 @@ var PLAN = [
     "t": "Cluster HYROX",
     "main": "Simulacro HYROX completo: 8 estaciones + 8 km carrera a carga 75%. Protocolo completo. · Sin descanso entre estaciones: esto es la carrera.",
     "pre": "Bicarbonato + Keto IQ + electrolitos · PRE-SkiErg: Sit-Up Throw",
-    "fc": "Z4 · 148–162 bpm",
-    "rehab": "AQUILES: isométricos pre-simulacro."
+    "fc": "Z4 · 148–162 bpm"
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Descanso total. Recarga glucógeno. Sueño 8-9h.",
-    "rehab": "CUELLO: movilidad. Sin arnés."
+    "main": "Descanso total. Recarga glucógeno. Sueño 8-9h."
    }
   ],
-  "nutr": "Post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno viernes para simulacro.",
-  "rehabNote": "AQUILES: semana de alta carga. Priorizar isométricos diarios. Si hay reactivación post-simulacro, reducir carrera la semana siguiente. CUELLO: si tolerancia buena, esta semana extensión sube a 3kg."
+  "nutr": "Post-carrera: recuperación primero, calidad a partir del jueves. Recarga glucógeno viernes para simulacro."
  },
  {
   "w": 11,
@@ -1498,51 +1410,43 @@ var PLAN = [
     "d": "Lun",
     "t": "Fuerza",
     "main": "Fuerza ligera: 3×4 Sentadilla @68% + Wall Balls 3×12 + Burpee Broad Jump 3×8. Sin fatiga. · R3'",
-    "pre": "PRE: isométricos de Aquiles 5×45s en escalón",
-    "rehab": "AQUILES: isométricos + heel drops ligeros. CUELLO: arnés suave al final."
+    "pre": "PRE: isométricos de Aquiles 5×45s en escalón"
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Race-pace: SkiErg 2×3 min + Remo 2×3 min. Recuperación completa.",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
-    "fc": "Z4 · race-pace",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · race-pace"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "30 min Z2. Sin objetivos. · continuo, sin pausas",
-    "fc": "Z2 · <130 bpm",
-    "rehab": "AQUILES: isométricos pre-carrera."
+    "fc": "Z2 · <130 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m. · R60\" entre ejercicios",
-    "rehab": "AQUILES: isométricos. CUELLO: neck CARs + movilidad."
+    "main": "Activación técnica 15 min: Wall Balls 3×8 · Burpee Broad Jump 3×6 · SkiErg 3×1 min ligero · Sandbag Lunges 3×10m. · R60\" entre ejercicios"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Sueño ≥8h.",
-    "rehab": "AQUILES: isométricos suaves."
+    "main": "Descanso total. 3L agua. Sueño ≥8h."
    },
    {
     "d": "Sáb",
     "t": "Descanso",
-    "main": "Descanso. CHO moderado. Preparar logística con Marchena.",
-    "rehab": "CUELLO: movilidad."
+    "main": "Descanso. CHO moderado. Preparar logística con Marchena."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Descanso. Cena conocida: CHO + proteína, sin grasa excesiva.",
-    "rehab": "AQUILES: isométricos. Último día antes de semana de competición."
+    "main": "Descanso. Cena conocida: CHO + proteína, sin grasa excesiva."
    }
   ],
-  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2-3h antes. Bicarbonato + Keto IQ.",
-  "rehabNote": "AQUILES: reducir heel drops esta semana — solo isométricos diarios. CUELLO: sin arnés desde jueves hasta después del Hyathlon."
+  "nutr": "Día –2 (jue): CHO moderado. Día –1 (vie): nada nuevo. Día carrera: desayuno 2-3h antes. Bicarbonato + Keto IQ."
  },
  {
   "w": 12,
@@ -1557,52 +1461,44 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Descanso",
-    "main": "Descanso. Estrategia con Marchena para el sábado.",
-    "rehab": "AQUILES: isométricos. CUELLO: retomar arnés."
+    "main": "Descanso. Estrategia con Marchena para el sábado."
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "Última sesión calidad: Remo 3×500m @race-pace + SkiErg 3×3 min @race-pace. · R3'",
     "pre": "PRE-SkiErg: Sit-Up Throw 2×8 @10kg",
-    "fc": "Z4 · race-pace",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "fc": "Z4 · race-pace"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "20 min Z1 muy suave. · continuo, sin pausas",
-    "fc": "Z1 · <120 bpm",
-    "rehab": "AQUILES: isométricos."
+    "fc": "Z1 · <120 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Una ronda estaciones HYROX al 50%. 20 min. · R2' entre rondas",
-    "rehab": "AQUILES: isométricos. CUELLO: neck CARs."
+    "main": "Una ronda estaciones HYROX al 50%. 20 min. · R2' entre rondas"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. CHO moderado. Sueño ≥8h.",
-    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
+    "main": "Descanso total. CHO moderado. Sueño ≥8h."
    },
    {
     "d": "Sáb",
     "t": "COMPETICIÓN",
     "main": "HYATHLON MADRID",
-    "sub": "Con Marchena. 6 estaciones, 6 km. Cambios rápidos. Marchena más Wall Balls. Bicarbonato + Keto IQ. Ensayo protocolo Valencia.",
-    "rehab": "Post-carrera: hielo en Aquiles si hay molestia."
+    "sub": "Con Marchena. 6 estaciones, 6 km. Cambios rápidos. Marchena más Wall Balls. Bicarbonato + Keto IQ. Ensayo protocolo Valencia."
    },
    {
     "d": "Dom",
     "t": "Descanso",
-    "main": "Recuperación post-Hyathlon. Caminar 20 min. Proteína alta.",
-    "rehab": "AQUILES: isométricos suaves. CUELLO: movilidad."
+    "main": "Recuperación post-Hyathlon. Caminar 20 min. Proteína alta."
    }
   ],
-  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación antes de Valencia. Mg + omega-3 noche.",
-  "rehabNote": "AQUILES: a 12 semanas de protocolo — deberías tener mínima o ninguna rigidez matutina. CUELLO: sin arnés desde jueves hasta después de Valencia."
+  "nutr": "Post-Hyathlon: 40g proteína + CHO rápido. Recuperación antes de Valencia. Mg + omega-3 noche."
  },
  {
   "w": 13,
@@ -1617,52 +1513,44 @@ var PLAN = [
    {
     "d": "Lun",
     "t": "Activación",
-    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min. · R60\" entre ejercicios",
-    "rehab": "AQUILES: isométricos."
+    "main": "Técnica ligera: Wall Balls 3×10 · Burpee Broad Jump 3×6 · Sandbag Lunges 3×10m. 15 min. · R60\" entre ejercicios"
    },
    {
     "d": "Mar",
     "t": "Ergómetro",
     "main": "3×2 min @race-pace (SkiErg + Remo). Recuperación completa.",
-    "pre": "PRE-SkiErg: Sit-Up Throw 2×6 @10kg",
-    "rehab": "AQUILES: isométricos pre-sesión."
+    "pre": "PRE-SkiErg: Sit-Up Throw 2×6 @10kg"
    },
    {
     "d": "Mié",
     "t": "Carrera",
     "main": "2 km Z1 muy suave. · continuo, sin pausas",
-    "fc": "Z1 · <120 bpm",
-    "rehab": "AQUILES: isométricos."
+    "fc": "Z1 · <120 bpm"
    },
    {
     "d": "Jue",
     "t": "Activación",
-    "main": "Una ronda HYROX al 50%. 20 min. · R2' entre rondas",
-    "rehab": "AQUILES: isométricos. CUELLO: neck CARs."
+    "main": "Una ronda HYROX al 50%. 20 min. · R2' entre rondas"
    },
    {
     "d": "Vie",
     "t": "Descanso",
-    "main": "Descanso total. 3L agua. Sueño ≥8h.",
-    "rehab": "AQUILES: isométricos suaves."
+    "main": "Descanso total. 3L agua. Sueño ≥8h."
    },
    {
     "d": "Sáb",
     "t": "Descanso",
     "main": "Viaje a Valencia. Logística, ropa, suplementos. Confirmar estrategia con Marchena. Cena conocida.",
-    "sub": "Día –1: nada nuevo, nada de pie de más",
-    "rehab": "CUELLO: movilidad cervical suave en el hotel."
+    "sub": "Día –1: nada nuevo, nada de pie de más"
    },
    {
     "d": "Dom",
     "t": "COMPETICIÓN",
     "main": "HYROX VALENCIA — PAREJAS MASCULINO OPEN",
-    "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min. Electrolitos. Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05.",
-    "rehab": "Post-carrera: isométricos suaves si hay molestia en Aquiles. Celebrar el trabajo de 13 semanas. 🏆"
+    "sub": "Desayuno 2-3h antes. Bicarbonato 0.3g/kg 90 min antes. Keto IQ 30 min. Electrolitos. Marchena más Wall Balls, tú Sled. Carrera conjunta — marca pace desde km 1. Objetivo ~1:05."
    }
   ],
-  "nutr": "Día –3 (jue): CHO moderado. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo.",
-  "rehabNote": "AQUILES: isométricos diarios hasta el día de la carrera. En el calentamiento pre-HYROX: 2×30s isométrico para activar y reducir dolor. CUELLO: sin carga desde el lunes."
+  "nutr": "Día –3 (jue): CHO moderado. Día –1 (sáb): nada nuevo. Día carrera: protocolo completo."
  }
 ];
 
@@ -1677,11 +1565,9 @@ const defaultState = {
   points: 0, pointsLog: [],
   rewards: [], badges: [], perfectWeeks: 0,
   favorites: [], exCustom: [],
-  rehabDone: {},                      // "YYYY-MM-DD": true — prehab del día hecho
-  fichasHechas: {},                   // "YYYY-MM-DD": [idFicha] — fichas sin registro
 };
 var st = loadState();
-function loadState(){ try{ const r=localStorage.getItem(KEY); if(r){ const o=Object.assign({},defaultState,JSON.parse(r)); if(!o.rehabDone) o.rehabDone={}; return o; } }catch(e){} return JSON.parse(JSON.stringify(defaultState)); }
+function loadState(){ try{ const r=localStorage.getItem(KEY); if(r) return Object.assign({},defaultState,JSON.parse(r)); }catch(e){} return JSON.parse(JSON.stringify(defaultState)); }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
 
 /* ── fechas ── */
@@ -1999,7 +1885,6 @@ function renderHoy(){
     if(day.flag) card.appendChild(h('<div class="tagz" style="background:#CECBF622;color:#CECBF6;margin-bottom:6px">★ '+esc(day.flag)+'</div>'));
     if(/XYBRID/i.test(day.main||"")||/Xybrid/i.test(day.sub||"")) card.appendChild(h('<button class="btn3" style="margin-bottom:8px" onclick="openHelp(\'xybrid\')">🏁 Ver estaciones Xybrid</button>'));
     if(day.pre) card.appendChild(h('<div style="font-size:11px;color:#ffb347;background:rgba(255,179,71,.08);padding:6px 9px;border-radius:8px;margin-bottom:8px">▲ '+esc(day.pre)+'</div>'));
-    if(day.rehab) card.appendChild(h('<div style="font-size:11px;color:#c4a6ff;background:rgba(124,58,237,.14);padding:6px 9px;border-radius:8px;margin-bottom:8px;line-height:1.5">🔧 '+esc(day.rehab)+'</div>'));
     card.appendChild(h('<div style="font-size:14px;line-height:1.55">'+esc(day.main)+'</div>'));
     if(day.sub) card.appendChild(h('<div class="dim" style="font-size:11px;margin-top:5px">'+esc(day.sub)+'</div>'));
     if(day.fc) card.appendChild(h('<div class="tagz" style="background:#E6F1FB22;color:#7ab8f0;margin-top:8px">♥ '+esc(day.fc)+'</div>'));
@@ -2020,22 +1905,12 @@ function renderHoy(){
       cta.appendChild(h('<button class="btn" onclick="openPacer('+(dt.z2?'true':'false')+')">▶ PACER + CRONÓMETRO</button>'));
       cta.appendChild(h('<button class="btn2" onclick="openManualLog()">✓ Registrar sesión (manual)</button>'));
     } else if(dt.mode==="mob"){
-      cta.appendChild(h('<button class="btn" style="background:#4B7F3B" onclick="abrirFichas()">'+esc(mobBtn())+'</button>'));
+      cta.appendChild(h('<button class="btn" style="background:#4B7F3B" onclick="abrirFichas()">🧘 ABRIR FICHAS DE MOVILIDAD</button>'));
       cta.appendChild(h('<button class="btn2" onclick="startMobilitySession()">▶ Sesión rápida (20\')</button>'));
     } else if(dt.mode==="race"){
       cta.appendChild(h('<div style="text-align:center;font-size:22px;padding:8px" class="big">🏁 DÍA DE COMPETICIÓN</div>'));
     } else {
       cta.appendChild(h('<div class="dim" style="text-align:center;font-size:12px;padding:6px">Día de descanso — el check-in también suma 🎯</div>'));
-    }
-    /* Segundo botón: el prehab del día se marca aparte del entrenamiento.
-       Son dos cosas distintas y se hacen en momentos distintos — si comparten
-       botón, el que se olvida es siempre el mismo. */
-    if(day.rehab){
-      const hecho=!!st.rehabDone[t];
-      cta.appendChild(h('<button class="btn2" style="margin-top:4px;'+(hecho
-        ?'border-color:rgba(124,58,237,.5);color:#c4a6ff;background:rgba(124,58,237,.12)'
-        :'border-color:rgba(124,58,237,.35);color:#c4a6ff')+'" onclick="marcarRehab()">'+
-        (hecho?'✓ '+rehabLabel(true)+(rehabStreak()>1?' · '+rehabStreak()+' días seguidos 🔥':' — toca para deshacer'):'🔧 '+rehabLabel(false))+'</button>'));
     }
     card.appendChild(cta);
     el.appendChild(card);
@@ -2067,24 +1942,6 @@ function renderHoy(){
   el.appendChild(h('<button class="btn2" onclick="openPacer(false)">🔔 Pacer · Intervalos con audio (ergómetros/carrera)</button>'));
   el.appendChild(h('<div style="display:flex;gap:8px"><button class="btn2" style="margin:0;flex:1" onclick="openRefs()">📊 Ritmos y zonas</button><button class="btn2" style="margin:0;flex:1" onclick="openOtra()">🏃‍♂️ Otra actividad</button></div>'));
   return el;
-}
-/* Prehab del día: se marca solo, sin pasar por el registro de sesiones.
-   No entra en sRPE ni en ACWR a propósito — isométricos y movilidad no son
-   carga de entrenamiento, y contarlos como tal ensuciaría el ratio. */
-function rehabLabel(hecho){
-  const n=PROFILE.rehabLabel||"prehab";
-  return hecho ? (n.charAt(0).toUpperCase()+n.slice(1))+" hecho hoy" : "He hecho "+(PROFILE.rehabArt||"el")+" "+n+" de hoy";
-}
-function marcarRehab(){
-  const t=todayISO();
-  if(st.rehabDone[t]){ delete st.rehabDone[t]; addPoints(-PTS.rehab,"prehab deshecho"); toast("Prehab desmarcado"); }
-  else { st.rehabDone[t]=true; addPoints(PTS.rehab,"prehab del día"); toast("🔧 Prehab hecho — bien ahí"); }
-  save(); render();
-}
-function rehabStreak(){
-  let n=0; const d=new Date();
-  for(;;){ const iso=todayISO(d); if(!st.rehabDone[iso]) break; n++; d.setDate(d.getDate()-1); }
-  return n;
 }
 function openRefs(){
   const tbl=(t,rows,col)=>'<div class="ctitle mini" style="margin:14px 0 6px">'+t+'</div>'+rows.map(([a,b])=>
@@ -2130,12 +1987,10 @@ function renderPlan(){
       body.appendChild(h('<div class="daybox" style="border-left:3px solid '+dt.c+'"><div class="row" style="margin-bottom:3px"><span style="font-size:11px;font-weight:600" class="mono">'+day.d+' '+dates[i].slice(8,10)+'/'+dates[i].slice(5,7)+' <span class="tagz" style="background:'+dt.c+'22;color:'+dt.c+'">'+esc(day.t)+'</span></span><span style="font-size:12px">'+(done?'<span style="color:#4B7F3B">✓</span>':'')+'</span></div>'+
         (day.pre?'<div style="font-size:10px;color:#ffb347;margin-bottom:2px">▲ '+esc(day.pre)+'</div>':'')+
         '<div style="font-size:12px;line-height:1.5">'+esc(day.main)+'</div>'+
-        (day.rehab?'<div style="font-size:10px;color:#c4a6ff;background:rgba(124,58,237,.12);padding:4px 7px;border-radius:6px;margin-top:4px;line-height:1.45">🔧 '+esc(day.rehab)+(st.rehabDone[dates[i]]?' <span style="color:#A8E63E">✓</span>':'')+'</div>':'')+
         (day.sub?'<div class="dim" style="font-size:10px;margin-top:2px">'+esc(day.sub)+'</div>':'')+
         (day.fc?'<span class="tagz" style="background:#E6F1FB18;color:#7ab8f0;margin-top:4px">♥ '+esc(day.fc)+'</span>':'')+'</div>'));
     });
     body.appendChild(h('<div class="dim" style="font-size:11px;padding:4px 10px;line-height:1.5"><b>Nutrición:</b> '+esc(wk.nutr)+'</div>'));
-    if(wk.rehabNote) body.appendChild(h('<div style="font-size:11px;padding:6px 10px;margin:4px 0 0;line-height:1.5;color:#c4a6ff;background:rgba(124,58,237,.10);border-radius:8px"><b>🔧 Rehab de la semana:</b> '+esc(wk.rehabNote)+'</div>'));
     el.appendChild(head); el.appendChild(body);
   });
   return el;
@@ -2178,7 +2033,7 @@ function renderCuerpo(){
     if(worst.length) mob.appendChild(h('<div style="font-size:11px;color:#ffb347;margin-bottom:8px">Prioriza: '+worst.map(t=>t.name).join(", ")+'</div>'));
   } else mob.appendChild(h('<div class="dim" style="font-size:12px;margin-bottom:8px">Sin tests aún. Haz el primero para tener referencia.</div>'));
   mob.appendChild(h('<button class="btn2" style="margin:0 0 8px" onclick="openMobTests()">📏 Hacer tests de movilidad</button>'));
-  mob.appendChild(h('<button class="btn" style="background:#4B7F3B;margin:0 0 8px" onclick="abrirFichas()">'+esc(mobBtn())+' ('+fichas().length+')</button>'));
+  mob.appendChild(h('<button class="btn" style="background:#4B7F3B;margin:0 0 8px" onclick="abrirFichas()">🧘 FICHAS DE MOVILIDAD ('+fichas().length+')</button>'));
   mob.appendChild(h('<button class="btn2" style="margin:0" onclick="startMobilitySession()">▶ Sesión rápida (20\')</button>'));
   el.appendChild(mob);
   return el;
@@ -2636,7 +2491,7 @@ function renderMas(){
   });
   el.appendChild(hs);
   // Hábitos personalizables
-  const hbc=h('<div class="card"><div class="row" style="margin-bottom:8px"><div class="ctitle" style="margin:0">Hábitos evaluados en el check-in</div><button class="btn3 sel" onclick="openAddHabit()">+ Hábito</button></div></div>');
+  const hbc=h('<div class="card"><div class="row" style="margin-bottom:8px"><div class="ctitle" style="margin:0">Hábitos evaluados en el check-in</div><div><button class="btn3" onclick="resetHabits()" style="margin-right:6px">↺</button><button class="btn3 sel" onclick="openAddHabit()">+ Hábito</button></div></div></div>');
   habits().forEach((x,i)=>{
     hbc.appendChild(h('<div class="row" style="padding:6px 0;border-bottom:1px solid #242A32"><span style="font-size:13px">'+(x.icon||"✅")+' '+esc(x.name)+' <span class="mono" style="font-size:10px;color:#4B7F3B">+'+(x.w||1)+'</span></span><button class="btn3" onclick="delHabit('+i+')">✕</button></div>'));
   });
@@ -2698,12 +2553,30 @@ function openAddHabit(){
 function openAddHabit2(){ const n=$("hbName").value,i=$("hbIcon").value,d=$("hbDesc").value; openAddHabit(); $("hbName").value=n; $("hbIcon").value=i; $("hbDesc").value=d; }
 function addHabit(){
   const n=$("hbName").value.trim(); if(!n){ toast("Escribe el hábito"); return; }
-  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=HABITS.map(x=>Object.assign({},x));
+  /* habits() y no HABITS: HABITS son los de serie (los de Miguel). Sembrar
+     desde ahí le borraba a cada persona los suyos y le ponía los míos en
+     cuanto añadía o quitaba uno. Era un bug real, no lo cambies. */
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
   st.habitsCustom.push({id:"h"+Date.now(),name:n,icon:($("hbIcon").value.trim()||"✅"),desc:$("hbDesc").value.trim(),w:_hbW});
   save(); closeOverlay(); render(); toast("Hábito añadido (+"+_hbW+")");
 }
+function resetHabits(){
+  /* vuelve a los hábitos del perfil. Salida para quien ya sufrió el bug de
+     arriba y se encontró con una lista que no era la suya. */
+  const suyos=(PROFILE.habits&&PROFILE.habits.length)?PROFILE.habits:HABITS;
+  overlay('<div class="ctitle">↺ ¿Restaurar tus hábitos?</div>'+
+    '<p style="font-size:12px;line-height:1.6;color:#a0a0b8;margin-bottom:12px">Vuelves a los '+suyos.length+' hábitos de tu plan y pierdes los que hayas añadido a mano. Lo que ya has marcado en el check-in no se toca.</p>'+
+    '<div style="background:#0E1116;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:12px;line-height:1.7">'+
+      suyos.map(x=>(x.icon||"✅")+" "+esc(x.name)).join("<br>")+'</div>'+
+    '<button class="btn" onclick="resetHabits2()">RESTAURAR</button>'+
+    '<button class="btn2" style="margin:0" onclick="closeOverlay()">Cancelar</button>');
+}
+function resetHabits2(){ st.habitsCustom=[]; save(); closeOverlay(); render(); toast("Hábitos restaurados"); }
 function delHabit(i){
-  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=HABITS.map(x=>Object.assign({},x));
+  /* habits() y no HABITS: HABITS son los de serie (los de Miguel). Sembrar
+     desde ahí le borraba a cada persona los suyos y le ponía los míos en
+     cuanto añadía o quitaba uno. Era un bug real, no lo cambies. */
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
   st.habitsCustom.splice(i,1); save(); render();
 }
 function openAddReward(){
@@ -3285,24 +3158,18 @@ function saveOtra(){
 const MOBCATS = [{"id":"manana","label":"Mañana","color":"#1D9E75"},{"id":"preentren","label":"Pre-entreno","color":"#378ADD"},{"id":"noche","label":"Noche / post","color":"#D4537E"},{"id":"emergencia","label":"Emergencia","color":"#BA7517"},{"id":"rehab","label":"Rehab","color":"#7C3AED"}];
 const MOBCARDS = [{"id":"c1","cat":"manana","title":"Despertar articular","time":"8 min","why":"Revierte el patrón de sedentarismo: activa glúteos inhibidos, abre psoas acortado y despierta la rotación torácica que el escritorio mata.","steps":[{"t":"90-90 con rotación activa","d":"Siéntate en 90-90. Rota el torso despacio hacia la pierna delantera llevando el brazo al suelo. Vuelve. Sin forzar el rango.","time":"5 rep/lado · 2 series"},{"t":"Hip flexor stretch con rotación","d":"Posición de caballero. Brazo del lado de la rodilla adelantada sube y rota al techo. Mantén la pelvis neutra.","time":"30s/lado · 2 series"},{"t":"Cat-Camel con pausa en extensión","d":"En cuadrupedia, ondula la columna. En extensión máxima aguanta 3 segundos antes de volver a flexión.","time":"8 rep · pausa 3s arriba"},{"t":"Dead bug contralateral","d":"Tumbado boca arriba. Extiende brazo y pierna opuestos lentamente hasta casi el suelo. Zona lumbar pegada al suelo.","time":"8 rep/lado · lento"},{"t":"Wall angel","d":"Espalda y cabeza pegadas a la pared. Brazos en W. Sube a Y manteniendo contacto de codos y muñecas.","time":"10 rep · muy controlado"}],"tip":"Si solo tienes 3 minutos: 90-90 + Dead bug. Son los dos que más compensan las horas de consulta."},{"id":"c2","cat":"preentren","title":"Activación pre-sesión","time":"6 min","why":"No es estiramiento. Es activar los patrones que el HYROX va a necesitar: cadera libre, tobillo móvil, torácica rotada.","steps":[{"t":"Hip CARs","d":"De pie o apoyado. Dibuja el círculo más grande posible con la rodilla, controlando cada grado. Sin compensar con la columna lumbar.","time":"5 círculos/lado"},{"t":"Movilidad de tobillo en pared","d":"Pie a 10cm de la pared. Rodilla hacia la pared manteniendo el talón en el suelo. Avanza el pie si no hay problema.","time":"10 rep/lado"},{"t":"Rotación torácica en cuadrupedia","d":"Mano detrás de la cabeza. Lleva el codo al suelo y luego al techo, rotando solo desde el torso. Pelvis quieta.","time":"8 rep/lado"},{"t":"Squat to reach","d":"Sentadilla profunda con talones en el suelo. Desde abajo, lleva brazos arriba y rota alternando lados. Sube lento.","time":"10 rep · lento"},{"t":"Shoulder CARs","d":"Brazo pegado al cuerpo. Dibuja el círculo más grande posible con el hombro controlando escápula. Sin elevar el trapecio.","time":"5 círculos/lado"}],"tip":"Obligatorio antes de cualquier sesión con SkiErg o Sled. El tobillo y la torácica son los dos grandes limitadores."},{"id":"c3","cat":"noche","title":"Restauración nocturna","time":"10 min","why":"Lo que el HYROX nunca entrena: rotación, extensión real de columna, plano frontal. Y lo que el sillón más destruye: extensión torácica y glúteo medio.","steps":[{"t":"Extensión torácica sobre respaldo o rodillo","d":"Apoya el segmento torácico (no lumbar) sobre el borde de una silla o rodillo. Brazos cruzados en el pecho. Deja caer suavemente. Avanza segmento a segmento.","time":"30s · 8-10 segmentos"},{"t":"Pigeon pose activo","d":"Posición de paloma. Cada 15s contrae activamente el glúteo del lado de la pierna posterior 5 segundos.","time":"60s/lado · 2 series"},{"t":"Rotación torácica en decúbito","d":"Tumbado de lado, rodillas dobladas al 90°. El brazo superior gira lentamente hacia el techo y al suelo del otro lado. Rodillas no se separan.","time":"10 rep lentas/lado"},{"t":"Estiramiento de pectoral en marco","d":"Antebrazo apoyado en el marco de una puerta. Gira el cuerpo hasta notar el pectoral. A tres alturas: baja, media y alta.","time":"45s · 3 alturas/lado"},{"t":"Puente unilateral lento","d":"Tumbado, un pie en el suelo, el otro extendido. Sube la cadera apretando el glúteo. Pausa 2s arriba. Baja muy lento.","time":"10 rep/lado · pausa arriba"},{"t":"Neck CARs","d":"Sentado. Dibuja el círculo más pequeño posible con la cabeza, muy despacio. Sin dolor.","time":"3 círculos/dirección"}],"tip":"La extensión torácica sobre respaldo de silla es el ejercicio más importante. 2 minutos ahí equivalen a 20 minutos de lo demás."},{"id":"c4","cat":"emergencia","title":"Cervicales y trapecios","time":"4 min","why":"Para cuando llevas horas sobre un informe o el cuello empieza a protestar. No requiere suelo ni ropa de deporte.","steps":[{"t":"Chin tuck","d":"Sentado. Empuja suavemente la barbilla hacia atrás (doble papada). Mantén 5s. Corrige la proyección anterior de cabeza.","time":"10 rep · 5s cada una"},{"t":"Rotación cervical asistida","d":"Lleva la oreja hacia el hombro. Con la mano del mismo lado añade presión suave. Respira. Sin tirar con fuerza.","time":"30s/lado"},{"t":"Trapecio superior stretch","d":"Oreja hacia el hombro opuesto. Mano en la sien añade peso del brazo. El hombro del lado estirado hacia abajo.","time":"40s/lado"},{"t":"Shoulder rolls + retracción escapular","d":"Círculos de hombros lentos hacia atrás. Después: lleva los omóplatos juntos y abajo. Mantén 3s.","time":"10 círculos + 8 retracciones"}],"tip":"Puedes hacerlo en la silla entre pacientes o informes. Nadie notará que estiras el cuello en tu propia consulta."},{"id":"c5","cat":"emergencia","title":"Cadera y lumbar urgente","time":"5 min","why":"Cuando el psoas tira después de muchas horas sentado o tras una sesión con mucho Sled y Lunges.","steps":[{"t":"Knee to chest + rotación","d":"Tumbado boca arriba. Abraza una rodilla al pecho. Después llévala al lado opuesto cruzando la línea media. Hombros pegados al suelo.","time":"60s/lado"},{"t":"Hip flexor en caballero","d":"Rodilla en el suelo, pie delantero adelantado. Activa el glúteo del lado de la rodilla en el suelo. Empuja la cadera hacia delante sin inclinar el tronco.","time":"45s/lado · 2 series"},{"t":"Figure 4 stretch","d":"Tumbado boca arriba. Cruza el tobillo sobre la rodilla opuesta. Empuja suavemente la rodilla cruzada hacia fuera. Respira profundo.","time":"60s/lado"},{"t":"Child's pose con apertura lateral","d":"Postura del niño. Desde ahí camina las manos hacia un lado y mantén. Cambia al otro lado.","time":"30s centro + 30s/lado"}],"tip":"Si tienes molestia lumbar después de una sesión con peso, empieza siempre por Knee to chest y luego Figure 4. En ese orden."},{"id":"c6","cat":"emergencia","title":"Hombros y tren superior","time":"4 min","why":"Post-SkiErg, post-Sled Pull o cuando sientes los trapecios cargados. Para soltar la tensión acumulada en el tren superior.","steps":[{"t":"Doorway pec stretch","d":"Antebrazo en el marco. Rota el cuerpo. Hazlo en tres posiciones del brazo: 45°, 90° y 120° para cubrir todo el pectoral.","time":"30s · 3 posiciones/lado"},{"t":"Lat stretch en barra o marco","d":"Agarra un punto fijo a la altura de la cadera. Inclínate hacia atrás dejando que el dorsal se alargue. Rodillas ligeramente flexionadas.","time":"45s · 2 series"},{"t":"Cross-body shoulder stretch","d":"Lleva el brazo al pecho con el codo estirado. El otro brazo empuja suavemente por encima del codo. Hombro hacia abajo.","time":"40s/lado"},{"t":"Thoracic rotation de pie","d":"De pie, manos en los hombros, codos hacia fuera. Rota solo desde el torso. Las caderas quietas. Busca el máximo rango.","time":"10 rep lentas/lado"}],"tip":"El Lat stretch es el más ignorado y el más importante tras el SkiErg. El dorsal acortado limita la extensión torácica que necesitas para el tirón potente."},{"id":"c7","cat":"rehab","title":"Cuádriceps — Vasto lateral + Recto femoral","time":"8 min","urgente":true,"why":"Vasto lateral hipertónico (tensión lateral del muslo) que tracciona la rótula y sobrecarga el recto femoral y vasto medial en su zona distal. La causa está en el vasto lateral — libéralo primero, después trabaja la zona de dolor.","steps":[{"t":"Rodillo en vasto lateral","d":"Tumbado de lado, rodillo en la cara externa del muslo. Desde la cadera hasta 3 dedos por encima de la rótula. Pausas largas (40s) donde duela. No rodar rápido — presión sostenida.","time":"3-4 min · pausas largas"},{"t":"Pelota en zona de dolor (vasto medial / recto distal)","d":"Pelota de lacrosse o tenis en la zona interna del muslo distal (donde duele). Rodilla ligeramente flexionada. Presión sostenida 30-40s. No masajear — comprimir.","time":"2-3 puntos · 30-40s cada uno"},{"t":"Couch stretch","d":"Posición de caballero con el pie trasero elevado en una silla o sofá. Pelvis en retroversión (meter el abdomen y bascular pelvis hacia atrás ANTES de inclinar). Mantener sin dolor agudo.","time":"60-90s/lado · 2 series"},{"t":"Estiramiento IT band / vasto lateral de pie","d":"De pie, cruza la pierna afectada detrás de la sana. Inclínate lateralmente hacia el lado contrario con el brazo del lado afectado arriba. Nota el estiramiento en la cara externa del muslo.","time":"45-60s/lado · 3 series"},{"t":"Clamshell con banda","d":"Tumbado de lado, banda por encima de las rodillas. Abre la rodilla superior como una almeja sin mover la pelvis. Aprieta el glúteo medio en la cima. El glúteo medio débil es la causa raíz del vasto lateral hipertónico.","time":"15 rep/lado · 3 series"},{"t":"Wall sit excéntrico","d":"Espalda en la pared, rodillas a 90°. Mantén 20s. Después sube MUY LENTO (5-6 segundos). Reconstruye tolerancia del cuádriceps sin sobrecargar la zona dolorosa.","time":"3×10 · 5-6s subiendo"}],"tip":"Orden obligatorio: primero liberar el vasto lateral con el rodillo (la causa), después trabajar la zona de dolor (el efecto). Hacer esto en orden inverso es menos efectivo. Frecuencia mínima: rodillo diario, el resto 3×/semana."},{"id":"c8","cat":"rehab","title":"Aquiles bilateral — Protocolo isométricos + excéntricos","time":"7 min","why":"Tendinopatía de cuerpo medio bilateral. Los isométricos calman el dolor y estimulan la síntesis de colágeno. Los excéntricos reconstruyen la capacidad de carga del tendón. Protocolo de 8-12 semanas mínimo.","steps":[{"t":"Isométricos en escalón (DIARIO)","d":"De pie en un escalón, talón en el borde, rodilla ligeramente flexionada. Sube a puntas y mantén 45 segundos a una intensidad donde el dolor sea 3-4/10. Bajar lento. Hacer ANTES de cualquier actividad que cargue el tendón — el alivio post-isométrico dura 20-40 min.","time":"5×45s · ambos pies · diario"},{"t":"Heel drops excéntricos — rodilla recta","d":"En el borde de un escalón, sube con ambos pies. Baja SOLO con el pie a trabajar, muy lento (4-5 segundos bajando). El gastrocnemio es el protagonista.","time":"3×12/pie · 3×/semana"},{"t":"Heel drops excéntricos — rodilla flexionada","d":"Igual que el anterior pero con la rodilla ligeramente doblada. Ahora el sóleo trabaja más. Imprescindible para tendinopatía de cuerpo medio.","time":"3×12/pie · 3×/semana"},{"t":"Calf raise bilateral con carga progresiva","d":"Con peso adicional (mochila, chaleco) cuando los excéntricos sin carga ya no duelen. Progresión semanal.","time":"3×15 · cuando tolere"}],"tip":"SEÑAL DE ALARMA: si al día siguiente de entrenar tienes rigidez matutina >20 min, el volumen de ese día fue excesivo — reducir. Si el dolor en el tendón es >5/10 durante el ejercicio, parar. El dolor 3-4/10 durante los isométricos es normal y esperado."},{"id":"c9","cat":"rehab","title":"Cuello — Movilidad + Arnés progresivo","time":"6 min","why":"Rigidez cervical, contracturas y pérdida de extensión por sedentarismo + desequilibrio con el resto del cuerpo. Objetivo: cuello fuerte y móvil. Progresión muy conservadora — el cuello responde mal a cargas excesivas iniciales.","steps":[{"t":"Neck CARs (diario)","d":"Sentado con la espalda recta. Dibuja el círculo más pequeño y controlado posible con la cabeza. Muy despacio. Sin dolor agudo.","time":"3 círculos/dirección · diario"},{"t":"Extensión cervical asistida","d":"Con la mano en la nuca (no tirando, solo guiando), lleva suavemente la cabeza hacia atrás hasta el límite sin dolor. Mantén 20-30s. El movimiento más limitado — trabajarlo con más frecuencia.","time":"3×20-30s · diario"},{"t":"Isométrico manual — 4 direcciones","d":"Mano contra frente: empuja y resiste. Mano contra sien derecha: empuja y resiste. Mano contra sien izquierda. Mano contra nuca. Sin movimiento — solo tensión isométrica.","time":"5×10s cada dirección · diario"},{"t":"Arnés — Flexión y lateral (S3+)","d":"Con arnés, solo FLEXIÓN y movimiento LATERAL. Carga inicial 2kg. Progresión: +1kg cada 2 semanas si sin molestia al día siguiente. Hacer al final de sesión de fuerza, nunca de primero.","time":"3×12 flex + 3×10 lateral · 2-3×/semana"},{"t":"Arnés — Extensión (S4+, comenzar con 1kg)","d":"Solo cuando flexión y lateral estén asentadas y sin molestia posterior. Empezar con 1kg (menos que flexión). NUNCA empezar con 6kg — causa contractura en espalda alta.","time":"3×12 · 2-3×/semana · +1kg/2 semanas"}],"tip":"La contractura de espalda alta post-arnés significa que la carga fue excesiva. Volver a la mitad del peso y quedarte ahí 2 semanas. 6kg es el objetivo de diciembre, no de ahora."}];
 function fichas(){ return (PROFILE.mobility&&PROFILE.mobility.length)?PROFILE.mobility:MOBCARDS; }
-/* Un perfil que trae sus propias fichas normalmente también quiere sus propias
-   categorías y su propio nombre: las de Miguel son de movilidad, las de Elena
-   son de cabeza. Si no declara nada, hereda las de siempre. */
-function mobCats(){ return (PROFILE.mobCats&&PROFILE.mobCats.length)?PROFILE.mobCats:MOBCATS; }
-function mobTitle(){ return PROFILE.mobTitle||"🧘 Fichas de movilidad"; }
-function mobBtn(){ return PROFILE.mobBtn||"🧘 FICHAS DE MOVILIDAD"; }
 var mobCat="todas";
 function abrirFichas(cat){
   if(cat) mobCat=cat;
   const cards=fichas().filter(c=>mobCat==="todas"||c.cat===mobCat);
-  let html='<div class="ctitle">'+esc(mobTitle())+'</div>';
+  let html='<div class="ctitle">🧘 Fichas de movilidad</div>';
   html+='<div class="chips" style="margin-bottom:14px">';
   html+='<button class="btn3'+(mobCat==="todas"?' sel':'')+'" onclick="abrirFichas(\'todas\')">Todas</button>';
-  mobCats().forEach(c=>{ const n=fichas().filter(x=>x.cat===c.id).length; if(!n) return;
+  MOBCATS.forEach(c=>{ const n=fichas().filter(x=>x.cat===c.id).length; if(!n) return;
     html+='<button class="btn3'+(mobCat===c.id?' sel':'')+'" style="'+(mobCat===c.id?'border-color:'+c.color+';color:'+c.color+';background:'+c.color+'18':'')+'" onclick="abrirFichas(\''+c.id+'\')">'+esc(c.label)+'</button>'; });
   html+='</div>';
   cards.forEach(c=>{
-    const col=(mobCats().find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
+    const col=(MOBCATS.find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
     html+='<div class="daybox" style="border-left:3px solid '+col+';cursor:pointer" onclick="verFicha(\''+c.id+'\')">'+
       '<div class="row"><span style="font-size:13px;font-weight:600">'+esc(c.title)+'</span>'+
       '<span class="mono dim" style="font-size:11px">'+esc(c.time||'')+'</span></div>'+
@@ -3314,8 +3181,8 @@ function abrirFichas(cat){
 }
 function verFicha(id){
   const c=fichas().find(x=>x.id===id); if(!c) return;
-  const col=(mobCats().find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
-  let html='<div class="row" style="align-items:flex-start"><div><div class="ctitle mini" style="color:'+col+'">'+esc((mobCats().find(x=>x.id===c.cat)||{label:''}).label)+' · '+esc(c.time||'')+'</div>'+
+  const col=(MOBCATS.find(x=>x.id===c.cat)||{color:"#8A8F98"}).color;
+  let html='<div class="row" style="align-items:flex-start"><div><div class="ctitle mini" style="color:'+col+'">'+esc((MOBCATS.find(x=>x.id===c.cat)||{label:''}).label)+' · '+esc(c.time||'')+'</div>'+
     '<div class="ctitle" style="margin:4px 0 0">'+esc(c.title)+'</div></div>'+
     '<button class="btn3" onclick="abrirFichas()">← Volver</button></div>';
   if(c.why) html+='<div style="background:'+col+'14;border-left:3px solid '+col+';padding:10px 12px;border-radius:0 8px 8px 0;font-size:12px;line-height:1.6;margin:12px 0">'+esc(c.why)+'</div>';
@@ -3331,16 +3198,6 @@ function verFicha(id){
 }
 function fichaHecha(id){
   const c=fichas().find(x=>x.id===id);
-  /* Una ficha marcada `sinRegistro` no pasa por el feedback: preguntarle el RPE
-     y la duración a una niña de 10 años por hacer una rutina de respiración no
-     tiene sentido, y ensuciaría su historial de sesiones. */
-  if(c.sinRegistro){
-    const t=todayISO(); st.fichasHechas=st.fichasHechas||{};
-    st.fichasHechas[t]=st.fichasHechas[t]||[];
-    if(!st.fichasHechas[t].includes(id)){ st.fichasHechas[t].push(id); addPoints(PTS.rehab,"ficha: "+c.title); }
-    save(); closeOverlay(); toast("✓ "+c.title);
-    return;
-  }
   const min=parseInt((c.time||"10").replace(/[^0-9]/g,""))||10;
   st._fb={results:[],durationMin:min,mode:"mob",type:"Movilidad",feelings:[],notes:c.title};
   showFeedback();
@@ -3659,11 +3516,6 @@ closeOverlay=function(){ pClear(); fpClear(); FP.running=false; PC.timers.forEac
 
 function applyProfile(p){
   PROFILE=Object.assign({},PROFILE,p||{});
-  /* Las plantillas NO se heredan. Object.assign le daba las de Miguel a
-     cualquier perfil que no declarase `presets`, y eso le puso a Iker —
-     operado del dedo, sin material — un botón de "Burpee Broad Jump bajo
-     fatiga". Quien quiera plantillas, que las declare en su JSON. */
-  if(p && !Object.prototype.hasOwnProperty.call(p,"presets")) PROFILE.presets=[];
   if(PROFILE.zones) ZONES=PROFILE.zones;
   if(PROFILE.refs) REFS=PROFILE.refs;
   if(PROFILE.plan&&PROFILE.plan.length) PLAN=PROFILE.plan;
@@ -3672,7 +3524,7 @@ function applyProfile(p){
   st=loadState();
   if(PROFILE.planStart&&!st._startSet){ st.planStart=PROFILE.planStart; st._startSet=true; save(); }
 }
-const VERSION="v20 · 27 ago 2026";
+const VERSION="v18 · 13 sep 2026";
 /* El manifest se construye en caliente para que start_url conserve el ?plan=.
    Si iOS lo ignora y usa la URL actual, también es la correcta: por los dos caminos funciona. */
 function manifestDinamico(id){
