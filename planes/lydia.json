@@ -2,10 +2,10 @@
   "id": "lydia",
   "name": "Lydia",
   "lang": "en",
-  "planStart": "2026-08-17",
+  "planStart": "2026-09-14",
   "activity": {
     "level": "muy alto",
-    "note": "Sport teacher — on her feet and walking all day. Beach volleyball and cycling on top. Trains 7 days a week: 2 interval runs, 2 zone 2 runs, 1 hybrid, 2–3 strength.",
+    "note": "Sport teacher — on her feet all day. Beach volleyball and cycling on top. Trains 7 days a week: 2 interval runs, 2 zone 2 runs, 1 hybrid, 2–3 strength. AG 40–44. Three HYROX finishes. Careful: the load is already very high — redirect it, don't add to it.",
     "extras": [
       "Teaching PE all day",
       "Beach volleyball",
@@ -45,8 +45,16 @@
         "184 bpm"
       ],
       [
-        "Zones",
-        "from watch, HR reserve"
+        "Berlin 2026 · Open",
+        "1:19:30 · #276/2670 · #33 AG"
+      ],
+      [
+        "Berlin 2025 · Open",
+        "1:21:35 · #48 AG"
+      ],
+      [
+        "Frankfurt 2025 · PRO",
+        "1:30:26 · #14 AG"
       ]
     ],
     "run": [
@@ -59,51 +67,63 @@
         "4:50–5:00/km"
       ],
       [
-        "400m race pace",
-        "1:56–2:00"
+        "HYROX pace · Berlin 26",
+        "5:22/km (0.77 km laps)"
       ],
       [
-        "400m with fatigue",
-        "2:05–2:15 is fine"
+        "HYROX pace · Frankfurt 25",
+        "5:41/km (PRO)"
+      ],
+      [
+        "400m",
+        "1:42–1:57 (Deadly Dozen)"
       ]
     ],
     "erg": [
       [
-        "Row",
-        "to be tested"
+        "SkiErg 1000m · in race",
+        "5:01 · #734 — weak"
       ],
       [
-        "SkiErg",
-        "to be tested"
+        "Row 1000m · in race",
+        "5:10 · #552 — weak"
+      ],
+      [
+        "SkiErg 1000m fresh",
+        "test Thursday"
+      ],
+      [
+        "Row 1000m fresh",
+        "test Thursday"
       ]
     ],
     "goals": [
       [
-        "All stations unbroken",
-        "60 reps without putting it down"
+        "Frankfurt target",
+        "1:16–1:18 · stretch sub-1:15"
       ],
       [
-        "Race cadence",
-        "10–15% below your 25-rep best"
+        "Running",
+        "your weakest component in both races — the lever"
       ],
       [
-        "Goblet squat 60 @12kg",
-        "weakest station"
+        "Grip and pull",
+        "Farmers #786 · SkiErg #734 · Row #552 · Sled Pull #454"
       ],
       [
-        "Push press 60 @2×6kg",
-        "second weakest"
+        "Run 8",
+        "hold your pace coming off the lunges"
       ],
       [
-        "Get faster",
-        "hold 4:50/km on the 400s"
+        "Keep",
+        "Lunges #172 and Burpee Broad Jump #187 — already strong"
       ]
     ]
   },
   "races": [
     {
-      "name": "DEADLY DOZEN WORLDS · London",
-      "date": "2026-09-05"
+      "name": "HYROX FRANKFURT · Open Women individual",
+      "date": "2026-12-12"
     }
   ],
   "equipment": [
@@ -172,227 +192,85 @@
     {
       "w": 1,
       "m": 1,
-      "dates": "17–23 Aug",
-      "label": "Race-specific block — grip and unbroken",
+      "dates": "14–20 Sep",
+      "label": "Week 1 — test week",
       "days": [
         {
-          "d": "Lun",
-          "t": "Fuerza",
-          "main": "STRENGTH-ENDURANCE 1 · Goblet squat 5×25 @12kg (race weight, unbroken) · DB push press 5×20 @2×6kg · KB deadlift 4×20 @24kg · Ring row 4×12 · Dead bug 3×12 · R60\"",
-          "sub": "Your two weak stations lead the session. The point is not load — it is finishing 25 reps without putting the weight down.\n\nMETRONOME PROTOCOL (you know this from Goliaz): today run it as a plain stopwatch, no beep. The app turns your time into a pace. From Thursday on, the metronome plays at that pace +2 points and you match one rep per beep. Pace = reps/min × 5, so pace 110 is 22 reps/min.",
-          "pre": "Warm-up: 10 min easy bike + shoulder and hip mobility"
-        },
-        {
-          "d": "Mar",
-          "t": "Comp. Running",
-          "main": "INTERVALS 1 · 8×400m at 4:50–5:00/km with 90s walk recovery. After runs 2, 4, 6 and 8, immediately do 20 goblet squats @12kg · R2'",
-          "sub": "This is the race in miniature: arriving at a station with your heart rate already high. Note how the squats feel on the last one.",
-          "fc": "Z4 · 156–169 bpm"
-        },
-        {
-          "d": "Mié",
+          "d": "Mon 14",
           "t": "Carrera",
-          "main": "ZONE 2 RUN · 50 min continuous at 6:00/km. Nasal breathing for the first 20 min.",
-          "fc": "Z2 · 128–141 bpm",
-          "sub": "Genuinely easy. This builds the engine for December, it is not a session to push."
-        },
-        {
-          "d": "Jue",
-          "t": "Cluster HYROX",
-          "main": "HYBRID · 4 rounds → 400m run + Farmer carry 60m @2×16kg + 15 DB snatch @9kg per side + 400m run + 20 push press @2×6kg. Rest 2 min between rounds · R2'",
-          "sub": "Full grip circuit. If your hands give out before your legs, that is the finding — tell me and we adjust.",
-          "fc": "Z4 · 156–169 bpm"
-        },
-        {
-          "d": "Vie",
-          "t": "Comp. Running",
-          "main": "INTERVALS 2 · 6×600m at 5:00/km with 2 min recovery. Between each: 10 burpee broad jumps · R2'",
-          "sub": "Longer intervals to hold the pace when tired.",
-          "fc": "Z4 · 156–169 bpm"
-        },
-        {
-          "d": "Sáb",
-          "t": "Fuerza",
-          "main": "STRENGTH-ENDURANCE 2 + GRIP · Front carry 4×60m @20kg plate · Overhead carry 4×45m @10kg plate · KB clean & press 4×15 · Bear crawl 4×30m · Farmer hold 3×45s @2×20kg · R90\" between sets",
-          "sub": "Pure carry day. In this race carries decide more than legs: 240m + 240m + 180m adds up.\n\nUse «Grip circuit» from the templates. No metronome on the carries — just the stopwatch.",
-          "pre": "Warm-up: wrist and forearm mobility, 2 min hang from the bar"
-        },
-        {
-          "d": "Dom",
-          "t": "Carrera",
-          "main": "EASY ZONE 2 · 35 min at 6:00/km, or bike 45 min if the legs feel heavy. Mobility 15 min afterwards. · continuous, no pauses",
-          "fc": "Z2 · 128–141 bpm"
-        }
-      ],
-      "nutr": "You already track calories, so the useful part is this: with your job plus 7 sessions a week, the real risk is eating too little, not too much. Protein 1.6–2 g/kg spread across the day. Carbs before and after the two interval days — that is where you need them."
-    },
-    {
-      "w": 2,
-      "m": 1,
-      "dates": "24–30 Aug",
-      "label": "Full simulation and sharpening",
-      "days": [
-        {
-          "d": "Lun",
-          "t": "Fuerza",
-          "main": "STRENGTH-ENDURANCE 1 · Goblet squat 4×30 @12kg unbroken · DB push press 4×25 @2×6kg · KB deadlift 4×20 @24kg · Ring row 3×12 · R90\" between sets",
-          "sub": "Up from 25 to 30 reps. If 30 unbroken is not there yet, do 25 + 5 after a 10-second pause — and note it.\n\nIMPORTANT: the cadence you can hold for 25 reps is NOT the one you can hold for 60. For the race, aim for about 10–15% below your 25-rep pace. If your best is pace 120 (24 reps/min), plan the race at 100–105 (20–21 reps/min) and you will finish unbroken.",
-          "pre": "Warm-up: 10 min bike + mobility"
-        },
-        {
-          "d": "Mar",
-          "t": "Cluster HYROX",
-          "main": "FULL SIMULATION · The whole race at 85%: 12×400m run with one station between each, in order and at race weights. Time each station and each 400m · R2'",
-          "sub": "The most valuable session of the block. Do not race it — collect data: where you lose time, which station breaks you, how your grip holds. Bring the numbers to me.",
-          "pre": "Race-day protocol: same breakfast, same kit, same shoes as you will use in London",
-          "fc": "Z4 · 156–169 bpm"
-        },
-        {
-          "d": "Mié",
-          "t": "Carrera",
-          "main": "RECOVERY · 30 min very easy, or a walk if you feel yesterday in your legs. · continuous, no pauses",
-          "fc": "Z1–Z2 · <141 bpm"
-        },
-        {
-          "d": "Jue",
-          "t": "Comp. Running",
-          "main": "INTERVALS 1 · 10×400m at 4:50/km with 90s walk. No stations today — pure speed · R2'",
-          "sub": "Faster than race pace so that race pace feels comfortable.",
-          "fc": "Z4 · 156–169 bpm"
-        },
-        {
-          "d": "Vie",
-          "t": "Fuerza",
-          "main": "WEAK STATIONS · Goblet squat 3×30 @12kg · DB push press 3×25 @2×6kg · Devil press 3×10 @2×5kg · Overhead carry 3×45m · R90\" between sets",
-          "sub": "Short session, only what you need. Use «Both weak stations — race rhythm» from the templates, at your race cadence — not your maximum. Today you are rehearsing the rhythm you will actually use in London.",
-          "fc": "Z3"
-        },
-        {
-          "d": "Sáb",
-          "t": "Carrera",
-          "main": "ZONE 2 RUN · 45 min at 6:00/km. · continuous, no pauses",
+          "main": "Easy 40 min Z2. Nasal breathing for the first 20 min.",
+          "sub": "Nothing hard today. Three test sessions this week and they only mean something if you arrive fresh.",
           "fc": "Z2 · 128–141 bpm"
         },
         {
-          "d": "Dom",
-          "t": "Movilidad",
-          "main": "MOBILITY 25 min · Shoulders, thoracic spine, hips and forearms. Plus a 20 min walk.",
-          "sub": "Last easy Sunday before race week."
-        }
-      ],
-      "nutr": "Simulation day: eat exactly what you plan to eat in London. Breakfast 2–3 h before, mostly carbs. If the race takes you over an hour, practise drinking during it too. Nothing new after this week."
-    },
-    {
-      "w": 3,
-      "m": 2,
-      "dates": "31 Aug–6 Sep",
-      "label": "Taper — Deadly Dozen World Championship",
-      "days": [
-        {
-          "d": "Lun",
-          "t": "Fuerza",
-          "main": "ACTIVATION · Goblet squat 3×15 @12kg · Push press 3×15 @2×6kg · Farmer carry 2×40m. Everything at 60%, well short of failure · R60\"",
-          "sub": "Keeping the pattern alive without generating fatigue. Run the template at your race cadence minus 2 points: it should feel easy.",
-          "fc": "Z2–Z3"
-        },
-        {
-          "d": "Mar",
+          "d": "Tue 15",
           "t": "Comp. Running",
-          "main": "SHARPENING · 5×400m at race pace (4:50–5:00/km) with full recovery between. Between runs 2 and 4: 10 goblet squats · R90\" between sets",
-          "sub": "Short and sharp. Legs awake, no fatigue.",
-          "fc": "Z4 · 156–169 bpm"
+          "main": "TEST 1 · COMPROMISED RUNNING. Warm up 15 min. Then: 1 km hard. Rest 4 min. 1000 m Row at race effort. Then straight into a second 1 km, no break. Cool down 10 min.",
+          "sub": "Send me all three times. The gap between the two kilometres is the number I need — it sets every running pace for the next twelve weeks.",
+          "pre": "Warm up properly: 10 min easy + 4 × 20 s strides",
+          "fc": "Z4–Z5",
+          "flag": "TEST"
         },
         {
-          "d": "Mié",
-          "t": "Carrera",
-          "main": "EASY · 30 min at 6:00/km with 4×20s strides at the end · R2'",
-          "fc": "Z2 · 128–141 bpm"
-        },
-        {
-          "d": "Jue",
-          "t": "Activación",
-          "main": "TECHNICAL RUN-THROUGH · One round at 50%: 400m + 15 goblet squats + 15 push press + 40m farmer carry + 10 snatch. 20 min total. R2' between rounds",
-          "sub": "Rehearse transitions: picking the weight up, putting it down, moving off. Seconds live there.",
-          "fc": "Z2–Z3"
-        },
-        {
-          "d": "Vie",
-          "t": "Descanso",
-          "main": "FULL REST · Travel to London. 3L water. Carbs at every meal. Sleep 8h+.",
-          "sub": "Day −1: nothing new, no long walks around the city. Prepare kit and numbers tonight."
-        },
-        {
-          "d": "Sáb",
-          "t": "COMPETICIÓN",
-          "main": "DEADLY DOZEN WORLD CHAMPIONSHIP — London",
-          "sub": "Strategy: the first two 400s will feel too easy — that is correct, do not chase anyone. Grip is your budget for the whole race: on farmer and front carry, walk fast with a firm grip rather than gripping desperately. On goblet squats and push press, set a rhythm from rep 1 that you know you can hold for 60, and never break it. Chalk before every carry.",
-          "fc": "Z4–Z5"
-        },
-        {
-          "d": "Dom",
-          "t": "Descanso",
-          "main": "Second race day if you compete again, or active recovery: 20 min walk, 20 min mobility, high protein."
-        }
-      ],
-      "nutr": "Race week: carbs up slightly from Thursday, nothing new from Friday. Breakfast 2–3 h before your start, mostly carbs and low fibre. Caffeine only if you already use it in training. Afterwards: 30–40 g protein plus carbs within the hour.",
-      "race": {
-        "name": "DEADLY DOZEN WORLD CHAMPIONSHIP · London",
-        "date": "Sat 5 Sep"
-      }
-    },
-    {
-      "w": 4,
-      "m": 3,
-      "dates": "7–13 Sep",
-      "label": "Recovery and transition to HYROX",
-      "days": [
-        {
-          "d": "Lun",
-          "t": "Descanso",
-          "main": "Complete rest. Write down everything you remember from the race while it is fresh: station times, where you broke, how your grip held.",
-          "sub": "Those notes are what we will build the HYROX block on."
-        },
-        {
-          "d": "Mar",
-          "t": "Carrera",
-          "main": "EASY · 30 min at 6:00/km. Just moving. · continuous, no pauses",
-          "fc": "Z2 · 128–141 bpm"
-        },
-        {
-          "d": "Mié",
-          "t": "Movilidad",
-          "main": "MOBILITY 25 min · Shoulders and forearms above all — they took the most load."
-        },
-        {
-          "d": "Jue",
+          "d": "Wed 16",
           "t": "Fuerza",
-          "main": "LIGHT FULL BODY · Goblet squat 3×15 · Ring row 3×12 · Push press 3×12 · Dead bug 3×12. Comfortable weights · R60\"",
-          "sub": "Back to moving without pushing."
+          "main": "PULL AND GRIP · Ring row 4×10 · Pull-ups 4×max (band if needed) · Farmers carry 4×40 m @2×16 kg · Pullover 3×12 · Hanging knee raise 3×10 · R90\"",
+          "sub": "Your four weakest stations all come down to pulling and grip. This session is the answer to that, and it repeats every week from here."
         },
         {
-          "d": "Vie",
+          "d": "Thu 17",
+          "t": "Ergómetro",
+          "main": "TEST 2 · ERGOMETERS. Warm up 10 min easy. 1000 m Row all out. Rest 8 min, fully recovered. 1000 m SkiErg all out. Cool down 10 min.",
+          "sub": "Race distance, not 500. Send me both splits and your average pace per 500 m.",
+          "flag": "TEST"
+        },
+        {
+          "d": "Fri 18",
           "t": "Carrera",
-          "main": "ZONE 2 RUN · 45 min at 6:00/km. · continuous, no pauses",
-          "fc": "Z2 · 128–141 bpm",
-          "sub": "From here the HYROX block starts: more continuous aerobic volume, less pure grip work."
+          "main": "Easy 35 min Z2 + mobility 15 min.",
+          "sub": "Recovery day between two tests. Keep it genuinely easy.",
+          "fc": "Z2 · 128–141 bpm"
         },
         {
-          "d": "Sáb",
-          "t": "Cluster HYROX",
-          "main": "FIRST HYROX CONTACT · 4 rounds → 500m row + 15 wall balls + 400m run. Easy pace, learning the pattern. R2' between rounds",
-          "sub": "HYROX in December is a different animal: 8 km of running and a sled. We will start building that from next week.",
-          "fc": "Z3"
+          "d": "Sat 19",
+          "t": "Test",
+          "main": "TEST 3 · GRIP, then a short hybrid. A) Farmers carry @2×16 kg — walk until you have to put them down. Record distance and time. Rest 10 min. B) 3 rounds: 500 m Row + 15 wall balls + 200 m run. R2' between rounds.",
+          "sub": "Part A is the one I care about. Don't pace it — walk until your hands give out.",
+          "flag": "TEST"
         },
         {
-          "d": "Dom",
+          "d": "Sun 20",
           "t": "Descanso",
-          "main": "Rest. Tell Miguel how the race went and we will build the December block."
+          "main": "Rest, or an easy walk. Beach volleyball is fine if you feel like it."
         }
       ],
-      "nutr": "Recovery week: keep protein high, do not cut calories. This is when the adaptation from the last three weeks actually lands."
+      "nutr": "Nothing to change this week. Eat normally around the tests — a bad test on an empty stomach tells us nothing.\n\nSend me the numbers as you go, not all at the end. I'll build the twelve weeks around them."
     }
   ],
   "presets": [
+    {
+      "name": "Grip and pull",
+      "sets": 4,
+      "rest": 90,
+      "ex": [
+        {
+          "name": "FARMERS CARRY",
+          "reps": 40,
+          "weight": "2×16 kg · metres"
+        },
+        {
+          "name": "RING ROW",
+          "reps": 10,
+          "weight": "bodyweight"
+        },
+        {
+          "name": "PULL-UPS",
+          "reps": 5,
+          "weight": "band if needed"
+        }
+      ],
+      "note": "Your weak cluster in one block. Farmers, SkiErg, Row and Sled Pull are all the same problem wearing different clothes."
+    },
     {
       "name": "Goblet squat — unbroken builder",
       "sets": 5,
