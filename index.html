@@ -3613,7 +3613,29 @@ window.addHabit=function(){
 window.delHabit=function(i){
   if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
   st.habitsCustom.splice(i,1); save(); render();
-};   
+};
+/* ── v21 · parches sin tocar el resto del archivo ───────────────────────── */
+window.addHabit=function(){
+  const n=$("hbName").value.trim(); if(!n){ toast("Escribe el hábito"); return; }
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
+  st.habitsCustom.push({id:"h"+Date.now(),name:n,icon:($("hbIcon").value.trim()||"✅"),desc:$("hbDesc").value.trim(),w:_hbW});
+  save(); closeOverlay(); render(); toast("Hábito añadido (+"+_hbW+")");
+};
+window.delHabit=function(i){
+  if(!st.habitsCustom||!st.habitsCustom.length) st.habitsCustom=habits().map(x=>Object.assign({},x));
+  st.habitsCustom.splice(i,1); save(); render();
+};
+const _applyProfileV20=applyProfile;
+applyProfile=function(p){
+  _applyProfileV20(p);
+  if(PROFILE.mesos&&PROFILE.mesos.length){ MESOS.length=0; PROFILE.mesos.forEach(m=>MESOS.push(m)); planMeso=null; }
+};
+const _renderPlanV20=renderPlan;
+renderPlan=function(){
+  const el=_renderPlanV20();
+  const s=el.querySelector(".slbl"); if(s&&PROFILE.planTitle) s.textContent="Plan · "+PROFILE.planTitle;
+  return el;
+};
 </script>
 </body>
 </html>
