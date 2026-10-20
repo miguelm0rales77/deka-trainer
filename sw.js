@@ -16,7 +16,7 @@
    Si tocas index.html, sube VERSION. Si no, los móviles que ya la tengan
    instalada seguirán abriendo la versión vieja. */
 
-const VERSION = "deka-v5";
+const VERSION = "deka-v6";
 const SHELL = [
   "./",
   "index.html",
