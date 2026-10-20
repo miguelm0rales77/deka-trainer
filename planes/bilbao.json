@@ -1,0 +1,1523 @@
+{
+ "id": "miguel",
+ "name": "Miguel",
+ "lang": "es",
+ "planStart": "2026-10-19",
+ "appName": "Hybrid Train",
+ "activity": {
+  "level": "alto",
+  "note": "Psiquiatra, trabajo mayormente sentado. 22 semanas de Valencia (1:04:36 dobles) a Madrid. Bloque individual para Bilbao y luego dobles con Marchena. Sin trineo en casa: cada sesión indica la alternativa.",
+  "extras": []
+ },
+ "zones": {
+  "Z1": [
+   0,
+   120
+  ],
+  "Z2": [
+   110,
+   130
+  ],
+  "Z3": [
+   130,
+   145
+  ],
+  "Z4": [
+   145,
+   160
+  ],
+  "Z5": [
+   160,
+   175
+  ]
+ },
+ "refs": {
+  "tests": [
+   [
+    "HYROX Valencia · dobles",
+    "1:04:36 · #22 AG · top 18%"
+   ],
+   [
+    "SkiErg 500m",
+    "1:27"
+   ],
+   [
+    "Remo 500m",
+    "1:35"
+   ],
+   [
+    "Umbral de partida",
+    "4:20/km"
+   ],
+   [
+    "Test de 30 min",
+    "S3 · S7 · S11 · S19 — recalcula los ritmos"
+   ]
+  ],
+  "run": [
+   [
+    "Umbral",
+    "4:20/km — se recalcula cada 4 semanas"
+   ],
+   [
+    "Series en fresco",
+    "4:00/km (S7, S9, S12, S14, S20)"
+   ],
+   [
+    "Objetivo Madrid",
+    "4:20–4:25/km sin caída del 5 al 8"
+   ],
+   [
+    "Z2 · base",
+    "5:10–5:45/km"
+   ]
+  ],
+  "erg": [
+   [
+    "SkiErg race",
+    "1:27/500m"
+   ],
+   [
+    "Remo race",
+    "1:35/500m"
+   ]
+  ],
+  "goals": [
+   [
+    "HYROX Madrid",
+    "sub 1:00 en dobles"
+   ],
+   [
+    "Wall Balls",
+    "100 seguidos en solitario"
+   ],
+   [
+    "Sled push y pull",
+    "#38 AG — la peor"
+   ],
+   [
+    "Farmers",
+    "#41 AG"
+   ],
+   [
+    "Runs 5 a 8",
+    "sin caída de ritmo"
+   ],
+   [
+    "Ya fuertes",
+    "Remo #8 · SkiErg #10 · Lunges #13 AG"
+   ]
+  ]
+ },
+ "races": [
+  {
+   "name": "HYROX BILBAO · individual",
+   "date": "2027-02-06"
+  },
+  {
+   "name": "HYBRID LEAGUE con Marchena",
+   "date": "2027-02-20"
+  },
+  {
+   "name": "HYROX MADRID · dobles",
+   "date": "2027-03-21"
+  }
+ ],
+ "equipment": [
+  "ninguno",
+  "barra",
+  "kb",
+  "mancuernas",
+  "saco",
+  "cajon",
+  "anillas",
+  "balon",
+  "comba",
+  "clubbell",
+  "chaleco",
+  "disco",
+  "remo",
+  "skierg",
+  "bike",
+  "boxeo"
+ ],
+ "habits": null,
+ "exclude": [],
+ "soloCuerpo": false,
+ "presets": [
+  {
+   "name": "Wall Balls — 100 en solitario",
+   "sets": 1,
+   "rest": 0,
+   "ex": [
+    {
+     "name": "WALL BALLS",
+     "reps": 100,
+     "weight": "9kg · diana 3m"
+    }
+   ],
+   "note": "En dobles te las repartías. En Bilbao van las 100 seguidas y es tu prioridad número uno. Primera vez: cronómetro puro para fijar la referencia. Después, metrónomo al pace anterior +2, y apunta dónde partes las series."
+  },
+  {
+   "name": "Wall Balls — bloques",
+   "sets": 5,
+   "rest": 90,
+   "ex": [
+    {
+     "name": "WALL BALLS",
+     "reps": 20,
+     "weight": "9kg"
+    }
+   ],
+   "note": "Antes de ir a las 100 de una, construye con bloques de 20. La cadencia que aguantas 20 no es la que aguantas 100: apunta a un 15% menos para la carrera."
+  },
+  {
+   "name": "Farmers — agarre",
+   "sets": 4,
+   "rest": 90,
+   "ex": [
+    {
+     "name": "FARMERS CARRY",
+     "reps": 2,
+     "weight": "2×32kg · 50m"
+    }
+   ],
+   "note": "#41 de tu grupo de edad y es puro agarre. Postura erguida, pasos cortos y rápidos. No lo sueltes antes de la marca aunque vayas justo: el objetivo es terminar el tramo entero."
+  },
+  {
+   "name": "Lunges + Wall Balls — final de carrera",
+   "sets": 4,
+   "rest": 120,
+   "ex": [
+    {
+     "name": "SANDBAG LUNGES",
+     "reps": 25,
+     "weight": "saco 20kg"
+    },
+    {
+     "name": "WALL BALLS",
+     "reps": 20,
+     "weight": "9kg"
+    }
+   ],
+   "note": "Las dos últimas estaciones encadenadas, tal como llegan. Aquí se decide el crono: llegar a los wall balls con los cuádriceps quemados y aun así no soltar."
+  },
+  {
+   "name": "Burpee Broad Jump bajo fatiga",
+   "sets": 5,
+   "rest": 75,
+   "ex": [
+    {
+     "name": "BURPEE BROAD JUMP",
+     "reps": 10,
+     "weight": "—"
+    }
+   ],
+   "note": "Cadencia constante desde la primera. En cuanto aceleras al principio, la serie 4 se cae."
+  }
+ ],
+ "plan": [
+  {
+   "w": 1,
+   "m": 1,
+   "dates": "19–25 oct",
+   "label": "Recuperación post-Valencia",
+   "days": [
+    {
+     "d": "Lun 19",
+     "t": "Descanso",
+     "main": "Descanso total. Hidratación + proteína alta.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 20",
+     "t": "Bici Z2",
+     "main": "Bici Z2 30 min suave. Solo mover piernas. · continuo, sin pausas",
+     "fc": "Z2 · <125 bpm",
+     "rehab": "AQUILES: isométricos 5×45s."
+    },
+    {
+     "d": "Mié 21",
+     "t": "Movilidad",
+     "main": "Caminar 30 min + movilidad 20 min.",
+     "rehab": "AQUILES: isométricos. CUAD: protocolo completo de la tarjeta."
+    },
+    {
+     "d": "Jue 22",
+     "t": "Ergómetro",
+     "main": "Remo 15 min + SkiErg 10 min Z2. Técnica, sin mirar splits. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos."
+    },
+    {
+     "d": "Vie 23",
+     "t": "Carrera",
+     "main": "25 min Z1–Z2. Si el Aquiles molesta >3/10, cámbialo por bici. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 24",
+     "t": "Fuerza",
+     "main": "Fuerza general ligera 60%: sentadilla goblet 3×10, RDL 3×8, dominadas 3×6, core. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 4kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Dom 25",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2 · <125 bpm",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Recuperación: proteína 2.2 g/kg, sin déficit calórico. Mg 300 mg noche. Omega-3. Sueño como prioridad.",
+   "rehabNote": "AQUILES: isométricos todos los días, sin excepción. Es la base de las tres carreras. CUELLO: mantener cargas (4 kg flex / 3 kg ext)."
+  },
+  {
+   "w": 2,
+   "m": 1,
+   "dates": "26 oct–1 nov",
+   "label": "Transición — reactivación",
+   "days": [
+    {
+     "d": "Lun 26",
+     "t": "Descanso",
+     "main": "Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 27",
+     "t": "Carrera",
+     "main": "35 min Z2. Últimos 5 min Z3. · continuo, sin pausas",
+     "fc": "Z2–Z3",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 28",
+     "t": "Fuerza",
+     "main": "Fuerza A 65%: sentadilla 3×6, peso muerto 3×5, Farmers 4×50m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 4kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 29",
+     "t": "Ergómetro",
+     "main": "Remo 4×500m fuerte (90s) + SkiErg 3×3 min Z4.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4"
+    },
+    {
+     "d": "Vie 30",
+     "t": "Carrera",
+     "main": "30 min Z2 + 6×20s progresivos. · R2' entre series",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 31",
+     "t": "Carrera",
+     "main": "Long run 45 min Z2. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 1",
+     "t": "Bici Z2",
+     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
+     "fc": "Z2 · <125 bpm",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Retomar creatina 5 g/día. +30 g CHO en las sesiones de calidad.",
+   "rehabNote": "AQUILES: si la rigidez matutina baja de 10 min esta semana, la carrera puede crecer en el bloque base."
+  },
+  {
+   "w": 3,
+   "m": 2,
+   "dates": "2–8 nov",
+   "label": "Base I — motor + fuerza individual · ~32 km",
+   "days": [
+    {
+     "d": "Lun 2",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 3",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 4×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Wall Balls 4×25 @6kg a diana 3m (cadera explosiva, sin pausa larga).",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 4",
+     "t": "Fuerza",
+     "main": "Fuerza A 70%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 4kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 5",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 5×20 @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 6",
+     "t": "Eficiencia",
+     "main": "30 min Z2 + 8×300m a ritmo 5k (3:55–4:05) con descanso largo.",
+     "sub": "Técnica de carrera rápida, sin vaciarte",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 7",
+     "t": "Test",
+     "main": "TEST UMBRAL 30 min: tras 15 min Z2, 30 min al máximo sostenible en llano. Tu nuevo ritmo umbral = ritmo medio de los últimos 20 min. Úsalo en todas las sesiones de umbral y tempo hasta el siguiente test. · R5' entre pruebas",
+     "sub": "Si el Aquiles está >2/10 ese día, se pospone a la semana siguiente.",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post.",
+     "flag": "TEST"
+    },
+    {
+     "d": "Dom 8",
+     "t": "Carrera",
+     "main": "Rodaje Z2 40 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~32 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 4,
+   "m": 2,
+   "dates": "9–15 nov",
+   "label": "Base II — motor + fuerza individual · ~35 km",
+   "days": [
+    {
+     "d": "Lun 9",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 10",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 4×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Sled Push 4×12,5m + Sled Pull 4×12,5m peso Open (152/103kg). Sin sled: zancada con saco 20kg 4×20m + remo con KB 4×12. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 11",
+     "t": "Fuerza",
+     "main": "Fuerza A 72%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 4kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 12",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 4×25 @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 13",
+     "t": "Eficiencia",
+     "main": "30 min Z2 + 8×300m a ritmo 5k (3:55–4:05) con descanso largo.",
+     "sub": "Técnica de carrera rápida, sin vaciarte",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 14",
+     "t": "Tempo",
+     "main": "Total 60 min: 15 Z2 + 22 min tempo a ritmo umbral +5 s/km + Z2 hasta completar. · continuo, sin pausas",
+     "fc": "Z4 en el tempo",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 15",
+     "t": "Carrera",
+     "main": "Rodaje Z2 45 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~35 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 5,
+   "m": 2,
+   "dates": "16–22 nov",
+   "label": "Base III — motor + fuerza individual · ~38 km",
+   "days": [
+    {
+     "d": "Lun 16",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 17",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 5×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Farmers 2×100m @2×24kg + Sandbag Lunges 2×50m @20kg. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 18",
+     "t": "Fuerza",
+     "main": "Fuerza A 75%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 5kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 19",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 3×30 + 10 @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 20",
+     "t": "Eficiencia",
+     "main": "30 min Z2 + 8×300m a ritmo 5k (3:55–4:05) con descanso largo.",
+     "sub": "Técnica de carrera rápida, sin vaciarte",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 21",
+     "t": "Tempo",
+     "main": "Total 60 min: 15 Z2 + 25 min tempo a ritmo umbral +5 s/km + Z2 hasta completar. · continuo, sin pausas",
+     "fc": "Z4 en el tempo",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 22",
+     "t": "Carrera",
+     "main": "Rodaje Z2 50 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~38 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 6,
+   "m": 2,
+   "dates": "23–29 nov",
+   "label": "Descarga · ~28 km",
+   "days": [
+    {
+     "d": "Lun 23",
+     "t": "Descanso",
+     "main": "Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 24",
+     "t": "Carrera",
+     "main": "35 min Z2 + 4×20s progresivos. · R2' entre series",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 25",
+     "t": "Fuerza",
+     "main": "Fuerza A 60%, 3 series. Farmers 2×100m. · R60\" entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 5kg flexión/lateral + 3kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 26",
+     "t": "Ergómetro",
+     "main": "Remo 20 min Z2 + SkiErg 15 min Z2. Wall Balls 3×15 técnica. · R2' entre series",
+     "fc": "Z2"
+    },
+    {
+     "d": "Vie 27",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 28",
+     "t": "Carrera",
+     "main": "Long run 50 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 29",
+     "t": "Movilidad",
+     "main": "Movilidad completa 25 min (todas las tarjetas de Rehab).",
+     "rehab": "CUAD + AQUILES + CUELLO: protocolos completos."
+    }
+   ],
+   "nutr": "Volumen −40%. Mantener proteína. Sueño 8 h.",
+   "rehabNote": "Semana ideal para ponerte al día con la rehab: todo lo que no da tiempo en semanas duras, aquí sí. VOLUMEN: objetivo ~28 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 7,
+   "m": 2,
+   "dates": "30 nov–6 dic",
+   "label": "Base IV — motor + fuerza individual · intervalos · ~38 km",
+   "days": [
+    {
+     "d": "Lun 30",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 1",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 5×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Wall Balls 4×25 @6kg a diana 3m (cadera explosiva, sin pausa larga).",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 2",
+     "t": "Fuerza",
+     "main": "Fuerza A 75%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 5kg flexión/lateral + 4kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 3",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 2×40 + 20 @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 4",
+     "t": "Eficiencia",
+     "main": "15 min Z2 + 6×800 m @4:05–4:10/km. Rec. 2 min trote. 10 min Z2 suave.",
+     "sub": "Velocidad en fresco: que 4:20 en carrera te cueste menos. Solo si el Aquiles está ≤2/10 y la rigidez matutina ≤10 min. Si no, haz la sesión de técnica (8×300 m).",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 5",
+     "t": "Test",
+     "main": "TEST UMBRAL 30 min: tras 15 min Z2, 30 min al máximo sostenible en llano. Tu nuevo ritmo umbral = ritmo medio de los últimos 20 min. Úsalo en todas las sesiones de umbral y tempo hasta el siguiente test. · R5' entre pruebas",
+     "sub": "Si el Aquiles está >2/10 ese día, se pospone a la semana siguiente.",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post.",
+     "flag": "TEST"
+    },
+    {
+     "d": "Dom 6",
+     "t": "Carrera",
+     "main": "Rodaje Z2 50 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~38 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 8,
+   "m": 2,
+   "dates": "7–13 dic",
+   "label": "Base V — motor + fuerza individual · ~41 km",
+   "days": [
+    {
+     "d": "Lun 7",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 8",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 6×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Sled Push 4×12,5m + Sled Pull 4×12,5m peso Open (152/103kg). Sin sled: zancada con saco 20kg 4×20m + remo con KB 4×12. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 9",
+     "t": "Fuerza",
+     "main": "Fuerza A 78%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 5kg flexión/lateral + 4kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 10",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 2×50 @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 11",
+     "t": "Eficiencia",
+     "main": "30 min Z2 + 8×300m a ritmo 5k (3:55–4:05) con descanso largo.",
+     "sub": "Técnica de carrera rápida, sin vaciarte",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 12",
+     "t": "Tempo",
+     "main": "Total 60 min: 15 Z2 + 28 min tempo a ritmo umbral +5 s/km + Z2 hasta completar. · continuo, sin pausas",
+     "fc": "Z4 en el tempo",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 13",
+     "t": "Carrera",
+     "main": "Rodaje Z2 55 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~41 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 9,
+   "m": 2,
+   "dates": "14–20 dic",
+   "label": "Base VI — motor + fuerza individual · intervalos · ~44 km",
+   "days": [
+    {
+     "d": "Lun 14",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 15",
+     "t": "Umbral+HYROX",
+     "main": "Umbral en fresco: 6×5 min a ritmo umbral (último test) con 1 min parado. Después, directo a: Farmers 2×100m @2×24kg + Sandbag Lunges 2×50m @20kg. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Primero la carrera rápida, luego la estación (Rich Ryan #1)",
+     "fc": "Z4 en carrera",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 16",
+     "t": "Fuerza",
+     "main": "Fuerza A 80%: sentadilla 4×5, peso muerto 4×4, zancada búlgara 3×8/lado. Farmers 3×100m @2×24kg. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 4kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 17",
+     "t": "Ergómetro",
+     "main": "SkiErg 5×500m (2 min) + Remo 5×500m (2 min) a ritmo Valencia o mejor. Después: Wall Balls 100 por tiempo (registrar) @6kg. · R2' entre series",
+     "sub": "Wall Balls: es la estación que ahora haces tú solo. Prioridad del bloque.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5"
+    },
+    {
+     "d": "Vie 18",
+     "t": "Eficiencia",
+     "main": "15 min Z2 + 6×800 m @4:00–4:05/km. Rec. 90 s trote. 10 min Z2 suave.",
+     "sub": "Velocidad en fresco: que 4:20 en carrera te cueste menos. Solo si el Aquiles está ≤2/10 y la rigidez matutina ≤10 min. Si no, haz la sesión de técnica (8×300 m).",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Sáb 19",
+     "t": "Tempo",
+     "main": "Total 60 min: 15 Z2 + 30 min tempo a ritmo umbral +5 s/km + Z2 hasta completar. · continuo, sin pausas",
+     "fc": "Z4 en el tempo",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 20",
+     "t": "Carrera",
+     "main": "Rodaje Z2 60 min, muy suave (nasal breathing). Si el Aquiles protesta: bici Z2 60 min. · continuo, sin pausas",
+     "fc": "Z2 · <130 bpm",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "Proteína 2.2 g/kg. Creatina 5 g. +40 g CHO perientrino en martes y jueves. Electrolitos >45 min.",
+   "rehabNote": "AQUILES: isométricos diarios + heel drops 3×/semana. Si la rigidez matutina sube tras el tempo, recorta el tempo 5 min la semana siguiente. CUELLO: progresión +1 kg cada 2 semanas solo si no hay molestia al día siguiente. VOLUMEN: objetivo ~44 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 10,
+   "m": 2,
+   "dates": "21–27 dic",
+   "label": "Navidad — base mantenida · ~40 km",
+   "days": [
+    {
+     "d": "Lun 21",
+     "t": "Descanso",
+     "main": "Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 22",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test) + Wall Balls 3×30 @6kg. · R2' entre series de carrera · estaciones enlazadas",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 23",
+     "t": "Fuerza",
+     "main": "Fuerza A 75%: sentadilla 4×4, peso muerto 4×3. Farmers 3×100m. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 4kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 24",
+     "t": "Carrera",
+     "main": "Nochebuena: 40 min Z2 por la mañana. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 25",
+     "t": "Descanso",
+     "main": "Navidad. Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 26",
+     "t": "Tempo",
+     "main": "60 min: 15 Z2 + 25 tempo a ritmo umbral +5 s/km + Z2. · continuo, sin pausas",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 27",
+     "t": "Ergómetro",
+     "main": "SkiErg 20 min Z2 + Remo 20 min Z2 + Bici 20 min Z2. · continuo, sin pausas",
+     "pre": "PRE-SkiErg: dead bug 3×8 + hollow 3×20s",
+     "fc": "Z2"
+    }
+   ],
+   "nutr": "Comidas navideñas sin culpa; mantén proteína alta y no metas déficit. Alcohol mínimo los días previos a tempo.",
+   "rehabNote": "AQUILES: isométricos también el 24 y el 25. Son 4 minutos. VOLUMEN: objetivo ~40 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 11,
+   "m": 2,
+   "dates": "28 dic–3 ene",
+   "label": "Tests + descarga · ~35 km",
+   "days": [
+    {
+     "d": "Lun 28",
+     "t": "Descanso",
+     "main": "Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 29",
+     "t": "Test",
+     "main": "Tests ergómetros: SkiErg 1000m + Remo 1000m (distancia HYROX) a máximo, 10 min entre ellos. · R5' entre pruebas",
+     "sub": "Referencia: sep SkiErg 500m 1:27 · Remo 500m 1:35",
+     "flag": "TEST"
+    },
+    {
+     "d": "Mié 30",
+     "t": "Carrera",
+     "main": "30 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Jue 31",
+     "t": "Test",
+     "main": "TEST UMBRAL 30 min: tras 15 min Z2, 30 min al máximo sostenible en llano. Tu nuevo ritmo umbral = ritmo medio de los últimos 20 min. Úsalo en todas las sesiones de umbral y tempo hasta el siguiente test. · R5' entre pruebas",
+     "sub": "Si el Aquiles está >2/10 ese día, se pospone a la semana siguiente.",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post.",
+     "flag": "TEST"
+    },
+    {
+     "d": "Vie 1",
+     "t": "Descanso",
+     "main": "Año nuevo. Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 2",
+     "t": "Test",
+     "main": "Wall Balls 100 @6kg por tiempo + Farmers 200m @2×24kg por tiempo. · R5' entre pruebas",
+     "sub": "Comparar con el 100 WB de la semana 9",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min.",
+     "flag": "TEST"
+    },
+    {
+     "d": "Dom 3",
+     "t": "Bici Z2",
+     "main": "Bici Z2 50 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Normal. Los tests en fresco: CHO la noche anterior.",
+   "rehabNote": "Con los tests se recalibran ritmos de estaciones para el bloque específico. VOLUMEN: objetivo ~35 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 12,
+   "m": 3,
+   "dates": "4–10 ene",
+   "label": "Específico individual I · intervalos · ~42 km",
+   "days": [
+    {
+     "d": "Lun 4",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 5",
+     "t": "Eficiencia",
+     "main": "15 min Z2 + 5×1000 m @4:00–4:05/km. Rec. 2 min trote. Después, directo a: SkiErg 500 + BBJ 40m + Wall Balls 30 al 90%.",
+     "sub": "Esta semana los intervalos sustituyen al umbral del martes. Solo si el Aquiles está ≤2/10 y la rigidez matutina ≤10 min. Si no, haz la sesión de técnica (8×300 m).",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 6",
+     "t": "Fuerza",
+     "main": "Fuerza mantenimiento 75%: sentadilla 3×4, peso muerto 3×3. Farmers 200m + Sandbag Lunges 100m a ritmo carrera. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 7",
+     "t": "Comp. Running",
+     "main": "Compromised running 3 rondas: 1 km @4:30 + (Wall Balls 30 / SkiErg 500 / Remo 500 / Lunges 50m), rotando. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "sub": "Objetivo: que el km siguiente no pase de 4:40",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 8",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 9",
+     "t": "Tempo",
+     "main": "Total 65 min: 15 Z2 + 30 tempo a ritmo umbral +5 s/km + Z2. Termina con Wall Balls 50 @6kg. · continuo, sin pausas",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 10",
+     "t": "Carrera",
+     "main": "40 min Z2 suave. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO perientrino en sesiones duras. Bicarbonato solo en el simulacro. Practica el gel en cada sesión larga.",
+   "rehabNote": "AQUILES: con más carrera de calidad, el isométrico pre-carrera es obligatorio. Heel drops solo 2×/semana en este bloque. CUELLO: mantener cargas, no subir. VOLUMEN: objetivo ~42 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 13,
+   "m": 3,
+   "dates": "11–17 ene",
+   "label": "Específico individual II · ~44 km",
+   "days": [
+    {
+     "d": "Lun 11",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 12",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test) (1 min parado). Directo a: SkiErg 1000 + BBJ 80m + Remo 1000 al 90%. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Regla Valencia: en tus estaciones fuertes, 90%. Lo que guardas lo cobras en carrera.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 13",
+     "t": "Fuerza",
+     "main": "Fuerza mantenimiento 75%: sentadilla 3×4, peso muerto 3×3. Farmers 200m + Sandbag Lunges 100m a ritmo carrera. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 14",
+     "t": "Comp. Running",
+     "main": "Compromised running 4 rondas: 1 km @4:30 + (Wall Balls 30 / SkiErg 500 / Remo 500 / Lunges 50m), rotando. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "sub": "Objetivo: que el km siguiente no pase de 4:40",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 15",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 16",
+     "t": "Cluster HYROX",
+     "main": "Medio simulacro a ritmo carrera: 4×(1 km @4:30 + estación) → SkiErg 1000 · Sled Push · Sled Pull · BBJ 80m. Gel en el min 20. · R3' entre rondas",
+     "sub": "Ensayo de nutrición y pacing",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 17",
+     "t": "Carrera",
+     "main": "40 min Z2 suave. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO perientrino en sesiones duras. Bicarbonato solo en el simulacro. Practica el gel en cada sesión larga.",
+   "rehabNote": "AQUILES: con más carrera de calidad, el isométrico pre-carrera es obligatorio. Heel drops solo 2×/semana en este bloque. CUELLO: mantener cargas, no subir. VOLUMEN: objetivo ~44 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 14,
+   "m": 3,
+   "dates": "18–24 ene",
+   "label": "Específico individual III · intervalos · ~45 km",
+   "days": [
+    {
+     "d": "Lun 18",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 19",
+     "t": "Eficiencia",
+     "main": "15 min Z2 + 5×1000 m @3:58–4:03/km. Rec. 90 s trote. Después, directo a: SkiErg 500 + BBJ 40m + Wall Balls 30 al 90%.",
+     "sub": "Esta semana los intervalos sustituyen al umbral del martes. Solo si el Aquiles está ≤2/10 y la rigidez matutina ≤10 min. Si no, haz la sesión de técnica (8×300 m).",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 20",
+     "t": "Fuerza",
+     "main": "Fuerza mantenimiento 75%: sentadilla 3×4, peso muerto 3×3. Farmers 200m + Sandbag Lunges 100m a ritmo carrera. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 21",
+     "t": "Comp. Running",
+     "main": "Compromised running 4 rondas: 1 km @4:30 + (Wall Balls 30 / SkiErg 500 / Remo 500 / Lunges 50m), rotando. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "sub": "Objetivo: que el km siguiente no pase de 4:40",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 22",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 23",
+     "t": "Cluster HYROX",
+     "main": "SIMULACRO COMPLETO individual: 8 km + 8 estaciones peso Open. Estaciones al 90%, carrera constante. Gel min 20 y min 40. · R3' entre rondas",
+     "sub": "Protocolo real: bicarbonato + gel + electrolitos",
+     "fc": "Z4 · techo 165",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 24",
+     "t": "Carrera",
+     "main": "40 min Z2 suave. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO perientrino en sesiones duras. Bicarbonato solo en el simulacro. Practica el gel en cada sesión larga.",
+   "rehabNote": "AQUILES: con más carrera de calidad, el isométrico pre-carrera es obligatorio. Heel drops solo 2×/semana en este bloque. CUELLO: mantener cargas, no subir. VOLUMEN: objetivo ~45 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 15,
+   "m": 3,
+   "dates": "25–31 ene",
+   "label": "Específico individual IV · ~40 km",
+   "days": [
+    {
+     "d": "Lun 25",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 26",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test) (1 min parado). Directo a: SkiErg 1000 + BBJ 80m + Remo 1000 al 90%. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "Regla Valencia: en tus estaciones fuertes, 90%. Lo que guardas lo cobras en carrera.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 27",
+     "t": "Fuerza",
+     "main": "Fuerza mantenimiento 75%: sentadilla 3×4, peso muerto 3×3. Farmers 200m + Sandbag Lunges 100m a ritmo carrera. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 28",
+     "t": "Comp. Running",
+     "main": "Compromised running 3 rondas: 1 km @4:30 + (Wall Balls 30 / SkiErg 500 / Remo 500 / Lunges 50m), rotando. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "sub": "Objetivo: que el km siguiente no pase de 4:40",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 29",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 30",
+     "t": "Cluster HYROX",
+     "main": "4 km + 4 estaciones finales (Row 1000 · Farmers 200 · Lunges 100 · WB 100) a ritmo carrera. Lo justo, sin vaciarte. · R3' entre rondas",
+     "sub": "Última sesión dura antes de Bilbao",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 31",
+     "t": "Carrera",
+     "main": "40 min Z2 suave. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO perientrino en sesiones duras. Bicarbonato solo en el simulacro. Practica el gel en cada sesión larga.",
+   "rehabNote": "AQUILES: con más carrera de calidad, el isométrico pre-carrera es obligatorio. Heel drops solo 2×/semana en este bloque. CUELLO: mantener cargas, no subir. VOLUMEN: objetivo ~40 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 16,
+   "m": 3,
+   "dates": "1–7 feb",
+   "label": "Taper → HYROX Bilbao · ~25 km",
+   "race": {
+    "date": "sáb 6 feb",
+    "name": "HYROX BILBAO · Individual Open",
+    "style": "background:#D85A30;color:#fff"
+   },
+   "days": [
+    {
+     "d": "Lun 1",
+     "t": "Descanso",
+     "main": "Descanso.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 2",
+     "t": "Umbral+HYROX",
+     "main": "4×4 min @4:25 + Wall Balls 2×20 @6kg. · R2' entre series de carrera · estaciones enlazadas",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 3",
+     "t": "Carrera",
+     "main": "30 min Z2 + 4×20s. · R2' entre series",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Jue 4",
+     "t": "Activación",
+     "main": "20 min: 1 km suave + 250m SkiErg + 10 BBJ + 250m Remo + 20 WB. Todo al 60%. · R60\" entre ejercicios",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Vie 5",
+     "t": "Descanso",
+     "main": "Descanso. Viaje. CHO alto en cena conocida.",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Sáb 6",
+     "t": "COMPETICIÓN",
+     "main": "HYROX BILBAO — INDIVIDUAL OPEN",
+     "sub": "Run 1–4 a 4:30–4:35 aunque te sobre. Estaciones al 90%. Gel min 20 y min 40. Wall Balls en bloques 25-25-20-15-15. Sled push con pausas cortas de 3–5 s, nunca parado largo. Bicarbonato 0,3 g/kg 90 min antes."
+    },
+    {
+     "d": "Dom 7",
+     "t": "Descanso",
+     "main": "Recuperación: caminar 30 min.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Día −2: CHO moderado-alto. Día −1: nada nuevo. Llevar 2 geles en carrera.",
+   "rehabNote": "Sin arnés de cuello desde el jueves. Isométricos de Aquiles en el calentamiento: 2×30s. VOLUMEN: objetivo ~25 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 17,
+   "m": 4,
+   "dates": "8–14 feb",
+   "label": "Recuperación post-Bilbao · ~28 km",
+   "days": [
+    {
+     "d": "Lun 8",
+     "t": "Descanso",
+     "main": "Descanso. Análisis Bilbao: splits por estación y caída de carrera.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 9",
+     "t": "Bici Z2",
+     "main": "Bici Z2 40 min. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mié 10",
+     "t": "Carrera",
+     "main": "30 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Jue 11",
+     "t": "Ergómetro",
+     "main": "Remo 4×500m race-pace + SkiErg 3×500m race-pace. Descanso completo.",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4"
+    },
+    {
+     "d": "Vie 12",
+     "t": "Fuerza",
+     "main": "Fuerza ligera 65% + Farmers 2×100m. · R60\" entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Sáb 13",
+     "t": "Umbral Híbrido",
+     "main": "4×5 min @4:25 + 2 rondas de BBJ 20 + WB 25. · R2' entre bloques",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 14",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Proteína alta y sin déficit. Dos semanas entre carreras: recuperar es entrenar.",
+   "rehabNote": "AQUILES: vigilar especialmente tras Bilbao. Si la rigidez sube, la Hybrid League se corre con menos carrera previa esa semana. VOLUMEN: objetivo ~28 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 18,
+   "m": 4,
+   "dates": "15–21 feb",
+   "label": "Semana normal + Hybrid League como simulacro · ~35 km",
+   "race": {
+    "date": "sáb 20 feb",
+    "name": "HYBRID LEAGUE con Marchena · simulacro para Madrid",
+    "style": "background:#378ADD;color:#fff"
+   },
+   "days": [
+    {
+     "d": "Lun 15",
+     "t": "Descanso",
+     "main": "Descanso. Acordar con Marchena qué ensayáis: reparto de estaciones y relevos de Madrid.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 16",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test) + SkiErg/Remo 30s on/30s off ×8. · R2' entre series de carrera · estaciones enlazadas",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 17",
+     "t": "Fuerza",
+     "main": "Fuerza 75%: sentadilla 3×4, peso muerto 3×3. Sled Push/Pull 4×12,5m rápido. Farmers 4×50m. · R3' entre series",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 18",
+     "t": "Carrera",
+     "main": "35 min Z2 + 4×20s. · R2' entre series",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 19",
+     "t": "Descanso",
+     "main": "Descanso (micro-taper: solo el día previo).",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Sáb 20",
+     "t": "COMPETICIÓN",
+     "main": "HYBRID LEAGUE — como simulacro de Madrid",
+     "sub": "Ritmo de carrera objetivo de Madrid (4:25–4:30) y estaciones al 90%. Ensayar gel, bicarbonato y relevos. No es día de vaciarse: el objetivo es Madrid."
+    },
+    {
+     "d": "Dom 21",
+     "t": "Carrera",
+     "main": "Recuperación: 30 min Z1–Z2 o bici.",
+     "fc": "Z1–Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    }
+   ],
+   "nutr": "Sin carga especial de CHO: comida normal y CHO moderado la noche previa. Ensayar el protocolo de Madrid tal cual.",
+   "rehabNote": "Arnés de cuello normal hasta el jueves. Isométricos de Aquiles en el calentamiento, igual que en carrera. VOLUMEN: objetivo ~35 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 19,
+   "m": 5,
+   "dates": "22–28 feb",
+   "label": "Específico dobles I · ~40 km",
+   "days": [
+    {
+     "d": "Lun 22",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 23",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test). Directo a intervalos de estación 30s on/30s off × 8 en SkiErg y Remo a ritmo superior al individual. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "En dobles se trabaja más rápido y más corto",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 24",
+     "t": "Fuerza",
+     "main": "Fuerza 75%: sentadilla 3×4, peso muerto 3×3. Sled Push/Pull 4×12,5m pesado y rápido. Farmers 4×50m rápido. · R3' entre series",
+     "sub": "Sled y Farmers: #38 y #41 de grupo en Valencia",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 25",
+     "t": "Comp. Running",
+     "main": "Compromised running 4 rondas: 1 km @4:30 + 45s WB + 45s Lunges. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 26",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 27",
+     "t": "Test",
+     "main": "TEST UMBRAL 30 min: tras 15 min Z2, 30 min al máximo sostenible en llano. Tu nuevo ritmo umbral = ritmo medio de los últimos 20 min. Úsalo en todas las sesiones de umbral y tempo hasta el siguiente test. · R5' entre pruebas",
+     "sub": "Si el Aquiles está >2/10 ese día, se pospone a la semana siguiente.",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post.",
+     "flag": "TEST"
+    },
+    {
+     "d": "Dom 28",
+     "t": "Carrera",
+     "main": "40 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO en sesiones duras. Bicarbonato y gel solo en el simulacro.",
+   "rehabNote": "AQUILES: tercera carrera en 6 semanas. Si la rigidez matutina pasa de 15 min, quita el compromised running de esa semana. VOLUMEN: objetivo ~40 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 20,
+   "m": 5,
+   "dates": "1–7 mar",
+   "label": "Específico dobles II · intervalos · ~42 km",
+   "days": [
+    {
+     "d": "Lun 1",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 2",
+     "t": "Eficiencia",
+     "main": "15 min Z2 + 5×1000 m @3:58–4:03/km. Rec. 90 s trote. Después, directo a: SkiErg 500 + BBJ 40m + Wall Balls 30 al 90%.",
+     "sub": "Esta semana los intervalos sustituyen al umbral del martes. Solo si el Aquiles está ≤2/10 y la rigidez matutina ≤10 min. Si no, haz la sesión de técnica (8×300 m).",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 3",
+     "t": "Fuerza",
+     "main": "Fuerza 75%: sentadilla 3×4, peso muerto 3×3. Sled Push/Pull 4×12,5m pesado y rápido. Farmers 4×50m rápido. · R3' entre series",
+     "sub": "Sled y Farmers: #38 y #41 de grupo en Valencia",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 4",
+     "t": "Comp. Running",
+     "main": "Compromised running 4 rondas: 1 km @4:30 + 45s WB + 45s Lunges. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 5",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 6",
+     "t": "Cluster HYROX",
+     "main": "SIMULACRO DOBLES: 8 km + 8 estaciones haciendo cada estación en tramos de 30–45 s trabajo / mismo descanso (simula relevos). Carrera constante a 4:25–4:30.",
+     "sub": "Ensayo del reparto con Marchena",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 7",
+     "t": "Carrera",
+     "main": "40 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO en sesiones duras. Bicarbonato y gel solo en el simulacro.",
+   "rehabNote": "AQUILES: tercera carrera en 6 semanas. Si la rigidez matutina pasa de 15 min, quita el compromised running de esa semana. VOLUMEN: objetivo ~42 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 21,
+   "m": 5,
+   "dates": "8–14 mar",
+   "label": "Específico dobles III · ~40 km",
+   "days": [
+    {
+     "d": "Lun 8",
+     "t": "Descanso",
+     "main": "Descanso. HRV mañana.",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Mar 9",
+     "t": "Umbral+HYROX",
+     "main": "Umbral 5×5 min a ritmo umbral (último test). Directo a intervalos de estación 30s on/30s off × 8 en SkiErg y Remo a ritmo superior al individual. · R2' entre series de carrera · estaciones enlazadas",
+     "sub": "En dobles se trabaja más rápido y más corto",
+     "pre": "PRE-SkiErg: Sit-Up Throw 3×10 @10kg",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Mié 10",
+     "t": "Fuerza",
+     "main": "Fuerza 75%: sentadilla 3×4, peso muerto 3×3. Sled Push/Pull 4×12,5m pesado y rápido. Farmers 4×50m rápido. · R3' entre series",
+     "sub": "Sled y Farmers: #38 y #41 de grupo en Valencia",
+     "rehab": "AQUILES: heel drops 3×15 (rodilla recta + flexionada); si no duele, con mochila. CUELLO: arnés 6kg flexión/lateral + 5kg extensión, 3×12. CUAD: rodillo vasto lateral 2 min."
+    },
+    {
+     "d": "Jue 11",
+     "t": "Comp. Running",
+     "main": "Compromised running 4 rondas: 1 km @4:30 + 45s WB + 45s Lunges. 90s entre rondas. · sin descanso dentro del bloque · R3' entre bloques",
+     "fc": "Z4–Z5",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Vie 12",
+     "t": "Bici Z2",
+     "main": "Bici Z2 45 min leyendo. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s. Movilidad 15 min (tarjetas: Restauración nocturna)."
+    },
+    {
+     "d": "Sáb 13",
+     "t": "Cluster HYROX",
+     "main": "4 km + Sled Push · Sled Pull · Farmers · Lunges en formato relevo. Ritmo carrera. · R3' entre rondas",
+     "sub": "Las estaciones más flojas en Valencia",
+     "fc": "Z4",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Dom 14",
+     "t": "Carrera",
+     "main": "40 min Z2. · continuo, sin pausas",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    }
+   ],
+   "nutr": "+50 g CHO en sesiones duras. Bicarbonato y gel solo en el simulacro.",
+   "rehabNote": "AQUILES: tercera carrera en 6 semanas. Si la rigidez matutina pasa de 15 min, quita el compromised running de esa semana. VOLUMEN: objetivo ~40 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  },
+  {
+   "w": 22,
+   "m": 5,
+   "dates": "15–21 mar",
+   "label": "Taper → HYROX Madrid · ~22 km",
+   "race": {
+    "date": "dom 21 mar",
+    "name": "HYROX MADRID · Dobles con Marchena",
+    "style": "background:#D4537E;color:#fff"
+   },
+   "days": [
+    {
+     "d": "Lun 15",
+     "t": "Activación",
+     "main": "Técnica ligera 15 min: WB, BBJ, lunges. · R60\" entre ejercicios",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Mar 16",
+     "t": "Ergómetro",
+     "main": "3×2 min race-pace SkiErg + Remo. · R2' entre series",
+     "pre": "PRE-SkiErg: Sit-Up Throw 2×6 @10kg"
+    },
+    {
+     "d": "Mié 17",
+     "t": "Carrera",
+     "main": "30 min Z2 + 4×20s. · R2' entre series",
+     "fc": "Z2",
+     "rehab": "AQUILES: isométricos 5×45s antes de correr. CUAD: couch stretch 60s/lado pre + IT band 45s/lado post."
+    },
+    {
+     "d": "Jue 18",
+     "t": "Activación",
+     "main": "Una ronda HYROX al 50%. 20 min. · R60\" entre ejercicios",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Vie 19",
+     "t": "Descanso",
+     "main": "Descanso total.",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Sáb 20",
+     "t": "Descanso",
+     "main": "Logística y estrategia con Marchena. Cena conocida.",
+     "rehab": "AQUILES: isométricos 5×45s. CUELLO: neck CARs. Sin arnés (semana de competición)."
+    },
+    {
+     "d": "Dom 21",
+     "t": "COMPETICIÓN",
+     "main": "HYROX MADRID — DOBLES",
+     "sub": "Lección Valencia: en BBJ y Remo, 90%. Carrera constante 4:25–4:35. Gel min 20 y 40. Bicarbonato 90 min antes."
+    }
+   ],
+   "nutr": "Día −2 CHO moderado-alto. Día −1 nada nuevo.",
+   "rehabNote": "Sin arnés de cuello toda la semana. Isométricos de Aquiles en el calentamiento. VOLUMEN: objetivo ~22 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
+  }
+ ]
+}
