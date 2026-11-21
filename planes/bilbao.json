@@ -1519,5 +1519,43 @@
    "nutr": "Día −2 CHO moderado-alto. Día −1 nada nuevo.",
    "rehabNote": "Sin arnés de cuello toda la semana. Isométricos de Aquiles en el calentamiento. VOLUMEN: objetivo ~22 km de carrera esta semana. Regla del tendón: si la rigidez matutina pasa de 10 min, esta semana NO se sube volumen (se repite el de la anterior)."
   }
- ]
+ ],
+ "mesos": [
+  {
+   "id": 1,
+   "label": "M1",
+   "sub": "S1–S2",
+   "title": "Recuperación post-Valencia",
+   "color": "#6B7F3A"
+  },
+  {
+   "id": 2,
+   "label": "M2",
+   "sub": "S3–S11",
+   "title": "Base + fuerza individual",
+   "color": "#1D9E75"
+  },
+  {
+   "id": 3,
+   "label": "M3",
+   "sub": "S12–S16",
+   "title": "Específico Bilbao individual",
+   "color": "#378ADD"
+  },
+  {
+   "id": 4,
+   "label": "M4",
+   "sub": "S17–S18",
+   "title": "Post-Bilbao + Hybrid League",
+   "color": "#D85A30"
+  },
+  {
+   "id": 5,
+   "label": "M5",
+   "sub": "S19–S22",
+   "title": "Específico dobles Madrid",
+   "color": "#D4537E"
+  }
+ ],
+ "planTitle": "Bilbao + Madrid"
 }
